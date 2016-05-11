@@ -1,0 +1,6 @@
+E:/Software\ Application/PSoC\ Creator/3.3/PSoC\ Creator/warp/lib/ieee/work/stdlogic.vif : 
+
+E:/Software\ Application/PSoC\ Creator/3.3/PSoC\ Creator/warp/lib/common/stdlogic/mod_genv.vif : 
+
+E:/Software\ Application/PSoC\ Creator/3.3/PSoC\ Creator/warp/lib/common/stdlogic/rtlpkg.vif : 
+
