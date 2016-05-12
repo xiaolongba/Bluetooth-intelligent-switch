@@ -14,7 +14,8 @@
 */
 #include <project.h>
 #include "application.h"
-extern uint8_t THROUGH_STAUS;
+extern uint8_t Buffer[BUFFERLEN];
+extern uint8_t RX_ISOVER;
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -28,8 +29,8 @@ int main()
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */    
-    CySysClkIloStop();
-    CySysClkWriteEcoDiv(CY_SYS_CLK_ECO_DIV8);
+//    CySysClkIloStop();
+//    CySysClkWriteEcoDiv(CY_SYS_CLK_ECO_DIV8);
     CyBle_Start(StackEventHandler);//BLE协议栈初始化
     for(;;)
     {
@@ -42,12 +43,11 @@ int main()
                 //不做任何事情
             }
         }
-//        if(THROUGH_STAUS)
-//        {
-//           THROUGH_STAUS=FALSE;
-//           ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test")); 
-//        }
-        
+        if(RX_ISOVER)
+        {
+            RX_ISOVER=FALSE;
+            ClientData_Handler((char*)Buffer);
+        }
         #if LOWPOWER
             CyBle_ProcessEvents();
             LowPowerManagement();

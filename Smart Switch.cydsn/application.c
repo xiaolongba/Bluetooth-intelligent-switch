@@ -13,14 +13,17 @@
 */
 #include <project.h> 
 #include "application.h"
-
+#include <malloc.h>
 /* ****************************************
  * 变量声明定义
  * ****************************************
 */
 CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
 uint8_t THROUGH_STAUS=FALSE;
-
+char* CommandList[]={"AT+SWT"};//控制命令列表
+uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
+uint8_t Buffer[BUFFERLEN]={0};//临时存放主机透传给从机的数据
+uint8_t RX_ISOVER=FALSE;
 /* ****************************************
  * 各功能函数地具体实现
  * ****************************************
@@ -39,7 +42,8 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 {
     eventParam = eventParam;//防止编译时出现警告
     CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T WriteCmd;//临时保存一些主机的写命令    
-    CYBLE_GATTS_WRITE_REQ_PARAM_T WriteValue;//临时保存一些主机的写 
+    CYBLE_GATTS_WRITE_REQ_PARAM_T WriteValue;//临时保存一些主机的写
+    uint8_t i;
     switch(eventCode)
     {
         case CYBLE_EVT_STACK_ON://蓝牙初始化完成            
@@ -66,13 +70,18 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                     THROUGH_STAUS=FALSE;//关闭透传通道
                 }
             }
-            if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机透传数据
+            else if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机透传数据
             {
-                                                                    
+                for(i=0;i<WriteCmd.handleValPair.value.len;i++)
+                {
+                    Buffer[i] = WriteCmd.handleValPair.value.val[i];//存放主机透传给从机的数据
+                }
+                RX_ISOVER=TURE;
             }
         break;
         case CYBLE_EVT_GATTS_WRITE_REQ:
             WriteValue = *((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
+            WriteValue = WriteValue;
 //            if(WriteValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
 //            {
 //                if(WriteValue.handleValPair.value.val[0] == 0x01)
@@ -138,14 +147,14 @@ void Discovery_mode_Init(void)
   * @描述：  从机给主机透传数据
   *****************************************
 */
-void ServiceToClient(uint8_t* TxData,uint16_t Len)
+void ServiceToClient(char* TxData,uint16_t Len)
 {   
     CYBLE_API_RESULT_T API_RESULT;
     if(THROUGH_STAUS)//如果主机打开从机的透传通道,从机则马上给主机发送透传数据
     {
         CYBLE_GATTS_HANDLE_VALUE_NTF_T ServiceToClientData;//临时存放要发送给主机的信息
-        ServiceToClientData.value.val=TxData;//发送数据的首地址
-        ServiceToClientData.value.len=Len;//所要发送的数据的长度
+        ServiceToClientData.value.val=(uint8_t*)TxData;//发送数据的首地址
+        ServiceToClientData.value.len=Len-1;//所要发送的数据的长度
         ServiceToClientData.attrHandle=CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE;//所要发送数据的特征值句柄
         while(CyBle_GattGetBusStatus()!=CYBLE_STACK_STATE_FREE);//等待蓝牙空闲时才发送数据        
         do
@@ -155,6 +164,50 @@ void ServiceToClient(uint8_t* TxData,uint16_t Len)
         }
         while((API_RESULT != CYBLE_ERROR_OK)&&(CYBLE_STATE_CONNECTED == cyBle_state));        
 //        API_RESULT=API_RESULT+0;
+    }
+}
+
+/******************************************
+  * @函数名：ClientData_Handler
+  * @输入：  RxData---指向接收到主机透传数据的首地址              
+  * @返回：  NULL            
+  * @描述：  处理主机透传给从机的数据
+  *****************************************
+*/
+void ClientData_Handler(const char* RxData)
+{
+    uint8_t Location,Index;       
+    //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8,从0开始算起.
+    Location=strchr((char*)RxData,'=')-RxData;
+    //动态分配堆空间
+    char* String=malloc(sizeof(char)*Location);
+    //保存AT命令等号前的数据.
+    strncpy(String,RxData,Location); 
+    //匹配AT命令列表中AT命令的位置
+    for(Index=0;Index<CommandListLen;Index++)
+    {
+        if(strncmp((char*)String,CommandList[Index],Location)==0)
+        {
+            break;
+        }
+    }    
+    free(String);//释放之前分配的堆空间      
+    switch(Index)//执行相应的命令
+    {
+        case SWT:
+            if(RxData[Location+1]-0x30)//控制开关为开
+            {
+                BLUE_LED_Write(ON);
+                ServiceToClient("AT+ON",sizeof("AT+ON"));
+            }
+            else if(0 == RxData[Location+1]-0x30)//控制开关为关
+            {
+                BLUE_LED_Write(OFF);
+                ServiceToClient("AT+OFF",sizeof("AT+OFF"));
+            }
+        break;
+        default:
+        break;
     }
 }
 

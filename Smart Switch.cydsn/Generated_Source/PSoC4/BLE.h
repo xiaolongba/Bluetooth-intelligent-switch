@@ -123,8 +123,8 @@
 #define CYBLE_GAP_ROLE_BROADCASTER                  (0u != (CYBLE_GAP_ROLE & CYBLE_GAP_BROADCASTER))
 
 #if(CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER)
-    #define CYBLE_FAST_ADV_INT_MIN                  (0x00F0u)
-    #define CYBLE_FAST_ADV_INT_MAX                  (0x00F0u)
+    #define CYBLE_FAST_ADV_INT_MIN                  (0x0020u)
+    #define CYBLE_FAST_ADV_INT_MAX                  (0x0020u)
     #define CYBLE_FAST_ADV_TIMEOUT                  (0x0000u)
     #define CYBLE_SLOW_ADV_ENABLED                  (0x00u)
     #define CYBLE_SLOW_ADV_INT_MIN                  (0x0640u)
@@ -133,7 +133,7 @@
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MIN      (0x0006u)
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MAX      (0x0028u)
     #define CYBLE_GAPP_CONNECTION_SLAVE_LATENCY     (0x0000u)
-    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x01F4u)
+    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x0050u)
 #endif /* CYBLE_GAP_ROLE_PERIPHERAL */
 
 #if(CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER)

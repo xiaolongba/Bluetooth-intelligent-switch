@@ -22,7 +22,8 @@
 */      
 void StackEventHandler(uint32 eventCode, void *eventParam);
 void LowPowerManagement(void);
-void ServiceToClient(uint8_t* TxData,uint16_t Len);
+void ServiceToClient(char* TxData,uint16_t Len);
+void ClientData_Handler(const char* RxData);
 /* ****************************************
  * 宏定义
  * ****************************************
@@ -30,6 +31,17 @@ void ServiceToClient(uint8_t* TxData,uint16_t Len);
 #define  LOWPOWER   (1)   
 #define  TURE       (1)
 #define  FALSE      (0)
+#define  ON         (0)
+#define  OFF        (1)
+#define  BUFFERLEN  (23)
+/* ****************************************
+ * 控制命令枚举
+ * ****************************************
+*/
+enum
+{
+    SWT=0x00u
+};
 
 #endif
 /* [] END OF FILE */

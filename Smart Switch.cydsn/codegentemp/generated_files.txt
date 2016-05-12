@@ -1,66 +1,70 @@
 <?xml version="1.0" encoding="us-ascii"?>
 
-<fileSet version="1" anchorPath="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfitter_cfg.h" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfitter_cfg.c" value="ARM_C_FILE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\protect.hex" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cymetadata.c" value="ARM_C_FILE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cydevice_trm.h" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cydevicegnu_trm.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cydevicerv_trm.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cydeviceiar_trm.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfittergnu.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfitterrv.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyfitter.h" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_gatt.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_gatt.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_eventHandler.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_HAL_INT.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_HAL_PVT.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_HAL_PVT.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_STACK_PVT.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackGap.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackGatt.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackGattDb.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackHostMain.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackL2cap.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackGattServer.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_StackGattClient.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_Stack.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_eventHandler.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_custom.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_custom.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.c" value="ARM_C_FILE;BLE_bless_isr" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.h" value="NONE;BLE_bless_isr" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\BLE.cycsa" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cycodeshareimport.ld" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cycodeshareexport.ld" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cycodeshareimport.scat" value="NONE;" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cm0gcc.ld" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\Cm0RealView.scat" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\Cm0Start.c" value="ARM_C_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\core_cm0_psoc4.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\core_cm0.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyBootAsmGnu.s" value="GNU_ARM_ASM_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyBootAsmRv.s" value="REALVIEW_ARM_ASM_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyFlash.c" value="ARM_C_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyFlash.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyLib.c" value="ARM_C_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyLib.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyPm.c" value="ARM_C_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyPm.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cytypes.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cyutils.c" value="ARM_C_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\cypins.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\core_cmFunc.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\core_cmInstr.h" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\Cm0Iar.icf" value="NONE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyBootAsmIar.s" value="IAR_ASM_FILE;cy_boot" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyLFClk.c" value="ARM_C_FILE;cy_lfclk" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\CyLFClk.h" value="NONE;cy_lfclk" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\codegentemp\project.h" value="NONE;" />
+<fileSet version="1" anchorPath="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp" xsi:schemaLocation="http://cypress.com/xsd/cypathdictionary cypathdictionary.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://cypress.com/xsd/cypathdictionary">
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfitter_cfg.h" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfitter_cfg.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\protect.hex" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cymetadata.c" value="ARM_C_FILE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cydevice_trm.h" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cydevicegnu_trm.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cydevicerv_trm.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cydeviceiar_trm.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfittergnu.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfitterrv.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfitteriar.inc" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyfitter.h" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cydisabledsheets.h" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_gatt.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_gatt.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_eventHandler.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_HAL_INT.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_HAL_PVT.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_HAL_PVT.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_STACK_PVT.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGap.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGatt.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGattDb.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackHostMain.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackL2cap.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGattServer.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGattClient.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_Stack.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_eventHandler.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_custom.h" value="NONE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_custom.c" value="ARM_C_FILE;BLE" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED.c" value="ARM_C_FILE;BLUE_LED" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED.h" value="NONE;BLUE_LED" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED_aliases.h" value="NONE;BLUE_LED" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED_PM.c" value="ARM_C_FILE;BLUE_LED" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.c" value="ARM_C_FILE;BLE_bless_isr" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.h" value="NONE;BLE_bless_isr" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE.cycsa" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cycodeshareimport.ld" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cycodeshareexport.ld" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cycodeshareimport.scat" value="NONE;" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cm0gcc.ld" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Cm0RealView.scat" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Cm0Start.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\core_cm0_psoc4.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\core_cm0.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyBootAsmGnu.s" value="GNU_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyBootAsmRv.s" value="REALVIEW_ARM_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyFlash.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyFlash.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyLib.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyLib.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyPm.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyPm.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cytypes.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cyutils.c" value="ARM_C_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\cypins.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\core_cmFunc.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\core_cmInstr.h" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Cm0Iar.icf" value="NONE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyBootAsmIar.s" value="IAR_ASM_FILE;cy_boot" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyLFClk.c" value="ARM_C_FILE;cy_lfclk" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\CyLFClk.h" value="NONE;cy_lfclk" />
+  <file name="C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\project.h" value="NONE;" />
 </fileSet>
