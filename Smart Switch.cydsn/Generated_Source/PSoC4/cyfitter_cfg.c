@@ -155,7 +155,7 @@ static void ClockSetup(void)
 	(void)CySysClkWcoSetPowerMode(CY_SYS_CLK_WCO_LPM);    /* Switch to the low power mode */
 
 	/* Setup and trim IMO based on desired frequency. */
-	CySysClkWriteImoFreq(48u);
+	CySysClkWriteImoFreq(16u);
 	/* CYDEV_CLK_ILO_CONFIG Starting address: CYDEV_CLK_ILO_CONFIG */
 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_ILO_CONFIG), 0x80000006u);
 
@@ -178,11 +178,13 @@ static void ClockSetup(void)
 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_IMO_CONFIG), 0x80000000u);
 
 	/* CYDEV_CLK_SELECT Starting address: CYDEV_CLK_SELECT */
-	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_SELECT), 0x00040000u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_CLK_SELECT), 0x00000000u);
 
 	(void)CyIntSetVector(8u, &CySysWdtIsr);
 	CyIntEnable(8u);
 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_WDT_CONFIG), 0x40000000u);
+	/* Set Flash Cycles based on newly configured 16.00MHz HFCLK. */
+	CY_SET_REG32((void CYXDATA *)(CYREG_CPUSS_FLASH_CTL), (0x0000u));
 }
 
 

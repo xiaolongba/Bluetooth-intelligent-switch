@@ -1,4 +1,4 @@
-C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\TopDesign\TopDesign.cysch
+C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\TopDesign\TopDesign.cysch
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\BLE_v3_10\BLE_v3_10.cysym
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\BLE_v3_10\BLE_v3_10.chm
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\BLE_v3_10\BLE_v3_10.dll
@@ -120,7 +120,7 @@ E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.pdf
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\Custom\custom.cs
-C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\Smart Switch.cydwr
+C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\Smart Switch.cydwr
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_30\PSoC4\API\cm0gcc.ld
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_30\PSoC4\API\Cm0RealView.scat
 E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\cy_boot_v5_30\PSoC4\API\Cm0Start.c

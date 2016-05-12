@@ -22,12 +22,14 @@
 */      
 void StackEventHandler(uint32 eventCode, void *eventParam);
 void LowPowerManagement(void);
+void ServiceToClient(uint8_t* TxData,uint16_t Len);
 /* ****************************************
  * 宏定义
  * ****************************************
 */
-#define  LOWPOWER
-
+#define  LOWPOWER   (1)   
+#define  TURE       (1)
+#define  FALSE      (0)
 
 #endif
 /* [] END OF FILE */

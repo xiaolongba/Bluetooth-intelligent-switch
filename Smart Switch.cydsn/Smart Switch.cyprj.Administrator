@@ -221,7 +221,7 @@
 <v>E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif</v>
 <v>E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 </warp_dep>
-<deps_time v="131074237543114562" />
+<deps_time v="131075150871074320" />
 <top_block v="TopDesign" />
 <last_generation v="3" />
 </CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157>
@@ -628,14 +628,15 @@
 <name_val_pair name=".\Generated_Source\PSoC4\cyutils.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name=".\Generated_Source\PSoC4\CyLFClk.c" v="-mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects" />
 <name_val_pair name="C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\CortexM0\ARM_GCC_493\Debug\Smart Switch.hex" v="-mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections" />
+<name_val_pair name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\CortexM0\ARM_GCC_493\Debug\Smart Switch.hex" v="-mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC4 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections" />
 </name>
 </genericCmdLineData>
-<codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Administrator\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p &quot;C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\Smart Switch.cyprj&quot; -d CYBL10163-56LQXI -s &quot;C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\Generated_Source\PSoC4&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
+<codeGenCmdLineTag v="-.appdatapath &quot;C:\Users\Administrator\AppData\Local\Cypress Semiconductor\PSoC Creator\3.3&quot; -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p &quot;C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\Smart Switch.cyprj&quot; -d CY8C4247LQI-BL483 -s &quot;C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\Generated_Source\PSoC4&quot; -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE" />
 </CyGuid_b0374e30-ce3a-47f2-ad85-821643292c68>
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131074237608868322" />
+<deps_time v="131075150934417943" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 <dataGuid v="597c5b74-0c46-4204-8b7f-96f3570671dc">
@@ -646,6 +647,11 @@
 <name_val_pair name="Visible Columns" v="PartNumber;CPU;Architecture;PACKAGE;SPEED_MHZ;FLASH_KB;SRAM_KB;EEPROM_KB;IO_COUNT;CAPSENSE;BLUETOOTH;DIRDRIVELCD;TIMERCOUNTERPWM_COUNT;I2C_COUNT;UDB_COUNT;PRECONFIGURED_BLOCKS;USB_TYPE;CAN20B_COUNT;PVT_COMPLEX_ADC;DAC8_COUNT;OPAMP_COUNT;COMP_COUNT;DFB_COUNT;ANALOGBLOCKS_COUNT;DMACHANNELS_COUNT;PLL_COUNT;BOOSTCONVERTER_VOLTS;PVT_DIGITAL_IN_VOLT_RANGE;PVT_ANALOG_IN_VOLT_RANGE;TEMPMIN_CELSIUS;TEMPMAX_CELSIUS;AUTOMOTIVE_QUALIFIED;TRACEBUFF_KB;SILICONID;DesignFits;" />
 <name_val_pair name="Sort" v="PartNumber;Ascending" />
 </CyGuid_597c5b74-0c46-4204-8b7f-96f3570671dc>
+</dataGuid>
+<dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
+<CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
+<debugger_breakpoint_list />
+</CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>

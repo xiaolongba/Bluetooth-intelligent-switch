@@ -18,6 +18,14 @@
  * 变量声明定义
  * ****************************************
 */
+CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
+uint8_t THROUGH_STAUS=FALSE;
+
+/* ****************************************
+ * 各功能函数地具体实现
+ * ****************************************
+*/
+
 
 /******************************************
   * @函数名：StackEventHandler
@@ -30,13 +38,123 @@
 void StackEventHandler(uint32 eventCode, void *eventParam)
 {
     eventParam = eventParam;//防止编译时出现警告
+    CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T WriteCmd;//临时保存一些主机的写命令    
+    CYBLE_GATTS_WRITE_REQ_PARAM_T WriteValue;//临时保存一些主机的写 
     switch(eventCode)
     {
-        case CYBLE_EVT_STACK_ON:
-             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);
+        case CYBLE_EVT_STACK_ON://蓝牙初始化完成            
+             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//初始化时立马发起广播
         break;
+        case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功
+            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
+        break;
+        case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
+            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
+            THROUGH_STAUS=FALSE;
+        break;
+        case CYBLE_EVT_GATTS_WRITE_CMD_REQ://处理主机发起的写命令请求
+            WriteCmd = *((CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T *)eventParam);
+            if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
+            {
+                if(WriteCmd.handleValPair.value.val[0] == 0x01)
+                {
+                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
+//                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
+                }
+                else
+                {
+                    THROUGH_STAUS=FALSE;//关闭透传通道
+                }
+            }
+            if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机透传数据
+            {
+                                                                    
+            }
+        break;
+        case CYBLE_EVT_GATTS_WRITE_REQ:
+            WriteValue = *((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
+//            if(WriteValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
+//            {
+//                if(WriteValue.handleValPair.value.val[0] == 0x01)
+//                {
+//                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
+////                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
+//                }
+//                else
+//                {
+//                    THROUGH_STAUS=FALSE;//关闭透传通道
+//                }
+//            }
+            CyBle_GattsWriteRsp(cyBle_connHandle);
+        break;            
         default:
         break;
+    }
+}
+
+/******************************************
+  * @函数名：General_discovery_mode_Init
+  * @输入：  NULL             
+  * @返回：  NULL            
+  * @描述：  通用发现的广播模式初始化
+  *****************************************
+*/
+void General_discovery_mode_Init(void)
+{
+    
+}
+
+/******************************************
+  * @函数名：Limited_discovery_mode_Init
+  * @输入：  NULL             
+  * @返回：  NULL            
+  * @描述：  限制发现的广播模式初始化
+  *****************************************
+*/
+void Limited_discovery_mode_Init(void)
+{
+    
+}
+
+/******************************************
+  * @函数名：Discovery_mode_Init
+  * @输入：  NULL             
+  * @返回：  NULL            
+  * @描述：  发现模块的初始化
+  *****************************************
+*/
+void Discovery_mode_Init(void)
+{
+//    cyBle_discoveryModeInfo.advTo=0x00;//广播没有超时
+//    CyBle_GapGetBondedDevicesList(&BondList);//获取绑定设备的信息
+    
+}
+
+/******************************************
+  * @函数名：ServiceToClient
+  * @输入：  TxData---指向需要透传的数据的首位地址 
+             Len---所发送的数据长度
+  * @返回：  NULL            
+  * @描述：  从机给主机透传数据
+  *****************************************
+*/
+void ServiceToClient(uint8_t* TxData,uint16_t Len)
+{   
+    CYBLE_API_RESULT_T API_RESULT;
+    if(THROUGH_STAUS)//如果主机打开从机的透传通道,从机则马上给主机发送透传数据
+    {
+        CYBLE_GATTS_HANDLE_VALUE_NTF_T ServiceToClientData;//临时存放要发送给主机的信息
+        ServiceToClientData.value.val=TxData;//发送数据的首地址
+        ServiceToClientData.value.len=Len;//所要发送的数据的长度
+        ServiceToClientData.attrHandle=CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE;//所要发送数据的特征值句柄
+        while(CyBle_GattGetBusStatus()!=CYBLE_STACK_STATE_FREE);//等待蓝牙空闲时才发送数据        
+        do
+        {
+            API_RESULT=CyBle_GattsNotification(cyBle_connHandle,&ServiceToClientData);//发送数据给主机
+            CyBle_ProcessEvents();
+        }
+        while((API_RESULT != CYBLE_ERROR_OK)&&(CYBLE_STATE_CONNECTED == cyBle_state));        
+//        API_RESULT=API_RESULT+0;
     }
 }
 

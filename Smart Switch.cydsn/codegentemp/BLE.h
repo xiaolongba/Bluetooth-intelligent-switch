@@ -82,7 +82,7 @@
         #define CYBLE_MAX_RESOLVABLE_DEVICES        (0u)
         #define CYBLE_ENABLE_LL_PRIVACY             (0u)
     #endif /* CYBLE_M0S8BLESS_VERSION_2 */
-    #define CYBLE_GAP_SECURITY_LEVEL                (0x00u)
+    #define CYBLE_GAP_SECURITY_LEVEL                (0x01u)
 #else
     #if(CYBLE_M0S8BLESS_VERSION_2)
         #define CYBLE_MAX_RESOLVABLE_DEVICES        (CYBLE_DEFAULT_RPA_LIST_SZ)    
@@ -123,8 +123,8 @@
 #define CYBLE_GAP_ROLE_BROADCASTER                  (0u != (CYBLE_GAP_ROLE & CYBLE_GAP_BROADCASTER))
 
 #if(CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER)
-    #define CYBLE_FAST_ADV_INT_MIN                  (0x0040u)
-    #define CYBLE_FAST_ADV_INT_MAX                  (0x0040u)
+    #define CYBLE_FAST_ADV_INT_MIN                  (0x00F0u)
+    #define CYBLE_FAST_ADV_INT_MAX                  (0x00F0u)
     #define CYBLE_FAST_ADV_TIMEOUT                  (0x0000u)
     #define CYBLE_SLOW_ADV_ENABLED                  (0x00u)
     #define CYBLE_SLOW_ADV_INT_MIN                  (0x0640u)
@@ -133,7 +133,7 @@
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MIN      (0x0006u)
     #define CYBLE_GAPP_CONNECTION_INTERVAL_MAX      (0x0028u)
     #define CYBLE_GAPP_CONNECTION_SLAVE_LATENCY     (0x0000u)
-    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x03E8u)
+    #define CYBLE_GAPP_CONNECTION_TIME_OUT          (0x01F4u)
 #endif /* CYBLE_GAP_ROLE_PERIPHERAL */
 
 #if(CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER)
@@ -169,8 +169,6 @@
 
 #define CYBLE_ADV_PKT_INDEX_FLAGS   (0x00u)
 #define CYBLE_ADV_PKT_INDEX_LOCAL_NAME   (0x03u)
-#define CYBLE_ADV_PKT_INDEX_SLAVE_CONN_INTERVAL   (0x16u)
-#define CYBLE_ADV_PKT_INDEX_ROLE   (0x1Cu)
 
 
 

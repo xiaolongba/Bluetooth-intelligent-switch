@@ -2,7 +2,7 @@
 --	Conversion of Smart Switch.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed May 11 15:02:27 2016
+--	Thu May 12 16:24:40 2016
 --
 
 USE cypress.cypress.all;
@@ -13,7 +13,7 @@ END top_RTL;
 --------------------------------------------------------
 ARCHITECTURE R_T_L OF top_RTL IS
 SIGNAL \BLE:Net_15\ : bit;
-SIGNAL Net_2437 : bit;
+SIGNAL Net_2438 : bit;
 SIGNAL \BLE:Net_53\ : bit;
 SIGNAL Net_2436 : bit;
 SIGNAL \BLE:Net_55\ : bit;
@@ -22,7 +22,7 @@ BEGIN
 \BLE:cy_m0s8_ble\:cy_m0s8_ble_v1_0
 	GENERIC MAP(cy_registers=>"")
 	PORT MAP(interrupt=>\BLE:Net_15\,
-		rf_ext_pa_en=>Net_2437);
+		rf_ext_pa_en=>Net_2438);
 \BLE:bless_isr\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
 	PORT MAP(int_signal=>\BLE:Net_15\);

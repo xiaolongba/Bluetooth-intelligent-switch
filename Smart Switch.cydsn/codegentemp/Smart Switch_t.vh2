@@ -1,5 +1,5 @@
--- Project:   C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\Smart Switch.cyprj
--- Generated: 05/11/2016 15:02:30
+-- Project:   C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\Smart Switch.cyprj
+-- Generated: 05/12/2016 16:24:43
 -- PSoC Creator  3.3 CP2
 
 ENTITY \Smart Switch\ IS
@@ -27,7 +27,7 @@ ARCHITECTURE __DEFAULT__ OF \Smart Switch\ IS
     SIGNAL ClockBlock_Routed1 : bit;
     SIGNAL ClockBlock_SYSCLK : bit;
     SIGNAL ClockBlock_WCO : bit;
-    SIGNAL Net_2437 : bit;
+    SIGNAL Net_2438 : bit;
     SIGNAL \BLE:Net_15\ : bit;
     SIGNAL __ONE__ : bit;
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
@@ -194,7 +194,7 @@ BEGIN
     \BLE:cy_m0s8_ble\:p4blecell
         PORT MAP(
             interrupt => \BLE:Net_15\,
-            rfctrl_extpa_en => Net_2437);
+            rfctrl_extpa_en => Net_2438);
 
     \BLE:bless_isr\:interrupt
         GENERIC MAP(

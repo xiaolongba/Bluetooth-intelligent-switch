@@ -10295,12 +10295,12 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  242              	.set BLE_cy_m0s8_ble__XTAL_CLK_DIV_CONFIG, CYREG_BLE_BLESS_XTAL_CLK_DIV_CONFIG
  243              	
  244              	/* Miscellaneous */
- 245              	.set CYDEV_BCLK__HFCLK__HZ, 48000000
- 246              	.set CYDEV_BCLK__HFCLK__KHZ, 48000
- 247              	.set CYDEV_BCLK__HFCLK__MHZ, 48
- 248              	.set CYDEV_BCLK__SYSCLK__HZ, 48000000
- 249              	.set CYDEV_BCLK__SYSCLK__KHZ, 48000
- 250              	.set CYDEV_BCLK__SYSCLK__MHZ, 48
+ 245              	.set CYDEV_BCLK__HFCLK__HZ, 16000000
+ 246              	.set CYDEV_BCLK__HFCLK__KHZ, 16000
+ 247              	.set CYDEV_BCLK__HFCLK__MHZ, 16
+ 248              	.set CYDEV_BCLK__SYSCLK__HZ, 16000000
+ 249              	.set CYDEV_BCLK__SYSCLK__KHZ, 16000
+ 250              	.set CYDEV_BCLK__SYSCLK__MHZ, 16
  251              	.set CYDEV_CHIP_DIE_LEOPARD, 1
  252              	.set CYDEV_CHIP_DIE_PANTHER, 18
  253              	.set CYDEV_CHIP_DIE_PSOC4A, 10
@@ -10312,7 +10312,7 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  259              	.set CYDEV_CHIP_FAMILY_PSOC5, 3
  260              	.set CYDEV_CHIP_FAMILY_UNKNOWN, 0
  261              	.set CYDEV_CHIP_FAMILY_USED, CYDEV_CHIP_FAMILY_PSOC4
- 262              	.set CYDEV_CHIP_JTAG_ID, 0x0E07119E
+ 262              	.set CYDEV_CHIP_JTAG_ID, 0x0E34119E
  263              	.set CYDEV_CHIP_MEMBER_3A, 1
  264              	.set CYDEV_CHIP_MEMBER_4A, 10
  265              	.set CYDEV_CHIP_MEMBER_4C, 15
@@ -10425,22 +10425,25 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  366              	.set CYDEV_WDT_GENERATE_ISR, 1
  367              	.set CYIPBLOCK_m0s8bless_VERSION, 1
  368              	.set CYIPBLOCK_m0s8cpussv2_VERSION, 1
- 369              	.set CYIPBLOCK_m0s8ioss_VERSION, 1
- 370              	.set CYIPBLOCK_m0s8peri_VERSION, 1
- 371              	.set CYIPBLOCK_m0s8scb_VERSION, 2
- 372              	.set CYIPBLOCK_m0s8srssv2_VERSION, 1
- 373              	.set CYIPBLOCK_m0s8tcpwm_VERSION, 2
- 374              	.set CYIPBLOCK_m0s8udbif_VERSION, 1
- 375              	.set CYIPBLOCK_s8pass4al_VERSION, 1
- 376              	.set CYDEV_BOOTLOADER_ENABLE, 0
- 377              	.endif
+ 369              	.set CYIPBLOCK_m0s8csd_VERSION, 1
+ 370              	.set CYIPBLOCK_m0s8ioss_VERSION, 1
+ 371              	.set CYIPBLOCK_m0s8lcd_VERSION, 2
+ 372              	.set CYIPBLOCK_m0s8lpcomp_VERSION, 2
+ 373              	.set CYIPBLOCK_m0s8peri_VERSION, 1
+ 374              	.set CYIPBLOCK_m0s8scb_VERSION, 2
+ 375              	.set CYIPBLOCK_m0s8srssv2_VERSION, 1
+ 376              	.set CYIPBLOCK_m0s8tcpwm_VERSION, 2
+ 377              	.set CYIPBLOCK_m0s8udbif_VERSION, 1
+ 378              	.set CYIPBLOCK_s8pass4al_VERSION, 1
+ 379              	.set CYDEV_BOOTLOADER_ENABLE, 0
+ 380              	.endif
   19              	
-  20              	
-  21              	/*******************************************************************************
-  22              	* Function Name: CyDelayCycles
 ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 175
 
 
+  20              	
+  21              	/*******************************************************************************
+  22              	* Function Name: CyDelayCycles
   23              	********************************************************************************
   24              	*
   25              	* Summary:
@@ -10495,12 +10498,12 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
   74              	*  restore the interrupt enable bits as they were found on entry.
   75              	*
   76              	* Parameters:
-  77              	*  None
-  78              	*
-  79              	* Return:
 ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 176
 
 
+  77              	*  None
+  78              	*
+  79              	* Return:
   80              	*  uint8
   81              	*   Returns 0 if interrupts were previously enabled or 1 if interrupts
   82              	*   were previously disabled.

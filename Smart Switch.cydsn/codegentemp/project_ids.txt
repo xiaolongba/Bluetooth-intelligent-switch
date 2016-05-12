@@ -1,5 +1,5 @@
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|8293e6b7-184c-448b-a4ea-4894dcb03213
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|91206b2a-9d4a-4ed1-ac3e-487826f7dc73
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b632680d-8ede-4c75-b678-b7c88fd79be0
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|31f1b913-3510-4671-ad1a-a19bff8faf70
-C:\Users\Administrator\Desktop\BLE_TemplateProject\BLE_TemplateProject\Smart Switch.cydsn\Smart Switch.cyprj|ef68dd46-6907-4770-869d-8b0f10efc32c
+C:\Users\Administrator\Desktop\BLE_TemplateProject\Smart Switch\Smart Switch.cydsn\Smart Switch.cyprj|2da0f63d-1b7f-445d-8ce7-c6733761c55c
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|084ffd67-0fc5-41ab-849b-50725e1ced02
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d6271f8a-ecf2-4bcb-8eed-74c6457c7449
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b4da56a5-2d56-4061-ad13-1596da2202b8
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|426f517c-efdc-4cf8-94a2-45c402812c4e

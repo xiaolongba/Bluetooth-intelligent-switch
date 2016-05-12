@@ -14,6 +14,7 @@
 */
 #include <project.h>
 #include "application.h"
+extern uint8_t THROUGH_STAUS;
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -26,12 +27,28 @@ int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
-    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */
+    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */    
+    CySysClkIloStop();
+    CySysClkWriteEcoDiv(CY_SYS_CLK_ECO_DIV8);
     CyBle_Start(StackEventHandler);//BLE协议栈初始化
     for(;;)
     {
-        /* Place your application code here. */
-        #ifdef LOWPOWER
+        /* 保存绑定信息 */
+        if((cyBle_pendingFlashWrite !=0))
+        {
+            /*  */
+            if(CYBLE_ERROR_OK == CyBle_StoreBondingData(0))
+            {
+                //不做任何事情
+            }
+        }
+//        if(THROUGH_STAUS)
+//        {
+//           THROUGH_STAUS=FALSE;
+//           ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test")); 
+//        }
+        
+        #if LOWPOWER
             CyBle_ProcessEvents();
             LowPowerManagement();
         #endif
