@@ -28,8 +28,8 @@ int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
-    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */    
-    CyBle_Start(StackEventHandler);//BLE协议栈初始化
+    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */  
+    SystemInit();
     for(;;)
     {
         /* 保存绑定信息 */
@@ -41,6 +41,7 @@ int main()
                 //不做任何事情
             }
         } 
+        ButtonHandler();
         if(LOWPOWER)
         {
             CyBle_ProcessEvents();

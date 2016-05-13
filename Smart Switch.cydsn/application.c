@@ -19,13 +19,24 @@
  * ****************************************
 */
 CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
+uint8_t NotifyValue[]={0x01,0x00};
+CYBLE_GATTC_WRITE_CMD_REQ_T WriteCmd=
+{
+    {
+        NotifyValue,
+        2,
+        0
+    },
+    CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE
+};//初始化打开透传通道的数据
 uint8_t THROUGH_STAUS=FALSE;
-//char* CommandList[]={"AT+SWT"};//控制命令列表
+char* CommandList[]={"AT+SWT=1","AT+SWT=0"};//控制命令列表
 //uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
 //uint8_t Buffer[BUFFERLEN]={0};//临时存放主机透传给从机的数据
 //uint8_t RX_ISOVER=FALSE;
 uint8_t LOWPOWER;
-uint8_t ButtonStatus;
+uint8_t ButtonStatus=BUTTON_UP;
+uint8_t Switch_On_Off=SWTICH_OFF;
 /* ****************************************
  * 各功能函数地具体实现
  * ****************************************
@@ -42,13 +53,24 @@ uint8_t ButtonStatus;
 */
 void StackEventHandler(uint32 eventCode, void *eventParam)
 {
-    eventParam = eventParam;//防止编译时出现警告    
+    eventParam = eventParam;//防止编译时出现警告 
+    CYBLE_API_RESULT_T API_RESULT;
     switch(eventCode)
     {
         case CYBLE_EVT_STACK_ON://蓝牙初始化完成    
             LOWPOWER=TURE;//上电完成之后立马进入睡眠状态
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功
+            WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;
+            WriteCmd.value.val = NotifyValue;
+            WriteCmd.value.len = 2;
+            API_RESULT = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//打开透传通道
+            if(API_RESULT == CYBLE_ERROR_OK)//通道打开成功，开始发控制命令
+            {
+                WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE;
+                WriteCmd.value.val = (uint8_t *)CommandList[];
+                CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);
+            }
 //            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
@@ -214,6 +236,18 @@ void ClientData_Handler(const char* RxData)
 }
 
 /******************************************
+  * @函数名：SystemInit
+  * @输入：  NULL 
+  * @返回：  NULL            
+  * @描述：  系统初始化
+  *****************************************
+*/
+void SystemInit(void)
+{    
+    CyBle_Start(StackEventHandler);//BLE协议栈初始化    
+}
+
+/******************************************
   * @函数名：BT1_IntHandler
   * @输入：  NULL              
   * @返回：  NULL            
@@ -225,6 +259,7 @@ CY_ISR(BT1_IntHandler)
     isr_Button1_ClearPending();
     Button1_ClearInterrupt();
     ButtonStatus=BUTTON1_DOWN;
+//    Switch_On_Off=Switch_On_Off^SWTICH_ON;
 }
 
 /******************************************
@@ -239,6 +274,7 @@ CY_ISR(BT2_IntHandler)
     isr_Button2_ClearPending();
     Button2_ClearInterrupt();
     ButtonStatus=BUTTON2_DOWN;
+    
 }
 /******************************************
   * @函数名：BT3_IntHandler
@@ -277,11 +313,16 @@ CY_ISR(BT4_IntHandler)
 void ButtonHandler(void)
 {
 //    uint8_t Button;
+    CYBLE_API_RESULT_T API_RESULT;
     switch(ButtonStatus)
     {
         case BUTTON1_DOWN:
             ButtonStatus = BUTTON_UP;
-            CyBle_GapcConnectDevice(&BondList.bdAddrList[0]);//建立连接
+            API_RESULT=CyBle_GapcConnectDevice(&BondList.bdAddrList[0]);//建立连接
+            if(API_RESULT == CYBLE_ERROR_OK)
+            {
+                
+            }
         break;
         case BUTTON2_DOWN:
             ButtonStatus = BUTTON_UP;

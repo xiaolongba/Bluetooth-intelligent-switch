@@ -236,6 +236,43 @@
 <VisibleNodeIds>
 <v>Smart Switch</v>
 <v>Smart Switch\Smart Switch</v>
+<v>Smart Switch\Smart Switch\CortexM0</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\application.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_bless_isr.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_eventHandler.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button1.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button2.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button3.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button4.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.hex</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.map</v>
+<v>Smart Switch\Smart Switch\Smart Switch.gpdsc</v>
 <v>Smart Switch\Smart Switch\Smart Switch.rpt</v>
 <v>Smart Switch\Smart Switch\Smart Switch_timing.html</v>
 </VisibleNodeIds>
@@ -292,6 +329,9 @@
 <name v=".\Smart Switch.cydsn\application.h" />
 <name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGap.h" />
 <name v=".\Smart Switch.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGatt.h" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGattClient.h" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE.c" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />
