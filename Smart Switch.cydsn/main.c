@@ -43,10 +43,10 @@ int main()
                 //不做任何事情
             }
         }
-        if(RX_ISOVER)
+        if(RX_ISOVER)//开始处理主机透传过来的控制命令
         {
             RX_ISOVER=FALSE;
-            ClientData_Handler((char*)Buffer);
+            ClientData_Handler((char*)Buffer);//实际处理主机透传过来的控制命令
         }
         #if LOWPOWER
             CyBle_ProcessEvents();

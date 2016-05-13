@@ -70,7 +70,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                     THROUGH_STAUS=FALSE;//关闭透传通道
                 }
             }
-            else if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机透传数据
+            else if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机的透传数据
             {
                 for(i=0;i<WriteCmd.handleValPair.value.len;i++)
                 {
@@ -79,7 +79,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 RX_ISOVER=TURE;
             }
         break;
-        case CYBLE_EVT_GATTS_WRITE_REQ:
+        case CYBLE_EVT_GATTS_WRITE_REQ://处理主机发起的写请求
             WriteValue = *((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
             WriteValue = WriteValue;
 //            if(WriteValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
@@ -94,7 +94,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                    THROUGH_STAUS=FALSE;//关闭透传通道
 //                }
 //            }
-            CyBle_GattsWriteRsp(cyBle_connHandle);
+            CyBle_GattsWriteRsp(cyBle_connHandle);//写响应
         break;            
         default:
         break;

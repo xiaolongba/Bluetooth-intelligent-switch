@@ -10361,12 +10361,12 @@ ARM GAS  .\Generated_Source\PSoC4\CyBootAsmGnu.s 			page 1
  305              	.set BLUE_LED__SHIFT, 7
  306              	
  307              	/* Miscellaneous */
- 308              	.set CYDEV_BCLK__HFCLK__HZ, 16000000
- 309              	.set CYDEV_BCLK__HFCLK__KHZ, 16000
- 310              	.set CYDEV_BCLK__HFCLK__MHZ, 16
- 311              	.set CYDEV_BCLK__SYSCLK__HZ, 16000000
- 312              	.set CYDEV_BCLK__SYSCLK__KHZ, 16000
- 313              	.set CYDEV_BCLK__SYSCLK__MHZ, 16
+ 308              	.set CYDEV_BCLK__HFCLK__HZ, 48000000
+ 309              	.set CYDEV_BCLK__HFCLK__KHZ, 48000
+ 310              	.set CYDEV_BCLK__HFCLK__MHZ, 48
+ 311              	.set CYDEV_BCLK__SYSCLK__HZ, 48000000
+ 312              	.set CYDEV_BCLK__SYSCLK__KHZ, 48000
+ 313              	.set CYDEV_BCLK__SYSCLK__MHZ, 48
  314              	.set CYDEV_CHIP_DIE_LEOPARD, 1
  315              	.set CYDEV_CHIP_DIE_PANTHER, 18
  316              	.set CYDEV_CHIP_DIE_PSOC4A, 10
