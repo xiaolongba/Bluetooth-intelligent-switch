@@ -57,51 +57,6 @@ CYBLE_CYALIGNED_BEGIN CY_NOINIT uint8 cyBle_stackMemoryRam[CYBLE_STACK_RAM_SIZE]
 
 #if(CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER)
 
-CYBLE_GAPP_DISC_PARAM_T cyBle_discoveryParam =
-{
-    0x0020u,    /* uint16 advertising_interval_min */
-    0x0020u,    /* uint16 advertising_interval_max */
-    CYBLE_GAPP_CONNECTABLE_UNDIRECTED_ADV, /* uint8 advertising_type */
-    0x00u,      /* uint8 own_addr_type */
-    0x00u,      /* uint8 direct_addr_type */
-    {0x00u, 0x00u, 0x00u, 0x50u, 0xA0u, 0x00u}, /* uint8* direct_addr */
-    0x07u,      /* uint8 advertising_channel_map */
-    0x00u,      /* uint8 advertising_filter_policy */
-};
-
-CYBLE_GAPP_DISC_DATA_T cyBle_discoveryData =
-{
-    { 0x02u, 0x01u, 0x06u, 0x0Au, 0x09u, 0x46u, 0x65u,
-    0x69u, 0x44u, 0x69u, 0x61u, 0x6Fu, 0x30u, 0x31u, 0x00u,
-    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, /* uint8 advertising_data[CYBLE_MAX_ADV_DATA_LEN] */
-    0x0Eu,      /* uint8 adv_data_length */
-};
-
-CYBLE_GAPP_SCAN_RSP_DATA_T cyBle_scanRspData =
-{
-    { 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u,
-    0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u, 0x00u }, /* uint8 scan_rsp_data[CYBLE_MAX_SCAN_RSP_DATA_LEN] */
-    0x00u,      /* uint8 scan_rsp_data_length */
-};
-
-/* This variable of type CYBLE_GAPP_DISC_MODE_INFO_T is present only when 
-   the BLE component is configured for Peripheral GAP role or Central and 
-   Peripheral GAP role. It contains the Advertisement settings and also the 
-   Advertisement and Scan response data parameters entered in the customizer.
-   This variable can be used by advanced users to change Advertisement settings,
-   Advertisement or Scan response data in runtime. 
-*/
-CYBLE_GAPP_DISC_MODE_INFO_T cyBle_discoveryModeInfo =
-{
-    0x02u,      /* uint8 discMode */
-    &cyBle_discoveryParam,
-    &cyBle_discoveryData,
-    &cyBle_scanRspData,
-    0x0000u,    /* uint16 advTo */
-};
 
 
 #endif /* CYBLE_GAP_ROLE_PERIPHERAL || CYBLE_GAP_ROLE_BROADCASTER */
@@ -119,7 +74,23 @@ uint16 cyBle_connectingTimeout;
 
 #if(CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER)
     
-
+/* This variable of type CYBLE_GAPC_DISC_INFO_T is present only when  
+   the BLE component is configured for Central GAP role or Central and  
+   Peripheral GAP role. It contains the Scan settings entered in the  
+   customizer. This variable can be used by advanced users to change Scan  
+   settings in runtime.
+*/
+CYBLE_GAPC_DISC_INFO_T cyBle_discoveryInfo =
+{
+    0x02u,      /* discProcedure */
+    0x01u,      /* scanType */
+    0x0030u,    /* scanInterval */
+    0x0030u,    /* scanWindow */
+    0x00u,      /* ownAddrType */
+    0x00u,      /* scanFilterPolicy */
+    0x0000u,    /* scanTO */
+    0x00u,      /* filterDuplicates */
+};
     
 #endif /* CYBLE_GAP_ROLE_CENTRAL || CYBLE_GAP_ROLE_OBSERVER */
 

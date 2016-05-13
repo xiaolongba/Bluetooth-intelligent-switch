@@ -24,11 +24,15 @@ void StackEventHandler(uint32 eventCode, void *eventParam);
 void LowPowerManagement(void);
 void ServiceToClient(char* TxData,uint16_t Len);
 void ClientData_Handler(const char* RxData);
+CY_ISR_PROTO(BT1_IntHandler);
+CY_ISR_PROTO(BT2_IntHandler);
+CY_ISR_PROTO(BT3_IntHandler);
+CY_ISR_PROTO(BT4_IntHandler);
 /* ****************************************
  * 宏定义
  * ****************************************
 */
-#define  LOWPOWER   (1)   
+   
 #define  TURE       (1)
 #define  FALSE      (0)
 #define  ON         (0)
@@ -43,5 +47,13 @@ enum
     SWT=0x00u
 };
 
+enum
+{
+    BUTTON1_DOWN=0x00u,
+    BUTTON2_DOWN,
+    BUTTON3_DOWN,
+    BUTTON4_DOWN,
+    BUTTON_UP
+};
 #endif
 /* [] END OF FILE */

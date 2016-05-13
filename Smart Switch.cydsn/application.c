@@ -20,10 +20,12 @@
 */
 CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
 uint8_t THROUGH_STAUS=FALSE;
-char* CommandList[]={"AT+SWT"};//控制命令列表
-uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
-uint8_t Buffer[BUFFERLEN]={0};//临时存放主机透传给从机的数据
-uint8_t RX_ISOVER=FALSE;
+//char* CommandList[]={"AT+SWT"};//控制命令列表
+//uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
+//uint8_t Buffer[BUFFERLEN]={0};//临时存放主机透传给从机的数据
+//uint8_t RX_ISOVER=FALSE;
+uint8_t LOWPOWER;
+uint8_t ButtonStatus;
 /* ****************************************
  * 各功能函数地具体实现
  * ****************************************
@@ -40,51 +42,24 @@ uint8_t RX_ISOVER=FALSE;
 */
 void StackEventHandler(uint32 eventCode, void *eventParam)
 {
-    eventParam = eventParam;//防止编译时出现警告
-    CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T WriteCmd;//临时保存一些主机的写命令    
-    CYBLE_GATTS_WRITE_REQ_PARAM_T WriteValue;//临时保存一些主机的写
-    uint8_t i;
+    eventParam = eventParam;//防止编译时出现警告    
     switch(eventCode)
     {
-        case CYBLE_EVT_STACK_ON://蓝牙初始化完成            
-             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//初始化时立马发起广播
+        case CYBLE_EVT_STACK_ON://蓝牙初始化完成    
+            LOWPOWER=TURE;//上电完成之后立马进入睡眠状态
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功
-            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
+//            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
-            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
-            THROUGH_STAUS=FALSE;
+//            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
+//            THROUGH_STAUS=FALSE;
         break;
         case CYBLE_EVT_GATTS_WRITE_CMD_REQ://处理主机发起的写命令请求
-            WriteCmd = *((CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T *)eventParam);
-            if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
-            {
-                if(WriteCmd.handleValPair.value.val[0] == 0x01)
-                {
-                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
-//                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
-                }
-                else
-                {
-                    THROUGH_STAUS=FALSE;//关闭透传通道
-                }
-            }
-            else if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机的透传数据
-            {
-                for(i=0;i<WriteCmd.handleValPair.value.len;i++)
-                {
-                    Buffer[i] = WriteCmd.handleValPair.value.val[i];//存放主机透传给从机的数据
-                }
-                RX_ISOVER=TURE;
-            }
-        break;
-        case CYBLE_EVT_GATTS_WRITE_REQ://处理主机发起的写请求
-            WriteValue = *((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
-            WriteValue = WriteValue;
-//            if(WriteValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
+//            WriteCmd = *((CYBLE_GATTS_WRITE_CMD_REQ_PARAM_T *)eventParam);
+//            if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
 //            {
-//                if(WriteValue.handleValPair.value.val[0] == 0x01)
+//                if(WriteCmd.handleValPair.value.val[0] == 0x01)
 //                {
 //                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
 ////                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
@@ -94,7 +69,31 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                    THROUGH_STAUS=FALSE;//关闭透传通道
 //                }
 //            }
-            CyBle_GattsWriteRsp(cyBle_connHandle);//写响应
+//            else if(WriteCmd.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE)//接收主机给从机的透传数据
+//            {
+//                for(i=0;i<WriteCmd.handleValPair.value.len;i++)
+//                {
+//                    Buffer[i] = WriteCmd.handleValPair.value.val[i];//存放主机透传给从机的数据
+//                }
+//                RX_ISOVER=TURE;
+//            }
+        break;
+        case CYBLE_EVT_GATTS_WRITE_REQ://处理主机发起的写请求
+//            WriteValue = *((CYBLE_GATTS_WRITE_REQ_PARAM_T *)eventParam);
+//            WriteValue = WriteValue;
+////            if(WriteValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE)//使能透传通道
+////            {
+////                if(WriteValue.handleValPair.value.val[0] == 0x01)
+////                {
+////                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
+//////                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
+////                }
+////                else
+////                {
+////                    THROUGH_STAUS=FALSE;//关闭透传通道
+////                }
+////            }
+//            CyBle_GattsWriteRsp(cyBle_connHandle);//写响应
         break;            
         default:
         break;
@@ -149,22 +148,24 @@ void Discovery_mode_Init(void)
 */
 void ServiceToClient(char* TxData,uint16_t Len)
 {   
-    CYBLE_API_RESULT_T API_RESULT;
-    if(THROUGH_STAUS)//如果主机打开从机的透传通道,从机则马上给主机发送透传数据
-    {
-        CYBLE_GATTS_HANDLE_VALUE_NTF_T ServiceToClientData;//临时存放要发送给主机的信息
-        ServiceToClientData.value.val=(uint8_t*)TxData;//发送数据的首地址
-        ServiceToClientData.value.len=Len-1;//所要发送的数据的长度
-        ServiceToClientData.attrHandle=CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE;//所要发送数据的特征值句柄
-        while(CyBle_GattGetBusStatus()!=CYBLE_STACK_STATE_FREE);//等待蓝牙空闲时才发送数据        
-        do
-        {
-            API_RESULT=CyBle_GattsNotification(cyBle_connHandle,&ServiceToClientData);//发送数据给主机
-            CyBle_ProcessEvents();
-        }
-        while((API_RESULT != CYBLE_ERROR_OK)&&(CYBLE_STATE_CONNECTED == cyBle_state));        
-//        API_RESULT=API_RESULT+0;
-    }
+    TxData = TxData;
+    Len = Len;
+//    CYBLE_API_RESULT_T API_RESULT;
+//    if(THROUGH_STAUS)//如果主机打开从机的透传通道,从机则马上给主机发送透传数据
+//    {
+//        CYBLE_GATTS_HANDLE_VALUE_NTF_T ServiceToClientData;//临时存放要发送给主机的信息
+//        ServiceToClientData.value.val=(uint8_t*)TxData;//发送数据的首地址
+//        ServiceToClientData.value.len=Len-1;//所要发送的数据的长度
+//        ServiceToClientData.attrHandle=CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE;//所要发送数据的特征值句柄
+//        while(CyBle_GattGetBusStatus()!=CYBLE_STACK_STATE_FREE);//等待蓝牙空闲时才发送数据        
+//        do
+//        {
+//            API_RESULT=CyBle_GattsNotification(cyBle_connHandle,&ServiceToClientData);//发送数据给主机
+//            CyBle_ProcessEvents();
+//        }
+//        while((API_RESULT != CYBLE_ERROR_OK)&&(CYBLE_STATE_CONNECTED == cyBle_state));        
+////        API_RESULT=API_RESULT+0;
+//    }
 }
 
 /******************************************
@@ -176,40 +177,126 @@ void ServiceToClient(char* TxData,uint16_t Len)
 */
 void ClientData_Handler(const char* RxData)
 {
-    uint8_t Location,Index;       
-    //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8,从0开始算起.
-    Location=strchr((char*)RxData,'=')-RxData;
-    //动态分配堆空间
-    char* String=malloc(sizeof(char)*Location);
-    //保存AT命令等号前的数据.
-    strncpy(String,RxData,Location); 
-    //匹配AT命令列表中AT命令的位置
-    for(Index=0;Index<CommandListLen;Index++)
+    RxData = RxData;
+//    uint8_t Location,Index;       
+//    //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8,从0开始算起.
+//    Location=strchr((char*)RxData,'=')-RxData;
+//    //动态分配堆空间
+//    char* String=malloc(sizeof(char)*Location);
+//    //保存AT命令等号前的数据.
+//    strncpy(String,RxData,Location); 
+//    //匹配AT命令列表中AT命令的位置
+//    for(Index=0;Index<CommandListLen;Index++)
+//    {
+//        if(strncmp((char*)String,CommandList[Index],Location)==0)
+//        {
+//            break;
+//        }
+//    }    
+//    free(String);//释放之前分配的堆空间      
+//    switch(Index)//执行相应的命令
+//    {
+//        case SWT:
+//            if(RxData[Location+1]-0x30)//控制开关为开
+//            {
+//                BLUE_LED_Write(ON);
+//                ServiceToClient("AT+ON",sizeof("AT+ON"));
+//            }
+//            else if(0 == RxData[Location+1]-0x30)//控制开关为关
+//            {
+//                BLUE_LED_Write(OFF);
+//                ServiceToClient("AT+OFF",sizeof("AT+OFF"));
+//            }
+//        break;
+//        default:
+//        break;
+//    }
+}
+
+/******************************************
+  * @函数名：BT1_IntHandler
+  * @输入：  NULL              
+  * @返回：  NULL            
+  * @描述：  处理按键1事件
+  *****************************************
+*/
+CY_ISR(BT1_IntHandler)
+{
+    isr_Button1_ClearPending();
+    Button1_ClearInterrupt();
+    ButtonStatus=BUTTON1_DOWN;
+}
+
+/******************************************
+  * @函数名：BT2_IntHandler
+  * @输入：  NULL              
+  * @返回：  NULL            
+  * @描述：  处理按键2事件
+  *****************************************
+*/
+CY_ISR(BT2_IntHandler)
+{
+    isr_Button2_ClearPending();
+    Button2_ClearInterrupt();
+    ButtonStatus=BUTTON2_DOWN;
+}
+/******************************************
+  * @函数名：BT3_IntHandler
+  * @输入：  NULL              
+  * @返回：  NULL            
+  * @描述：  处理按键3事件
+  *****************************************
+*/
+CY_ISR(BT3_IntHandler)
+{
+    isr_Button3_ClearPending();
+    Button3_ClearInterrupt();
+    ButtonStatus=BUTTON3_DOWN;
+}
+/******************************************
+  * @函数名：BT4_IntHandler
+  * @输入：  NULL
+  * @返回：  NULL            
+  * @描述：  处理按键4事件
+  *****************************************
+*/
+CY_ISR(BT4_IntHandler)
+{
+    isr_Button4_ClearPending();
+    Button4_ClearInterrupt();
+    ButtonStatus=BUTTON4_DOWN;
+}
+
+/******************************************
+  * @函数名：ButtonHandler
+  * @输入：  NULL
+  * @返回：  NULL            
+  * @描述：  处理所有的按键事件
+  *****************************************
+*/
+void ButtonHandler(void)
+{
+//    uint8_t Button;
+    switch(ButtonStatus)
     {
-        if(strncmp((char*)String,CommandList[Index],Location)==0)
-        {
-            break;
-        }
-    }    
-    free(String);//释放之前分配的堆空间      
-    switch(Index)//执行相应的命令
-    {
-        case SWT:
-            if(RxData[Location+1]-0x30)//控制开关为开
-            {
-                BLUE_LED_Write(ON);
-                ServiceToClient("AT+ON",sizeof("AT+ON"));
-            }
-            else if(0 == RxData[Location+1]-0x30)//控制开关为关
-            {
-                BLUE_LED_Write(OFF);
-                ServiceToClient("AT+OFF",sizeof("AT+OFF"));
-            }
+        case BUTTON1_DOWN:
+            ButtonStatus = BUTTON_UP;
+            CyBle_GapcConnectDevice(&BondList.bdAddrList[0]);//建立连接
+        break;
+        case BUTTON2_DOWN:
+            ButtonStatus = BUTTON_UP;
+        break;
+        case BUTTON3_DOWN:
+            ButtonStatus = BUTTON_UP;
+        break;
+        case BUTTON4_DOWN:
+            ButtonStatus = BUTTON_UP;
         break;
         default:
         break;
     }
 }
+
 
 /******************************************
   * @函数名：LowPowerManagement
@@ -240,6 +327,8 @@ void LowPowerManagement(void)
 		    {
 
                 CySysPmDeepSleep();
+                /* 处理唤醒后的事件 */
+                LOWPOWER=FALSE;
 		 	}
 		}
 		else if((sleepMode == CYBLE_BLESS_SLEEP)||(sleepMode == CYBLE_BLESS_ACTIVE))
@@ -249,6 +338,8 @@ void LowPowerManagement(void)
 				/* If the BLESS hardware block cannot go to Deep Sleep and BLE Event has not 
 				* closed yet, then place CPU to Sleep */ 
 		        CySysPmSleep();  
+                /* 处理唤醒后的事件 */
+                LOWPOWER=FALSE;
 		    }
 		}
 		/* Re-enable global interrupt mask after wakeup */

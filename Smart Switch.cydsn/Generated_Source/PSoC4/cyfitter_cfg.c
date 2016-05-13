@@ -123,6 +123,47 @@ static void CyClockStartupError(uint8 errorCode)
 }
 #endif
 
+#define CY_CFG_BASE_ADDR_COUNT 1u
+CYPACKED typedef struct
+{
+	uint8 offset;
+	uint8 value;
+} CYPACKED_ATTR cy_cfg_addrvalue_t;
+
+
+
+/*******************************************************************************
+* Function Name: cfg_write_bytes32
+********************************************************************************
+* Summary:
+*  This function is used for setting up the chip configuration areas that
+*  contain relatively sparse data.
+*
+* Parameters:
+*   void
+*
+* Return:
+*   void
+*
+*******************************************************************************/
+static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[]);
+static void cfg_write_bytes32(const uint32 addr_table[], const cy_cfg_addrvalue_t data_table[])
+{
+	/* For 32-bit little-endian architectures */
+	uint32 i, j = 0u;
+	for (i = 0u; i < CY_CFG_BASE_ADDR_COUNT; i++)
+	{
+		uint32 baseAddr = addr_table[i];
+		uint8 count = (uint8)baseAddr;
+		baseAddr &= 0xFFFFFF00u;
+		while (count != 0u)
+		{
+			CY_SET_XTND_REG8((void CYFAR *)(baseAddr + data_table[j].offset), data_table[j].value);
+			j++;
+			count--;
+		}
+	}
+}
 
 
 /*******************************************************************************
@@ -240,6 +281,16 @@ void cyfitter_cfg(void)
 	CY_SET_XTND_REG32((void CYFAR *)(CYREG_BLE_BLESS_LL_DSM_CTRL), 0x00000000u);
 
 	{
+		static const uint32 CYCODE cy_cfg_addr_table[] = {
+			0x400F6002u, /* Base address: 0x400F6000 Count: 2 */
+		};
+
+		static const cy_cfg_addrvalue_t CYCODE cy_cfg_data_table[] = {
+			{0x02u, 0x01u},
+			{0x11u, 0x01u},
+		};
+
+
 
 		CYPACKED typedef struct {
 			void CYFAR *address;
@@ -261,14 +312,26 @@ void cyfitter_cfg(void)
 			CYMEMZERO(ms->address, (size_t)(uint32)(ms->size));
 		}
 
+		cfg_write_bytes32(cy_cfg_addr_table, cy_cfg_data_table);
+
 		/* HSIOM Starting address: CYDEV_HSIOM_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_HSIOM_BASE), 0xEE000000u);
 
 		/* UDB_PA_0 Starting address: CYDEV_UDB_PA0_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA0_BASE), 0x00990000u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA0_CFG4), 0x00020000u);
+
+		/* UDB_PA_1 Starting address: CYDEV_UDB_PA1_BASE */
+		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA1_BASE), 0x00990000u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA1_CFG4), 0x00020000u);
+
+		/* UDB_PA_2 Starting address: CYDEV_UDB_PA2_BASE */
+		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA2_BASE), 0x00990000u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA2_CFG4), 0x00020000u);
 
 		/* UDB_PA_3 Starting address: CYDEV_UDB_PA3_BASE */
 		CY_SET_XTND_REG32((void CYFAR *)(CYDEV_UDB_PA3_BASE), 0x00990000u);
+		CY_SET_XTND_REG32((void CYFAR *)(CYREG_UDB_PA3_CFG4), 0x00020000u);
 
 		/* Enable digital routing */
 		CY_SET_XTND_REG8((void *)CYREG_UDB_UDBIF_BANK_CTL, CY_GET_XTND_REG8((void *)CYREG_UDB_UDBIF_BANK_CTL) | 0x02u);
@@ -280,11 +343,24 @@ void cyfitter_cfg(void)
 
 	/* Perform second pass device configuration. These items must be configured in specific order after the regular configuration is done. */
 	/* IOPINS0_0 Starting address: CYDEV_GPIO_PRT0_BASE */
-	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT0_PC), 0x00D80000u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYDEV_GPIO_PRT0_BASE), 0x00000001u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT0_PC), 0x00D80002u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT0_INTR_CFG), 0x00000002u);
+
+	/* IOPINS0_1 Starting address: CYDEV_GPIO_PRT1_BASE */
+	CY_SET_XTND_REG32((void CYFAR *)(CYDEV_GPIO_PRT1_BASE), 0x00000001u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT1_PC), 0x00000002u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT1_INTR_CFG), 0x00000002u);
+
+	/* IOPINS0_2 Starting address: CYDEV_GPIO_PRT2_BASE */
+	CY_SET_XTND_REG32((void CYFAR *)(CYDEV_GPIO_PRT2_BASE), 0x00000001u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT2_PC), 0x00000002u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT2_INTR_CFG), 0x00000002u);
 
 	/* IOPINS0_3 Starting address: CYDEV_GPIO_PRT3_BASE */
-	CY_SET_XTND_REG32((void CYFAR *)(CYDEV_GPIO_PRT3_BASE), 0x00000080u);
-	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT3_PC), 0x00C00000u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYDEV_GPIO_PRT3_BASE), 0x00000001u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT3_PC), 0x00000002u);
+	CY_SET_XTND_REG32((void CYFAR *)(CYREG_GPIO_PRT3_INTR_CFG), 0x00000002u);
 
 
 	/* Setup clocks based on selections from Clock DWR */

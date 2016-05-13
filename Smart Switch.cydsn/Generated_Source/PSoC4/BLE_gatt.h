@@ -24,7 +24,7 @@
 * Conditional Compilation Parameters
 ***************************************/
 
-#define CYBLE_GATT_ROLE                              (0x01u)
+#define CYBLE_GATT_ROLE                              (0x03u)
 #define CYBLE_GATT_SERVER                            (0x01u)
 #define CYBLE_GATT_CLIENT                            (0x02u)
 #define CYBLE_GATT_BOTH                              (CYBLE_GATT_SERVER | CYBLE_GATT_CLIENT)
@@ -35,13 +35,13 @@
 
 #if(CYBLE_GATT_ROLE_SERVER)
 
-#define CYBLE_GATT_DB_INDEX_COUNT                    (0x0013u)
-#define CYBLE_GATT_DB_ATT_VAL_COUNT                  (0x09u)
-#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x0017u)
+#define CYBLE_GATT_DB_INDEX_COUNT                    (0x000Bu)
+#define CYBLE_GATT_DB_ATT_VAL_COUNT                  (0x05u)
+#define CYBLE_GATT_DB_MAX_VALUE_LEN                  (0x0009u)
 
 #endif /* CYBLE_GATT_ROLE_SERVER */
 
-#define CYBLE_GATT_DB_CCCD_COUNT                     (0x04u)
+#define CYBLE_GATT_DB_CCCD_COUNT                     (0x02u)
 
 #if (CYBLE_GATT_DB_CCCD_COUNT == 0u)
     #define CYBLE_GATT_DB_FLASH_CCCD_COUNT          (1u)
@@ -49,8 +49,7 @@
     #define CYBLE_GATT_DB_FLASH_CCCD_COUNT          (CYBLE_GATT_DB_CCCD_COUNT)
 #endif
 
-#define CYBLE_CUSTOM
-#define CYBLE_CUSTOM_SERVER
+
 
 
 /***************************************

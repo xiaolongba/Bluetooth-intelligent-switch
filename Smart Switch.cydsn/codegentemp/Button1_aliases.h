@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: BLUE_LED.h  
+* File Name: Button1.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_BLUE_LED_ALIASES_H) /* Pins BLUE_LED_ALIASES_H */
-#define CY_PINS_BLUE_LED_ALIASES_H
+#if !defined(CY_PINS_Button1_ALIASES_H) /* Pins Button1_ALIASES_H */
+#define CY_PINS_Button1_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -26,17 +26,17 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define BLUE_LED_0			(BLUE_LED__0__PC)
-#define BLUE_LED_0_PS		(BLUE_LED__0__PS)
-#define BLUE_LED_0_PC		(BLUE_LED__0__PC)
-#define BLUE_LED_0_DR		(BLUE_LED__0__DR)
-#define BLUE_LED_0_SHIFT	(BLUE_LED__0__SHIFT)
-#define BLUE_LED_0_INTR	((uint16)((uint16)0x0003u << (BLUE_LED__0__SHIFT*2u)))
+#define Button1_0			(Button1__0__PC)
+#define Button1_0_PS		(Button1__0__PS)
+#define Button1_0_PC		(Button1__0__PC)
+#define Button1_0_DR		(Button1__0__DR)
+#define Button1_0_SHIFT	(Button1__0__SHIFT)
+#define Button1_0_INTR	((uint16)((uint16)0x0003u << (Button1__0__SHIFT*2u)))
 
-#define BLUE_LED_INTR_ALL	 ((uint16)(BLUE_LED_0_INTR))
+#define Button1_INTR_ALL	 ((uint16)(Button1_0_INTR))
 
 
-#endif /* End Pins BLUE_LED_ALIASES_H */
+#endif /* End Pins Button1_ALIASES_H */
 
 
 /* [] END OF FILE */

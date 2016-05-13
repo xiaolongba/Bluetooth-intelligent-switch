@@ -14,8 +14,8 @@
 */
 #include <project.h>
 #include "application.h"
-extern uint8_t Buffer[BUFFERLEN];
-extern uint8_t RX_ISOVER;
+//extern uint8_t Buffer[BUFFERLEN];
+extern uint8_t LOWPOWER;
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -29,8 +29,6 @@ int main()
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
 
     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */    
-//    CySysClkIloStop();
-//    CySysClkWriteEcoDiv(CY_SYS_CLK_ECO_DIV8);
     CyBle_Start(StackEventHandler);//BLE协议栈初始化
     for(;;)
     {
@@ -42,16 +40,13 @@ int main()
             {
                 //不做任何事情
             }
-        }
-        if(RX_ISOVER)//开始处理主机透传过来的控制命令
+        } 
+        if(LOWPOWER)
         {
-            RX_ISOVER=FALSE;
-            ClientData_Handler((char*)Buffer);//实际处理主机透传过来的控制命令
-        }
-        #if LOWPOWER
             CyBle_ProcessEvents();
             LowPowerManagement();
-        #endif
+        }
+        
         CyBle_ProcessEvents();
     }
 }

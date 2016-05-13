@@ -25,28 +25,18 @@
    The array index definitions are located in the CYBLE_custom.h file. */
 const CYBLE_CUSTOMS_T cyBle_customs[0x01u] = {
 
-    /* Troughput Service service */
+    /* ThroughPut Service service */
     {
-        0x000Eu, /* Handle of the Troughput Service service */ 
+        0x000Cu, /* Handle of the ThroughPut Service service */ 
         {
-
-            /* TX characteristic */
-            {
-                0x0010u, /* Handle of the TX characteristic */ 
-                
-                /* Array of Descriptors handles */
-                {
-                    0x0011u, /* Handle of the Client Characteristic Configuration descriptor */ 
-                }, 
-            },
 
             /* RX characteristic */
             {
-                0x0013u, /* Handle of the RX characteristic */ 
+                0x000Eu, /* Handle of the RX characteristic */ 
                 
                 /* Array of Descriptors handles */
                 {
-                    CYBLE_GATT_INVALID_ATTR_HANDLE_VALUE, 
+                    0x000Fu, /* Handle of the Client Characteristic Configuration descriptor */ 
                 }, 
             },
         }, 

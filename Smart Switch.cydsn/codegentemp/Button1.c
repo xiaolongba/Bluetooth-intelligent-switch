@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: BLUE_LED.c  
+* File Name: Button1.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "BLUE_LED.h"
+#include "Button1.h"
 
 
-#if defined(BLUE_LED__PC)
-    #define BLUE_LED_SetP4PinDriveMode(shift, mode)  \
+#if defined(Button1__PC)
+    #define Button1_SetP4PinDriveMode(shift, mode)  \
     do { \
-        BLUE_LED_PC =   (BLUE_LED_PC & \
-                                (uint32)(~(uint32)(BLUE_LED_DRIVE_MODE_IND_MASK << \
-                                (BLUE_LED_DRIVE_MODE_BITS * (shift))))) | \
+        Button1_PC =   (Button1_PC & \
+                                (uint32)(~(uint32)(Button1_DRIVE_MODE_IND_MASK << \
+                                (Button1_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (BLUE_LED_DRIVE_MODE_BITS * (shift))); \
+                                (Button1_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define BLUE_LED_SetP4PinDriveMode(shift, mode)  \
+        #define Button1_SetP4PinDriveMode(shift, mode)  \
         do { \
-            BLUE_LED_USBIO_CTRL_REG = (BLUE_LED_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(BLUE_LED_DRIVE_MODE_IND_MASK << \
-                                    (BLUE_LED_DRIVE_MODE_BITS * (shift))))) | \
+            Button1_USBIO_CTRL_REG = (Button1_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Button1_DRIVE_MODE_IND_MASK << \
+                                    (Button1_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (BLUE_LED_DRIVE_MODE_BITS * (shift))); \
+                                    (Button1_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(BLUE_LED__PC) || (CY_PSOC4_4200L) 
+#if defined(Button1__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: BLUE_LED_SetDriveMode
+    * Function Name: Button1_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,17 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet BLUE_LED_SUT.c usage_BLUE_LED_SetDriveMode
+    *  \snippet Button1_SUT.c usage_Button1_SetDriveMode
     *******************************************************************************/
-    void BLUE_LED_SetDriveMode(uint8 mode)
+    void Button1_SetDriveMode(uint8 mode)
     {
-		BLUE_LED_SetP4PinDriveMode(BLUE_LED__0__SHIFT, mode);
+		Button1_SetP4PinDriveMode(Button1__0__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: BLUE_LED_Write
+* Function Name: Button1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +106,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet BLUE_LED_SUT.c usage_BLUE_LED_Write
+*  \snippet Button1_SUT.c usage_Button1_Write
 *******************************************************************************/
-void BLUE_LED_Write(uint8 value)
+void Button1_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(BLUE_LED_DR & (uint8)(~BLUE_LED_MASK));
-    drVal = (drVal | ((uint8)(value << BLUE_LED_SHIFT) & BLUE_LED_MASK));
-    BLUE_LED_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Button1_DR & (uint8)(~Button1_MASK));
+    drVal = (drVal | ((uint8)(value << Button1_SHIFT) & Button1_MASK));
+    Button1_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: BLUE_LED_Read
+* Function Name: Button1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +131,16 @@ void BLUE_LED_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet BLUE_LED_SUT.c usage_BLUE_LED_Read  
+*  \snippet Button1_SUT.c usage_Button1_Read  
 *******************************************************************************/
-uint8 BLUE_LED_Read(void)
+uint8 Button1_Read(void)
 {
-    return (uint8)((BLUE_LED_PS & BLUE_LED_MASK) >> BLUE_LED_SHIFT);
+    return (uint8)((Button1_PS & Button1_MASK) >> Button1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: BLUE_LED_ReadDataReg
+* Function Name: Button1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +149,8 @@ uint8 BLUE_LED_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred BLUE_LED_Read() API because the 
-* BLUE_LED_ReadDataReg() reads the data register instead of the status 
+* preferred Button1_Read() API because the 
+* Button1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +159,16 @@ uint8 BLUE_LED_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet BLUE_LED_SUT.c usage_BLUE_LED_ReadDataReg 
+*  \snippet Button1_SUT.c usage_Button1_ReadDataReg 
 *******************************************************************************/
-uint8 BLUE_LED_ReadDataReg(void)
+uint8 Button1_ReadDataReg(void)
 {
-    return (uint8)((BLUE_LED_DR & BLUE_LED_MASK) >> BLUE_LED_SHIFT);
+    return (uint8)((Button1_DR & Button1_MASK) >> Button1_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: BLUE_LED_SetInterruptMode
+* Function Name: Button1_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +181,12 @@ uint8 BLUE_LED_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use BLUE_LED_INTR_ALL to configure the
+*  component. Or you may use Button1_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - BLUE_LED_0_INTR       (First pin in the list)
-*  - BLUE_LED_1_INTR       (Second pin in the list)
+*  - Button1_0_INTR       (First pin in the list)
+*  - Button1_1_INTR       (Second pin in the list)
 *  - ...
-*  - BLUE_LED_INTR_ALL     (All pins in Pins component)
+*  - Button1_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +202,19 @@ uint8 BLUE_LED_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet BLUE_LED_SUT.c usage_BLUE_LED_SetInterruptMode
+*  \snippet Button1_SUT.c usage_Button1_SetInterruptMode
 *******************************************************************************/
-void BLUE_LED_SetInterruptMode(uint16 position, uint16 mode)
+void Button1_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  BLUE_LED_INTCFG & (uint32)(~(uint32)position);
-    BLUE_LED_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Button1_INTCFG & (uint32)(~(uint32)position);
+    Button1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: BLUE_LED_ClearInterrupt
+* Function Name: Button1_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +231,13 @@ void BLUE_LED_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet BLUE_LED_SUT.c usage_BLUE_LED_ClearInterrupt
+*  \snippet Button1_SUT.c usage_Button1_ClearInterrupt
 *******************************************************************************/
-uint8 BLUE_LED_ClearInterrupt(void)
+uint8 Button1_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(BLUE_LED_INTSTAT & BLUE_LED_MASK);
-	BLUE_LED_INTSTAT = maskedStatus;
-    return maskedStatus >> BLUE_LED_SHIFT;
+	uint8 maskedStatus = (uint8)(Button1_INTSTAT & Button1_MASK);
+	Button1_INTSTAT = maskedStatus;
+    return maskedStatus >> Button1_SHIFT;
 }
 
 

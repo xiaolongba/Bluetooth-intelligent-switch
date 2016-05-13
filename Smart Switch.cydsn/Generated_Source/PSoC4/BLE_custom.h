@@ -26,22 +26,19 @@
 /* Maximum supported Custom Services */
 #define CYBLE_CUSTOMS_SERVICE_COUNT                  (0x01u)
 #define CYBLE_CUSTOMC_SERVICE_COUNT                  (0x00u)
-#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x02u)
+#define CYBLE_CUSTOM_SERVICE_CHAR_COUNT              (0x01u)
 #define CYBLE_CUSTOM_SERVICE_CHAR_DESCRIPTORS_COUNT  (0x01u)
 
 /* Below are the indexes and handles of the defined Custom Services and their characteristics */
-#define CYBLE_TROUGHPUT_SERVICE_SERVICE_INDEX   (0x00u) /* Index of Troughput Service service in the cyBle_customs array */
-#define CYBLE_TROUGHPUT_SERVICE_TX_CHAR_INDEX   (0x00u) /* Index of TX characteristic */
-#define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_INDEX   (0x00u) /* Index of Client Characteristic Configuration descriptor */
-#define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_INDEX   (0x01u) /* Index of RX characteristic */
+#define CYBLE_THROUGHPUT_SERVICE_SERVICE_INDEX   (0x00u) /* Index of ThroughPut Service service in the cyBle_customs array */
+#define CYBLE_THROUGHPUT_SERVICE_RX_CHAR_INDEX   (0x00u) /* Index of RX characteristic */
+#define CYBLE_THROUGHPUT_SERVICE_RX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_INDEX   (0x00u) /* Index of Client Characteristic Configuration descriptor */
 
 
-#define CYBLE_TROUGHPUT_SERVICE_SERVICE_HANDLE   (0x000Eu) /* Handle of Troughput Service service */
-#define CYBLE_TROUGHPUT_SERVICE_TX_DECL_HANDLE   (0x000Fu) /* Handle of TX characteristic declaration */
-#define CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE   (0x0010u) /* Handle of TX characteristic */
-#define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
-#define CYBLE_TROUGHPUT_SERVICE_RX_DECL_HANDLE   (0x0012u) /* Handle of RX characteristic declaration */
-#define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
+#define CYBLE_THROUGHPUT_SERVICE_SERVICE_HANDLE   (0x000Cu) /* Handle of ThroughPut Service service */
+#define CYBLE_THROUGHPUT_SERVICE_RX_DECL_HANDLE   (0x000Du) /* Handle of RX characteristic declaration */
+#define CYBLE_THROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x000Eu) /* Handle of RX characteristic */
+#define CYBLE_THROUGHPUT_SERVICE_RX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x000Fu) /* Handle of Client Characteristic Configuration descriptor */
 
 
 

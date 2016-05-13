@@ -32,12 +32,30 @@
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_StackGattClient.h" value="NONE;BLE" />
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_Stack.h" value="NONE;BLE" />
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_eventHandler.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_custom.h" value="NONE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_custom.c" value="ARM_C_FILE;BLE" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED.c" value="ARM_C_FILE;BLUE_LED" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED.h" value="NONE;BLUE_LED" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED_aliases.h" value="NONE;BLUE_LED" />
-  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLUE_LED_PM.c" value="ARM_C_FILE;BLUE_LED" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button4.c" value="ARM_C_FILE;isr_Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button4.h" value="NONE;isr_Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button3.c" value="ARM_C_FILE;isr_Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button3.h" value="NONE;isr_Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button2.c" value="ARM_C_FILE;isr_Button2" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button2.h" value="NONE;isr_Button2" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button1.c" value="ARM_C_FILE;isr_Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\isr_Button1.h" value="NONE;isr_Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button4.c" value="ARM_C_FILE;Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button4.h" value="NONE;Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button4_aliases.h" value="NONE;Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button4_PM.c" value="ARM_C_FILE;Button4" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button3.c" value="ARM_C_FILE;Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button3.h" value="NONE;Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button3_aliases.h" value="NONE;Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button3_PM.c" value="ARM_C_FILE;Button3" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button1.c" value="ARM_C_FILE;Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button1.h" value="NONE;Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button1_aliases.h" value="NONE;Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button1_PM.c" value="ARM_C_FILE;Button1" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button2.c" value="ARM_C_FILE;Button2" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button2.h" value="NONE;Button2" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button2_aliases.h" value="NONE;Button2" />
+  <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Button2_PM.c" value="ARM_C_FILE;Button2" />
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.c" value="ARM_C_FILE;BLE_bless_isr" />
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE_bless_isr.h" value="NONE;BLE_bless_isr" />
   <file name="C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\BLE.cycsa" value="NONE;" />
