@@ -1,4 +1,4 @@
---------------- Build Started: 05/12/2016 21:32:27 Project: Smart Switch, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 05/14/2016 23:02:36 Project: Smart Switch, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m0 -mthumb -Wno-main -I. -IGenerated_Source\PSoC4 -Wa,-alh=.\CortexM0\ARM_GCC_493\Debug/application.lst -g -D DEBUG -Wall -ffunction-sections -O0 -ffat-lto-objects -c .\application.c -o .\CortexM0\ARM_GCC_493\Debug\application.o
 arm-none-eabi-ar.exe -rs ".\CortexM0\ARM_GCC_493\Debug\Smart Switch.a" .\CortexM0\ARM_GCC_493\Debug\cyfitter_cfg.o .\CortexM0\ARM_GCC_493\Debug\BLE.o .\CortexM0\ARM_GCC_493\Debug\BLE_gatt.o .\CortexM0\ARM_GCC_493\Debug\BLE_eventHandler.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_INT.o .\CortexM0\ARM_GCC_493\Debug\BLE_HAL_PVT.o .\CortexM0\ARM_GCC_493\Debug\BLE_custom.o .\CortexM0\ARM_GCC_493\Debug\BLE_bless_isr.o .\CortexM0\ARM_GCC_493\Debug\CyBootAsmGnu.o .\CortexM0\ARM_GCC_493\Debug\CyFlash.o .\CortexM0\ARM_GCC_493\Debug\CyLib.o .\CortexM0\ARM_GCC_493\Debug\cyPm.o .\CortexM0\ARM_GCC_493\Debug\cyutils.o .\CortexM0\ARM_GCC_493\Debug\CyLFClk.o .\CortexM0\ARM_GCC_493\Debug\BLUE_LED.o .\CortexM0\ARM_GCC_493\Debug\BLUE_LED_PM.o
@@ -6,6 +6,6 @@ arm-none-eabi-ar.exe: creating .\CortexM0\ARM_GCC_493\Debug\Smart Switch.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o ".\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf" .\CortexM0\ARM_GCC_493\Debug\main.o .\CortexM0\ARM_GCC_493\Debug\application.o .\CortexM0\ARM_GCC_493\Debug\cymetadata.o .\CortexM0\ARM_GCC_493\Debug\Cm0Start.o ".\CortexM0\ARM_GCC_493\Debug\Smart Switch.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\BLE_v3_10\Library\gccCyBLEStack_BLE_SOC_PERIPHERAL.a" "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM0\ARM_GCC_493\Debug\CyComponentLibrary.a" -mcpu=cortex-m0 -mthumb -g -ffunction-sections -O0 -L Generated_Source\PSoC4 "-Wl,-Map,.\CortexM0\ARM_GCC_493\Debug/Smart Switch.map" -T Generated_Source\PSoC4\cm0gcc.ld -specs=nano.specs -Wl,--gc-sections -Wl,--end-group
 cyelftool.exe -C "C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf" --flash_row_size 128 --flash_size 131072
 cyelftool.exe -S "C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf"
-Flash used: 84480 of 131072 bytes (64.5%).
+Flash used: 84352 of 131072 bytes (64.4%).
 SRAM used: 10224 of 16384 bytes (62.4%). Stack: 1024 bytes. Heap: 512 bytes.
---------------- Build Succeeded: 05/12/2016 21:32:29 ---------------
+--------------- Build Succeeded: 05/14/2016 23:02:37 ---------------

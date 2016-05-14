@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Smart Switch</v>
 <v>Smart Switch\Smart Switch</v>
@@ -251,9 +251,6 @@
 <OpenDocs>
 <name v=".\Smart Switch.cydsn\application.c" />
 <name v=".\Smart Switch.cydsn\main.c" />
-<name v=".\Smart Switch.cydsn\application.h" />
-<name v=".\Smart Switch.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Smart Switch.cydsn\Smart Switch.cydwr" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

@@ -50,7 +50,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
              CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//初始化时立马发起广播
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功
-            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
+//            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
             CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
@@ -62,8 +62,16 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             {
                 if(WriteCmd.handleValPair.value.val[0] == 0x01)
                 {
-                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据  
-//                    ServiceToClient((uint8_t*)"Helon Test",sizeof("Helon Test"));
+                    THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据
+                    if(0 == BLUE_LED_Read())
+                    {
+                        ServiceToClient("AT+SWT=1",sizeof("AT+SWT=1"));
+                    }
+                    else
+                    {
+                        ServiceToClient("AT+SWT=0",sizeof("AT+SWT=0"));
+                    }
+                    
                 }
                 else
                 {
@@ -198,12 +206,12 @@ void ClientData_Handler(const char* RxData)
             if(RxData[Location+1]-0x30)//控制开关为开
             {
                 BLUE_LED_Write(ON);
-                ServiceToClient("AT+ON",sizeof("AT+ON"));
+                ServiceToClient("AT+SWT=1",sizeof("AT+SWT=1"));
             }
             else if(0 == RxData[Location+1]-0x30)//控制开关为关
             {
                 BLUE_LED_Write(OFF);
-                ServiceToClient("AT+OFF",sizeof("AT+OFF"));
+                ServiceToClient("AT+SWT=0",sizeof("AT+SWT=0"));
             }
         break;
         default:
