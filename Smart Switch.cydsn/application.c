@@ -14,12 +14,22 @@
 #include <project.h> 
 #include "application.h"
 #include <malloc.h>
+#include "print.h"
 /* ****************************************
  * 变量声明定义
  * ****************************************
 */
 CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
 uint8_t NotifyValue[]={0x01,0x00};
+uint8_t WakeUp=FALSE;
+//uint8 testAddr[]={0x8F,0xAA,0x1C,0x50,0xA0,0x00};
+//uint8_t addrtype=0x00;
+CYBLE_GAP_BD_ADDR_T TestDevice=
+{
+    {0x8F,0xAA,0x1C,0x50,0xA0,0x00},
+    0x00
+
+};
 CYBLE_GATTC_WRITE_CMD_REQ_T WriteCmd=
 {
     {
@@ -31,12 +41,21 @@ CYBLE_GATTC_WRITE_CMD_REQ_T WriteCmd=
 };//初始化打开透传通道的数据
 uint8_t THROUGH_STAUS=FALSE;
 char* CommandList[]={"AT+SWT=1","AT+SWT=0"};//控制命令列表
-//uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
-//uint8_t Buffer[BUFFERLEN]={0};//临时存放主机透传给从机的数据
-//uint8_t RX_ISOVER=FALSE;
+//char* ReceviceCmdList[]={"AT+ON","AT+OFF"};
+uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
+uint8_t Buffer[BUFFERLEN]={0};//临时存放从机透传给主机的数据
+uint8_t RX_ISOVER=FALSE;
 uint8_t LOWPOWER;
 uint8_t ButtonStatus=BUTTON_UP;
-uint8_t Switch_On_Off=SWTICH_OFF;
+//static uint8_t Switch_On_Off=SWTICH_OFF;
+uint8_t ButtonType;
+struct BT Button=
+{
+    SWTICH_OFF,
+    SWTICH_OFF,
+    SWTICH_OFF,
+    SWTICH_OFF
+};//初始化所有按键都是松开的状态
 /* ****************************************
  * 各功能函数地具体实现
  * ****************************************
@@ -54,26 +73,37 @@ uint8_t Switch_On_Off=SWTICH_OFF;
 void StackEventHandler(uint32 eventCode, void *eventParam)
 {
     eventParam = eventParam;//防止编译时出现警告 
-    CYBLE_API_RESULT_T API_RESULT;
+//    CYBLE_API_RESULT_T API_RESULT;
+    CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T ReceviceNotifyValue;//这个是存放接收从机发送过来的Notify值
+    CYBLE_GAPC_ADV_REPORT_T ScanResult;
+    uint8_t i;
     switch(eventCode)
     {
         case CYBLE_EVT_STACK_ON://蓝牙初始化完成    
+              #ifdef PRINT
+//                printf("BLE is Ready!\r\n");
+//                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+              #endif
             LOWPOWER=TURE;//上电完成之后立马进入睡眠状态
         break;
-        case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功
+        case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功                
+              #ifdef PRINT
+                printf("BLE is Connectted!\r\n");
+//                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+              #endif
             WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;
             WriteCmd.value.val = NotifyValue;
             WriteCmd.value.len = 2;
-            API_RESULT = CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//打开透传通道
-            if(API_RESULT == CYBLE_ERROR_OK)//通道打开成功，开始发控制命令
-            {
-                WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE;
-                WriteCmd.value.val = (uint8_t *)CommandList[];
-                CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);
-            }
+            CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//打开透传通道            
 //            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
+              #ifdef PRINT
+                printf("BLE is DisConnectted!\r\n");
+//                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+              #endif
+
+             LOWPOWER=TURE;//断开之后，主机马上进入低功耗
 //            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
 //            THROUGH_STAUS=FALSE;
         break;
@@ -116,9 +146,31 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 ////                }
 ////            }
 //            CyBle_GattsWriteRsp(cyBle_connHandle);//写响应
+        break; 
+        case CYBLE_EVT_GATTC_HANDLE_VALUE_NTF:
+            ReceviceNotifyValue = *((CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T *)eventParam);
+            if(ReceviceNotifyValue.handleValPair.attrHandle == CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE)
+            {
+                for(i=0;i<ReceviceNotifyValue.handleValPair.value.len;i++)
+                {
+                    Buffer[i] = ReceviceNotifyValue.handleValPair.value.val[i];
+                } 
+                RX_ISOVER=TURE;
+                #ifdef PRINT
+                    printf("Recevice From Server!\r\n");
+    //                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+                #endif    
+                
+            }
+                            
+        break;
+        case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
+            ScanResult = *((CYBLE_GAPC_ADV_REPORT_T *)eventParam);
+            
         break;            
         default:
         break;
+            
     }
 }
 
@@ -236,6 +288,117 @@ void ClientData_Handler(const char* RxData)
 }
 
 /******************************************
+  * @函数名：ClientData_Handler
+  * @输入：  RxData---指向接收到的从机透传数据的首地址              
+  * @返回：  NULL            
+  * @描述：  处理主机透传给从机的数据
+  *****************************************
+*/
+void ServerData_Handler(const char* RxData)
+{
+//    RxData = RxData;
+    uint8_t Location,Index;       
+    CYBLE_API_RESULT_T API_RESULT;
+    //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8,从0开始算起.
+    Location=strchr((char*)RxData,'=')-RxData;
+    //动态分配堆空间
+    char* String=malloc(sizeof(char)*Location);
+    //保存AT命令等号前的数据.
+    strncpy(String,RxData,Location); 
+    //匹配AT命令列表中AT命令的位置
+    for(Index=0;Index<CommandListLen;Index++)
+    {
+        if(strncmp((char*)String,CommandList[Index],Location)==0)
+        {
+            break;
+        }
+    }    
+    free(String);//释放之前分配的堆空间      
+    switch(Index)//执行相应的命令
+    {
+        case SWT:
+            if(RxData[Location+1]-0x30)//控制开关为开
+            {
+                switch(ButtonType)
+                {
+                    case BUTTON1:
+                        Button.Button1_On_Off=SWTICH_ON;
+                    break;
+                    case BUTTON2:
+                        Button.Button2_On_Off=SWTICH_ON;
+                    break;
+                    case BUTTON3:
+                        Button.Button3_On_Off=SWTICH_ON;
+                    break;
+                    case BUTTON4:
+                        Button.Button4_On_Off=SWTICH_ON;
+                    break;
+                    default:
+                    break;
+                }
+            }
+            else if(0 == RxData[Location+1]-0x30)//控制开关为关
+            {
+                switch(ButtonType)
+                {
+                    case BUTTON1:
+                        Button.Button1_On_Off=SWTICH_OFF;
+                    break;
+                    case BUTTON2:
+                        Button.Button2_On_Off=SWTICH_OFF;
+                    break;
+                    case BUTTON3:
+                        Button.Button3_On_Off=SWTICH_OFF;
+                    break;
+                    case BUTTON4:
+                        Button.Button4_On_Off=SWTICH_OFF;
+                    break;
+                    default:
+                    break;
+                }
+            }
+            WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE;//从机接收属性的句柄值
+            WriteCmd.value.len=8;//
+            switch(ButtonType)
+            {
+                case BUTTON1:
+                    WriteCmd.value.val = (uint8_t *)CommandList[Button.Button1_On_Off^1];//需要发送给从机的数据
+                break;
+                case BUTTON2:
+                    WriteCmd.value.val = (uint8_t *)CommandList[Button.Button2_On_Off^1];//需要发送给从机的数据
+                break;
+                case BUTTON3:
+                    WriteCmd.value.val = (uint8_t *)CommandList[Button.Button3_On_Off^1];//需要发送给从机的数据
+                break;
+                case BUTTON4:
+                    WriteCmd.value.val = (uint8_t *)CommandList[Button.Button4_On_Off^1];//需要发送给从机的数据
+                break;
+                default:
+                break;
+            }                
+            API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
+            if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
+            {
+                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
+            }
+            
+        break;
+//        case NTF:
+//            if(RxData[Location+1]-0x30)//透传通道打开
+//            {
+//            
+//            }
+////            else if(0 == RxData[Location+1]-0x30)//透传通道关闭
+////            {
+////            
+////            }
+//        break;
+        default:
+        break;
+    }
+}
+
+/******************************************
   * @函数名：SystemInit
   * @输入：  NULL 
   * @返回：  NULL            
@@ -243,7 +406,12 @@ void ClientData_Handler(const char* RxData)
   *****************************************
 */
 void SystemInit(void)
-{    
+{   
+    UART_Start();
+    isr_Button1_StartEx(BT1_IntHandler);
+    isr_Button2_StartEx(BT2_IntHandler);
+    isr_Button3_StartEx(BT3_IntHandler);
+    isr_Button4_StartEx(BT4_IntHandler);
     CyBle_Start(StackEventHandler);//BLE协议栈初始化    
 }
 
@@ -259,6 +427,10 @@ CY_ISR(BT1_IntHandler)
     isr_Button1_ClearPending();
     Button1_ClearInterrupt();
     ButtonStatus=BUTTON1_DOWN;
+    ButtonType=BUTTON1;
+    #ifdef PRINT
+        printf("Button1 is pressed!\r\n");
+    #endif
 //    Switch_On_Off=Switch_On_Off^SWTICH_ON;
 }
 
@@ -274,7 +446,10 @@ CY_ISR(BT2_IntHandler)
     isr_Button2_ClearPending();
     Button2_ClearInterrupt();
     ButtonStatus=BUTTON2_DOWN;
-    
+    ButtonType=BUTTON2;   
+    #ifdef PRINT
+        printf("Button2 is pressed!\r\n");
+    #endif
 }
 /******************************************
   * @函数名：BT3_IntHandler
@@ -288,6 +463,10 @@ CY_ISR(BT3_IntHandler)
     isr_Button3_ClearPending();
     Button3_ClearInterrupt();
     ButtonStatus=BUTTON3_DOWN;
+    ButtonType=BUTTON3;
+    #ifdef PRINT
+        printf("Button3 is pressed!\r\n");
+    #endif
 }
 /******************************************
   * @函数名：BT4_IntHandler
@@ -301,6 +480,10 @@ CY_ISR(BT4_IntHandler)
     isr_Button4_ClearPending();
     Button4_ClearInterrupt();
     ButtonStatus=BUTTON4_DOWN;
+    ButtonType=BUTTON4;
+    #ifdef PRINT
+        printf("Button4 is pressed!\r\n");
+    #endif
 }
 
 /******************************************
@@ -318,7 +501,7 @@ void ButtonHandler(void)
     {
         case BUTTON1_DOWN:
             ButtonStatus = BUTTON_UP;
-            API_RESULT=CyBle_GapcConnectDevice(&BondList.bdAddrList[0]);//建立连接
+            API_RESULT=CyBle_GapcConnectDevice(&TestDevice);//建立连接&BondList.bdAddrList[0]
             if(API_RESULT == CYBLE_ERROR_OK)
             {
                 
@@ -370,6 +553,7 @@ void LowPowerManagement(void)
                 CySysPmDeepSleep();
                 /* 处理唤醒后的事件 */
                 LOWPOWER=FALSE;
+                WakeUp=TURE;
 		 	}
 		}
 		else if((sleepMode == CYBLE_BLESS_SLEEP)||(sleepMode == CYBLE_BLESS_ACTIVE))
@@ -381,6 +565,7 @@ void LowPowerManagement(void)
 		        CySysPmSleep();  
                 /* 处理唤醒后的事件 */
                 LOWPOWER=FALSE;
+                WakeUp=TURE;
 		    }
 		}
 		/* Re-enable global interrupt mask after wakeup */

@@ -14,8 +14,10 @@
 */
 #include <project.h>
 #include "application.h"
-//extern uint8_t Buffer[BUFFERLEN];
+extern uint8_t Buffer[BUFFERLEN];
 extern uint8_t LOWPOWER;
+extern uint8_t RX_ISOVER;
+extern uint8_t WakeUp;
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -40,8 +42,18 @@ int main()
             {
                 //不做任何事情
             }
-        } 
+        }
+        if(WakeUp)
+        {
+            WakeUp=FALSE;
+            CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
+        }
         ButtonHandler();
+        if(RX_ISOVER)
+        {
+            RX_ISOVER=FALSE;
+            ServerData_Handler((char*)Buffer);
+        }
         if(LOWPOWER)
         {
             CyBle_ProcessEvents();

@@ -1,0 +1,585 @@
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"print.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._write,"ax",%progbits
+  18              		.align	2
+  19              		.global	_write
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	_write, %function
+  23              	_write:
+  24              	.LFB37:
+  25              		.file 1 ".\\print.c"
+   1:.\print.c     **** /* ========================================
+   2:.\print.c     ****  * 文件：print.c
+   3:.\print.c     ****  * 作者：Helon
+   4:.\print.c     ****  * 日期：2016-05-14
+   5:.\print.c     ****  * 版本：Ver1.0
+   6:.\print.c     ****  * 描述：这个文件是相关Print函数重映射到串口的函数定义
+   7:.\print.c     ****  * ========================================
+   8:.\print.c     **** */
+   9:.\print.c     **** /* ****************************************
+  10:.\print.c     ****  * 头文件包含
+  11:.\print.c     ****  * ****************************************
+  12:.\print.c     **** */
+  13:.\print.c     **** #include "print.h"
+  14:.\print.c     **** 
+  15:.\print.c     **** /* ****************************************
+  16:.\print.c     ****  * 各功能函数地具体实现
+  17:.\print.c     ****  * ****************************************
+  18:.\print.c     **** */
+  19:.\print.c     **** 
+  20:.\print.c     **** /******************************************************************************
+  21:.\print.c     **** * Function Name: Printf函数重映射
+  22:.\print.c     **** ***************************************************************************//**
+  23:.\print.c     **** * 
+  24:.\print.c     **** *  重写_write()函数，为了使能Printf函数打印串口信息
+  25:.\print.c     **** * 
+  26:.\print.c     **** * \return
+  27:.\print.c     **** *  None
+  28:.\print.c     **** * 
+  29:.\print.c     **** ******************************************************************************/
+  30:.\print.c     **** #if defined(__ARMCC_VERSION)
+  31:.\print.c     **** /* For MDK/RVDS compiler revise fputc function for printf functionality */
+  32:.\print.c     **** struct __FILE
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 2
+
+
+  33:.\print.c     **** {
+  34:.\print.c     ****     int handle;
+  35:.\print.c     **** };
+  36:.\print.c     **** enum
+  37:.\print.c     **** {
+  38:.\print.c     ****     STDIN_HANDLE,
+  39:.\print.c     ****     STDOUT_HANDLE,
+  40:.\print.c     ****     STDERR_HANDLE
+  41:.\print.c     **** };
+  42:.\print.c     **** FILE __stdin = {STDIN_HANDLE};
+  43:.\print.c     **** FILE __stdout = {STDOUT_HANDLE};
+  44:.\print.c     **** FILE __stderr = {STDERR_HANDLE};
+  45:.\print.c     **** int fputc(int ch, FILE *file)
+  46:.\print.c     **** {
+  47:.\print.c     ****     int ret = EOF;
+  48:.\print.c     ****     switch( file->handle )
+  49:.\print.c     ****     {
+  50:.\print.c     ****         case STDOUT_HANDLE:
+  51:.\print.c     ****             UART_DEB_UartPutChar(ch);
+  52:.\print.c     ****             ret = ch ;
+  53:.\print.c     ****             break ;
+  54:.\print.c     ****         case STDERR_HANDLE:
+  55:.\print.c     ****             ret = ch ;
+  56:.\print.c     ****             break ;
+  57:.\print.c     ****         default:
+  58:.\print.c     ****             file = file;
+  59:.\print.c     ****             break ;
+  60:.\print.c     ****     }
+  61:.\print.c     ****     return ret ;
+  62:.\print.c     **** }
+  63:.\print.c     **** #elif defined (__ICCARM__)      /* IAR */
+  64:.\print.c     **** /* For IAR compiler revise __write() function for printf functionality */
+  65:.\print.c     **** size_t __write(int handle, const unsigned char * buffer, size_t size)
+  66:.\print.c     **** {
+  67:.\print.c     ****     size_t nChars = 0;
+  68:.\print.c     ****     if (buffer == 0)
+  69:.\print.c     ****     {
+  70:.\print.c     ****         /*
+  71:.\print.c     ****          * This means that we should flush internal buffers.  Since we
+  72:.\print.c     ****          * don't we just return.  (Remember, "handle" == -1 means that all
+  73:.\print.c     ****          * handles should be flushed.)
+  74:.\print.c     ****          */
+  75:.\print.c     ****         return (0);
+  76:.\print.c     ****     }
+  77:.\print.c     ****     for (/* Empty */; size != 0; --size)
+  78:.\print.c     ****     {
+  79:.\print.c     ****         UART_DEB_UartPutChar(*buffer++);
+  80:.\print.c     ****         ++nChars;
+  81:.\print.c     ****     }
+  82:.\print.c     ****     return (nChars);
+  83:.\print.c     **** }
+  84:.\print.c     **** #else  /* (__GNUC__)  GCC */
+  85:.\print.c     **** /* For GCC compiler revise _write() function for printf functionality */
+  86:.\print.c     **** int _write(int file, char *ptr, int len)
+  87:.\print.c     **** {
+  26              		.loc 1 87 0
+  27              		.cfi_startproc
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 3
+
+
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 86B0     		sub	sp, sp, #24
+  33              		.cfi_def_cfa_offset 32
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 F860     		str	r0, [r7, #12]
+  37 0008 B960     		str	r1, [r7, #8]
+  38 000a 7A60     		str	r2, [r7, #4]
+  88:.\print.c     ****     int i;
+  89:.\print.c     ****     file = file;
+  90:.\print.c     ****     for (i = 0; i < len; i++)
+  39              		.loc 1 90 0
+  40 000c 0023     		mov	r3, #0
+  41 000e 7B61     		str	r3, [r7, #20]
+  42 0010 09E0     		b	.L2
+  43              	.L3:
+  91:.\print.c     ****     {
+  92:.\print.c     ****         UART_UartPutChar(*ptr++);//这里替代成UART的发送单字节的函数即可
+  44              		.loc 1 92 0 discriminator 3
+  45 0012 BB68     		ldr	r3, [r7, #8]
+  46 0014 5A1C     		add	r2, r3, #1
+  47 0016 BA60     		str	r2, [r7, #8]
+  48 0018 1B78     		ldrb	r3, [r3]
+  49 001a 181C     		mov	r0, r3
+  50 001c FFF7FEFF 		bl	UART_SpiUartWriteTxData
+  90:.\print.c     ****     {
+  51              		.loc 1 90 0 discriminator 3
+  52 0020 7B69     		ldr	r3, [r7, #20]
+  53 0022 0133     		add	r3, r3, #1
+  54 0024 7B61     		str	r3, [r7, #20]
+  55              	.L2:
+  90:.\print.c     ****     {
+  56              		.loc 1 90 0 is_stmt 0 discriminator 1
+  57 0026 7A69     		ldr	r2, [r7, #20]
+  58 0028 7B68     		ldr	r3, [r7, #4]
+  59 002a 9A42     		cmp	r2, r3
+  60 002c F1DB     		blt	.L3
+  93:.\print.c     ****     }
+  94:.\print.c     ****     return len;
+  61              		.loc 1 94 0 is_stmt 1
+  62 002e 7B68     		ldr	r3, [r7, #4]
+  95:.\print.c     **** }
+  63              		.loc 1 95 0
+  64 0030 181C     		mov	r0, r3
+  65 0032 BD46     		mov	sp, r7
+  66 0034 06B0     		add	sp, sp, #24
+  67              		@ sp needed
+  68 0036 80BD     		pop	{r7, pc}
+  69              		.cfi_endproc
+  70              	.LFE37:
+  71              		.size	_write, .-_write
+  72              		.text
+  73              	.Letext0:
+  74              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 4
+
+
+  75              		.section	.debug_info,"",%progbits
+  76              	.Ldebug_info0:
+  77 0000 E2000000 		.4byte	0xe2
+  78 0004 0400     		.2byte	0x4
+  79 0006 00000000 		.4byte	.Ldebug_abbrev0
+  80 000a 04       		.byte	0x4
+  81 000b 01       		.uleb128 0x1
+  82 000c 27010000 		.4byte	.LASF14
+  83 0010 01       		.byte	0x1
+  84 0011 0A010000 		.4byte	.LASF15
+  85 0015 9F000000 		.4byte	.LASF16
+  86 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  87 001d 00000000 		.4byte	0
+  88 0021 00000000 		.4byte	.Ldebug_line0
+  89 0025 02       		.uleb128 0x2
+  90 0026 01       		.byte	0x1
+  91 0027 06       		.byte	0x6
+  92 0028 93000000 		.4byte	.LASF0
+  93 002c 02       		.uleb128 0x2
+  94 002d 01       		.byte	0x1
+  95 002e 08       		.byte	0x8
+  96 002f 58000000 		.4byte	.LASF1
+  97 0033 02       		.uleb128 0x2
+  98 0034 02       		.byte	0x2
+  99 0035 05       		.byte	0x5
+ 100 0036 14010000 		.4byte	.LASF2
+ 101 003a 02       		.uleb128 0x2
+ 102 003b 02       		.byte	0x2
+ 103 003c 07       		.byte	0x7
+ 104 003d 80000000 		.4byte	.LASF3
+ 105 0041 02       		.uleb128 0x2
+ 106 0042 04       		.byte	0x4
+ 107 0043 05       		.byte	0x5
+ 108 0044 6B000000 		.4byte	.LASF4
+ 109 0048 02       		.uleb128 0x2
+ 110 0049 04       		.byte	0x4
+ 111 004a 07       		.byte	0x7
+ 112 004b 22000000 		.4byte	.LASF5
+ 113 004f 02       		.uleb128 0x2
+ 114 0050 08       		.byte	0x8
+ 115 0051 05       		.byte	0x5
+ 116 0052 00000000 		.4byte	.LASF6
+ 117 0056 02       		.uleb128 0x2
+ 118 0057 08       		.byte	0x8
+ 119 0058 07       		.byte	0x7
+ 120 0059 34000000 		.4byte	.LASF7
+ 121 005d 03       		.uleb128 0x3
+ 122 005e 04       		.byte	0x4
+ 123 005f 05       		.byte	0x5
+ 124 0060 696E7400 		.ascii	"int\000"
+ 125 0064 02       		.uleb128 0x2
+ 126 0065 04       		.byte	0x4
+ 127 0066 07       		.byte	0x7
+ 128 0067 15000000 		.4byte	.LASF8
+ 129 006b 04       		.uleb128 0x4
+ 130 006c 0E000000 		.4byte	.LASF17
+ 131 0070 02       		.byte	0x2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 5
+
+
+ 132 0071 3A01     		.2byte	0x13a
+ 133 0073 48000000 		.4byte	0x48
+ 134 0077 02       		.uleb128 0x2
+ 135 0078 04       		.byte	0x4
+ 136 0079 04       		.byte	0x4
+ 137 007a 4B000000 		.4byte	.LASF9
+ 138 007e 02       		.uleb128 0x2
+ 139 007f 08       		.byte	0x8
+ 140 0080 04       		.byte	0x4
+ 141 0081 79000000 		.4byte	.LASF10
+ 142 0085 02       		.uleb128 0x2
+ 143 0086 01       		.byte	0x1
+ 144 0087 08       		.byte	0x8
+ 145 0088 66000000 		.4byte	.LASF11
+ 146 008c 02       		.uleb128 0x2
+ 147 008d 04       		.byte	0x4
+ 148 008e 07       		.byte	0x7
+ 149 008f 1E010000 		.4byte	.LASF12
+ 150 0093 05       		.uleb128 0x5
+ 151 0094 04       		.byte	0x4
+ 152 0095 85000000 		.4byte	0x85
+ 153 0099 06       		.uleb128 0x6
+ 154 009a 51000000 		.4byte	.LASF18
+ 155 009e 01       		.byte	0x1
+ 156 009f 56       		.byte	0x56
+ 157 00a0 5D000000 		.4byte	0x5d
+ 158 00a4 00000000 		.4byte	.LFB37
+ 159 00a8 38000000 		.4byte	.LFE37-.LFB37
+ 160 00ac 01       		.uleb128 0x1
+ 161 00ad 9C       		.byte	0x9c
+ 162 00ae 07       		.uleb128 0x7
+ 163 00af 74000000 		.4byte	.LASF13
+ 164 00b3 01       		.byte	0x1
+ 165 00b4 56       		.byte	0x56
+ 166 00b5 5D000000 		.4byte	0x5d
+ 167 00b9 02       		.uleb128 0x2
+ 168 00ba 91       		.byte	0x91
+ 169 00bb 6C       		.sleb128 -20
+ 170 00bc 08       		.uleb128 0x8
+ 171 00bd 70747200 		.ascii	"ptr\000"
+ 172 00c1 01       		.byte	0x1
+ 173 00c2 56       		.byte	0x56
+ 174 00c3 93000000 		.4byte	0x93
+ 175 00c7 02       		.uleb128 0x2
+ 176 00c8 91       		.byte	0x91
+ 177 00c9 68       		.sleb128 -24
+ 178 00ca 08       		.uleb128 0x8
+ 179 00cb 6C656E00 		.ascii	"len\000"
+ 180 00cf 01       		.byte	0x1
+ 181 00d0 56       		.byte	0x56
+ 182 00d1 5D000000 		.4byte	0x5d
+ 183 00d5 02       		.uleb128 0x2
+ 184 00d6 91       		.byte	0x91
+ 185 00d7 64       		.sleb128 -28
+ 186 00d8 09       		.uleb128 0x9
+ 187 00d9 6900     		.ascii	"i\000"
+ 188 00db 01       		.byte	0x1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 6
+
+
+ 189 00dc 58       		.byte	0x58
+ 190 00dd 5D000000 		.4byte	0x5d
+ 191 00e1 02       		.uleb128 0x2
+ 192 00e2 91       		.byte	0x91
+ 193 00e3 74       		.sleb128 -12
+ 194 00e4 00       		.byte	0
+ 195 00e5 00       		.byte	0
+ 196              		.section	.debug_abbrev,"",%progbits
+ 197              	.Ldebug_abbrev0:
+ 198 0000 01       		.uleb128 0x1
+ 199 0001 11       		.uleb128 0x11
+ 200 0002 01       		.byte	0x1
+ 201 0003 25       		.uleb128 0x25
+ 202 0004 0E       		.uleb128 0xe
+ 203 0005 13       		.uleb128 0x13
+ 204 0006 0B       		.uleb128 0xb
+ 205 0007 03       		.uleb128 0x3
+ 206 0008 0E       		.uleb128 0xe
+ 207 0009 1B       		.uleb128 0x1b
+ 208 000a 0E       		.uleb128 0xe
+ 209 000b 55       		.uleb128 0x55
+ 210 000c 17       		.uleb128 0x17
+ 211 000d 11       		.uleb128 0x11
+ 212 000e 01       		.uleb128 0x1
+ 213 000f 10       		.uleb128 0x10
+ 214 0010 17       		.uleb128 0x17
+ 215 0011 00       		.byte	0
+ 216 0012 00       		.byte	0
+ 217 0013 02       		.uleb128 0x2
+ 218 0014 24       		.uleb128 0x24
+ 219 0015 00       		.byte	0
+ 220 0016 0B       		.uleb128 0xb
+ 221 0017 0B       		.uleb128 0xb
+ 222 0018 3E       		.uleb128 0x3e
+ 223 0019 0B       		.uleb128 0xb
+ 224 001a 03       		.uleb128 0x3
+ 225 001b 0E       		.uleb128 0xe
+ 226 001c 00       		.byte	0
+ 227 001d 00       		.byte	0
+ 228 001e 03       		.uleb128 0x3
+ 229 001f 24       		.uleb128 0x24
+ 230 0020 00       		.byte	0
+ 231 0021 0B       		.uleb128 0xb
+ 232 0022 0B       		.uleb128 0xb
+ 233 0023 3E       		.uleb128 0x3e
+ 234 0024 0B       		.uleb128 0xb
+ 235 0025 03       		.uleb128 0x3
+ 236 0026 08       		.uleb128 0x8
+ 237 0027 00       		.byte	0
+ 238 0028 00       		.byte	0
+ 239 0029 04       		.uleb128 0x4
+ 240 002a 16       		.uleb128 0x16
+ 241 002b 00       		.byte	0
+ 242 002c 03       		.uleb128 0x3
+ 243 002d 0E       		.uleb128 0xe
+ 244 002e 3A       		.uleb128 0x3a
+ 245 002f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 7
+
+
+ 246 0030 3B       		.uleb128 0x3b
+ 247 0031 05       		.uleb128 0x5
+ 248 0032 49       		.uleb128 0x49
+ 249 0033 13       		.uleb128 0x13
+ 250 0034 00       		.byte	0
+ 251 0035 00       		.byte	0
+ 252 0036 05       		.uleb128 0x5
+ 253 0037 0F       		.uleb128 0xf
+ 254 0038 00       		.byte	0
+ 255 0039 0B       		.uleb128 0xb
+ 256 003a 0B       		.uleb128 0xb
+ 257 003b 49       		.uleb128 0x49
+ 258 003c 13       		.uleb128 0x13
+ 259 003d 00       		.byte	0
+ 260 003e 00       		.byte	0
+ 261 003f 06       		.uleb128 0x6
+ 262 0040 2E       		.uleb128 0x2e
+ 263 0041 01       		.byte	0x1
+ 264 0042 3F       		.uleb128 0x3f
+ 265 0043 19       		.uleb128 0x19
+ 266 0044 03       		.uleb128 0x3
+ 267 0045 0E       		.uleb128 0xe
+ 268 0046 3A       		.uleb128 0x3a
+ 269 0047 0B       		.uleb128 0xb
+ 270 0048 3B       		.uleb128 0x3b
+ 271 0049 0B       		.uleb128 0xb
+ 272 004a 27       		.uleb128 0x27
+ 273 004b 19       		.uleb128 0x19
+ 274 004c 49       		.uleb128 0x49
+ 275 004d 13       		.uleb128 0x13
+ 276 004e 11       		.uleb128 0x11
+ 277 004f 01       		.uleb128 0x1
+ 278 0050 12       		.uleb128 0x12
+ 279 0051 06       		.uleb128 0x6
+ 280 0052 40       		.uleb128 0x40
+ 281 0053 18       		.uleb128 0x18
+ 282 0054 9642     		.uleb128 0x2116
+ 283 0056 19       		.uleb128 0x19
+ 284 0057 00       		.byte	0
+ 285 0058 00       		.byte	0
+ 286 0059 07       		.uleb128 0x7
+ 287 005a 05       		.uleb128 0x5
+ 288 005b 00       		.byte	0
+ 289 005c 03       		.uleb128 0x3
+ 290 005d 0E       		.uleb128 0xe
+ 291 005e 3A       		.uleb128 0x3a
+ 292 005f 0B       		.uleb128 0xb
+ 293 0060 3B       		.uleb128 0x3b
+ 294 0061 0B       		.uleb128 0xb
+ 295 0062 49       		.uleb128 0x49
+ 296 0063 13       		.uleb128 0x13
+ 297 0064 02       		.uleb128 0x2
+ 298 0065 18       		.uleb128 0x18
+ 299 0066 00       		.byte	0
+ 300 0067 00       		.byte	0
+ 301 0068 08       		.uleb128 0x8
+ 302 0069 05       		.uleb128 0x5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 8
+
+
+ 303 006a 00       		.byte	0
+ 304 006b 03       		.uleb128 0x3
+ 305 006c 08       		.uleb128 0x8
+ 306 006d 3A       		.uleb128 0x3a
+ 307 006e 0B       		.uleb128 0xb
+ 308 006f 3B       		.uleb128 0x3b
+ 309 0070 0B       		.uleb128 0xb
+ 310 0071 49       		.uleb128 0x49
+ 311 0072 13       		.uleb128 0x13
+ 312 0073 02       		.uleb128 0x2
+ 313 0074 18       		.uleb128 0x18
+ 314 0075 00       		.byte	0
+ 315 0076 00       		.byte	0
+ 316 0077 09       		.uleb128 0x9
+ 317 0078 34       		.uleb128 0x34
+ 318 0079 00       		.byte	0
+ 319 007a 03       		.uleb128 0x3
+ 320 007b 08       		.uleb128 0x8
+ 321 007c 3A       		.uleb128 0x3a
+ 322 007d 0B       		.uleb128 0xb
+ 323 007e 3B       		.uleb128 0x3b
+ 324 007f 0B       		.uleb128 0xb
+ 325 0080 49       		.uleb128 0x49
+ 326 0081 13       		.uleb128 0x13
+ 327 0082 02       		.uleb128 0x2
+ 328 0083 18       		.uleb128 0x18
+ 329 0084 00       		.byte	0
+ 330 0085 00       		.byte	0
+ 331 0086 00       		.byte	0
+ 332              		.section	.debug_aranges,"",%progbits
+ 333 0000 1C000000 		.4byte	0x1c
+ 334 0004 0200     		.2byte	0x2
+ 335 0006 00000000 		.4byte	.Ldebug_info0
+ 336 000a 04       		.byte	0x4
+ 337 000b 00       		.byte	0
+ 338 000c 0000     		.2byte	0
+ 339 000e 0000     		.2byte	0
+ 340 0010 00000000 		.4byte	.LFB37
+ 341 0014 38000000 		.4byte	.LFE37-.LFB37
+ 342 0018 00000000 		.4byte	0
+ 343 001c 00000000 		.4byte	0
+ 344              		.section	.debug_ranges,"",%progbits
+ 345              	.Ldebug_ranges0:
+ 346 0000 00000000 		.4byte	.LFB37
+ 347 0004 38000000 		.4byte	.LFE37
+ 348 0008 00000000 		.4byte	0
+ 349 000c 00000000 		.4byte	0
+ 350              		.section	.debug_line,"",%progbits
+ 351              	.Ldebug_line0:
+ 352 0000 6E000000 		.section	.debug_str,"MS",%progbits,1
+ 352      02004400 
+ 352      00000201 
+ 352      FB0E0D00 
+ 352      01010101 
+ 353              	.LASF6:
+ 354 0000 6C6F6E67 		.ascii	"long long int\000"
+ 354      206C6F6E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 9
+
+
+ 354      6720696E 
+ 354      7400
+ 355              	.LASF17:
+ 356 000e 75696E74 		.ascii	"uint32\000"
+ 356      333200
+ 357              	.LASF8:
+ 358 0015 756E7369 		.ascii	"unsigned int\000"
+ 358      676E6564 
+ 358      20696E74 
+ 358      00
+ 359              	.LASF5:
+ 360 0022 6C6F6E67 		.ascii	"long unsigned int\000"
+ 360      20756E73 
+ 360      69676E65 
+ 360      6420696E 
+ 360      7400
+ 361              	.LASF7:
+ 362 0034 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 362      206C6F6E 
+ 362      6720756E 
+ 362      7369676E 
+ 362      65642069 
+ 363              	.LASF9:
+ 364 004b 666C6F61 		.ascii	"float\000"
+ 364      7400
+ 365              	.LASF18:
+ 366 0051 5F777269 		.ascii	"_write\000"
+ 366      746500
+ 367              	.LASF1:
+ 368 0058 756E7369 		.ascii	"unsigned char\000"
+ 368      676E6564 
+ 368      20636861 
+ 368      7200
+ 369              	.LASF11:
+ 370 0066 63686172 		.ascii	"char\000"
+ 370      00
+ 371              	.LASF4:
+ 372 006b 6C6F6E67 		.ascii	"long int\000"
+ 372      20696E74 
+ 372      00
+ 373              	.LASF13:
+ 374 0074 66696C65 		.ascii	"file\000"
+ 374      00
+ 375              	.LASF10:
+ 376 0079 646F7562 		.ascii	"double\000"
+ 376      6C6500
+ 377              	.LASF3:
+ 378 0080 73686F72 		.ascii	"short unsigned int\000"
+ 378      7420756E 
+ 378      7369676E 
+ 378      65642069 
+ 378      6E7400
+ 379              	.LASF0:
+ 380 0093 7369676E 		.ascii	"signed char\000"
+ 380      65642063 
+ 380      68617200 
+ 381              	.LASF16:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccNCT5bJ.s 			page 10
+
+
+ 382 009f 433A5C55 		.ascii	"C:\\Users\\Helon\\Desktop\\Bluetooth-intelligent-sw"
+ 382      73657273 
+ 382      5C48656C 
+ 382      6F6E5C44 
+ 382      65736B74 
+ 383 00ce 69746368 		.ascii	"itch\\V2.0.0\\Bluetooth-intelligent-switch\\Smart S"
+ 383      5C56322E 
+ 383      302E305C 
+ 383      426C7565 
+ 383      746F6F74 
+ 384 00fe 77697463 		.ascii	"witch.cydsn\000"
+ 384      682E6379 
+ 384      64736E00 
+ 385              	.LASF15:
+ 386 010a 2E5C7072 		.ascii	".\\print.c\000"
+ 386      696E742E 
+ 386      6300
+ 387              	.LASF2:
+ 388 0114 73686F72 		.ascii	"short int\000"
+ 388      7420696E 
+ 388      7400
+ 389              	.LASF12:
+ 390 011e 73697A65 		.ascii	"sizetype\000"
+ 390      74797065 
+ 390      00
+ 391              	.LASF14:
+ 392 0127 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 392      4320342E 
+ 392      392E3320 
+ 392      32303135 
+ 392      30333033 
+ 393 015a 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 393      20726576 
+ 393      6973696F 
+ 393      6E203232 
+ 393      31323230 
+ 394 018d 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 394      66756E63 
+ 394      74696F6E 
+ 394      2D736563 
+ 394      74696F6E 
+ 395              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

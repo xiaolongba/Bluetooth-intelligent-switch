@@ -24,6 +24,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam);
 void LowPowerManagement(void);
 void ServiceToClient(char* TxData,uint16_t Len);
 void ClientData_Handler(const char* RxData);
+void ServerData_Handler(const char* RxData);
 void SystemInit(void);
 void ButtonHandler(void);
 CY_ISR_PROTO(BT1_IntHandler);
@@ -42,20 +43,22 @@ CY_ISR_PROTO(BT4_IntHandler);
 #define  BUFFERLEN  (23)
 #define  SWTICH_ON  (0)
 #define  SWTICH_OFF (1)
-
+#define  PRINT
 
 #define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
 #define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
+#define CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE   (0x0010u) /* Handle of TX characteristic */
 /* ****************************************
- * 控制命令枚举
+ * 枚举
  * ****************************************
 */
-enum
+enum//控制命令
 {
-    SWT=0x00u
+    SWT=0x00u,
+    NTF=0x01u
 };
 
-enum
+enum//按键按下或放开
 {
     BUTTON1_DOWN=0x00u,
     BUTTON2_DOWN,
@@ -64,12 +67,24 @@ enum
     BUTTON_UP
 };
 
-enum
+enum//具体哪几个按键
 {
     BUTTON1=0x00u,
     BUTTON2,
     BUTTON3,
     BUTTON4   
+};
+
+/* ****************************************
+ * 结构体
+ * ****************************************
+*/
+struct BT
+{
+    uint8_t Button1_On_Off;
+    uint8_t Button2_On_Off;
+    uint8_t Button3_On_Off;
+    uint8_t Button4_On_Off;
 };
 #endif
 /* [] END OF FILE */

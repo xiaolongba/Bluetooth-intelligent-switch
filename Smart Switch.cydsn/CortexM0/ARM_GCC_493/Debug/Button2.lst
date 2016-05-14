@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
   30:.\Generated_Source\PSoC4/Button2.c ****         #define Button2_SetP4PinDriveMode(shift, mode)  \
   31:.\Generated_Source\PSoC4/Button2.c ****         do { \
   32:.\Generated_Source\PSoC4/Button2.c ****             Button2_USBIO_CTRL_REG = (Button2_USBIO_CTRL_REG & \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Button2.c ****                                     (uint32)(~(uint32)(Button2_DRIVE_MODE_IND_MASK << \
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
   74:.\Generated_Source\PSoC4/Button2.c **** 		Button2_SetP4PinDriveMode(Button2__0__SHIFT, mode);
   39              		.loc 1 74 0
   40 000c 064B     		ldr	r3, .L2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 3
 
 
   41 000e 064A     		ldr	r2, .L2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  100:.\Generated_Source\PSoC4/Button2.c **** * \sideeffect
  101:.\Generated_Source\PSoC4/Button2.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
  102:.\Generated_Source\PSoC4/Button2.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 4
 
 
  103:.\Generated_Source\PSoC4/Button2.c **** *  interrupts this function and performs writes to the Pins component data 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  116:.\Generated_Source\PSoC4/Button2.c **** }
  111              		.loc 1 116 0
  112 003e BD46     		mov	sp, r7
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 5
 
 
  113 0040 04B0     		add	sp, sp, #16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  145 000e DBB2     		uxtb	r3, r3
  139:.\Generated_Source\PSoC4/Button2.c **** }
  146              		.loc 1 139 0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 6
 
 
  147 0010 181C     		mov	r0, r3
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  174              		.loc 1 166 0
  175 0004 044B     		ldr	r3, .L13
  176 0006 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 7
 
 
  177 0008 DBB2     		uxtb	r3, r3
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  197:.\Generated_Source\PSoC4/Button2.c **** *  
  198:.\Generated_Source\PSoC4/Button2.c **** * \sideeffect
  199:.\Generated_Source\PSoC4/Button2.c **** *  It is recommended that the interrupt be disabled before calling this 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 8
 
 
  200:.\Generated_Source\PSoC4/Button2.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  241 003a 80BD     		pop	{r7, pc}
  242              	.L17:
  243              		.align	2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 9
 
 
  244              	.L16:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  273 0010 0A40     		and	r2, r1
  274 0012 1A70     		strb	r2, [r3]
  239:.\Generated_Source\PSoC4/Button2.c **** 	Button2_INTSTAT = maskedStatus;
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 10
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 10
 
 
  275              		.loc 1 239 0
@@ -574,48 +574,48 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  303 0006 00000000 		.4byte	.Ldebug_abbrev0
  304 000a 04       		.byte	0x4
  305 000b 01       		.uleb128 0x1
- 306 000c ED000000 		.4byte	.LASF28
+ 306 000c 0E010000 		.4byte	.LASF28
  307 0010 01       		.byte	0x1
- 308 0011 BE010000 		.4byte	.LASF29
- 309 0015 12000000 		.4byte	.LASF30
+ 308 0011 DF010000 		.4byte	.LASF29
+ 309 0015 53000000 		.4byte	.LASF30
  310 0019 00000000 		.4byte	.Ldebug_ranges0+0
  311 001d 00000000 		.4byte	0
  312 0021 00000000 		.4byte	.Ldebug_line0
  313 0025 02       		.uleb128 0x2
  314 0026 01       		.byte	0x1
  315 0027 06       		.byte	0x6
- 316 0028 42020000 		.4byte	.LASF0
+ 316 0028 63020000 		.4byte	.LASF0
  317 002c 02       		.uleb128 0x2
  318 002d 01       		.byte	0x1
  319 002e 08       		.byte	0x8
- 320 002f 75000000 		.4byte	.LASF1
+ 320 002f 32000000 		.4byte	.LASF1
  321 0033 02       		.uleb128 0x2
  322 0034 02       		.byte	0x2
  323 0035 05       		.byte	0x5
- 324 0036 29020000 		.4byte	.LASF2
+ 324 0036 4A020000 		.4byte	.LASF2
  325 003a 02       		.uleb128 0x2
  326 003b 02       		.byte	0x2
  327 003c 07       		.byte	0x7
- 328 003d A8000000 		.4byte	.LASF3
+ 328 003d BE000000 		.4byte	.LASF3
  329 0041 02       		.uleb128 0x2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 11
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 11
 
 
  330 0042 04       		.byte	0x4
  331 0043 05       		.byte	0x5
- 332 0044 39020000 		.4byte	.LASF4
+ 332 0044 5A020000 		.4byte	.LASF4
  333 0048 02       		.uleb128 0x2
  334 0049 04       		.byte	0x4
  335 004a 07       		.byte	0x7
- 336 004b 96000000 		.4byte	.LASF5
+ 336 004b FC000000 		.4byte	.LASF5
  337 004f 02       		.uleb128 0x2
  338 0050 08       		.byte	0x8
  339 0051 05       		.byte	0x5
- 340 0052 FB010000 		.4byte	.LASF6
+ 340 0052 1C020000 		.4byte	.LASF6
  341 0056 02       		.uleb128 0x2
  342 0057 08       		.byte	0x8
  343 0058 07       		.byte	0x7
- 344 0059 A7010000 		.4byte	.LASF7
+ 344 0059 C8010000 		.4byte	.LASF7
  345 005d 03       		.uleb128 0x3
  346 005e 04       		.byte	0x4
  347 005f 05       		.byte	0x5
@@ -623,34 +623,34 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  349 0064 02       		.uleb128 0x2
  350 0065 04       		.byte	0x4
  351 0066 07       		.byte	0x7
- 352 0067 9A010000 		.4byte	.LASF8
+ 352 0067 BB010000 		.4byte	.LASF8
  353 006b 04       		.uleb128 0x4
- 354 006c 33020000 		.4byte	.LASF9
+ 354 006c 54020000 		.4byte	.LASF9
  355 0070 02       		.byte	0x2
  356 0071 3801     		.2byte	0x138
  357 0073 2C000000 		.4byte	0x2c
  358 0077 04       		.uleb128 0x4
- 359 0078 7B010000 		.4byte	.LASF10
+ 359 0078 9C010000 		.4byte	.LASF10
  360 007c 02       		.byte	0x2
  361 007d 3901     		.2byte	0x139
  362 007f 3A000000 		.4byte	0x3a
  363 0083 04       		.uleb128 0x4
- 364 0084 8B010000 		.4byte	.LASF11
+ 364 0084 AC010000 		.4byte	.LASF11
  365 0088 02       		.byte	0x2
  366 0089 3A01     		.2byte	0x13a
  367 008b 48000000 		.4byte	0x48
  368 008f 02       		.uleb128 0x2
  369 0090 04       		.byte	0x4
  370 0091 04       		.byte	0x4
- 371 0092 0C000000 		.4byte	.LASF12
+ 371 0092 13000000 		.4byte	.LASF12
  372 0096 02       		.uleb128 0x2
  373 0097 08       		.byte	0x8
  374 0098 04       		.byte	0x4
- 375 0099 E6000000 		.4byte	.LASF13
+ 375 0099 0C000000 		.4byte	.LASF13
  376 009d 02       		.uleb128 0x2
  377 009e 01       		.byte	0x1
  378 009f 08       		.byte	0x8
- 379 00a0 16020000 		.4byte	.LASF14
+ 379 00a0 37020000 		.4byte	.LASF14
  380 00a4 04       		.uleb128 0x4
  381 00a5 00000000 		.4byte	.LASF15
  382 00a9 02       		.byte	0x2
@@ -658,11 +658,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  384 00ac B0000000 		.4byte	0xb0
  385 00b0 05       		.uleb128 0x5
  386 00b1 83000000 		.4byte	0x83
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 12
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 12
 
 
  387 00b5 06       		.uleb128 0x6
- 388 00b6 E6010000 		.4byte	.LASF16
+ 388 00b6 07020000 		.4byte	.LASF16
  389 00ba 01       		.byte	0x1
  390 00bb 48       		.byte	0x48
  391 00bc 00000000 		.4byte	.LFB0
@@ -671,7 +671,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  394 00c5 9C       		.byte	0x9c
  395 00c6 D9000000 		.4byte	0xd9
  396 00ca 07       		.uleb128 0x7
- 397 00cb E1010000 		.4byte	.LASF18
+ 397 00cb 02020000 		.4byte	.LASF18
  398 00cf 01       		.byte	0x1
  399 00d0 48       		.byte	0x48
  400 00d1 6B000000 		.4byte	0x6b
@@ -680,7 +680,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  403 00d7 77       		.sleb128 -9
  404 00d8 00       		.byte	0
  405 00d9 06       		.uleb128 0x6
- 406 00da 1B020000 		.4byte	.LASF17
+ 406 00da 3C020000 		.4byte	.LASF17
  407 00de 01       		.byte	0x1
  408 00df 6F       		.byte	0x6f
  409 00e0 00000000 		.4byte	.LFB1
@@ -697,7 +697,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  420 00fa 91       		.byte	0x91
  421 00fb 6F       		.sleb128 -17
  422 00fc 08       		.uleb128 0x8
- 423 00fd 83000000 		.4byte	.LASF24
+ 423 00fd 40000000 		.4byte	.LASF24
  424 0101 01       		.byte	0x1
  425 0102 71       		.byte	0x71
  426 0103 6B000000 		.4byte	0x6b
@@ -706,7 +706,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  429 0109 77       		.sleb128 -9
  430 010a 00       		.byte	0
  431 010b 09       		.uleb128 0x9
- 432 010c 89000000 		.4byte	.LASF20
+ 432 010c 46000000 		.4byte	.LASF20
  433 0110 01       		.byte	0x1
  434 0111 88       		.byte	0x88
  435 0112 6B000000 		.4byte	0x6b
@@ -715,10 +715,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  438 011e 01       		.uleb128 0x1
  439 011f 9C       		.byte	0x9c
  440 0120 09       		.uleb128 0x9
- 441 0121 BB000000 		.4byte	.LASF21
+ 441 0121 D1000000 		.4byte	.LASF21
  442 0125 01       		.byte	0x1
  443 0126 A4       		.byte	0xa4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 13
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 13
 
 
  444 0127 6B000000 		.4byte	0x6b
@@ -727,7 +727,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  447 0133 01       		.uleb128 0x1
  448 0134 9C       		.byte	0x9c
  449 0135 06       		.uleb128 0x6
- 450 0136 4E020000 		.4byte	.LASF22
+ 450 0136 19000000 		.4byte	.LASF22
  451 013a 01       		.byte	0x1
  452 013b CF       		.byte	0xcf
  453 013c 00000000 		.4byte	.LFB4
@@ -736,7 +736,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  456 0145 9C       		.byte	0x9c
  457 0146 75010000 		.4byte	0x175
  458 014a 07       		.uleb128 0x7
- 459 014b 82010000 		.4byte	.LASF23
+ 459 014b A3010000 		.4byte	.LASF23
  460 014f 01       		.byte	0x1
  461 0150 CF       		.byte	0xcf
  462 0151 77000000 		.4byte	0x77
@@ -744,7 +744,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  464 0156 91       		.byte	0x91
  465 0157 6E       		.sleb128 -18
  466 0158 07       		.uleb128 0x7
- 467 0159 E1010000 		.4byte	.LASF18
+ 467 0159 02020000 		.4byte	.LASF18
  468 015d 01       		.byte	0x1
  469 015e CF       		.byte	0xcf
  470 015f 77000000 		.4byte	0x77
@@ -752,7 +752,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  472 0164 91       		.byte	0x91
  473 0165 6C       		.sleb128 -20
  474 0166 08       		.uleb128 0x8
- 475 0167 92010000 		.4byte	.LASF25
+ 475 0167 B3010000 		.4byte	.LASF25
  476 016b 01       		.byte	0x1
  477 016c D1       		.byte	0xd1
  478 016d 83000000 		.4byte	0x83
@@ -761,7 +761,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  481 0173 74       		.sleb128 -12
  482 0174 00       		.byte	0
  483 0175 0A       		.uleb128 0xa
- 484 0176 CF000000 		.4byte	.LASF26
+ 484 0176 E5000000 		.4byte	.LASF26
  485 017a 01       		.byte	0x1
  486 017b EC       		.byte	0xec
  487 017c 6B000000 		.4byte	0x6b
@@ -770,7 +770,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  490 0188 01       		.uleb128 0x1
  491 0189 9C       		.byte	0x9c
  492 018a 08       		.uleb128 0x8
- 493 018b 09020000 		.4byte	.LASF27
+ 493 018b 2A020000 		.4byte	.LASF27
  494 018f 01       		.byte	0x1
  495 0190 EE       		.byte	0xee
  496 0191 6B000000 		.4byte	0x6b
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  498 0196 91       		.byte	0x91
  499 0197 77       		.sleb128 -9
  500 0198 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 14
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 14
 
 
  501 0199 00       		.byte	0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  555 0033 13       		.uleb128 0x13
  556 0034 00       		.byte	0
  557 0035 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 15
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 15
 
 
  558 0036 05       		.uleb128 0x5
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  612 006d 3B       		.uleb128 0x3b
  613 006e 0B       		.uleb128 0xb
  614 006f 49       		.uleb128 0x49
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 16
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 16
 
 
  615 0070 13       		.uleb128 0x13
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  669 00a8 00       		.byte	0
  670 00a9 00       		.byte	0
  671              		.section	.debug_aranges,"",%progbits
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 17
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 17
 
 
  672 0000 44000000 		.4byte	0x44
@@ -1011,162 +1011,164 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 1
  714              	.LASF19:
  715 0006 76616C75 		.ascii	"value\000"
  715      6500
- 716              	.LASF12:
- 717 000c 666C6F61 		.ascii	"float\000"
- 717      7400
- 718              	.LASF30:
- 719 0012 433A5C55 		.ascii	"C:\\Users\\Administrator\\Desktop\\BLE_TemplateProj"
- 719      73657273 
- 719      5C41646D 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 18
+ 716              	.LASF13:
+ 717 000c 646F7562 		.ascii	"double\000"
+ 717      6C6500
+ 718              	.LASF12:
+ 719 0013 666C6F61 		.ascii	"float\000"
+ 719      7400
+ 720              	.LASF22:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 18
 
 
- 719      696E6973 
- 719      74726174 
- 720 0041 6563745C 		.ascii	"ect\\Bluetooth-intelligent-switch\\Smart Switch.cyd"
- 720      426C7565 
- 720      746F6F74 
- 720      682D696E 
- 720      74656C6C 
- 721 0072 736E00   		.ascii	"sn\000"
+ 721 0019 42757474 		.ascii	"Button2_SetInterruptMode\000"
+ 721      6F6E325F 
+ 721      53657449 
+ 721      6E746572 
+ 721      72757074 
  722              	.LASF1:
- 723 0075 756E7369 		.ascii	"unsigned char\000"
+ 723 0032 756E7369 		.ascii	"unsigned char\000"
  723      676E6564 
  723      20636861 
  723      7200
  724              	.LASF24:
- 725 0083 64725661 		.ascii	"drVal\000"
+ 725 0040 64725661 		.ascii	"drVal\000"
  725      6C00
  726              	.LASF20:
- 727 0089 42757474 		.ascii	"Button2_Read\000"
+ 727 0046 42757474 		.ascii	"Button2_Read\000"
  727      6F6E325F 
  727      52656164 
  727      00
- 728              	.LASF5:
- 729 0096 6C6F6E67 		.ascii	"long unsigned int\000"
- 729      20756E73 
- 729      69676E65 
- 729      6420696E 
- 729      7400
- 730              	.LASF3:
- 731 00a8 73686F72 		.ascii	"short unsigned int\000"
- 731      7420756E 
- 731      7369676E 
- 731      65642069 
- 731      6E7400
- 732              	.LASF21:
- 733 00bb 42757474 		.ascii	"Button2_ReadDataReg\000"
- 733      6F6E325F 
- 733      52656164 
- 733      44617461 
- 733      52656700 
- 734              	.LASF26:
- 735 00cf 42757474 		.ascii	"Button2_ClearInterrupt\000"
+ 728              	.LASF30:
+ 729 0053 433A5C55 		.ascii	"C:\\Users\\Helon\\Desktop\\Bluetooth-intelligent-sw"
+ 729      73657273 
+ 729      5C48656C 
+ 729      6F6E5C44 
+ 729      65736B74 
+ 730 0082 69746368 		.ascii	"itch\\V2.0.0\\Bluetooth-intelligent-switch\\Smart S"
+ 730      5C56322E 
+ 730      302E305C 
+ 730      426C7565 
+ 730      746F6F74 
+ 731 00b2 77697463 		.ascii	"witch.cydsn\000"
+ 731      682E6379 
+ 731      64736E00 
+ 732              	.LASF3:
+ 733 00be 73686F72 		.ascii	"short unsigned int\000"
+ 733      7420756E 
+ 733      7369676E 
+ 733      65642069 
+ 733      6E7400
+ 734              	.LASF21:
+ 735 00d1 42757474 		.ascii	"Button2_ReadDataReg\000"
  735      6F6E325F 
- 735      436C6561 
- 735      72496E74 
- 735      65727275 
- 736              	.LASF13:
- 737 00e6 646F7562 		.ascii	"double\000"
- 737      6C6500
- 738              	.LASF28:
- 739 00ed 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 739      4320342E 
- 739      392E3320 
- 739      32303135 
- 739      30333033 
- 740 0120 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 740      20726576 
- 740      6973696F 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 19
+ 735      52656164 
+ 735      44617461 
+ 735      52656700 
+ 736              	.LASF26:
+ 737 00e5 42757474 		.ascii	"Button2_ClearInterrupt\000"
+ 737      6F6E325F 
+ 737      436C6561 
+ 737      72496E74 
+ 737      65727275 
+ 738              	.LASF5:
+ 739 00fc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 739      20756E73 
+ 739      69676E65 
+ 739      6420696E 
+ 739      7400
+ 740              	.LASF28:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 19
 
 
- 740      6E203232 
- 740      31323230 
- 741 0153 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 741      66756E63 
- 741      74696F6E 
- 741      2D736563 
- 741      74696F6E 
- 742              	.LASF10:
- 743 017b 75696E74 		.ascii	"uint16\000"
- 743      313600
- 744              	.LASF23:
- 745 0182 706F7369 		.ascii	"position\000"
- 745      74696F6E 
- 745      00
- 746              	.LASF11:
- 747 018b 75696E74 		.ascii	"uint32\000"
- 747      333200
- 748              	.LASF25:
- 749 0192 696E7472 		.ascii	"intrCfg\000"
- 749      43666700 
- 750              	.LASF8:
- 751 019a 756E7369 		.ascii	"unsigned int\000"
- 751      676E6564 
- 751      20696E74 
- 751      00
- 752              	.LASF7:
- 753 01a7 6C6F6E67 		.ascii	"long long unsigned int\000"
- 753      206C6F6E 
- 753      6720756E 
- 753      7369676E 
- 753      65642069 
- 754              	.LASF29:
- 755 01be 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button2.c\000"
- 755      6E657261 
- 755      7465645F 
- 755      536F7572 
- 755      63655C50 
- 756              	.LASF18:
- 757 01e1 6D6F6465 		.ascii	"mode\000"
- 757      00
- 758              	.LASF16:
- 759 01e6 42757474 		.ascii	"Button2_SetDriveMode\000"
- 759      6F6E325F 
- 759      53657444 
- 759      72697665 
- 759      4D6F6465 
- 760              	.LASF6:
- 761 01fb 6C6F6E67 		.ascii	"long long int\000"
- 761      206C6F6E 
- 761      6720696E 
- 761      7400
- 762              	.LASF27:
- 763 0209 6D61736B 		.ascii	"maskedStatus\000"
- 763      65645374 
- 763      61747573 
- 763      00
- 764              	.LASF14:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccvPG5K7.s 			page 20
+ 741 010e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 741      4320342E 
+ 741      392E3320 
+ 741      32303135 
+ 741      30333033 
+ 742 0141 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 742      20726576 
+ 742      6973696F 
+ 742      6E203232 
+ 742      31323230 
+ 743 0174 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 743      66756E63 
+ 743      74696F6E 
+ 743      2D736563 
+ 743      74696F6E 
+ 744              	.LASF10:
+ 745 019c 75696E74 		.ascii	"uint16\000"
+ 745      313600
+ 746              	.LASF23:
+ 747 01a3 706F7369 		.ascii	"position\000"
+ 747      74696F6E 
+ 747      00
+ 748              	.LASF11:
+ 749 01ac 75696E74 		.ascii	"uint32\000"
+ 749      333200
+ 750              	.LASF25:
+ 751 01b3 696E7472 		.ascii	"intrCfg\000"
+ 751      43666700 
+ 752              	.LASF8:
+ 753 01bb 756E7369 		.ascii	"unsigned int\000"
+ 753      676E6564 
+ 753      20696E74 
+ 753      00
+ 754              	.LASF7:
+ 755 01c8 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 755      206C6F6E 
+ 755      6720756E 
+ 755      7369676E 
+ 755      65642069 
+ 756              	.LASF29:
+ 757 01df 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button2.c\000"
+ 757      6E657261 
+ 757      7465645F 
+ 757      536F7572 
+ 757      63655C50 
+ 758              	.LASF18:
+ 759 0202 6D6F6465 		.ascii	"mode\000"
+ 759      00
+ 760              	.LASF16:
+ 761 0207 42757474 		.ascii	"Button2_SetDriveMode\000"
+ 761      6F6E325F 
+ 761      53657444 
+ 761      72697665 
+ 761      4D6F6465 
+ 762              	.LASF6:
+ 763 021c 6C6F6E67 		.ascii	"long long int\000"
+ 763      206C6F6E 
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\ccdqGZT7.s 			page 20
 
 
- 765 0216 63686172 		.ascii	"char\000"
+ 763      6720696E 
+ 763      7400
+ 764              	.LASF27:
+ 765 022a 6D61736B 		.ascii	"maskedStatus\000"
+ 765      65645374 
+ 765      61747573 
  765      00
- 766              	.LASF17:
- 767 021b 42757474 		.ascii	"Button2_Write\000"
- 767      6F6E325F 
- 767      57726974 
- 767      6500
- 768              	.LASF2:
- 769 0229 73686F72 		.ascii	"short int\000"
- 769      7420696E 
- 769      7400
- 770              	.LASF9:
- 771 0233 75696E74 		.ascii	"uint8\000"
- 771      3800
- 772              	.LASF4:
- 773 0239 6C6F6E67 		.ascii	"long int\000"
- 773      20696E74 
- 773      00
- 774              	.LASF0:
- 775 0242 7369676E 		.ascii	"signed char\000"
- 775      65642063 
- 775      68617200 
- 776              	.LASF22:
- 777 024e 42757474 		.ascii	"Button2_SetInterruptMode\000"
- 777      6F6E325F 
- 777      53657449 
- 777      6E746572 
- 777      72757074 
+ 766              	.LASF14:
+ 767 0237 63686172 		.ascii	"char\000"
+ 767      00
+ 768              	.LASF17:
+ 769 023c 42757474 		.ascii	"Button2_Write\000"
+ 769      6F6E325F 
+ 769      57726974 
+ 769      6500
+ 770              	.LASF2:
+ 771 024a 73686F72 		.ascii	"short int\000"
+ 771      7420696E 
+ 771      7400
+ 772              	.LASF9:
+ 773 0254 75696E74 		.ascii	"uint8\000"
+ 773      3800
+ 774              	.LASF4:
+ 775 025a 6C6F6E67 		.ascii	"long int\000"
+ 775      20696E74 
+ 775      00
+ 776              	.LASF0:
+ 777 0263 7369676E 		.ascii	"signed char\000"
+ 777      65642063 
+ 777      68617200 
  778              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

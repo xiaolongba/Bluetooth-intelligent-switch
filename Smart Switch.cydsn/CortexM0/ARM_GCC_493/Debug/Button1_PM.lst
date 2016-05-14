@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
   24:.\Generated_Source\PSoC4/Button1_PM.c **** * Function Name: Button1_Sleep
   25:.\Generated_Source\PSoC4/Button1_PM.c **** ****************************************************************************//**
   26:.\Generated_Source\PSoC4/Button1_PM.c **** *
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 2
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 2
 
 
   27:.\Generated_Source\PSoC4/Button1_PM.c **** * \brief Stores the pin configuration and prepares the pin for entering chip 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
   49              	.L2:
   50 0010 08000440 		.word	1074003976
   51 0014 00000000 		.word	Button1_backup
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 3
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 3
 
 
   52              		.cfi_endproc
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
   92:.\Generated_Source\PSoC4/Button1_PM.c ****     #if defined(CYIPBLOCK_m0s8ioss_VERSION) && defined(Button1__SIO)
   93:.\Generated_Source\PSoC4/Button1_PM.c ****         Button1_SIO_REG = Button1_backup.sioState;
   94:.\Generated_Source\PSoC4/Button1_PM.c ****     #endif
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 4
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 4
 
 
   95:.\Generated_Source\PSoC4/Button1_PM.c **** }
@@ -205,48 +205,48 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
   96 0006 00000000 		.4byte	.Ldebug_abbrev0
   97 000a 04       		.byte	0x4
   98 000b 01       		.uleb128 0x1
-  99 000c E5000000 		.4byte	.LASF20
+  99 000c ED000000 		.4byte	.LASF20
  100 0010 01       		.byte	0x1
- 101 0011 E4010000 		.4byte	.LASF21
- 102 0015 32000000 		.4byte	.LASF22
+ 101 0011 EC010000 		.4byte	.LASF21
+ 102 0015 5D000000 		.4byte	.LASF22
  103 0019 00000000 		.4byte	.Ldebug_ranges0+0
  104 001d 00000000 		.4byte	0
  105 0021 00000000 		.4byte	.Ldebug_line0
  106 0025 02       		.uleb128 0x2
  107 0026 01       		.byte	0x1
  108 0027 06       		.byte	0x6
- 109 0028 0A020000 		.4byte	.LASF0
+ 109 0028 12020000 		.4byte	.LASF0
  110 002c 02       		.uleb128 0x2
  111 002d 01       		.byte	0x1
  112 002e 08       		.byte	0x8
- 113 002f AB000000 		.4byte	.LASF1
+ 113 002f 4F000000 		.4byte	.LASF1
  114 0033 02       		.uleb128 0x2
  115 0034 02       		.byte	0x2
  116 0035 05       		.byte	0x5
- 117 0036 BA010000 		.4byte	.LASF2
+ 117 0036 C2010000 		.4byte	.LASF2
  118 003a 02       		.uleb128 0x2
  119 003b 02       		.byte	0x2
  120 003c 07       		.byte	0x7
- 121 003d CB000000 		.4byte	.LASF3
+ 121 003d C8000000 		.4byte	.LASF3
  122 0041 02       		.uleb128 0x2
  123 0042 04       		.byte	0x4
  124 0043 05       		.byte	0x5
- 125 0044 CC010000 		.4byte	.LASF4
+ 125 0044 D4010000 		.4byte	.LASF4
  126 0048 02       		.uleb128 0x2
  127 0049 04       		.byte	0x4
  128 004a 07       		.byte	0x7
- 129 004b B9000000 		.4byte	.LASF5
+ 129 004b DB000000 		.4byte	.LASF5
  130 004f 02       		.uleb128 0x2
  131 0050 08       		.byte	0x8
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 5
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 5
 
 
  132 0051 05       		.byte	0x5
- 133 0052 A7010000 		.4byte	.LASF6
+ 133 0052 AF010000 		.4byte	.LASF6
  134 0056 02       		.uleb128 0x2
  135 0057 08       		.byte	0x8
  136 0058 07       		.byte	0x7
- 137 0059 87010000 		.4byte	.LASF7
+ 137 0059 8F010000 		.4byte	.LASF7
  138 005d 03       		.uleb128 0x3
  139 005e 04       		.byte	0x4
  140 005f 05       		.byte	0x5
@@ -254,24 +254,24 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  142 0064 02       		.uleb128 0x2
  143 0065 04       		.byte	0x4
  144 0066 07       		.byte	0x7
- 145 0067 7A010000 		.4byte	.LASF8
+ 145 0067 82010000 		.4byte	.LASF8
  146 006b 04       		.uleb128 0x4
- 147 006c 73010000 		.4byte	.LASF12
+ 147 006c 7B010000 		.4byte	.LASF12
  148 0070 02       		.byte	0x2
  149 0071 3A01     		.2byte	0x13a
  150 0073 48000000 		.4byte	0x48
  151 0077 02       		.uleb128 0x2
  152 0078 04       		.byte	0x4
  153 0079 04       		.byte	0x4
- 154 007a 2C000000 		.4byte	.LASF9
+ 154 007a 33000000 		.4byte	.LASF9
  155 007e 02       		.uleb128 0x2
  156 007f 08       		.byte	0x8
  157 0080 04       		.byte	0x4
- 158 0081 DE000000 		.4byte	.LASF10
+ 158 0081 1E000000 		.4byte	.LASF10
  159 0085 02       		.uleb128 0x2
  160 0086 01       		.byte	0x1
  161 0087 08       		.byte	0x8
- 162 0088 B5010000 		.4byte	.LASF11
+ 162 0088 BD010000 		.4byte	.LASF11
  163 008c 04       		.uleb128 0x4
  164 008d 00000000 		.4byte	.LASF13
  165 0091 02       		.byte	0x2
@@ -285,20 +285,20 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  173 00a0 21       		.byte	0x21
  174 00a1 CA000000 		.4byte	0xca
  175 00a5 07       		.uleb128 0x7
- 176 00a6 C4010000 		.4byte	.LASF14
+ 176 00a6 CC010000 		.4byte	.LASF14
  177 00aa 03       		.byte	0x3
  178 00ab 23       		.byte	0x23
  179 00ac 6B000000 		.4byte	0x6b
  180 00b0 00       		.byte	0
  181 00b1 07       		.uleb128 0x7
- 182 00b2 9E010000 		.4byte	.LASF15
+ 182 00b2 A6010000 		.4byte	.LASF15
  183 00b6 03       		.byte	0x3
  184 00b7 24       		.byte	0x24
  185 00b8 6B000000 		.4byte	0x6b
  186 00bc 04       		.byte	0x4
  187 00bd 07       		.uleb128 0x7
  188 00be 06000000 		.4byte	.LASF16
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 6
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 6
 
 
  189 00c2 03       		.byte	0x3
@@ -307,12 +307,12 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  192 00c8 08       		.byte	0x8
  193 00c9 00       		.byte	0
  194 00ca 08       		.uleb128 0x8
- 195 00cb 95000000 		.4byte	.LASF17
+ 195 00cb 39000000 		.4byte	.LASF17
  196 00cf 03       		.byte	0x3
  197 00d0 26       		.byte	0x26
  198 00d1 9D000000 		.4byte	0x9d
  199 00d5 09       		.uleb128 0x9
- 200 00d6 1E000000 		.4byte	.LASF18
+ 200 00d6 25000000 		.4byte	.LASF18
  201 00da 01       		.byte	0x1
  202 00db 2C       		.byte	0x2c
  203 00dc 00000000 		.4byte	.LFB0
@@ -328,7 +328,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  213 00f5 01       		.uleb128 0x1
  214 00f6 9C       		.byte	0x9c
  215 00f7 0A       		.uleb128 0xa
- 216 00f8 D5010000 		.4byte	.LASF23
+ 216 00f8 DD010000 		.4byte	.LASF23
  217 00fc 01       		.byte	0x1
  218 00fd 14       		.byte	0x14
  219 00fe CA000000 		.4byte	0xca
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  243 0011 00       		.byte	0
  244 0012 00       		.byte	0
  245 0013 02       		.uleb128 0x2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 7
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 7
 
 
  246 0014 24       		.uleb128 0x24
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  300 004a 07       		.uleb128 0x7
  301 004b 0D       		.uleb128 0xd
  302 004c 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 8
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 8
 
 
  303 004d 03       		.uleb128 0x3
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  357 0084 0B       		.uleb128 0xb
  358 0085 3B       		.uleb128 0x3b
  359 0086 0B       		.uleb128 0xb
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 9
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 9
 
 
  360 0087 49       		.uleb128 0x49
@@ -529,124 +529,126 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 1
  397      6F6E315F 
  397      57616B65 
  397      757000
- 398              	.LASF18:
- 399 001e 42757474 		.ascii	"Button1_Sleep\000"
- 399      6F6E315F 
- 399      536C6565 
- 399      7000
- 400              	.LASF9:
- 401 002c 666C6F61 		.ascii	"float\000"
- 401      7400
- 402              	.LASF22:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 10
+ 398              	.LASF10:
+ 399 001e 646F7562 		.ascii	"double\000"
+ 399      6C6500
+ 400              	.LASF18:
+ 401 0025 42757474 		.ascii	"Button1_Sleep\000"
+ 401      6F6E315F 
+ 401      536C6565 
+ 401      7000
+ 402              	.LASF9:
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 10
 
 
- 403 0032 433A5C55 		.ascii	"C:\\Users\\Administrator\\Desktop\\BLE_TemplateProj"
- 403      73657273 
- 403      5C41646D 
- 403      696E6973 
- 403      74726174 
- 404 0061 6563745C 		.ascii	"ect\\Bluetooth-intelligent-switch\\Smart Switch.cyd"
- 404      426C7565 
- 404      746F6F74 
- 404      682D696E 
- 404      74656C6C 
- 405 0092 736E00   		.ascii	"sn\000"
- 406              	.LASF17:
- 407 0095 42757474 		.ascii	"Button1_BACKUP_STRUCT\000"
- 407      6F6E315F 
- 407      4241434B 
- 407      55505F53 
- 407      54525543 
- 408              	.LASF1:
- 409 00ab 756E7369 		.ascii	"unsigned char\000"
- 409      676E6564 
- 409      20636861 
- 409      7200
- 410              	.LASF5:
- 411 00b9 6C6F6E67 		.ascii	"long unsigned int\000"
- 411      20756E73 
- 411      69676E65 
- 411      6420696E 
- 411      7400
+ 403 0033 666C6F61 		.ascii	"float\000"
+ 403      7400
+ 404              	.LASF17:
+ 405 0039 42757474 		.ascii	"Button1_BACKUP_STRUCT\000"
+ 405      6F6E315F 
+ 405      4241434B 
+ 405      55505F53 
+ 405      54525543 
+ 406              	.LASF1:
+ 407 004f 756E7369 		.ascii	"unsigned char\000"
+ 407      676E6564 
+ 407      20636861 
+ 407      7200
+ 408              	.LASF22:
+ 409 005d 433A5C55 		.ascii	"C:\\Users\\Helon\\Desktop\\Bluetooth-intelligent-sw"
+ 409      73657273 
+ 409      5C48656C 
+ 409      6F6E5C44 
+ 409      65736B74 
+ 410 008c 69746368 		.ascii	"itch\\V2.0.0\\Bluetooth-intelligent-switch\\Smart S"
+ 410      5C56322E 
+ 410      302E305C 
+ 410      426C7565 
+ 410      746F6F74 
+ 411 00bc 77697463 		.ascii	"witch.cydsn\000"
+ 411      682E6379 
+ 411      64736E00 
  412              	.LASF3:
- 413 00cb 73686F72 		.ascii	"short unsigned int\000"
+ 413 00c8 73686F72 		.ascii	"short unsigned int\000"
  413      7420756E 
  413      7369676E 
  413      65642069 
  413      6E7400
- 414              	.LASF10:
- 415 00de 646F7562 		.ascii	"double\000"
- 415      6C6500
+ 414              	.LASF5:
+ 415 00db 6C6F6E67 		.ascii	"long unsigned int\000"
+ 415      20756E73 
+ 415      69676E65 
+ 415      6420696E 
+ 415      7400
  416              	.LASF20:
- 417 00e5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 417 00ed 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  417      4320342E 
  417      392E3320 
  417      32303135 
  417      30333033 
- 418 0118 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 418 0120 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
  418      20726576 
  418      6973696F 
  418      6E203232 
  418      31323230 
- 419 014b 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 419 0153 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  419      66756E63 
  419      74696F6E 
  419      2D736563 
  419      74696F6E 
  420              	.LASF12:
- 421 0173 75696E74 		.ascii	"uint32\000"
+ 421 017b 75696E74 		.ascii	"uint32\000"
+ARM GAS  C:\Users\Helon\AppData\Local\Temp\cc3KSswV.s 			page 11
+
+
  421      333200
  422              	.LASF8:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccdMR2Q0.s 			page 11
-
-
- 423 017a 756E7369 		.ascii	"unsigned int\000"
+ 423 0182 756E7369 		.ascii	"unsigned int\000"
  423      676E6564 
  423      20696E74 
  423      00
  424              	.LASF7:
- 425 0187 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 425 018f 6C6F6E67 		.ascii	"long long unsigned int\000"
  425      206C6F6E 
  425      6720756E 
  425      7369676E 
  425      65642069 
  426              	.LASF15:
- 427 019e 73696F53 		.ascii	"sioState\000"
+ 427 01a6 73696F53 		.ascii	"sioState\000"
  427      74617465 
  427      00
  428              	.LASF6:
- 429 01a7 6C6F6E67 		.ascii	"long long int\000"
+ 429 01af 6C6F6E67 		.ascii	"long long int\000"
  429      206C6F6E 
  429      6720696E 
  429      7400
  430              	.LASF11:
- 431 01b5 63686172 		.ascii	"char\000"
+ 431 01bd 63686172 		.ascii	"char\000"
  431      00
  432              	.LASF2:
- 433 01ba 73686F72 		.ascii	"short int\000"
+ 433 01c2 73686F72 		.ascii	"short int\000"
  433      7420696E 
  433      7400
  434              	.LASF14:
- 435 01c4 70635374 		.ascii	"pcState\000"
+ 435 01cc 70635374 		.ascii	"pcState\000"
  435      61746500 
  436              	.LASF4:
- 437 01cc 6C6F6E67 		.ascii	"long int\000"
+ 437 01d4 6C6F6E67 		.ascii	"long int\000"
  437      20696E74 
  437      00
  438              	.LASF23:
- 439 01d5 42757474 		.ascii	"Button1_backup\000"
+ 439 01dd 42757474 		.ascii	"Button1_backup\000"
  439      6F6E315F 
  439      6261636B 
  439      757000
  440              	.LASF21:
- 441 01e4 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button1_PM.c\000"
+ 441 01ec 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button1_PM.c\000"
  441      6E657261 
  441      7465645F 
  441      536F7572 
  441      63655C50 
  442              	.LASF0:
- 443 020a 7369676E 		.ascii	"signed char\000"
+ 443 0212 7369676E 		.ascii	"signed char\000"
  443      65642063 
  443      68617200 
  444              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
