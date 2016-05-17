@@ -22,11 +22,46 @@
 CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
 uint8_t NotifyValue[]={0x01,0x00};
 uint8_t WakeUp=FALSE;
+uint8_t DeviceCounts=0;
 //uint8 testAddr[]={0x8F,0xAA,0x1C,0x50,0xA0,0x00};
 //uint8_t addrtype=0x00;
 CYBLE_GAP_BD_ADDR_T TestDevice=
 {
     {0x8F,0xAA,0x1C,0x50,0xA0,0x00},
+    0x00
+
+};
+CYBLE_GAP_BD_ADDR_T Device1=
+{
+    {0xCB,0x83,0x6D,0x50,0xA0,0x00},
+    0x00
+
+};
+
+CYBLE_GAP_BD_ADDR_T Device2=
+{
+    {0xA5,0x83,0x6D,0x50,0xA0,0x00},
+    0x00
+
+};
+
+CYBLE_GAP_BD_ADDR_T Device3=
+{
+    {0x2F,0x84,0x6D,0x50,0xA0,0x00},
+    0x00
+
+};
+
+CYBLE_GAP_BD_ADDR_T Device4=
+{
+    {0x25,0x84,0x6D,0x50,0xA0,0x00},
+    0x00
+
+};
+
+CYBLE_GAP_BD_ADDR_T Device5=
+{
+    {0xD1,0x83,0x6D,0x50,0xA0,0x00},
     0x00
 
 };
@@ -46,11 +81,14 @@ uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令
 uint8_t Buffer[BUFFERLEN]={0};//临时存放从机透传给主机的数据
 uint8_t RX_ISOVER=FALSE;
 uint8_t LOWPOWER;
+uint8_t ALL_ON_OFF=FALSE;
 uint8_t ButtonStatus=BUTTON_UP;
+uint8_t DisonnectedStaus=FALSE;
 //static uint8_t Switch_On_Off=SWTICH_OFF;
 uint8_t ButtonType;
 struct BT Button=
 {
+    SWTICH_OFF,
     SWTICH_OFF,
     SWTICH_OFF,
     SWTICH_OFF,
@@ -102,8 +140,9 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 printf("BLE is DisConnectted!\r\n");
 //                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
               #endif
-
-             LOWPOWER=TURE;//断开之后，主机马上进入低功耗
+            DisonnectedStaus=TURE;
+            if(FALSE == ALL_ON_OFF)
+//                LOWPOWER=TURE;//断开之后，主机马上进入低功耗
 //            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
 //            THROUGH_STAUS=FALSE;
         break;
@@ -294,11 +333,11 @@ void ClientData_Handler(const char* RxData)
   * @描述：  处理主机透传给从机的数据
   *****************************************
 */
-void ServerData_Handler(const char* RxData)
+void  ServerData_Handler(const char* RxData)
 {
 //    RxData = RxData;
     uint8_t Location,Index;       
-    CYBLE_API_RESULT_T API_RESULT;
+    CYBLE_API_RESULT_T API_RESULT;    
     //获取AT命令等号的位置，如“AT+RESET=1”中“=”号的位置是8,从0开始算起.
     Location=strchr((char*)RxData,'=')-RxData;
     //动态分配堆空间
@@ -333,6 +372,9 @@ void ServerData_Handler(const char* RxData)
                     case BUTTON4:
                         Button.Button4_On_Off=SWTICH_ON;
                     break;
+//                    case BUTTON5:
+//                        Button.Button5_On_Off=SWTICH_ON;
+//                    break;
                     default:
                     break;
                 }
@@ -353,12 +395,15 @@ void ServerData_Handler(const char* RxData)
                     case BUTTON4:
                         Button.Button4_On_Off=SWTICH_OFF;
                     break;
+//                    case BUTTON5:
+//                        Button.Button5_On_Off=SWTICH_OFF;
+//                    break;
                     default:
                     break;
                 }
             }
             WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE;//从机接收属性的句柄值
-            WriteCmd.value.len=8;//
+            WriteCmd.value.len=8;//发送的数据长度为8个字节
             switch(ButtonType)
             {
                 case BUTTON1:
@@ -373,14 +418,110 @@ void ServerData_Handler(const char* RxData)
                 case BUTTON4:
                     WriteCmd.value.val = (uint8_t *)CommandList[Button.Button4_On_Off^1];//需要发送给从机的数据
                 break;
+                case BUTTON5:
+                    RX_ISOVER = TURE;
+                    WriteCmd.value.val = (uint8_t *)CommandList[Button.Button5_On_Off^1];//需要发送给从机的数据
+                    API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
+                    if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
+                    {
+                        CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接                        
+//                        strncpy((char*)Buffer,"AT+SWT=1",8);
+//                        while(CYBLE_STATE_DISCONNECTED != cyBle_state);                        
+                    }
+//                    CyDelay(100);
+                    
+                break;
                 default:
                 break;
-            }                
-            API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
-            if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
+            }  
+            if(ALL_ON_OFF)
             {
-                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
+                switch(DeviceCounts)
+                {
+                    case 0:
+                        API_RESULT=CyBle_GapcConnectDevice(&Device1);
+                        if(API_RESULT == CYBLE_ERROR_OK)
+                            DeviceCounts++;
+                    break;
+                    case 1:
+                        if(DisonnectedStaus == TURE)
+                        {
+                            API_RESULT=CyBle_GapcConnectDevice(&Device2);
+                            if(API_RESULT == CYBLE_ERROR_OK)
+                            {
+                                DisonnectedStaus = FALSE;
+                                DeviceCounts++;
+                            }
+                        }
+//                        if(DisonnectedStaus == TURE)
+//                            CyBle_GapcConnectDevice(&Device2);
+                    break;
+                    case 2:
+                        if(DisonnectedStaus == TURE)
+                        {
+                            API_RESULT=CyBle_GapcConnectDevice(&Device3);
+                            if(API_RESULT == CYBLE_ERROR_OK)
+                            {
+                                DisonnectedStaus = FALSE;
+                                DeviceCounts++;
+                            }
+                        }
+                            
+//                        while(CYBLE_STATE_DISCONNECTED != cyBle_state);
+//                        CyBle_GapcConnectDevice(&Device3);
+                    break;
+                    case 3:
+                    if(DisonnectedStaus == TURE)
+                    {
+                        API_RESULT=CyBle_GapcConnectDevice(&Device4);
+                        if(API_RESULT == CYBLE_ERROR_OK)
+                        {
+                            DisonnectedStaus = FALSE;
+                            DeviceCounts++;
+                        }
+                    }
+                        
+//                        while(CYBLE_STATE_DISCONNECTED != cyBle_state);
+//                        CyBle_GapcConnectDevice(&Device3);
+                    break;
+                    case 4:
+                        if(DisonnectedStaus == TURE)
+                        {
+                            DisonnectedStaus = FALSE;
+                            ALL_ON_OFF = FALSE;
+                            Button.Button5_On_Off = Button.Button5_On_Off^1;
+                            DeviceCounts = 0;
+                            RX_ISOVER = FALSE;
+//                            API_RESULT=CyBle_GapcConnectDevice(&Device3);
+//                            if(API_RESULT == CYBLE_ERROR_OK)
+//                            {
+//                                
+//                            }
+                        }
+//                        if(DisonnectedStaus == TURE)
+//                        {
+//                            CyBle_GapcConnectDevice(&Device4);
+//                            
+//                        }
+                            
+//                        while(CYBLE_STATE_DISCONNECTED != cyBle_state);
+//                        CyBle_GapcConnectDevice(&Device4);
+                        
+                    break;
+                    default:                            
+                    break;
+                }                
+//                ALL_ON_OFF = FALSE; 
             }
+            else
+            {
+                API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
+                if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
+                {
+                    CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
+                } 
+            }
+            
             
         break;
 //        case NTF:
@@ -408,10 +549,10 @@ void ServerData_Handler(const char* RxData)
 void SystemInit(void)
 {   
     UART_Start();
-    isr_Button1_StartEx(BT1_IntHandler);
-    isr_Button2_StartEx(BT2_IntHandler);
-    isr_Button3_StartEx(BT3_IntHandler);
-    isr_Button4_StartEx(BT4_IntHandler);
+    isr_Button_StartEx(BT1_IntHandler);
+//    isr_Button2_StartEx(BT2_IntHandler);
+//    isr_Button3_StartEx(BT3_IntHandler);
+//    isr_Button4_StartEx(BT4_IntHandler);
     CyBle_Start(StackEventHandler);//BLE协议栈初始化    
 }
 
@@ -423,14 +564,58 @@ void SystemInit(void)
   *****************************************
 */
 CY_ISR(BT1_IntHandler)
-{
-    isr_Button1_ClearPending();
-    Button1_ClearInterrupt();
-    ButtonStatus=BUTTON1_DOWN;
-    ButtonType=BUTTON1;
+{   
+    uint8_t IntPin;    
+    CyDelay(200);
+    IntPin=Button_ClearInterrupt();
+//    isr_Button_ClearPending();
+//    IntPin = Button_INTSTAT;
     #ifdef PRINT
-        printf("Button1 is pressed!\r\n");
+//        printf("IntPin is %d!\r\n",IntPin);
     #endif
+    switch(IntPin)
+    {
+        case 0x01:
+            ButtonStatus=BUTTON1_DOWN;
+            ButtonType=BUTTON1;
+            #ifdef PRINT
+                printf("Button1 is pressed!\r\n");
+            #endif
+        break;
+        case 0x02:
+            ButtonStatus=BUTTON2_DOWN;
+            ButtonType=BUTTON2;   
+            #ifdef PRINT
+                printf("Button2 is pressed!\r\n");
+            #endif
+        break;
+        case 0x04:
+            ButtonStatus=BUTTON3_DOWN;
+            ButtonType=BUTTON3;
+            #ifdef PRINT
+                printf("Button3 is pressed!\r\n");
+            #endif
+        break;
+        case 0x08:
+            ButtonStatus=BUTTON4_DOWN;
+            ButtonType=BUTTON4;
+            #ifdef PRINT
+                printf("Button4 is pressed!\r\n");
+            #endif
+        break;
+        case 0x10:
+        ButtonStatus=BUTTON5_DOWN;
+        ButtonType=BUTTON5;
+        #ifdef PRINT
+            printf("Button5 is pressed!\r\n");
+        #endif
+        break;
+        default:
+        break;
+    }    
+//    Button_ClearInterrupt();
+//    isr_Button1_ClearPending();
+//    Button1_ClearInterrupt();
 //    Switch_On_Off=Switch_On_Off^SWTICH_ON;
 }
 
@@ -442,14 +627,14 @@ CY_ISR(BT1_IntHandler)
   *****************************************
 */
 CY_ISR(BT2_IntHandler)
-{
-    isr_Button2_ClearPending();
-    Button2_ClearInterrupt();
+{    
     ButtonStatus=BUTTON2_DOWN;
     ButtonType=BUTTON2;   
     #ifdef PRINT
         printf("Button2 is pressed!\r\n");
     #endif
+//    isr_Button2_ClearPending();
+//    Button2_ClearInterrupt();
 }
 /******************************************
   * @函数名：BT3_IntHandler
@@ -459,14 +644,14 @@ CY_ISR(BT2_IntHandler)
   *****************************************
 */
 CY_ISR(BT3_IntHandler)
-{
-    isr_Button3_ClearPending();
-    Button3_ClearInterrupt();
+{    
     ButtonStatus=BUTTON3_DOWN;
     ButtonType=BUTTON3;
     #ifdef PRINT
         printf("Button3 is pressed!\r\n");
     #endif
+//    isr_Button3_ClearPending();
+//    Button3_ClearInterrupt();
 }
 /******************************************
   * @函数名：BT4_IntHandler
@@ -476,14 +661,14 @@ CY_ISR(BT3_IntHandler)
   *****************************************
 */
 CY_ISR(BT4_IntHandler)
-{
-    isr_Button4_ClearPending();
-    Button4_ClearInterrupt();
+{    
     ButtonStatus=BUTTON4_DOWN;
     ButtonType=BUTTON4;
     #ifdef PRINT
         printf("Button4 is pressed!\r\n");
     #endif
+//    isr_Button4_ClearPending();
+//    Button4_ClearInterrupt();
 }
 
 /******************************************
@@ -501,7 +686,7 @@ void ButtonHandler(void)
     {
         case BUTTON1_DOWN:
             ButtonStatus = BUTTON_UP;
-            API_RESULT=CyBle_GapcConnectDevice(&TestDevice);//建立连接&BondList.bdAddrList[0]
+            API_RESULT=CyBle_GapcConnectDevice(&Device1);//建立连接&BondList.bdAddrList[0]
             if(API_RESULT == CYBLE_ERROR_OK)
             {
                 
@@ -509,12 +694,33 @@ void ButtonHandler(void)
         break;
         case BUTTON2_DOWN:
             ButtonStatus = BUTTON_UP;
+            API_RESULT=CyBle_GapcConnectDevice(&Device2);//建立连接&BondList.bdAddrList[0]
+            if(API_RESULT == CYBLE_ERROR_OK)
+            {
+                
+            }
         break;
         case BUTTON3_DOWN:
             ButtonStatus = BUTTON_UP;
+            API_RESULT=CyBle_GapcConnectDevice(&Device3);//建立连接&BondList.bdAddrList[0]
+            if(API_RESULT == CYBLE_ERROR_OK)
+            {
+                
+            }
         break;
         case BUTTON4_DOWN:
+            ButtonStatus = BUTTON_UP;            
+            API_RESULT=CyBle_GapcConnectDevice(&Device4);//建立连接&BondList.bdAddrList[0]
+            if(API_RESULT == CYBLE_ERROR_OK)
+            {
+                
+            }
+        break;
+        case BUTTON5_DOWN://关闭或者打所有灯
             ButtonStatus = BUTTON_UP;
+            ALL_ON_OFF = TURE;
+            RX_ISOVER = TURE;
+            strncpy((char*)Buffer,"AT+SWT=1",8);
         break;
         default:
         break;

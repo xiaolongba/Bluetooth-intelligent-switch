@@ -145,7 +145,7 @@
     #define CYBLE_SLOW_SCAN_WINDOW                  (0x0708u)
     #define CYBLE_SLOW_SCAN_TIMEOUT                 (0x0096u)
     #define CYBLE_GAPC_CONNECTION_INTERVAL_MIN      (0x0006u)
-    #define CYBLE_GAPC_CONNECTION_INTERVAL_MAX      (0x0028u)
+    #define CYBLE_GAPC_CONNECTION_INTERVAL_MAX      (0x0018u)
     #define CYBLE_GAPC_CONNECTION_SLAVE_LATENCY     (0x0000u)
     #define CYBLE_GAPC_CONNECTION_TIME_OUT          (0x001Eu)
 #endif /* CYBLE_GAP_ROLE_CENTRAL */

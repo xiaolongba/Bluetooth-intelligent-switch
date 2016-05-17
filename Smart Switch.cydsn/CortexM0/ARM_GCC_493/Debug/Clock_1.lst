@@ -1,0 +1,1042 @@
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"Clock_1.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.Clock_1_StartEx,"ax",%progbits
+  18              		.align	2
+  19              		.global	Clock_1_StartEx
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	Clock_1_StartEx, %function
+  23              	Clock_1_StartEx:
+  24              	.LFB0:
+  25              		.file 1 ".\\Generated_Source\\PSoC4\\Clock_1.c"
+   1:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC4/Clock_1.c **** * File Name: Clock_1.c
+   3:.\Generated_Source\PSoC4/Clock_1.c **** * Version 2.20
+   4:.\Generated_Source\PSoC4/Clock_1.c **** *
+   5:.\Generated_Source\PSoC4/Clock_1.c **** *  Description:
+   6:.\Generated_Source\PSoC4/Clock_1.c **** *   Provides system API for the clocking, interrupts and watchdog timer.
+   7:.\Generated_Source\PSoC4/Clock_1.c **** *
+   8:.\Generated_Source\PSoC4/Clock_1.c **** *  Note:
+   9:.\Generated_Source\PSoC4/Clock_1.c **** *   Documentation of the API's in this file is located in the
+  10:.\Generated_Source\PSoC4/Clock_1.c **** *   System Reference Guide provided with PSoC Creator.
+  11:.\Generated_Source\PSoC4/Clock_1.c **** *
+  12:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC4/Clock_1.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:.\Generated_Source\PSoC4/Clock_1.c **** * You may use this file only in accordance with the license, terms, conditions,
+  15:.\Generated_Source\PSoC4/Clock_1.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  16:.\Generated_Source\PSoC4/Clock_1.c **** * the software package with which this file was provided.
+  17:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+  18:.\Generated_Source\PSoC4/Clock_1.c **** 
+  19:.\Generated_Source\PSoC4/Clock_1.c **** #include <cydevice_trm.h>
+  20:.\Generated_Source\PSoC4/Clock_1.c **** #include "Clock_1.h"
+  21:.\Generated_Source\PSoC4/Clock_1.c **** 
+  22:.\Generated_Source\PSoC4/Clock_1.c **** #if defined CYREG_PERI_DIV_CMD
+  23:.\Generated_Source\PSoC4/Clock_1.c **** 
+  24:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+  25:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_StartEx
+  26:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+  27:.\Generated_Source\PSoC4/Clock_1.c **** *
+  28:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+  29:.\Generated_Source\PSoC4/Clock_1.c **** *  Starts the clock, aligned to the specified running clock.
+  30:.\Generated_Source\PSoC4/Clock_1.c **** *
+  31:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+  32:.\Generated_Source\PSoC4/Clock_1.c **** *  alignClkDiv:  The divider to which phase alignment is performed when the
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 2
+
+
+  33:.\Generated_Source\PSoC4/Clock_1.c **** *    clock is started.
+  34:.\Generated_Source\PSoC4/Clock_1.c **** *
+  35:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+  36:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+  37:.\Generated_Source\PSoC4/Clock_1.c **** *
+  38:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+  39:.\Generated_Source\PSoC4/Clock_1.c **** void Clock_1_StartEx(uint32 alignClkDiv)
+  40:.\Generated_Source\PSoC4/Clock_1.c **** {
+  26              		.loc 1 40 0
+  27              		.cfi_startproc
+  28 0000 80B5     		push	{r7, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 7, -8
+  31              		.cfi_offset 14, -4
+  32 0002 82B0     		sub	sp, sp, #8
+  33              		.cfi_def_cfa_offset 16
+  34 0004 00AF     		add	r7, sp, #0
+  35              		.cfi_def_cfa_register 7
+  36 0006 7860     		str	r0, [r7, #4]
+  41:.\Generated_Source\PSoC4/Clock_1.c ****     /* Make sure any previous start command has finished. */
+  42:.\Generated_Source\PSoC4/Clock_1.c ****     while((Clock_1_CMD_REG & Clock_1_CMD_ENABLE_MASK) != 0u)
+  37              		.loc 1 42 0
+  38 0008 C046     		mov	r8, r8
+  39              	.L2:
+  40              		.loc 1 42 0 is_stmt 0 discriminator 1
+  41 000a 064B     		ldr	r3, .L3
+  42 000c 1B68     		ldr	r3, [r3]
+  43 000e 002B     		cmp	r3, #0
+  44 0010 FBDB     		blt	.L2
+  43:.\Generated_Source\PSoC4/Clock_1.c ****     {
+  44:.\Generated_Source\PSoC4/Clock_1.c ****     }
+  45:.\Generated_Source\PSoC4/Clock_1.c ****     
+  46:.\Generated_Source\PSoC4/Clock_1.c ****     /* Specify the target divider and it's alignment divider, and enable. */
+  47:.\Generated_Source\PSoC4/Clock_1.c ****     Clock_1_CMD_REG =
+  45              		.loc 1 47 0 is_stmt 1
+  46 0012 044B     		ldr	r3, .L3
+  48:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)Clock_1__DIV_ID << Clock_1_CMD_DIV_SHIFT)|
+  49:.\Generated_Source\PSoC4/Clock_1.c ****         (alignClkDiv << Clock_1_CMD_PA_DIV_SHIFT) |
+  47              		.loc 1 49 0
+  48 0014 7A68     		ldr	r2, [r7, #4]
+  49 0016 1202     		lsl	r2, r2, #8
+  50 0018 0349     		ldr	r1, .L3+4
+  51 001a 0A43     		orr	r2, r1
+  47:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)Clock_1__DIV_ID << Clock_1_CMD_DIV_SHIFT)|
+  52              		.loc 1 47 0
+  53 001c 1A60     		str	r2, [r3]
+  50:.\Generated_Source\PSoC4/Clock_1.c ****         (uint32)Clock_1_CMD_ENABLE_MASK;
+  51:.\Generated_Source\PSoC4/Clock_1.c **** }
+  54              		.loc 1 51 0
+  55 001e BD46     		mov	sp, r7
+  56 0020 02B0     		add	sp, sp, #8
+  57              		@ sp needed
+  58 0022 80BD     		pop	{r7, pc}
+  59              	.L4:
+  60              		.align	2
+  61              	.L3:
+  62 0024 00000140 		.word	1073807360
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 3
+
+
+  63 0028 80000080 		.word	-2147483520
+  64              		.cfi_endproc
+  65              	.LFE0:
+  66              		.size	Clock_1_StartEx, .-Clock_1_StartEx
+  67              		.section	.text.Clock_1_Stop,"ax",%progbits
+  68              		.align	2
+  69              		.global	Clock_1_Stop
+  70              		.code	16
+  71              		.thumb_func
+  72              		.type	Clock_1_Stop, %function
+  73              	Clock_1_Stop:
+  74              	.LFB1:
+  52:.\Generated_Source\PSoC4/Clock_1.c **** 
+  53:.\Generated_Source\PSoC4/Clock_1.c **** #else
+  54:.\Generated_Source\PSoC4/Clock_1.c **** 
+  55:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+  56:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_Start
+  57:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+  58:.\Generated_Source\PSoC4/Clock_1.c **** *
+  59:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+  60:.\Generated_Source\PSoC4/Clock_1.c **** *  Starts the clock.
+  61:.\Generated_Source\PSoC4/Clock_1.c **** *
+  62:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+  63:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+  64:.\Generated_Source\PSoC4/Clock_1.c **** *
+  65:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+  66:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+  67:.\Generated_Source\PSoC4/Clock_1.c **** *
+  68:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+  69:.\Generated_Source\PSoC4/Clock_1.c **** 
+  70:.\Generated_Source\PSoC4/Clock_1.c **** void Clock_1_Start(void)
+  71:.\Generated_Source\PSoC4/Clock_1.c **** {
+  72:.\Generated_Source\PSoC4/Clock_1.c ****     /* Set the bit to enable the clock. */
+  73:.\Generated_Source\PSoC4/Clock_1.c ****     Clock_1_ENABLE_REG |= Clock_1__ENABLE_MASK;
+  74:.\Generated_Source\PSoC4/Clock_1.c **** }
+  75:.\Generated_Source\PSoC4/Clock_1.c **** 
+  76:.\Generated_Source\PSoC4/Clock_1.c **** #endif /* CYREG_PERI_DIV_CMD */
+  77:.\Generated_Source\PSoC4/Clock_1.c **** 
+  78:.\Generated_Source\PSoC4/Clock_1.c **** 
+  79:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+  80:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_Stop
+  81:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+  82:.\Generated_Source\PSoC4/Clock_1.c **** *
+  83:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+  84:.\Generated_Source\PSoC4/Clock_1.c **** *  Stops the clock and returns immediately. This API does not require the
+  85:.\Generated_Source\PSoC4/Clock_1.c **** *  source clock to be running but may return before the hardware is actually
+  86:.\Generated_Source\PSoC4/Clock_1.c **** *  disabled.
+  87:.\Generated_Source\PSoC4/Clock_1.c **** *
+  88:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+  89:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+  90:.\Generated_Source\PSoC4/Clock_1.c **** *
+  91:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+  92:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+  93:.\Generated_Source\PSoC4/Clock_1.c **** *
+  94:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+  95:.\Generated_Source\PSoC4/Clock_1.c **** void Clock_1_Stop(void)
+  96:.\Generated_Source\PSoC4/Clock_1.c **** {
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 4
+
+
+  75              		.loc 1 96 0
+  76              		.cfi_startproc
+  77 0000 80B5     		push	{r7, lr}
+  78              		.cfi_def_cfa_offset 8
+  79              		.cfi_offset 7, -8
+  80              		.cfi_offset 14, -4
+  81 0002 00AF     		add	r7, sp, #0
+  82              		.cfi_def_cfa_register 7
+  97:.\Generated_Source\PSoC4/Clock_1.c **** #if defined CYREG_PERI_DIV_CMD
+  98:.\Generated_Source\PSoC4/Clock_1.c **** 
+  99:.\Generated_Source\PSoC4/Clock_1.c ****     /* Make sure any previous start command has finished. */
+ 100:.\Generated_Source\PSoC4/Clock_1.c ****     while((Clock_1_CMD_REG & Clock_1_CMD_ENABLE_MASK) != 0u)
+  83              		.loc 1 100 0
+  84 0004 C046     		mov	r8, r8
+  85              	.L6:
+  86              		.loc 1 100 0 is_stmt 0 discriminator 1
+  87 0006 044B     		ldr	r3, .L7
+  88 0008 1B68     		ldr	r3, [r3]
+  89 000a 002B     		cmp	r3, #0
+  90 000c FBDB     		blt	.L6
+ 101:.\Generated_Source\PSoC4/Clock_1.c ****     {
+ 102:.\Generated_Source\PSoC4/Clock_1.c ****     }
+ 103:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 104:.\Generated_Source\PSoC4/Clock_1.c ****     /* Specify the target divider and it's alignment divider, and disable. */
+ 105:.\Generated_Source\PSoC4/Clock_1.c ****     Clock_1_CMD_REG =
+  91              		.loc 1 105 0 is_stmt 1
+  92 000e 024B     		ldr	r3, .L7
+  93 0010 024A     		ldr	r2, .L7+4
+  94 0012 1A60     		str	r2, [r3]
+ 106:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)Clock_1__DIV_ID << Clock_1_CMD_DIV_SHIFT)|
+ 107:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)Clock_1_CMD_DISABLE_MASK);
+ 108:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 109:.\Generated_Source\PSoC4/Clock_1.c **** #else
+ 110:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 111:.\Generated_Source\PSoC4/Clock_1.c ****     /* Clear the bit to disable the clock. */
+ 112:.\Generated_Source\PSoC4/Clock_1.c ****     Clock_1_ENABLE_REG &= (uint32)(~Clock_1__ENABLE_MASK);
+ 113:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 114:.\Generated_Source\PSoC4/Clock_1.c **** #endif /* CYREG_PERI_DIV_CMD */
+ 115:.\Generated_Source\PSoC4/Clock_1.c **** }
+  95              		.loc 1 115 0
+  96 0014 BD46     		mov	sp, r7
+  97              		@ sp needed
+  98 0016 80BD     		pop	{r7, pc}
+  99              	.L8:
+ 100              		.align	2
+ 101              	.L7:
+ 102 0018 00000140 		.word	1073807360
+ 103 001c 80000040 		.word	1073741952
+ 104              		.cfi_endproc
+ 105              	.LFE1:
+ 106              		.size	Clock_1_Stop, .-Clock_1_Stop
+ 107              		.section	.text.Clock_1_SetFractionalDividerRegister,"ax",%progbits
+ 108              		.align	2
+ 109              		.global	Clock_1_SetFractionalDividerRegister
+ 110              		.code	16
+ 111              		.thumb_func
+ 112              		.type	Clock_1_SetFractionalDividerRegister, %function
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 5
+
+
+ 113              	Clock_1_SetFractionalDividerRegister:
+ 114              	.LFB2:
+ 116:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 117:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 118:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+ 119:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_SetFractionalDividerRegister
+ 120:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+ 121:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 122:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+ 123:.\Generated_Source\PSoC4/Clock_1.c **** *  Modifies the clock divider and the fractional divider.
+ 124:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 125:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+ 126:.\Generated_Source\PSoC4/Clock_1.c **** *  clkDivider:  Divider register value (0-65535). This value is NOT the
+ 127:.\Generated_Source\PSoC4/Clock_1.c **** *    divider; the clock hardware divides by clkDivider plus one. For example,
+ 128:.\Generated_Source\PSoC4/Clock_1.c **** *    to divide the clock by 2, this parameter should be set to 1.
+ 129:.\Generated_Source\PSoC4/Clock_1.c **** *  fracDivider:  Fractional Divider register value (0-31).
+ 130:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+ 131:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+ 132:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 133:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+ 134:.\Generated_Source\PSoC4/Clock_1.c **** void Clock_1_SetFractionalDividerRegister(uint16 clkDivider, uint8 clkFractional)
+ 135:.\Generated_Source\PSoC4/Clock_1.c **** {
+ 115              		.loc 1 135 0
+ 116              		.cfi_startproc
+ 117 0000 80B5     		push	{r7, lr}
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 7, -8
+ 120              		.cfi_offset 14, -4
+ 121 0002 84B0     		sub	sp, sp, #16
+ 122              		.cfi_def_cfa_offset 24
+ 123 0004 00AF     		add	r7, sp, #0
+ 124              		.cfi_def_cfa_register 7
+ 125 0006 021C     		mov	r2, r0
+ 126 0008 BB1D     		add	r3, r7, #6
+ 127 000a 1A80     		strh	r2, [r3]
+ 128 000c 7B1D     		add	r3, r7, #5
+ 129 000e 0A1C     		add	r2, r1, #0
+ 130 0010 1A70     		strb	r2, [r3]
+ 136:.\Generated_Source\PSoC4/Clock_1.c ****     uint32 maskVal;
+ 137:.\Generated_Source\PSoC4/Clock_1.c ****     uint32 regVal;
+ 138:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 139:.\Generated_Source\PSoC4/Clock_1.c **** #if defined (Clock_1__FRAC_MASK) || defined (CYREG_PERI_DIV_CMD)
+ 140:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 141:.\Generated_Source\PSoC4/Clock_1.c **** 	/* get all but divider bits */
+ 142:.\Generated_Source\PSoC4/Clock_1.c ****     maskVal = Clock_1_DIV_REG & 
+ 131              		.loc 1 142 0
+ 132 0012 0B4B     		ldr	r3, .L10
+ 133 0014 1B68     		ldr	r3, [r3]
+ 134 0016 0722     		mov	r2, #7
+ 135 0018 1340     		and	r3, r2
+ 136 001a FB60     		str	r3, [r7, #12]
+ 143:.\Generated_Source\PSoC4/Clock_1.c ****                     (uint32)(~(uint32)(Clock_1_DIV_INT_MASK | Clock_1_DIV_FRAC_MASK)); 
+ 144:.\Generated_Source\PSoC4/Clock_1.c **** 	/* combine mask and new divider vals into 32-bit value */
+ 145:.\Generated_Source\PSoC4/Clock_1.c ****     regVal = maskVal |
+ 146:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)((uint32)clkDivider <<  Clock_1_DIV_INT_SHIFT) & Clock_1_DIV_INT_MASK) |
+ 137              		.loc 1 146 0
+ 138 001c BB1D     		add	r3, r7, #6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 6
+
+
+ 139 001e 1B88     		ldrh	r3, [r3]
+ 140 0020 1A02     		lsl	r2, r3, #8
+ 145:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)((uint32)clkDivider <<  Clock_1_DIV_INT_SHIFT) & Clock_1_DIV_INT_MASK) |
+ 141              		.loc 1 145 0
+ 142 0022 FB68     		ldr	r3, [r7, #12]
+ 143 0024 1A43     		orr	r2, r3
+ 147:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)((uint32)clkFractional << Clock_1_DIV_FRAC_SHIFT) & Clock_1_DIV_FRAC_MASK);
+ 144              		.loc 1 147 0
+ 145 0026 7B1D     		add	r3, r7, #5
+ 146 0028 1B78     		ldrb	r3, [r3]
+ 147 002a DB00     		lsl	r3, r3, #3
+ 148 002c FF21     		mov	r1, #255
+ 149 002e 0B40     		and	r3, r1
+ 145:.\Generated_Source\PSoC4/Clock_1.c ****         ((uint32)((uint32)clkDivider <<  Clock_1_DIV_INT_SHIFT) & Clock_1_DIV_INT_MASK) |
+ 150              		.loc 1 145 0
+ 151 0030 1343     		orr	r3, r2
+ 152 0032 BB60     		str	r3, [r7, #8]
+ 148:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 149:.\Generated_Source\PSoC4/Clock_1.c **** #else
+ 150:.\Generated_Source\PSoC4/Clock_1.c ****     /* get all but integer divider bits */
+ 151:.\Generated_Source\PSoC4/Clock_1.c ****     maskVal = Clock_1_DIV_REG & (uint32)(~(uint32)Clock_1__DIVIDER_MASK);
+ 152:.\Generated_Source\PSoC4/Clock_1.c ****     /* combine mask and new divider val into 32-bit value */
+ 153:.\Generated_Source\PSoC4/Clock_1.c ****     regVal = clkDivider | maskVal;
+ 154:.\Generated_Source\PSoC4/Clock_1.c ****     
+ 155:.\Generated_Source\PSoC4/Clock_1.c **** #endif /* Clock_1__FRAC_MASK || CYREG_PERI_DIV_CMD */
+ 156:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 157:.\Generated_Source\PSoC4/Clock_1.c ****     Clock_1_DIV_REG = regVal;
+ 153              		.loc 1 157 0
+ 154 0034 024B     		ldr	r3, .L10
+ 155 0036 BA68     		ldr	r2, [r7, #8]
+ 156 0038 1A60     		str	r2, [r3]
+ 158:.\Generated_Source\PSoC4/Clock_1.c **** }
+ 157              		.loc 1 158 0
+ 158 003a BD46     		mov	sp, r7
+ 159 003c 04B0     		add	sp, sp, #16
+ 160              		@ sp needed
+ 161 003e 80BD     		pop	{r7, pc}
+ 162              	.L11:
+ 163              		.align	2
+ 164              	.L10:
+ 165 0040 00040140 		.word	1073808384
+ 166              		.cfi_endproc
+ 167              	.LFE2:
+ 168              		.size	Clock_1_SetFractionalDividerRegister, .-Clock_1_SetFractionalDividerRegister
+ 169              		.section	.text.Clock_1_GetDividerRegister,"ax",%progbits
+ 170              		.align	2
+ 171              		.global	Clock_1_GetDividerRegister
+ 172              		.code	16
+ 173              		.thumb_func
+ 174              		.type	Clock_1_GetDividerRegister, %function
+ 175              	Clock_1_GetDividerRegister:
+ 176              	.LFB3:
+ 159:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 160:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 161:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+ 162:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_GetDividerRegister
+ 163:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 7
+
+
+ 164:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 165:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+ 166:.\Generated_Source\PSoC4/Clock_1.c **** *  Gets the clock divider register value.
+ 167:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 168:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+ 169:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+ 170:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 171:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+ 172:.\Generated_Source\PSoC4/Clock_1.c **** *  Divide value of the clock minus 1. For example, if the clock is set to
+ 173:.\Generated_Source\PSoC4/Clock_1.c **** *  divide by 2, the return value will be 1.
+ 174:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 175:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+ 176:.\Generated_Source\PSoC4/Clock_1.c **** uint16 Clock_1_GetDividerRegister(void)
+ 177:.\Generated_Source\PSoC4/Clock_1.c **** {
+ 177              		.loc 1 177 0
+ 178              		.cfi_startproc
+ 179 0000 80B5     		push	{r7, lr}
+ 180              		.cfi_def_cfa_offset 8
+ 181              		.cfi_offset 7, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 00AF     		add	r7, sp, #0
+ 184              		.cfi_def_cfa_register 7
+ 178:.\Generated_Source\PSoC4/Clock_1.c ****     return (uint16)((Clock_1_DIV_REG & Clock_1_DIV_INT_MASK)
+ 185              		.loc 1 178 0
+ 186 0004 034B     		ldr	r3, .L14
+ 187 0006 1B68     		ldr	r3, [r3]
+ 179:.\Generated_Source\PSoC4/Clock_1.c ****         >> Clock_1_DIV_INT_SHIFT);
+ 188              		.loc 1 179 0
+ 189 0008 1B0A     		lsr	r3, r3, #8
+ 178:.\Generated_Source\PSoC4/Clock_1.c ****     return (uint16)((Clock_1_DIV_REG & Clock_1_DIV_INT_MASK)
+ 190              		.loc 1 178 0
+ 191 000a 9BB2     		uxth	r3, r3
+ 180:.\Generated_Source\PSoC4/Clock_1.c **** }
+ 192              		.loc 1 180 0
+ 193 000c 181C     		mov	r0, r3
+ 194 000e BD46     		mov	sp, r7
+ 195              		@ sp needed
+ 196 0010 80BD     		pop	{r7, pc}
+ 197              	.L15:
+ 198 0012 C046     		.align	2
+ 199              	.L14:
+ 200 0014 00040140 		.word	1073808384
+ 201              		.cfi_endproc
+ 202              	.LFE3:
+ 203              		.size	Clock_1_GetDividerRegister, .-Clock_1_GetDividerRegister
+ 204              		.section	.text.Clock_1_GetFractionalDividerRegister,"ax",%progbits
+ 205              		.align	2
+ 206              		.global	Clock_1_GetFractionalDividerRegister
+ 207              		.code	16
+ 208              		.thumb_func
+ 209              		.type	Clock_1_GetFractionalDividerRegister, %function
+ 210              	Clock_1_GetFractionalDividerRegister:
+ 211              	.LFB4:
+ 181:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 182:.\Generated_Source\PSoC4/Clock_1.c **** 
+ 183:.\Generated_Source\PSoC4/Clock_1.c **** /*******************************************************************************
+ 184:.\Generated_Source\PSoC4/Clock_1.c **** * Function Name: Clock_1_GetFractionalDividerRegister
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 8
+
+
+ 185:.\Generated_Source\PSoC4/Clock_1.c **** ********************************************************************************
+ 186:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 187:.\Generated_Source\PSoC4/Clock_1.c **** * Summary:
+ 188:.\Generated_Source\PSoC4/Clock_1.c **** *  Gets the clock fractional divider register value.
+ 189:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 190:.\Generated_Source\PSoC4/Clock_1.c **** * Parameters:
+ 191:.\Generated_Source\PSoC4/Clock_1.c **** *  None
+ 192:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 193:.\Generated_Source\PSoC4/Clock_1.c **** * Returns:
+ 194:.\Generated_Source\PSoC4/Clock_1.c **** *  Fractional Divide value of the clock
+ 195:.\Generated_Source\PSoC4/Clock_1.c **** *  0 if the fractional divider is not in use.
+ 196:.\Generated_Source\PSoC4/Clock_1.c **** *
+ 197:.\Generated_Source\PSoC4/Clock_1.c **** *******************************************************************************/
+ 198:.\Generated_Source\PSoC4/Clock_1.c **** uint8 Clock_1_GetFractionalDividerRegister(void)
+ 199:.\Generated_Source\PSoC4/Clock_1.c **** {
+ 212              		.loc 1 199 0
+ 213              		.cfi_startproc
+ 214 0000 80B5     		push	{r7, lr}
+ 215              		.cfi_def_cfa_offset 8
+ 216              		.cfi_offset 7, -8
+ 217              		.cfi_offset 14, -4
+ 218 0002 00AF     		add	r7, sp, #0
+ 219              		.cfi_def_cfa_register 7
+ 200:.\Generated_Source\PSoC4/Clock_1.c **** #if defined (Clock_1__FRAC_MASK)
+ 201:.\Generated_Source\PSoC4/Clock_1.c ****     /* return fractional divider bits */
+ 202:.\Generated_Source\PSoC4/Clock_1.c ****     return (uint8)((Clock_1_DIV_REG & Clock_1_DIV_FRAC_MASK)
+ 220              		.loc 1 202 0
+ 221 0004 044B     		ldr	r3, .L18
+ 222 0006 1B68     		ldr	r3, [r3]
+ 223 0008 F822     		mov	r2, #248
+ 224 000a 1340     		and	r3, r2
+ 203:.\Generated_Source\PSoC4/Clock_1.c ****         >> Clock_1_DIV_FRAC_SHIFT);
+ 225              		.loc 1 203 0
+ 226 000c DB08     		lsr	r3, r3, #3
+ 202:.\Generated_Source\PSoC4/Clock_1.c ****         >> Clock_1_DIV_FRAC_SHIFT);
+ 227              		.loc 1 202 0
+ 228 000e DBB2     		uxtb	r3, r3
+ 204:.\Generated_Source\PSoC4/Clock_1.c **** #else
+ 205:.\Generated_Source\PSoC4/Clock_1.c ****     return 0u;
+ 206:.\Generated_Source\PSoC4/Clock_1.c **** #endif /* Clock_1__FRAC_MASK */
+ 207:.\Generated_Source\PSoC4/Clock_1.c **** }
+ 229              		.loc 1 207 0
+ 230 0010 181C     		mov	r0, r3
+ 231 0012 BD46     		mov	sp, r7
+ 232              		@ sp needed
+ 233 0014 80BD     		pop	{r7, pc}
+ 234              	.L19:
+ 235 0016 C046     		.align	2
+ 236              	.L18:
+ 237 0018 00040140 		.word	1073808384
+ 238              		.cfi_endproc
+ 239              	.LFE4:
+ 240              		.size	Clock_1_GetFractionalDividerRegister, .-Clock_1_GetFractionalDividerRegister
+ 241              		.text
+ 242              	.Letext0:
+ 243              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 244              		.section	.debug_info,"",%progbits
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 9
+
+
+ 245              	.Ldebug_info0:
+ 246 0000 5F010000 		.4byte	0x15f
+ 247 0004 0400     		.2byte	0x4
+ 248 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 249 000a 04       		.byte	0x4
+ 250 000b 01       		.uleb128 0x1
+ 251 000c 23010000 		.4byte	.LASF25
+ 252 0010 01       		.byte	0x1
+ 253 0011 CD000000 		.4byte	.LASF26
+ 254 0015 0E000000 		.4byte	.LASF27
+ 255 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 256 001d 00000000 		.4byte	0
+ 257 0021 00000000 		.4byte	.Ldebug_line0
+ 258 0025 02       		.uleb128 0x2
+ 259 0026 01       		.byte	0x1
+ 260 0027 06       		.byte	0x6
+ 261 0028 59020000 		.4byte	.LASF0
+ 262 002c 02       		.uleb128 0x2
+ 263 002d 01       		.byte	0x1
+ 264 002e 08       		.byte	0x8
+ 265 002f 9A000000 		.4byte	.LASF1
+ 266 0033 02       		.uleb128 0x2
+ 267 0034 02       		.byte	0x2
+ 268 0035 05       		.byte	0x5
+ 269 0036 1B020000 		.4byte	.LASF2
+ 270 003a 02       		.uleb128 0x2
+ 271 003b 02       		.byte	0x2
+ 272 003c 07       		.byte	0x7
+ 273 003d BA000000 		.4byte	.LASF3
+ 274 0041 02       		.uleb128 0x2
+ 275 0042 04       		.byte	0x4
+ 276 0043 05       		.byte	0x5
+ 277 0044 50020000 		.4byte	.LASF4
+ 278 0048 02       		.uleb128 0x2
+ 279 0049 04       		.byte	0x4
+ 280 004a 07       		.byte	0x7
+ 281 004b A8000000 		.4byte	.LASF5
+ 282 004f 02       		.uleb128 0x2
+ 283 0050 08       		.byte	0x8
+ 284 0051 05       		.byte	0x5
+ 285 0052 08020000 		.4byte	.LASF6
+ 286 0056 02       		.uleb128 0x2
+ 287 0057 08       		.byte	0x8
+ 288 0058 07       		.byte	0x7
+ 289 0059 CC010000 		.4byte	.LASF7
+ 290 005d 03       		.uleb128 0x3
+ 291 005e 04       		.byte	0x4
+ 292 005f 05       		.byte	0x5
+ 293 0060 696E7400 		.ascii	"int\000"
+ 294 0064 02       		.uleb128 0x2
+ 295 0065 04       		.byte	0x4
+ 296 0066 07       		.byte	0x7
+ 297 0067 BF010000 		.4byte	.LASF8
+ 298 006b 04       		.uleb128 0x4
+ 299 006c 25020000 		.4byte	.LASF9
+ 300 0070 02       		.byte	0x2
+ 301 0071 3801     		.2byte	0x138
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 10
+
+
+ 302 0073 2C000000 		.4byte	0x2c
+ 303 0077 04       		.uleb128 0x4
+ 304 0078 B1010000 		.4byte	.LASF10
+ 305 007c 02       		.byte	0x2
+ 306 007d 3901     		.2byte	0x139
+ 307 007f 3A000000 		.4byte	0x3a
+ 308 0083 04       		.uleb128 0x4
+ 309 0084 B8010000 		.4byte	.LASF11
+ 310 0088 02       		.byte	0x2
+ 311 0089 3A01     		.2byte	0x13a
+ 312 008b 48000000 		.4byte	0x48
+ 313 008f 02       		.uleb128 0x2
+ 314 0090 04       		.byte	0x4
+ 315 0091 04       		.byte	0x4
+ 316 0092 77000000 		.4byte	.LASF12
+ 317 0096 02       		.uleb128 0x2
+ 318 0097 08       		.byte	0x8
+ 319 0098 04       		.byte	0x4
+ 320 0099 FB000000 		.4byte	.LASF13
+ 321 009d 02       		.uleb128 0x2
+ 322 009e 01       		.byte	0x1
+ 323 009f 08       		.byte	0x8
+ 324 00a0 16020000 		.4byte	.LASF14
+ 325 00a4 04       		.uleb128 0x4
+ 326 00a5 00000000 		.4byte	.LASF15
+ 327 00a9 02       		.byte	0x2
+ 328 00aa E401     		.2byte	0x1e4
+ 329 00ac B0000000 		.4byte	0xb0
+ 330 00b0 05       		.uleb128 0x5
+ 331 00b1 83000000 		.4byte	0x83
+ 332 00b5 06       		.uleb128 0x6
+ 333 00b6 7D000000 		.4byte	.LASF16
+ 334 00ba 01       		.byte	0x1
+ 335 00bb 27       		.byte	0x27
+ 336 00bc 00000000 		.4byte	.LFB0
+ 337 00c0 2C000000 		.4byte	.LFE0-.LFB0
+ 338 00c4 01       		.uleb128 0x1
+ 339 00c5 9C       		.byte	0x9c
+ 340 00c6 D9000000 		.4byte	0xd9
+ 341 00ca 07       		.uleb128 0x7
+ 342 00cb 09010000 		.4byte	.LASF18
+ 343 00cf 01       		.byte	0x1
+ 344 00d0 27       		.byte	0x27
+ 345 00d1 83000000 		.4byte	0x83
+ 346 00d5 02       		.uleb128 0x2
+ 347 00d6 91       		.byte	0x91
+ 348 00d7 74       		.sleb128 -12
+ 349 00d8 00       		.byte	0
+ 350 00d9 08       		.uleb128 0x8
+ 351 00da 8D000000 		.4byte	.LASF28
+ 352 00de 01       		.byte	0x1
+ 353 00df 5F       		.byte	0x5f
+ 354 00e0 00000000 		.4byte	.LFB1
+ 355 00e4 20000000 		.4byte	.LFE1-.LFB1
+ 356 00e8 01       		.uleb128 0x1
+ 357 00e9 9C       		.byte	0x9c
+ 358 00ea 06       		.uleb128 0x6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 11
+
+
+ 359 00eb 2B020000 		.4byte	.LASF17
+ 360 00ef 01       		.byte	0x1
+ 361 00f0 86       		.byte	0x86
+ 362 00f1 00000000 		.4byte	.LFB2
+ 363 00f5 44000000 		.4byte	.LFE2-.LFB2
+ 364 00f9 01       		.uleb128 0x1
+ 365 00fa 9C       		.byte	0x9c
+ 366 00fb 38010000 		.4byte	0x138
+ 367 00ff 07       		.uleb128 0x7
+ 368 0100 F0000000 		.4byte	.LASF19
+ 369 0104 01       		.byte	0x1
+ 370 0105 86       		.byte	0x86
+ 371 0106 77000000 		.4byte	0x77
+ 372 010a 02       		.uleb128 0x2
+ 373 010b 91       		.byte	0x91
+ 374 010c 6E       		.sleb128 -18
+ 375 010d 07       		.uleb128 0x7
+ 376 010e 15010000 		.4byte	.LASF20
+ 377 0112 01       		.byte	0x1
+ 378 0113 86       		.byte	0x86
+ 379 0114 6B000000 		.4byte	0x6b
+ 380 0118 02       		.uleb128 0x2
+ 381 0119 91       		.byte	0x91
+ 382 011a 6D       		.sleb128 -19
+ 383 011b 09       		.uleb128 0x9
+ 384 011c 06000000 		.4byte	.LASF21
+ 385 0120 01       		.byte	0x1
+ 386 0121 88       		.byte	0x88
+ 387 0122 83000000 		.4byte	0x83
+ 388 0126 02       		.uleb128 0x2
+ 389 0127 91       		.byte	0x91
+ 390 0128 74       		.sleb128 -12
+ 391 0129 09       		.uleb128 0x9
+ 392 012a 02010000 		.4byte	.LASF22
+ 393 012e 01       		.byte	0x1
+ 394 012f 89       		.byte	0x89
+ 395 0130 83000000 		.4byte	0x83
+ 396 0134 02       		.uleb128 0x2
+ 397 0135 91       		.byte	0x91
+ 398 0136 70       		.sleb128 -16
+ 399 0137 00       		.byte	0
+ 400 0138 0A       		.uleb128 0xa
+ 401 0139 65020000 		.4byte	.LASF23
+ 402 013d 01       		.byte	0x1
+ 403 013e B0       		.byte	0xb0
+ 404 013f 77000000 		.4byte	0x77
+ 405 0143 00000000 		.4byte	.LFB3
+ 406 0147 18000000 		.4byte	.LFE3-.LFB3
+ 407 014b 01       		.uleb128 0x1
+ 408 014c 9C       		.byte	0x9c
+ 409 014d 0A       		.uleb128 0xa
+ 410 014e E3010000 		.4byte	.LASF24
+ 411 0152 01       		.byte	0x1
+ 412 0153 C6       		.byte	0xc6
+ 413 0154 6B000000 		.4byte	0x6b
+ 414 0158 00000000 		.4byte	.LFB4
+ 415 015c 1C000000 		.4byte	.LFE4-.LFB4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 12
+
+
+ 416 0160 01       		.uleb128 0x1
+ 417 0161 9C       		.byte	0x9c
+ 418 0162 00       		.byte	0
+ 419              		.section	.debug_abbrev,"",%progbits
+ 420              	.Ldebug_abbrev0:
+ 421 0000 01       		.uleb128 0x1
+ 422 0001 11       		.uleb128 0x11
+ 423 0002 01       		.byte	0x1
+ 424 0003 25       		.uleb128 0x25
+ 425 0004 0E       		.uleb128 0xe
+ 426 0005 13       		.uleb128 0x13
+ 427 0006 0B       		.uleb128 0xb
+ 428 0007 03       		.uleb128 0x3
+ 429 0008 0E       		.uleb128 0xe
+ 430 0009 1B       		.uleb128 0x1b
+ 431 000a 0E       		.uleb128 0xe
+ 432 000b 55       		.uleb128 0x55
+ 433 000c 17       		.uleb128 0x17
+ 434 000d 11       		.uleb128 0x11
+ 435 000e 01       		.uleb128 0x1
+ 436 000f 10       		.uleb128 0x10
+ 437 0010 17       		.uleb128 0x17
+ 438 0011 00       		.byte	0
+ 439 0012 00       		.byte	0
+ 440 0013 02       		.uleb128 0x2
+ 441 0014 24       		.uleb128 0x24
+ 442 0015 00       		.byte	0
+ 443 0016 0B       		.uleb128 0xb
+ 444 0017 0B       		.uleb128 0xb
+ 445 0018 3E       		.uleb128 0x3e
+ 446 0019 0B       		.uleb128 0xb
+ 447 001a 03       		.uleb128 0x3
+ 448 001b 0E       		.uleb128 0xe
+ 449 001c 00       		.byte	0
+ 450 001d 00       		.byte	0
+ 451 001e 03       		.uleb128 0x3
+ 452 001f 24       		.uleb128 0x24
+ 453 0020 00       		.byte	0
+ 454 0021 0B       		.uleb128 0xb
+ 455 0022 0B       		.uleb128 0xb
+ 456 0023 3E       		.uleb128 0x3e
+ 457 0024 0B       		.uleb128 0xb
+ 458 0025 03       		.uleb128 0x3
+ 459 0026 08       		.uleb128 0x8
+ 460 0027 00       		.byte	0
+ 461 0028 00       		.byte	0
+ 462 0029 04       		.uleb128 0x4
+ 463 002a 16       		.uleb128 0x16
+ 464 002b 00       		.byte	0
+ 465 002c 03       		.uleb128 0x3
+ 466 002d 0E       		.uleb128 0xe
+ 467 002e 3A       		.uleb128 0x3a
+ 468 002f 0B       		.uleb128 0xb
+ 469 0030 3B       		.uleb128 0x3b
+ 470 0031 05       		.uleb128 0x5
+ 471 0032 49       		.uleb128 0x49
+ 472 0033 13       		.uleb128 0x13
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 13
+
+
+ 473 0034 00       		.byte	0
+ 474 0035 00       		.byte	0
+ 475 0036 05       		.uleb128 0x5
+ 476 0037 35       		.uleb128 0x35
+ 477 0038 00       		.byte	0
+ 478 0039 49       		.uleb128 0x49
+ 479 003a 13       		.uleb128 0x13
+ 480 003b 00       		.byte	0
+ 481 003c 00       		.byte	0
+ 482 003d 06       		.uleb128 0x6
+ 483 003e 2E       		.uleb128 0x2e
+ 484 003f 01       		.byte	0x1
+ 485 0040 3F       		.uleb128 0x3f
+ 486 0041 19       		.uleb128 0x19
+ 487 0042 03       		.uleb128 0x3
+ 488 0043 0E       		.uleb128 0xe
+ 489 0044 3A       		.uleb128 0x3a
+ 490 0045 0B       		.uleb128 0xb
+ 491 0046 3B       		.uleb128 0x3b
+ 492 0047 0B       		.uleb128 0xb
+ 493 0048 27       		.uleb128 0x27
+ 494 0049 19       		.uleb128 0x19
+ 495 004a 11       		.uleb128 0x11
+ 496 004b 01       		.uleb128 0x1
+ 497 004c 12       		.uleb128 0x12
+ 498 004d 06       		.uleb128 0x6
+ 499 004e 40       		.uleb128 0x40
+ 500 004f 18       		.uleb128 0x18
+ 501 0050 9742     		.uleb128 0x2117
+ 502 0052 19       		.uleb128 0x19
+ 503 0053 01       		.uleb128 0x1
+ 504 0054 13       		.uleb128 0x13
+ 505 0055 00       		.byte	0
+ 506 0056 00       		.byte	0
+ 507 0057 07       		.uleb128 0x7
+ 508 0058 05       		.uleb128 0x5
+ 509 0059 00       		.byte	0
+ 510 005a 03       		.uleb128 0x3
+ 511 005b 0E       		.uleb128 0xe
+ 512 005c 3A       		.uleb128 0x3a
+ 513 005d 0B       		.uleb128 0xb
+ 514 005e 3B       		.uleb128 0x3b
+ 515 005f 0B       		.uleb128 0xb
+ 516 0060 49       		.uleb128 0x49
+ 517 0061 13       		.uleb128 0x13
+ 518 0062 02       		.uleb128 0x2
+ 519 0063 18       		.uleb128 0x18
+ 520 0064 00       		.byte	0
+ 521 0065 00       		.byte	0
+ 522 0066 08       		.uleb128 0x8
+ 523 0067 2E       		.uleb128 0x2e
+ 524 0068 00       		.byte	0
+ 525 0069 3F       		.uleb128 0x3f
+ 526 006a 19       		.uleb128 0x19
+ 527 006b 03       		.uleb128 0x3
+ 528 006c 0E       		.uleb128 0xe
+ 529 006d 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 14
+
+
+ 530 006e 0B       		.uleb128 0xb
+ 531 006f 3B       		.uleb128 0x3b
+ 532 0070 0B       		.uleb128 0xb
+ 533 0071 27       		.uleb128 0x27
+ 534 0072 19       		.uleb128 0x19
+ 535 0073 11       		.uleb128 0x11
+ 536 0074 01       		.uleb128 0x1
+ 537 0075 12       		.uleb128 0x12
+ 538 0076 06       		.uleb128 0x6
+ 539 0077 40       		.uleb128 0x40
+ 540 0078 18       		.uleb128 0x18
+ 541 0079 9742     		.uleb128 0x2117
+ 542 007b 19       		.uleb128 0x19
+ 543 007c 00       		.byte	0
+ 544 007d 00       		.byte	0
+ 545 007e 09       		.uleb128 0x9
+ 546 007f 34       		.uleb128 0x34
+ 547 0080 00       		.byte	0
+ 548 0081 03       		.uleb128 0x3
+ 549 0082 0E       		.uleb128 0xe
+ 550 0083 3A       		.uleb128 0x3a
+ 551 0084 0B       		.uleb128 0xb
+ 552 0085 3B       		.uleb128 0x3b
+ 553 0086 0B       		.uleb128 0xb
+ 554 0087 49       		.uleb128 0x49
+ 555 0088 13       		.uleb128 0x13
+ 556 0089 02       		.uleb128 0x2
+ 557 008a 18       		.uleb128 0x18
+ 558 008b 00       		.byte	0
+ 559 008c 00       		.byte	0
+ 560 008d 0A       		.uleb128 0xa
+ 561 008e 2E       		.uleb128 0x2e
+ 562 008f 00       		.byte	0
+ 563 0090 3F       		.uleb128 0x3f
+ 564 0091 19       		.uleb128 0x19
+ 565 0092 03       		.uleb128 0x3
+ 566 0093 0E       		.uleb128 0xe
+ 567 0094 3A       		.uleb128 0x3a
+ 568 0095 0B       		.uleb128 0xb
+ 569 0096 3B       		.uleb128 0x3b
+ 570 0097 0B       		.uleb128 0xb
+ 571 0098 27       		.uleb128 0x27
+ 572 0099 19       		.uleb128 0x19
+ 573 009a 49       		.uleb128 0x49
+ 574 009b 13       		.uleb128 0x13
+ 575 009c 11       		.uleb128 0x11
+ 576 009d 01       		.uleb128 0x1
+ 577 009e 12       		.uleb128 0x12
+ 578 009f 06       		.uleb128 0x6
+ 579 00a0 40       		.uleb128 0x40
+ 580 00a1 18       		.uleb128 0x18
+ 581 00a2 9742     		.uleb128 0x2117
+ 582 00a4 19       		.uleb128 0x19
+ 583 00a5 00       		.byte	0
+ 584 00a6 00       		.byte	0
+ 585 00a7 00       		.byte	0
+ 586              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 15
+
+
+ 587 0000 3C000000 		.4byte	0x3c
+ 588 0004 0200     		.2byte	0x2
+ 589 0006 00000000 		.4byte	.Ldebug_info0
+ 590 000a 04       		.byte	0x4
+ 591 000b 00       		.byte	0
+ 592 000c 0000     		.2byte	0
+ 593 000e 0000     		.2byte	0
+ 594 0010 00000000 		.4byte	.LFB0
+ 595 0014 2C000000 		.4byte	.LFE0-.LFB0
+ 596 0018 00000000 		.4byte	.LFB1
+ 597 001c 20000000 		.4byte	.LFE1-.LFB1
+ 598 0020 00000000 		.4byte	.LFB2
+ 599 0024 44000000 		.4byte	.LFE2-.LFB2
+ 600 0028 00000000 		.4byte	.LFB3
+ 601 002c 18000000 		.4byte	.LFE3-.LFB3
+ 602 0030 00000000 		.4byte	.LFB4
+ 603 0034 1C000000 		.4byte	.LFE4-.LFB4
+ 604 0038 00000000 		.4byte	0
+ 605 003c 00000000 		.4byte	0
+ 606              		.section	.debug_ranges,"",%progbits
+ 607              	.Ldebug_ranges0:
+ 608 0000 00000000 		.4byte	.LFB0
+ 609 0004 2C000000 		.4byte	.LFE0
+ 610 0008 00000000 		.4byte	.LFB1
+ 611 000c 20000000 		.4byte	.LFE1
+ 612 0010 00000000 		.4byte	.LFB2
+ 613 0014 44000000 		.4byte	.LFE2
+ 614 0018 00000000 		.4byte	.LFB3
+ 615 001c 18000000 		.4byte	.LFE3
+ 616 0020 00000000 		.4byte	.LFB4
+ 617 0024 1C000000 		.4byte	.LFE4
+ 618 0028 00000000 		.4byte	0
+ 619 002c 00000000 		.4byte	0
+ 620              		.section	.debug_line,"",%progbits
+ 621              	.Ldebug_line0:
+ 622 0000 DB000000 		.section	.debug_str,"MS",%progbits,1
+ 622      02005D00 
+ 622      00000201 
+ 622      FB0E0D00 
+ 622      01010101 
+ 623              	.LASF15:
+ 624 0000 72656733 		.ascii	"reg32\000"
+ 624      3200
+ 625              	.LASF21:
+ 626 0006 6D61736B 		.ascii	"maskVal\000"
+ 626      56616C00 
+ 627              	.LASF27:
+ 628 000e 433A5C55 		.ascii	"C:\\Users\\Administrator\\Desktop\\BLE_TemplateProj"
+ 628      73657273 
+ 628      5C41646D 
+ 628      696E6973 
+ 628      74726174 
+ 629 003d 6563745C 		.ascii	"ect\\Bluetooth-intelligent-switchV2.0.0\\Smart Swit"
+ 629      426C7565 
+ 629      746F6F74 
+ 629      682D696E 
+ 629      74656C6C 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 16
+
+
+ 630 006e 63682E63 		.ascii	"ch.cydsn\000"
+ 630      7964736E 
+ 630      00
+ 631              	.LASF12:
+ 632 0077 666C6F61 		.ascii	"float\000"
+ 632      7400
+ 633              	.LASF16:
+ 634 007d 436C6F63 		.ascii	"Clock_1_StartEx\000"
+ 634      6B5F315F 
+ 634      53746172 
+ 634      74457800 
+ 635              	.LASF28:
+ 636 008d 436C6F63 		.ascii	"Clock_1_Stop\000"
+ 636      6B5F315F 
+ 636      53746F70 
+ 636      00
+ 637              	.LASF1:
+ 638 009a 756E7369 		.ascii	"unsigned char\000"
+ 638      676E6564 
+ 638      20636861 
+ 638      7200
+ 639              	.LASF5:
+ 640 00a8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 640      20756E73 
+ 640      69676E65 
+ 640      6420696E 
+ 640      7400
+ 641              	.LASF3:
+ 642 00ba 73686F72 		.ascii	"short unsigned int\000"
+ 642      7420756E 
+ 642      7369676E 
+ 642      65642069 
+ 642      6E7400
+ 643              	.LASF26:
+ 644 00cd 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Clock_1.c\000"
+ 644      6E657261 
+ 644      7465645F 
+ 644      536F7572 
+ 644      63655C50 
+ 645              	.LASF19:
+ 646 00f0 636C6B44 		.ascii	"clkDivider\000"
+ 646      69766964 
+ 646      657200
+ 647              	.LASF13:
+ 648 00fb 646F7562 		.ascii	"double\000"
+ 648      6C6500
+ 649              	.LASF22:
+ 650 0102 72656756 		.ascii	"regVal\000"
+ 650      616C00
+ 651              	.LASF18:
+ 652 0109 616C6967 		.ascii	"alignClkDiv\000"
+ 652      6E436C6B 
+ 652      44697600 
+ 653              	.LASF20:
+ 654 0115 636C6B46 		.ascii	"clkFractional\000"
+ 654      72616374 
+ 654      696F6E61 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 17
+
+
+ 654      6C00
+ 655              	.LASF25:
+ 656 0123 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 656      4320342E 
+ 656      392E3320 
+ 656      32303135 
+ 656      30333033 
+ 657 0156 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 657      20726576 
+ 657      6973696F 
+ 657      6E203232 
+ 657      31323230 
+ 658 0189 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 658      66756E63 
+ 658      74696F6E 
+ 658      2D736563 
+ 658      74696F6E 
+ 659              	.LASF10:
+ 660 01b1 75696E74 		.ascii	"uint16\000"
+ 660      313600
+ 661              	.LASF11:
+ 662 01b8 75696E74 		.ascii	"uint32\000"
+ 662      333200
+ 663              	.LASF8:
+ 664 01bf 756E7369 		.ascii	"unsigned int\000"
+ 664      676E6564 
+ 664      20696E74 
+ 664      00
+ 665              	.LASF7:
+ 666 01cc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 666      206C6F6E 
+ 666      6720756E 
+ 666      7369676E 
+ 666      65642069 
+ 667              	.LASF24:
+ 668 01e3 436C6F63 		.ascii	"Clock_1_GetFractionalDividerRegister\000"
+ 668      6B5F315F 
+ 668      47657446 
+ 668      72616374 
+ 668      696F6E61 
+ 669              	.LASF6:
+ 670 0208 6C6F6E67 		.ascii	"long long int\000"
+ 670      206C6F6E 
+ 670      6720696E 
+ 670      7400
+ 671              	.LASF14:
+ 672 0216 63686172 		.ascii	"char\000"
+ 672      00
+ 673              	.LASF2:
+ 674 021b 73686F72 		.ascii	"short int\000"
+ 674      7420696E 
+ 674      7400
+ 675              	.LASF9:
+ 676 0225 75696E74 		.ascii	"uint8\000"
+ 676      3800
+ 677              	.LASF17:
+ 678 022b 436C6F63 		.ascii	"Clock_1_SetFractionalDividerRegister\000"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccUlMcOr.s 			page 18
+
+
+ 678      6B5F315F 
+ 678      53657446 
+ 678      72616374 
+ 678      696F6E61 
+ 679              	.LASF4:
+ 680 0250 6C6F6E67 		.ascii	"long int\000"
+ 680      20696E74 
+ 680      00
+ 681              	.LASF0:
+ 682 0259 7369676E 		.ascii	"signed char\000"
+ 682      65642063 
+ 682      68617200 
+ 683              	.LASF23:
+ 684 0265 436C6F63 		.ascii	"Clock_1_GetDividerRegister\000"
+ 684      6B5F315F 
+ 684      47657444 
+ 684      69766964 
+ 684      65725265 
+ 685              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

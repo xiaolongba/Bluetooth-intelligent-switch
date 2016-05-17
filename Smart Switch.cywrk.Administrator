@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\Smart Switch.cydwr">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\TopDesign">
 <ExpandedNodeIds>
 <v>Smart Switch</v>
 <v>Smart Switch\Smart Switch</v>
@@ -27,7 +27,6 @@
 <v>Smart Switch\Smart Switch\Source Files\main.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_eventHandler.c</v>
@@ -46,30 +45,13 @@
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGattServer.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackHostMain.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackL2cap.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button4</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button4\Button4.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button4\Button4.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button4\Button4_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button4\Button4_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button_aliases.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button_PM.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\cm0gcc.ld</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\Cm0Iar.icf</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\Cm0RealView.scat</v>
@@ -90,21 +72,11 @@
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\cyPm.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\cytypes.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot\cyutils.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_lfclk</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button1</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button1\isr_Button1.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button1\isr_Button1.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button2</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button2\isr_Button2.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button2\isr_Button2.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button3</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button3\isr_Button3.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button3\isr_Button3.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button4</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button4\isr_Button4.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button4\isr_Button4.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button\isr_Button.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button\isr_Button.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE.cycsa</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cycodeshareexport.ld</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cycodeshareimport.ld</v>
@@ -131,48 +103,46 @@
 <v>Smart Switch\Smart Switch\Header Files</v>
 <v>Smart Switch\Smart Switch\Header Files\application.h</v>
 <v>Smart Switch\Smart Switch\Header Files\cyapicallbacks.h</v>
+<v>Smart Switch\Smart Switch\Header Files\print.h</v>
 <v>Smart Switch\Smart Switch\Source Files</v>
 <v>Smart Switch\Smart Switch\Source Files\application.c</v>
 <v>Smart Switch\Smart Switch\Source Files\main.c</v>
+<v>Smart Switch\Smart Switch\Source Files\print.c</v>
 <v>Smart Switch\Smart Switch\Generated_Source</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_eventHandler.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_eventHandler.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_gatt.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_gatt.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_HAL_INT.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_HAL_PVT.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_HAL_PVT.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_Stack.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_STACK_PVT.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGap.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGatt.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGattClient.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGattDb.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackGattServer.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackHostMain.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE\BLE_StackL2cap.h</v>
 <v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE_bless_isr\BLE_bless_isr.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button1\Button1_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button2\Button2_PM.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3.c</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3_aliases.h</v>
-<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button3\Button3_PM.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button_aliases.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\Button\Button_PM.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_boot</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button\isr_Button.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\isr_Button\isr_Button.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\UART</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\UART_rx</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\UART_SCBCLK</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\UART_tx</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\BLE.cycsa</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Smart Switch\Smart Switch\Generated_Source\PSoC4\project.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -204,14 +174,8 @@
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button_PM.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
@@ -221,11 +185,21 @@
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button1.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button2.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button3.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button4.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\print.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.hex</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.map</v>
@@ -247,14 +221,8 @@
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_gatt.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_INT.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\BLE_HAL_PVT.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button1_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button2_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button3_PM.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button4_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Button_PM.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
@@ -264,11 +232,21 @@
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button1.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button2.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button3.lst</v>
-<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button4.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\isr_Button.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\print.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.elf</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.hex</v>
 <v>Smart Switch\Smart Switch\CortexM0\ARM_GCC_493\Debug\Smart Switch.map</v>
@@ -292,10 +270,9 @@
 <v>Smart Switch\Smart Switch\System Reference Guides\cy_boot_v5_30</v>
 <v>Smart Switch\Smart Switch\System Reference Guides\cy_lfclk_v1_0</v>
 <v>Smart Switch\Smart Switch\BLE_v3_10.pdf</v>
-<v>Smart Switch\Smart Switch\cy_isr_v1_70</v>
-<v>Smart Switch\Smart Switch\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>Smart Switch\Smart Switch\cy_pins_v2_20</v>
-<v>Smart Switch\Smart Switch\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Smart Switch\Smart Switch\cy_isr_v1_70.pdf</v>
+<v>Smart Switch\Smart Switch\cy_pins_v2_20.pdf</v>
+<v>Smart Switch\Smart Switch\SCB_P4_v3_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Smart Switch</v>
@@ -306,10 +283,9 @@
 <v>Smart Switch\Smart Switch\System Reference Guides\cy_boot_v5_30</v>
 <v>Smart Switch\Smart Switch\System Reference Guides\cy_lfclk_v1_0</v>
 <v>Smart Switch\Smart Switch\BLE_v3_10.pdf</v>
-<v>Smart Switch\Smart Switch\cy_isr_v1_70</v>
-<v>Smart Switch\Smart Switch\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>Smart Switch\Smart Switch\cy_pins_v2_20</v>
-<v>Smart Switch\Smart Switch\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Smart Switch\Smart Switch\cy_isr_v1_70.pdf</v>
+<v>Smart Switch\Smart Switch\cy_pins_v2_20.pdf</v>
+<v>Smart Switch\Smart Switch\SCB_P4_v3_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -324,14 +300,15 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Smart Switch.cydsn\main.c" />
 <name v=".\Smart Switch.cydsn\application.c" />
-<name v=".\Smart Switch.cydsn\application.h" />
-<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGap.h" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\Button.c" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\Button.h" />
 <name v=".\Smart Switch.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGatt.h" />
-<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_StackGattClient.h" />
-<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE.c" />
+<name v=".\Smart Switch.cydsn\Smart Switch.cydwr" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\CyLib.c" />
+<name v=".\Smart Switch.cydsn\main.c" />
+<name v=".\Smart Switch.cydsn\application.h" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_eventHandler.h" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

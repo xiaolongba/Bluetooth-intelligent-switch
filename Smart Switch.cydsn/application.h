@@ -43,7 +43,7 @@ CY_ISR_PROTO(BT4_IntHandler);
 #define  BUFFERLEN  (23)
 #define  SWTICH_ON  (0)
 #define  SWTICH_OFF (1)
-#define  PRINT
+//#define  PRINT
 
 #define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
 #define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
@@ -64,6 +64,7 @@ enum//按键按下或放开
     BUTTON2_DOWN,
     BUTTON3_DOWN,
     BUTTON4_DOWN,
+    BUTTON5_DOWN,
     BUTTON_UP
 };
 
@@ -72,7 +73,8 @@ enum//具体哪几个按键
     BUTTON1=0x00u,
     BUTTON2,
     BUTTON3,
-    BUTTON4   
+    BUTTON4,
+    BUTTON5
 };
 
 /* ****************************************
@@ -85,6 +87,7 @@ struct BT
     uint8_t Button2_On_Off;
     uint8_t Button3_On_Off;
     uint8_t Button4_On_Off;
+    uint8_t Button5_On_Off;
 };
 #endif
 /* [] END OF FILE */

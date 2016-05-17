@@ -18,6 +18,7 @@ extern uint8_t Buffer[BUFFERLEN];
 extern uint8_t LOWPOWER;
 extern uint8_t RX_ISOVER;
 extern uint8_t WakeUp;
+extern uint8_t ALL_ON_OFF;
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -29,9 +30,9 @@ extern uint8_t WakeUp;
 int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-
-    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */  
+    
     SystemInit();
+    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */  
     for(;;)
     {
         /* 保存绑定信息 */
@@ -46,13 +47,14 @@ int main()
         if(WakeUp)
         {
             WakeUp=FALSE;
-            CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
+//            CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
         }
         ButtonHandler();
         if(RX_ISOVER)
         {
-            RX_ISOVER=FALSE;
-            ServerData_Handler((char*)Buffer);
+            RX_ISOVER = FALSE;
+            ServerData_Handler((char*)Buffer);            
+                
         }
         if(LOWPOWER)
         {

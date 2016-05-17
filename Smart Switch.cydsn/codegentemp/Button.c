@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Button1.c  
+* File Name: Button.c  
 * Version 2.20
 *
 * Description:
@@ -13,35 +13,35 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "Button1.h"
+#include "Button.h"
 
 
-#if defined(Button1__PC)
-    #define Button1_SetP4PinDriveMode(shift, mode)  \
+#if defined(Button__PC)
+    #define Button_SetP4PinDriveMode(shift, mode)  \
     do { \
-        Button1_PC =   (Button1_PC & \
-                                (uint32)(~(uint32)(Button1_DRIVE_MODE_IND_MASK << \
-                                (Button1_DRIVE_MODE_BITS * (shift))))) | \
+        Button_PC =   (Button_PC & \
+                                (uint32)(~(uint32)(Button_DRIVE_MODE_IND_MASK << \
+                                (Button_DRIVE_MODE_BITS * (shift))))) | \
                                 (uint32)((uint32)(mode) << \
-                                (Button1_DRIVE_MODE_BITS * (shift))); \
+                                (Button_DRIVE_MODE_BITS * (shift))); \
     } while (0)
 #else
     #if (CY_PSOC4_4200L)
-        #define Button1_SetP4PinDriveMode(shift, mode)  \
+        #define Button_SetP4PinDriveMode(shift, mode)  \
         do { \
-            Button1_USBIO_CTRL_REG = (Button1_USBIO_CTRL_REG & \
-                                    (uint32)(~(uint32)(Button1_DRIVE_MODE_IND_MASK << \
-                                    (Button1_DRIVE_MODE_BITS * (shift))))) | \
+            Button_USBIO_CTRL_REG = (Button_USBIO_CTRL_REG & \
+                                    (uint32)(~(uint32)(Button_DRIVE_MODE_IND_MASK << \
+                                    (Button_DRIVE_MODE_BITS * (shift))))) | \
                                     (uint32)((uint32)(mode) << \
-                                    (Button1_DRIVE_MODE_BITS * (shift))); \
+                                    (Button_DRIVE_MODE_BITS * (shift))); \
         } while (0)
     #endif
 #endif
   
 
-#if defined(Button1__PC) || (CY_PSOC4_4200L) 
+#if defined(Button__PC) || (CY_PSOC4_4200L) 
     /*******************************************************************************
-    * Function Name: Button1_SetDriveMode
+    * Function Name: Button_SetDriveMode
     ****************************************************************************//**
     *
     * \brief Sets the drive mode for each of the Pins component's pins.
@@ -67,17 +67,21 @@
     *  APIs (primary method) or disable interrupts around this function.
     *
     * \funcusage
-    *  \snippet Button1_SUT.c usage_Button1_SetDriveMode
+    *  \snippet Button_SUT.c usage_Button_SetDriveMode
     *******************************************************************************/
-    void Button1_SetDriveMode(uint8 mode)
+    void Button_SetDriveMode(uint8 mode)
     {
-		Button1_SetP4PinDriveMode(Button1__0__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__0__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__1__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__2__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__3__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__4__SHIFT, mode);
     }
 #endif
 
 
 /*******************************************************************************
-* Function Name: Button1_Write
+* Function Name: Button_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -106,18 +110,18 @@
 *  this function.
 *
 * \funcusage
-*  \snippet Button1_SUT.c usage_Button1_Write
+*  \snippet Button_SUT.c usage_Button_Write
 *******************************************************************************/
-void Button1_Write(uint8 value)
+void Button_Write(uint8 value)
 {
-    uint8 drVal = (uint8)(Button1_DR & (uint8)(~Button1_MASK));
-    drVal = (drVal | ((uint8)(value << Button1_SHIFT) & Button1_MASK));
-    Button1_DR = (uint32)drVal;
+    uint8 drVal = (uint8)(Button_DR & (uint8)(~Button_MASK));
+    drVal = (drVal | ((uint8)(value << Button_SHIFT) & Button_MASK));
+    Button_DR = (uint32)drVal;
 }
 
 
 /*******************************************************************************
-* Function Name: Button1_Read
+* Function Name: Button_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -131,16 +135,16 @@ void Button1_Write(uint8 value)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet Button1_SUT.c usage_Button1_Read  
+*  \snippet Button_SUT.c usage_Button_Read  
 *******************************************************************************/
-uint8 Button1_Read(void)
+uint8 Button_Read(void)
 {
-    return (uint8)((Button1_PS & Button1_MASK) >> Button1_SHIFT);
+    return (uint8)((Button_PS & Button_MASK) >> Button_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Button1_ReadDataReg
+* Function Name: Button_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -149,8 +153,8 @@ uint8 Button1_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred Button1_Read() API because the 
-* Button1_ReadDataReg() reads the data register instead of the status 
+* preferred Button_Read() API because the 
+* Button_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -159,16 +163,16 @@ uint8 Button1_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet Button1_SUT.c usage_Button1_ReadDataReg 
+*  \snippet Button_SUT.c usage_Button_ReadDataReg 
 *******************************************************************************/
-uint8 Button1_ReadDataReg(void)
+uint8 Button_ReadDataReg(void)
 {
-    return (uint8)((Button1_DR & Button1_MASK) >> Button1_SHIFT);
+    return (uint8)((Button_DR & Button_MASK) >> Button_SHIFT);
 }
 
 
 /*******************************************************************************
-* Function Name: Button1_SetInterruptMode
+* Function Name: Button_SetInterruptMode
 ****************************************************************************//**
 *
 * \brief Configures the interrupt mode for each of the Pins component's
@@ -181,12 +185,12 @@ uint8 Button1_ReadDataReg(void)
 * \param position
 *  The pin position as listed in the Pins component. You may OR these to be 
 *  able to configure the interrupt mode of multiple pins within a Pins 
-*  component. Or you may use Button1_INTR_ALL to configure the
+*  component. Or you may use Button_INTR_ALL to configure the
 *  interrupt mode of all the pins in the Pins component.       
-*  - Button1_0_INTR       (First pin in the list)
-*  - Button1_1_INTR       (Second pin in the list)
+*  - Button_0_INTR       (First pin in the list)
+*  - Button_1_INTR       (Second pin in the list)
 *  - ...
-*  - Button1_INTR_ALL     (All pins in Pins component)
+*  - Button_INTR_ALL     (All pins in Pins component)
 *
 * \param mode
 *  Interrupt mode for the selected pins. Valid options are documented in
@@ -202,19 +206,19 @@ uint8 Button1_ReadDataReg(void)
 *  port.
 *
 * \funcusage
-*  \snippet Button1_SUT.c usage_Button1_SetInterruptMode
+*  \snippet Button_SUT.c usage_Button_SetInterruptMode
 *******************************************************************************/
-void Button1_SetInterruptMode(uint16 position, uint16 mode)
+void Button_SetInterruptMode(uint16 position, uint16 mode)
 {
     uint32 intrCfg;
     
-    intrCfg =  Button1_INTCFG & (uint32)(~(uint32)position);
-    Button1_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
+    intrCfg =  Button_INTCFG & (uint32)(~(uint32)position);
+    Button_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
 }
 
 
 /*******************************************************************************
-* Function Name: Button1_ClearInterrupt
+* Function Name: Button_ClearInterrupt
 ****************************************************************************//**
 *
 * \brief Clears any active interrupts attached with the component and returns 
@@ -231,13 +235,13 @@ void Button1_SetInterruptMode(uint16 position, uint16 mode)
 *  those associated with the Pins component.
 *
 * \funcusage
-*  \snippet Button1_SUT.c usage_Button1_ClearInterrupt
+*  \snippet Button_SUT.c usage_Button_ClearInterrupt
 *******************************************************************************/
-uint8 Button1_ClearInterrupt(void)
+uint8 Button_ClearInterrupt(void)
 {
-	uint8 maskedStatus = (uint8)(Button1_INTSTAT & Button1_MASK);
-	Button1_INTSTAT = maskedStatus;
-    return maskedStatus >> Button1_SHIFT;
+	uint8 maskedStatus = (uint8)(Button_INTSTAT & Button_MASK);
+	Button_INTSTAT = maskedStatus;
+    return maskedStatus >> Button_SHIFT;
 }
 
 

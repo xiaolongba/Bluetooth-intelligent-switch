@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_Button3.c  
+* File Name: isr_Button.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_Button3.h>
+#include <isr_Button.h>
 #include "cyapicallbacks.h"
 
-#if !defined(isr_Button3__REMOVED) /* Check for removal by optimization */
+#if !defined(isr_Button__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_Button3_intc` */
+/* `#START isr_Button_intc` */
 
 /* `#END` */
 
@@ -37,7 +37,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_Start
+* Function Name: isr_Button_Start
 ********************************************************************************
 *
 * Summary:
@@ -53,24 +53,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_Button3_Start(void)
+void isr_Button_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_Button3_Disable();
+    isr_Button_Disable();
 
-    /* Set the ISR to point to the isr_Button3 Interrupt. */
-    isr_Button3_SetVector(&isr_Button3_Interrupt);
+    /* Set the ISR to point to the isr_Button Interrupt. */
+    isr_Button_SetVector(&isr_Button_Interrupt);
 
     /* Set the priority. */
-    isr_Button3_SetPriority((uint8)isr_Button3_INTC_PRIOR_NUMBER);
+    isr_Button_SetPriority((uint8)isr_Button_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_Button3_Enable();
+    isr_Button_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_StartEx
+* Function Name: isr_Button_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -96,24 +96,24 @@ void isr_Button3_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_StartEx(cyisraddress address)
+void isr_Button_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_Button3_Disable();
+    isr_Button_Disable();
 
-    /* Set the ISR to point to the isr_Button3 Interrupt. */
-    isr_Button3_SetVector(address);
+    /* Set the ISR to point to the isr_Button Interrupt. */
+    isr_Button_SetVector(address);
 
     /* Set the priority. */
-    isr_Button3_SetPriority((uint8)isr_Button3_INTC_PRIOR_NUMBER);
+    isr_Button_SetPriority((uint8)isr_Button_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_Button3_Enable();
+    isr_Button_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_Stop
+* Function Name: isr_Button_Stop
 ********************************************************************************
 *
 * Summary:
@@ -126,22 +126,22 @@ void isr_Button3_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_Stop(void)
+void isr_Button_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_Button3_Disable();
+    isr_Button_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_Button3_SetVector(&IntDefaultHandler);
+    isr_Button_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_Interrupt
+* Function Name: isr_Button_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_Button3.
+*   The default Interrupt Service Routine for isr_Button.
 *
 *   Add custom code between the START and END comments to keep the next version
 *   of this file from over-writing your code.
@@ -156,27 +156,27 @@ void isr_Button3_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_Button3_Interrupt)
+CY_ISR(isr_Button_Interrupt)
 {
-    #ifdef isr_Button3_INTERRUPT_INTERRUPT_CALLBACK
-        isr_Button3_Interrupt_InterruptCallback();
-    #endif /* isr_Button3_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef isr_Button_INTERRUPT_INTERRUPT_CALLBACK
+        isr_Button_Interrupt_InterruptCallback();
+    #endif /* isr_Button_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isr_Button3_Interrupt` */
+    /* `#START isr_Button_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_SetVector
+* Function Name: isr_Button_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_Button3_Start
+*   Change the ISR vector for the Interrupt. Note calling isr_Button_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_Button3_StartEx instead.
+*   before the component has been started use isr_Button_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -196,14 +196,14 @@ CY_ISR(isr_Button3_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_SetVector(cyisraddress address)
+void isr_Button_SetVector(cyisraddress address)
 {
-    CyRamVectors[CYINT_IRQ_BASE + isr_Button3__INTC_NUMBER] = address;
+    CyRamVectors[CYINT_IRQ_BASE + isr_Button__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_GetVector
+* Function Name: isr_Button_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -216,22 +216,22 @@ void isr_Button3_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_Button3_GetVector(void)
+cyisraddress isr_Button_GetVector(void)
 {
-    return CyRamVectors[CYINT_IRQ_BASE + isr_Button3__INTC_NUMBER];
+    return CyRamVectors[CYINT_IRQ_BASE + isr_Button__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_SetPriority
+* Function Name: isr_Button_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_Button3_Start or isr_Button3_StartEx will 
+*   Note calling isr_Button_Start or isr_Button_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_Button3_Start or isr_Button3_StartEx has been called. 
+*   after isr_Button_Start or isr_Button_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -246,20 +246,20 @@ cyisraddress isr_Button3_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_SetPriority(uint8 priority)
+void isr_Button_SetPriority(uint8 priority)
 {
 	uint8 interruptState;
-    uint32 priorityOffset = ((isr_Button3__INTC_NUMBER % 4u) * 8u) + 6u;
+    uint32 priorityOffset = ((isr_Button__INTC_NUMBER % 4u) * 8u) + 6u;
     
 	interruptState = CyEnterCriticalSection();
-    *isr_Button3_INTC_PRIOR = (*isr_Button3_INTC_PRIOR & (uint32)(~isr_Button3__INTC_PRIOR_MASK)) |
+    *isr_Button_INTC_PRIOR = (*isr_Button_INTC_PRIOR & (uint32)(~isr_Button__INTC_PRIOR_MASK)) |
                                     ((uint32)priority << priorityOffset);
 	CyExitCriticalSection(interruptState);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_GetPriority
+* Function Name: isr_Button_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -274,19 +274,19 @@ void isr_Button3_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_Button3_GetPriority(void)
+uint8 isr_Button_GetPriority(void)
 {
     uint32 priority;
-	uint32 priorityOffset = ((isr_Button3__INTC_NUMBER % 4u) * 8u) + 6u;
+	uint32 priorityOffset = ((isr_Button__INTC_NUMBER % 4u) * 8u) + 6u;
 
-    priority = (*isr_Button3_INTC_PRIOR & isr_Button3__INTC_PRIOR_MASK) >> priorityOffset;
+    priority = (*isr_Button_INTC_PRIOR & isr_Button__INTC_PRIOR_MASK) >> priorityOffset;
 
     return (uint8)priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_Enable
+* Function Name: isr_Button_Enable
 ********************************************************************************
 *
 * Summary:
@@ -301,15 +301,15 @@ uint8 isr_Button3_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_Enable(void)
+void isr_Button_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_Button3_INTC_SET_EN = isr_Button3__INTC_MASK;
+    *isr_Button_INTC_SET_EN = isr_Button__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_GetState
+* Function Name: isr_Button_GetState
 ********************************************************************************
 *
 * Summary:
@@ -322,15 +322,15 @@ void isr_Button3_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_Button3_GetState(void)
+uint8 isr_Button_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_Button3_INTC_SET_EN & (uint32)isr_Button3__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*isr_Button_INTC_SET_EN & (uint32)isr_Button__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_Disable
+* Function Name: isr_Button_Disable
 ********************************************************************************
 *
 * Summary:
@@ -343,15 +343,15 @@ uint8 isr_Button3_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_Disable(void)
+void isr_Button_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_Button3_INTC_CLR_EN = isr_Button3__INTC_MASK;
+    *isr_Button_INTC_CLR_EN = isr_Button__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_SetPending
+* Function Name: isr_Button_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -370,14 +370,14 @@ void isr_Button3_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_Button3_SetPending(void)
+void isr_Button_SetPending(void)
 {
-    *isr_Button3_INTC_SET_PD = isr_Button3__INTC_MASK;
+    *isr_Button_INTC_SET_PD = isr_Button__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_Button3_ClearPending
+* Function Name: isr_Button_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -395,9 +395,9 @@ void isr_Button3_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_Button3_ClearPending(void)
+void isr_Button_ClearPending(void)
 {
-    *isr_Button3_INTC_CLR_PD = isr_Button3__INTC_MASK;
+    *isr_Button_INTC_CLR_PD = isr_Button__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */
