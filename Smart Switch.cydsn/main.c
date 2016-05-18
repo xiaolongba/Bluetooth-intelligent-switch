@@ -56,6 +56,11 @@ int main()
             ServerData_Handler((char*)Buffer);            
                 
         }
+        if(ALL_ON_OFF)
+        {
+//            ALL_ON_OFF = FALSE;
+            ALL_On_Off_Handler();
+        }
         if(LOWPOWER)
         {
             CyBle_ProcessEvents();

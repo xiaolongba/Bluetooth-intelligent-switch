@@ -1,5 +1,5 @@
-C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV2.0.0\Smart Switch.cydsn\Smart Switch.cyprj|6062ed0d-7808-4941-9d8a-436a61c79a84
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|31176849-3d72-4059-9c6a-370631f82288
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2cc60b79-dff3-4033-91cf-f514d604dda2
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6976c927-7e81-48ce-b5df-3f9d98a8efed
-E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|a4c24363-31b1-4044-a550-50c1c2c2f1c3
+C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV2.0.0\Smart Switch.cydsn\Smart Switch.cyprj|b1b4d4db-851e-43e7-b1cb-257c38035c13
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d3dce99b-a565-4797-98df-2de71f153f63
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2c842a1e-8753-4b39-b065-8e26409013c8
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|6ca93a24-68d0-428e-b0b0-12adbcd8a0d1
+E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|eceebc18-52c7-4d87-921a-31c6c25b095d

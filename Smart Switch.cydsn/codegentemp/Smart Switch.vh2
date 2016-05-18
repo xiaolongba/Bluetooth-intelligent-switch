@@ -2,7 +2,7 @@
 --	Conversion of Smart Switch.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue May 17 13:58:51 2016
+--	Tue May 17 17:44:02 2016
 --
 
 USE cypress.cypress.all;
