@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Smart Switch\Smart Switch\Smart Switch.cydwr">
 <ExpandedNodeIds>
 <v>Smart Switch</v>
 <v>Smart Switch\Smart Switch</v>
@@ -306,6 +306,7 @@
 <name v=".\Smart Switch.cydsn\application.h" />
 <name v=".\Smart Switch.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Smart Switch.cydsn\Smart Switch.cydwr" />
+<name v=".\Smart Switch.cydsn\Generated_Source\PSoC4\BLE_Stack.h" />
 </OpenDocs>
 <config v="" />
 <AutoUpdate v="true" />

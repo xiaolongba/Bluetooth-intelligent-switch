@@ -45,7 +45,9 @@ CY_ISR_PROTO(BT4_IntHandler);
 #define  SWTICH_ON  (0)
 #define  SWTICH_OFF (1)
 #define  PRINT
-#define  BONDNUM    4
+#define  BONDNUM    (4)
+#define  RECONNTNUM (5)
+
 
 #define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
 #define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
@@ -57,7 +59,8 @@ CY_ISR_PROTO(BT4_IntHandler);
 enum//控制命令
 {
     SWT=0x00u,
-    NTF=0x01u
+    NTF=0x01u,
+    ON_OFF
 };
 
 enum//按键按下或放开

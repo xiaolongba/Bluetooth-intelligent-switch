@@ -25,8 +25,27 @@ uint8_t WakeUp=FALSE;
 uint8_t DeviceCounts=0;
 uint8_t DeviceNum=INVALID;
 uint8_t BondNum=BONDNUM;
+uint8_t ReConnect=0;
 //uint8 testAddr[]={0x8F,0xAA,0x1C,0x50,0xA0,0x00};
 //uint8_t addrtype=0x00;
+CYBLE_GAP_BD_ADDR_T Device[]={
+    {
+        {0xCB,0x83,0x6D,0x50,0xA0,0x00},
+        0x00
+    },//设备1
+    {
+        {0xA5,0x83,0x6D,0x50,0xA0,0x00},
+        0x00
+    },//设备2
+    {
+        {0x2F,0x84,0x6D,0x50,0xA0,0x00},
+        0x00
+    },//设备3
+    {
+        {0x25,0x84,0x6D,0x50,0xA0,0x00},
+        0x00
+    }//设备4
+};
 CYBLE_GAP_BD_ADDR_T TestDevice=
 {
     {0x8F,0xAA,0x1C,0x50,0xA0,0x00},
@@ -77,7 +96,7 @@ CYBLE_GATTC_WRITE_CMD_REQ_T WriteCmd=
     CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE
 };//初始化打开透传通道的数据
 uint8_t THROUGH_STAUS=FALSE;
-char* CommandList[]={"AT+SWT=1","AT+SWT=0"};//控制命令列表
+char* CommandList[]={"AT+SWT=1","AT+SWT=0","AT+ON_OFF=1","AT+ON_OFF=0"};//控制命令列表
 //char* ReceviceCmdList[]={"AT+ON","AT+OFF"};
 uint8_t CommandListLen=sizeof(CommandList)/sizeof(CommandList[0]);//控制命令列表的命令个数
 uint8_t Buffer[BUFFERLEN]={0};//临时存放从机透传给主机的数据
@@ -131,17 +150,34 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 printf("BLE is Connectted!\r\n");
 //                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
               #endif
+//            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//主机一旦建立连接马上发起配对请求
             WriteCmd.attrHandle = CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE;
             WriteCmd.value.val = NotifyValue;
             WriteCmd.value.len = 2;
             CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//打开透传通道            
-//            CyBle_GapAuthReq(cyBle_connHandle.bdHandle,&cyBle_authInfo);//从机一旦建立连接马上发起配对请求
         break;
         case CYBLE_EVT_GAP_DEVICE_DISCONNECTED://蓝牙断开成功
               #ifdef PRINT
-                printf("BLE is DisConnectted!\r\n");
+                printf("DisConnectted Resason is %02X!\r\n",*((uint8 *)eventParam));
                 while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
               #endif
+            if(*((uint8 *)eventParam) != 0x16)//如果不是正常断开连接，则重连这次连接
+            {                
+                ReConnect++;
+                if(ReConnect > RECONNTNUM)//如果重连了5次都没有连接成功，那么不会再支重连该设备了
+                {
+                    ReConnect = 0;                    
+                }
+                else//如果重连次数没有大于5，那么继续重连直至重连到5次才不再重连该设备
+                {
+                    DeviceCounts--;
+                }
+                CyDelay(150);//等待150ms是为了重连时更容易重新建立连接
+            }
+            else//如果是正常断开连接，则不用重连
+            {
+                ReConnect = 0;
+            }
             DisonnectedStaus = TURE;
             if(FALSE == ALL_ON_OFF)
                 LOWPOWER=TURE;//断开之后，主机马上进入低功耗
@@ -206,9 +242,14 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                             
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
-            ScanResult = *((CYBLE_GAPC_ADV_REPORT_T *)eventParam);
-            
-        break;            
+            ScanResult = *((CYBLE_GAPC_ADV_REPORT_T *)eventParam);            
+        break;     
+        case CYBLE_EVT_GAP_AUTH_COMPLETE:
+            #ifdef PRINT
+                    printf("Bond is Compelete!\r\n");
+                    while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+                #endif 
+        break;
         default:
         break;
             
@@ -389,8 +430,10 @@ void  ServerData_Handler(const char* RxData)
                             API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
                             if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
                             {
-                                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接     
-                                ALL_ON_OFF = TURE;
+//                                CyDelay(10);
+//                                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接     
+//                                ALL_ON_OFF = TURE;
+                                return ;
                             }                            
                         }
                     break;
@@ -429,8 +472,8 @@ void  ServerData_Handler(const char* RxData)
                             API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
                             if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
                             {
-                                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接     
-                                ALL_ON_OFF = TURE;
+//                                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接     
+//                                ALL_ON_OFF = TURE;
                                 return ;
                             }                            
                         }
@@ -461,9 +504,28 @@ void  ServerData_Handler(const char* RxData)
             API_RESULT=CyBle_GattcWriteWithoutResponse(cyBle_connHandle, &WriteCmd);//开始发送
             if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
             {
-                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
+//                CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
             }                         
         break;
+        case NTF:
+//            if(RxData[Location+1]-0x30)//通道打开
+//            {
+//                
+//            }
+        break;
+        case ON_OFF:            
+            API_RESULT=CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接
+            if(API_RESULT == CYBLE_ERROR_OK)//控制命令发送成功，则断开连接
+            {
+                #ifdef PRINT
+                    printf("DisConnect Req is OK\r\n");
+                #endif
+            }
+            if(ButtonType == BUTTON5)
+            {
+                ALL_ON_OFF = TURE;
+            }
+        break;        
         default:
         break;
     }
@@ -689,6 +751,9 @@ void ALL_On_Off_Handler(void)
                 if(API_RESULT == CYBLE_ERROR_OK)
                 {
                     DeviceCounts++;
+                        #ifdef PRINT
+                            printf("Connected Req1 is OK\r\n");
+                        #endif
     //                DeviceNum = DEVICE1;
                 }
             break;
@@ -700,6 +765,9 @@ void ALL_On_Off_Handler(void)
                     {
                         DisonnectedStaus = FALSE;
                         DeviceCounts++;
+                        #ifdef PRINT
+                            printf("Connected Req2 is OK\r\n");
+                        #endif
     //                    DeviceNum = DEVICE2;
                     }
                 }
@@ -712,6 +780,9 @@ void ALL_On_Off_Handler(void)
                     {
                         DisonnectedStaus = FALSE;
                         DeviceCounts++;
+                        #ifdef PRINT
+                            printf("Connected Req3 is OK\r\n");
+                        #endif
     //                    DeviceNum = DEVICE3;
                     }
                 }                
@@ -725,6 +796,9 @@ void ALL_On_Off_Handler(void)
                     DisonnectedStaus = FALSE;
 //                    ALL_ON_OFF = FALSE;
                     DeviceCounts++;
+                    #ifdef PRINT
+                            printf("Connected Req4 is OK\r\n");
+                    #endif
     //                DeviceNum = DEVICE4;
                 }
             }            
