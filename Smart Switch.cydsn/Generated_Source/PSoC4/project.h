@@ -34,6 +34,8 @@
 #include "BLE_custom.h"
 #include "BLUE_LED.h"
 #include "BLUE_LED_aliases.h"
+#include "RED_LED.h"
+#include "RED_LED_aliases.h"
 #include "BLE_bless_isr.h"
 #include "core_cm0_psoc4.h"
 #include "core_cm0.h"

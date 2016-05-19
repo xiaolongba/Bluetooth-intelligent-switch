@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.409ms
+Loading plugins phase: Elapsed time ==> 0s.336ms
 Initializing data phase: Elapsed time ==> 0s.000ms
 <CYPRESSTAG name="CyDsfit arguments...">
-cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -d CY8C4247LQI-BL483 -s C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -p C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -d CYBL10161-56LQXI -s C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Generated_Source\PSoC4 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE</CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.476ms
+Elaboration phase: Elapsed time ==> 8s.510ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.046ms
+HDL generation phase: Elapsed time ==> 0s.149ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -24,24 +24,24 @@ HDL generation phase: Elapsed time ==> 0s.046ms
 
 ======================================================================
 Compiling:  Smart Switch.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 Smart Switch.v -verilog
+Program  :   E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 Smart Switch.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Smart Switch.v
-Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 Smart Switch.v -verilog
+Program  :   E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 Smart Switch.v -verilog
 ======================================================================
 
 ======================================================================
 Compiling:  Smart Switch.v
 Program  :   vlogfe
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Sat May 14 22:33:19 2016
+Thu May 19 14:14:53 2016
 
 
 ======================================================================
@@ -51,25 +51,25 @@ Options  :    -yv2 -q10 Smart Switch.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Sat May 14 22:33:19 2016
+Thu May 19 14:14:53 2016
 
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
-Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+Flattening file 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'
+Flattening file 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
 
 vpp:  No errors.
 
 Library 'work' => directory 'lcpsoc3'
 General_symbol_table
 General_symbol_table
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
 Using control file 'Smart Switch.ctl'.
 
 vlogfe:  No errors.
@@ -78,25 +78,25 @@ vlogfe:  No errors.
 ======================================================================
 Compiling:  Smart Switch.v
 Program  :   tovif
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Sat May 14 22:33:19 2016
+Thu May 19 14:14:53 2016
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Smart Switch.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Smart Switch.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\codegentemp\Smart Switch.ctl'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\codegentemp\Smart Switch.v'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
 
 tovif:  No errors.
 
@@ -104,26 +104,26 @@ tovif:  No errors.
 ======================================================================
 Compiling:  Smart Switch.v
 Program  :   topld
-Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -dcpsoc3 -verilog Smart Switch.v
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Sat May 14 22:33:19 2016
+Thu May 19 14:14:53 2016
 
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
-Linking 'C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Smart Switch.ctl'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
-Linking 'C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\codegentemp\Smart Switch.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
-Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\codegentemp\Smart Switch.ctl'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v'.
+Linking 'C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\codegentemp\Smart Switch.v'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
 
 ----------------------------------------------------------
 Detecting unused logic.
@@ -140,10 +140,12 @@ Deleted 0 Synthesized equations/components.
 Alias Detection
 ------------------------------------------------------
 Aliasing one to tmpOE__BLUE_LED_net_0
+Aliasing tmpOE__RED_LED_net_0 to tmpOE__BLUE_LED_net_0
 Removing Lhs of wire one[14] = tmpOE__BLUE_LED_net_0[9]
+Removing Lhs of wire tmpOE__RED_LED_net_0[17] = tmpOE__BLUE_LED_net_0[9]
 
 ------------------------------------------------------
-Aliased 0 equations, 1 wires.
+Aliased 0 equations, 2 wires.
 ------------------------------------------------------
 
 ----------------------------------------------------------
@@ -163,18 +165,18 @@ Circuit simplification results:
 
 topld:  No errors.
 
-CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp
-Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
-Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj" -dcpsoc3 "Smart Switch.v" -verilog
+CYPRESS_DIR    : E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp
+Warp Program   : E:\Software Application\PSoC Creator\3.3\PSoC Creator\warp\bin/warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj" -dcpsoc3 "Smart Switch.v" -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 0s.444ms
+Warp synthesis phase: Elapsed time ==> 0s.331ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V3.3.0.7343, Family: PSoC3, Started at: Saturday, 14 May 2016 22:33:19
-Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Helon\Desktop\Bluetooth-intelligent-switch\Smart Switch.cydsn\Smart Switch.cyprj -d CY8C4247LQI-BL483 Smart Switch.v -verilog
+cyp3fit: V3.3.0.7343, Family: PSoC3, Started at: Thursday, 19 May 2016 14:14:53
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV1.0.2\Smart Switch.cydsn\Smart Switch.cyprj -d CYBL10161-56LQXI Smart Switch.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.011ms
+Design parsing phase: Elapsed time ==> 0s.118ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -237,6 +239,45 @@ Design Equations
         Properties:
         {
         }
+
+    Pin : Name = RED_LED(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilitites: DIGITAL
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => RED_LED(0)__PA ,
+            pad => RED_LED(0)_PAD );
+        Properties:
+        {
+        }
     </CYPRESSTAG>
     <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
     </CYPRESSTAG>
@@ -279,41 +320,27 @@ Resource Type                 : Used : Free :  Max :  % Used
 ============================================================
 Digital Clocks                :    0 :    4 :    4 :  0.00 %
 Interrupts                    :    1 :   31 :   32 :  3.13 %
-IO                            :    5 :   33 :   38 : 13.16 %
-Segment LCD                   :    0 :    1 :    1 :  0.00 %
-CapSense                      :    0 :    1 :    1 :  0.00 %
+IO                            :    6 :   32 :   38 : 15.79 %
 Die Temp                      :    0 :    1 :    1 :  0.00 %
-Serial Communication (SCB)    :    0 :    2 :    2 :  0.00 %
+Serial Communication (SCB)    :    0 :    1 :    1 :  0.00 %
 BLE                           :    1 :    0 :    1 : 100.00 %
-Timer/Counter/PWM             :    0 :    4 :    4 :  0.00 %
-UDB                           :      :      :      :        
-  Macrocells                  :    0 :   32 :   32 :  0.00 %
-  Unique P-terms              :    0 :   64 :   64 :  0.00 %
-  Total P-terms               :    0 :      :      :        
-  Datapath Cells              :    0 :    4 :    4 :  0.00 %
-  Status Cells                :    0 :    4 :    4 :  0.00 %
-  Control Cells               :    0 :    4 :    4 :  0.00 %
-Comparator/Opamp              :    0 :    4 :    4 :  0.00 %
-LP Comparator                 :    0 :    2 :    2 :  0.00 %
+Timer/Counter/PWM             :    0 :    2 :    2 :  0.00 %
 SAR ADC                       :    0 :    1 :    1 :  0.00 %
-DAC                           :      :      :      :        
-  7-bit IDAC                  :    0 :    1 :    1 :  0.00 %
-  8-bit IDAC                  :    0 :    1 :    1 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.021ms
-Tech mapping phase: Elapsed time ==> 0s.043ms
+Technology Mapping: Elapsed time ==> 0s.208ms
+Tech mapping phase: Elapsed time ==> 0s.391ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 <CYPRESSTAG name="Analog Placement">
-Elapsed time ==> 0.1462378s
+Elapsed time ==> 0.0894663s
 </CYPRESSTAG>
-Analog Placement phase: Elapsed time ==> 0s.372ms
+Analog Placement phase: Elapsed time ==> 0s.424ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 <CYPRESSTAG name="Analog Routing">
-Route success=True, Iterations=1 Elapsed=0.0018815 secs
+Route success=True, Iterations=1 Elapsed=0.0061949 secs
 </CYPRESSTAG>
-Analog Routing phase: Elapsed time ==> 0s.002ms
+Analog Routing phase: Elapsed time ==> 0s.012ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -324,29 +351,29 @@ Map of item to net {
 }
 Mux Info {
 }
-Analog Code Generation phase: Elapsed time ==> 0s.026ms
+Analog Code Generation phase: Elapsed time ==> 0s.068ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
 I2659: No Constrained paths were found. The placer will run in non-timing driven mode.
-I2076: Total run-time: 0.3 sec.
+I2076: Total run-time: 0.2 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
 <CYPRESSTAG name="PLD Packing Summary">
 No PLDs were packed.
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.001ms
+PLD Packing: Elapsed time ==> 0s.021ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.010ms
+Partitioning: Elapsed time ==> 0s.098ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Simulated Annealing">
-Annealing: Elapsed time ==> 0s.001ms
+Annealing: Elapsed time ==> 0s.029ms
 <CYPRESSTAG name="Simulated Annealing Results">
 The seed used for moves was 114161200.
 Inital cost was 8, final cost is 8 (0.00% improvement).</CYPRESSTAG>
@@ -367,9 +394,6 @@ Final Placement Summary
 Component Placement Details
 ------------------------------------------------------------
 UDB [UDB=(0,0)] is empty.
-UDB [UDB=(0,1)] is empty.
-UDB [UDB=(1,0)] is empty.
-UDB [UDB=(1,1)] is empty.
 Intr container @ [IntrContainer=(0)]: 
   Intr@ [IntrContainer=(0)][IntrId=(12)] 
     interrupt: Name =\BLE:bless_isr\
@@ -383,7 +407,7 @@ Port 0 is empty
 Port 1 is empty
 Port 2 is empty
 Port 3 contains the following IO cells:
-[IoId=7]: 
+[IoId=0]: 
 Pin : Name = BLUE_LED(0)
     Attributes:
         In Group/Port: True
@@ -423,6 +447,46 @@ Pin : Name = BLUE_LED(0)
     {
     }
 
+[IoId=1]: 
+Pin : Name = RED_LED(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilitites: DIGITAL
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => RED_LED(0)__PA ,
+        pad => RED_LED(0)_PAD );
+    Properties:
+    {
+    }
+
 Port 4 is empty
 Port 5 is empty
 Port 6 is empty
@@ -446,13 +510,8 @@ PM group 0: empty
 SPC group 0: empty
 WDT group 0: empty
 FSS group 0: empty
-LP Comparator group 0: empty
 Serial Communication (SCB) group 0: empty
-CapSense group 0: empty
-8-bit IDAC group 0: empty
-7-bit IDAC group 0: empty
 Timer/Counter/PWM group 0: empty
-Comparator/Opamp group 0: empty
 Die Temp group 0: empty
 SAR ADC group 0: empty
 Segment LCD group 0: empty
@@ -486,37 +545,38 @@ Port Configuration report
      |     |       | Interrupt |                  |             | 
 Port | Pin | Fixed |      Type |       Drive Mode |        Name | Connections
 -----+-----+-------+-----------+------------------+-------------+------------
-   3 |   7 |     * |      NONE |         CMOS_OUT | BLUE_LED(0) | 
+   3 |   0 |     * |      NONE |         CMOS_OUT | BLUE_LED(0) | 
+     |   1 |     * |      NONE |         CMOS_OUT |  RED_LED(0) | 
 -----------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.001ms
-Digital Placement phase: Elapsed time ==> 0s.674ms
+Digital component placer commit/Report: Elapsed time ==> 0s.022ms
+Digital Placement phase: Elapsed time ==> 0s.750ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 Routing successful.
-Digital Routing phase: Elapsed time ==> 0s.551ms
+Digital Routing phase: Elapsed time ==> 0s.625ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream and API generation">
-Bitstream and API generation phase: Elapsed time ==> 0s.373ms
+Bitstream and API generation phase: Elapsed time ==> 0s.574ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream verification">
-Bitstream verification phase: Elapsed time ==> 0s.027ms
+Bitstream verification phase: Elapsed time ==> 0s.082ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in Smart Switch_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.375ms
+Static timing analysis phase: Elapsed time ==> 0s.160ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
-Data reporting phase: Elapsed time ==> 0s.000ms
+Data reporting phase: Elapsed time ==> 0s.011ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.155ms
+Design database save phase: Elapsed time ==> 0s.228ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 2s.627ms
+cydsfit: Elapsed time ==> 3s.502ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 2s.683ms
-API generation phase: Elapsed time ==> 0s.897ms
-Dependency generation phase: Elapsed time ==> 0s.013ms
-Cleanup phase: Elapsed time ==> 0s.004ms
+Fitter phase: Elapsed time ==> 3s.586ms
+API generation phase: Elapsed time ==> 4s.029ms
+Dependency generation phase: Elapsed time ==> 0s.389ms
+Cleanup phase: Elapsed time ==> 0s.010ms

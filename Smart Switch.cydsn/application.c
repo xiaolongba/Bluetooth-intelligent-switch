@@ -63,6 +63,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 if(WriteCmd.handleValPair.value.val[0] == 0x01)
                 {
                     THROUGH_STAUS=TURE;//使能透传通道成功,从机可以给主机透传数据
+//                    ServiceToClient("AT+NTF=1",sizeof("AT+NTF=1"));
                     if(0 == BLUE_LED_Read())
                     {
                         ServiceToClient("AT+SWT=1",sizeof("AT+SWT=1"));
@@ -85,6 +86,14 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                     Buffer[i] = WriteCmd.handleValPair.value.val[i];//存放主机透传给从机的数据
                 }
                 RX_ISOVER=TURE;
+                if(0 == RED_LED_Read())
+                {
+                    RED_LED_Write(OFF);
+                }
+                else
+                {
+                    RED_LED_Write(ON);
+                }
             }
         break;
         case CYBLE_EVT_GATTS_WRITE_REQ:
@@ -206,12 +215,12 @@ void ClientData_Handler(const char* RxData)
             if(RxData[Location+1]-0x30)//控制开关为开
             {
                 BLUE_LED_Write(ON);
-                ServiceToClient("AT+SWT=1",sizeof("AT+SWT=1"));
+                ServiceToClient("AT+ON_OFF=1",sizeof("AT+ON_OFF=1"));
             }
             else if(0 == RxData[Location+1]-0x30)//控制开关为关
             {
                 BLUE_LED_Write(OFF);
-                ServiceToClient("AT+SWT=0",sizeof("AT+SWT=0"));
+                ServiceToClient("AT+ON_OFF=0",sizeof("AT+ON_OFF=0"));
             }
         break;
         default:
