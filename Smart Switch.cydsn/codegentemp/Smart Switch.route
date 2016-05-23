@@ -11,18 +11,20 @@ net ClockBlock_HFCLK
 	term   ":ioport0:pin3.in_clock"
 	switch ":ioport0_clock_io_mux.clk_in==>:ioport0:pin4.in_clock"
 	term   ":ioport0:pin4.in_clock"
+	switch ":ioport0_clock_io_mux.clk_in==>:ioport0:pin5.in_clock"
+	term   ":ioport0:pin5.in_clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_12.clock"
 	term   ":interrupt_12.clock"
 	switch ":m0s8clockblockcell.hfclk==>:interrupt_0.clock"
 	term   ":interrupt_0.clock"
 end ClockBlock_HFCLK
-net Net_2603
+net Net_2604
 	term   ":logicalport_0.interrupt"
 	switch ":logicalport_0.interrupt==>Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v16+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v18"
 	switch "Stub-:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v16+:dsiswitch_bottom@[DSI=(1,0)][side=bottom]:dsihc_bottom:v18==>:interrupt_idmux_0.in_0"
 	switch ":interrupt_idmux_0.interrupt_idmux_0__out==>:interrupt_0.interrupt"
 	term   ":interrupt_0.interrupt"
-end Net_2603
+end Net_2604
 net \BLE:Net_15\
 	term   ":p4blecell.interrupt"
 	switch ":p4blecell.interrupt==>:interrupt_idmux_12.in_0"

@@ -1,5 +1,5 @@
 -- Project:   C:\Users\Administrator\Desktop\BLE_TemplateProject\Bluetooth-intelligent-switchV2.0.0\Smart Switch.cydsn\Smart Switch.cyprj
--- Generated: 05/19/2016 10:58:34
+-- Generated: 05/23/2016 15:44:30
 -- PSoC Creator  3.3 CP2
 
 ENTITY \Smart Switch\ IS
@@ -9,6 +9,7 @@ ENTITY \Smart Switch\ IS
         Button(2)_PAD : IN std_ulogic;
         Button(3)_PAD : IN std_ulogic;
         Button(4)_PAD : IN std_ulogic;
+        Button(5)_PAD : IN std_ulogic;
         \UART:tx(0)_PAD\ : INOUT std_ulogic;
         \UART:rx(0)_PAD\ : IN std_ulogic);
     ATTRIBUTE voltage_VDDA_CTB OF __DEFAULT__ : ENTITY IS 3.3e0;
@@ -30,6 +31,7 @@ ARCHITECTURE __DEFAULT__ OF \Smart Switch\ IS
     SIGNAL Button(2)__PA : bit;
     SIGNAL Button(3)__PA : bit;
     SIGNAL Button(4)__PA : bit;
+    SIGNAL Button(5)__PA : bit;
     SIGNAL ClockBlock_ECO : bit;
     SIGNAL ClockBlock_EXTCLK : bit;
     SIGNAL ClockBlock_HFCLK : bit;
@@ -44,7 +46,7 @@ ARCHITECTURE __DEFAULT__ OF \Smart Switch\ IS
     SIGNAL Net_2481 : bit;
     SIGNAL Net_2483 : bit;
     SIGNAL Net_2484 : bit;
-    SIGNAL Net_2603 : bit;
+    SIGNAL Net_2604 : bit;
     SIGNAL \BLE:Net_15\ : bit;
     SIGNAL \UART:Net_1053\ : bit;
     SIGNAL \UART:Net_1055\ : bit;
@@ -64,8 +66,8 @@ ARCHITECTURE __DEFAULT__ OF \Smart Switch\ IS
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
-    SIGNAL tmpOE__Button_net_4 : bit;
-    ATTRIBUTE POWER OF tmpOE__Button_net_4 : SIGNAL IS true;
+    SIGNAL tmpOE__Button_net_5 : bit;
+    ATTRIBUTE POWER OF tmpOE__Button_net_5 : SIGNAL IS true;
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE Location OF ClockGenBlock : LABEL IS "F(CLK_GEN,0)";
@@ -81,9 +83,11 @@ ARCHITECTURE __DEFAULT__ OF \Smart Switch\ IS
     ATTRIBUTE Location OF Button(3) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF Button(4) : LABEL IS "iocell5";
     ATTRIBUTE Location OF Button(4) : LABEL IS "P0[4]";
-    ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell6";
+    ATTRIBUTE lib_model OF Button(5) : LABEL IS "iocell6";
+    ATTRIBUTE Location OF Button(5) : LABEL IS "P0[5]";
+    ATTRIBUTE lib_model OF \UART:tx(0)\ : LABEL IS "iocell7";
     ATTRIBUTE Location OF \UART:tx(0)\ : LABEL IS "P1[5]";
-    ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell7";
+    ATTRIBUTE lib_model OF \UART:rx(0)\ : LABEL IS "iocell8";
     ATTRIBUTE Location OF \UART:rx(0)\ : LABEL IS "P1[4]";
     ATTRIBUTE Location OF \BLE:cy_m0s8_ble\ : LABEL IS "F(BLE,0)";
     ATTRIBUTE Location OF \BLE:bless_isr\ : LABEL IS "[IntrContainer=(0)][IntrId=(12)]";
@@ -298,61 +302,61 @@ BEGIN
 
     Button:logicalport
         GENERIC MAP(
-            drive_mode => "010010010010010",
-            ibuf_enabled => "11111",
+            drive_mode => "010010010010010010",
+            ibuf_enabled => "111111",
             id => "8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
-            init_dr_st => "11111",
-            input_buffer_sel => "0000000000",
+            init_dr_st => "111111",
+            input_buffer_sel => "000000000000",
             input_clk_en => 0,
-            input_sync => "11111",
-            input_sync_mode => "00000",
-            intr_mode => "1010101010",
+            input_sync => "111111",
+            input_sync_mode => "000000",
+            intr_mode => "101010101010",
             invert_in_clock => 0,
             invert_in_clock_en => 0,
             invert_in_reset => 0,
             invert_out_clock => 0,
             invert_out_clock_en => 0,
             invert_out_reset => 0,
-            io_voltage => ",,,,",
+            io_voltage => ",,,,,",
             layout_mode => "CONTIGUOUS",
-            oe_conn => "00000",
+            oe_conn => "000000",
             oe_reset => 0,
-            oe_sync => "00000",
+            oe_sync => "000000",
             output_clk_en => 0,
-            output_clock_mode => "00000",
-            output_conn => "00000",
-            output_mode => "00000",
+            output_clock_mode => "000000",
+            output_conn => "000000",
+            output_mode => "000000",
             output_reset => 0,
-            output_sync => "00000",
-            ovt_hyst_trim => "00000",
-            ovt_needed => "00000",
-            ovt_slew_control => "0000000000",
+            output_sync => "000000",
+            ovt_hyst_trim => "000000",
+            ovt_needed => "000000",
+            ovt_slew_control => "000000000000",
             pa_in_clock => -1,
             pa_in_clock_en => -1,
             pa_in_reset => -1,
             pa_out_clock => -1,
             pa_out_clock_en => -1,
             pa_out_reset => -1,
-            pin_aliases => ",,,,",
-            pin_mode => "IIIII",
+            pin_aliases => ",,,,,",
+            pin_mode => "IIIIII",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
             sio_group_cnt => 0,
             sio_hifreq => "00000000",
-            sio_hyst => "11111",
+            sio_hyst => "111111",
             sio_ibuf => "00000000",
-            sio_info => "0000000000",
+            sio_info => "000000000000",
             sio_obuf => "00000000",
             sio_refsel => "00000000",
             sio_vohsel => "00000000",
             sio_vtrip => "00000000",
-            slew_rate => "00000",
+            slew_rate => "000000",
             spanning => 0,
             sw_only => 0,
-            use_annotation => "00000",
-            vtrip => "0000000000",
-            width => 5,
+            use_annotation => "000000",
+            vtrip => "000000000000",
+            width => 6,
             in_clk_inv => 0,
             in_clken_inv => 0,
             in_clken_mode => 1,
@@ -366,7 +370,7 @@ BEGIN
             in_reset => open,
             out_clock_en => open,
             out_reset => open,
-            interrupt => Net_2603,
+            interrupt => Net_2604,
             in_clock => open);
 
     Button(0):iocell
@@ -457,6 +461,25 @@ BEGIN
             pa_out => Button(4)__PA,
             oe => open,
             pad_in => Button(4)_PAD,
+            in_clock => ClockBlock_HFCLK,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    Button(5):iocell
+        GENERIC MAP(
+            in_sync_mode => 2,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "Button",
+            logicalport_pin_id => 5,
+            io_capabilities => "0000000000000000000000000001000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => Button(5)__PA,
+            oe => open,
+            pad_in => Button(5)_PAD,
             in_clock => ClockBlock_HFCLK,
             in_clock_en => '1',
             in_reset => '0',
@@ -663,7 +686,7 @@ BEGIN
         GENERIC MAP(
             int_type => "01")
         PORT MAP(
-            interrupt => Net_2603,
+            interrupt => Net_2604,
             clock => ClockBlock_HFCLK);
 
     \UART:SCB\:m0s8scbcell

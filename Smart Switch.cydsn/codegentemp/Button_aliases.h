@@ -61,7 +61,14 @@
 #define Button_4_SHIFT	(Button__4__SHIFT)
 #define Button_4_INTR	((uint16)((uint16)0x0003u << (Button__4__SHIFT*2u)))
 
-#define Button_INTR_ALL	 ((uint16)(Button_0_INTR| Button_1_INTR| Button_2_INTR| Button_3_INTR| Button_4_INTR))
+#define Button_5			(Button__5__PC)
+#define Button_5_PS		(Button__5__PS)
+#define Button_5_PC		(Button__5__PC)
+#define Button_5_DR		(Button__5__DR)
+#define Button_5_SHIFT	(Button__5__SHIFT)
+#define Button_5_INTR	((uint16)((uint16)0x0003u << (Button__5__SHIFT*2u)))
+
+#define Button_INTR_ALL	 ((uint16)(Button_0_INTR| Button_1_INTR| Button_2_INTR| Button_3_INTR| Button_4_INTR| Button_5_INTR))
 
 
 #endif /* End Pins Button_ALIASES_H */

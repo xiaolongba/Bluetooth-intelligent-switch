@@ -97,7 +97,7 @@ void Button_Wakeup(void);
 /* Digital Port Constants */
 #define Button_MASK               Button__MASK
 #define Button_SHIFT              Button__SHIFT
-#define Button_WIDTH              5u
+#define Button_WIDTH              6u
 
 /**
 * \addtogroup group_constants

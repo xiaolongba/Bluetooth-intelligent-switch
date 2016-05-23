@@ -2,7 +2,7 @@
 --	Conversion of Smart Switch.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu May 19 10:58:31 2016
+--	Mon May 23 15:44:27 2016
 --
 
 USE cypress.cypress.all;
@@ -17,23 +17,26 @@ SIGNAL Net_2438 : bit;
 SIGNAL \BLE:Net_53\ : bit;
 SIGNAL Net_2436 : bit;
 SIGNAL \BLE:Net_55\ : bit;
-SIGNAL Net_2603 : bit;
+SIGNAL Net_2604 : bit;
+SIGNAL tmpOE__Button_net_5 : bit;
 SIGNAL tmpOE__Button_net_4 : bit;
 SIGNAL tmpOE__Button_net_3 : bit;
 SIGNAL tmpOE__Button_net_2 : bit;
 SIGNAL tmpOE__Button_net_1 : bit;
 SIGNAL tmpOE__Button_net_0 : bit;
 SIGNAL zero : bit;
-SIGNAL tmpFB_4__Button_net_4 : bit;
-SIGNAL tmpFB_4__Button_net_3 : bit;
-SIGNAL tmpFB_4__Button_net_2 : bit;
-SIGNAL tmpFB_4__Button_net_1 : bit;
-SIGNAL tmpFB_4__Button_net_0 : bit;
-SIGNAL tmpIO_4__Button_net_4 : bit;
-SIGNAL tmpIO_4__Button_net_3 : bit;
-SIGNAL tmpIO_4__Button_net_2 : bit;
-SIGNAL tmpIO_4__Button_net_1 : bit;
-SIGNAL tmpIO_4__Button_net_0 : bit;
+SIGNAL tmpFB_5__Button_net_5 : bit;
+SIGNAL tmpFB_5__Button_net_4 : bit;
+SIGNAL tmpFB_5__Button_net_3 : bit;
+SIGNAL tmpFB_5__Button_net_2 : bit;
+SIGNAL tmpFB_5__Button_net_1 : bit;
+SIGNAL tmpFB_5__Button_net_0 : bit;
+SIGNAL tmpIO_5__Button_net_5 : bit;
+SIGNAL tmpIO_5__Button_net_4 : bit;
+SIGNAL tmpIO_5__Button_net_3 : bit;
+SIGNAL tmpIO_5__Button_net_2 : bit;
+SIGNAL tmpIO_5__Button_net_1 : bit;
+SIGNAL tmpIO_5__Button_net_0 : bit;
 TERMINAL tmpSIOVREF__Button_net_0 : bit;
 SIGNAL one : bit;
 SIGNAL \UART:Net_847\ : bit;
@@ -91,7 +94,7 @@ BEGIN
 
 zero <=  ('0') ;
 
-tmpOE__Button_net_4 <=  ('1') ;
+tmpOE__Button_net_5 <=  ('1') ;
 
 \BLE:cy_m0s8_ble\:cy_m0s8_ble_v1_0
 	GENERIC MAP(cy_registers=>"")
@@ -112,83 +115,83 @@ tmpOE__Button_net_4 <=  ('1') ;
 		dig_domain_out=>open);
 isr_Button:cy_isr_v1_0
 	GENERIC MAP(int_type=>"01")
-	PORT MAP(int_signal=>Net_2603);
+	PORT MAP(int_signal=>Net_2604);
 Button:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba",
-		drive_mode=>"010010010010010",
-		ibuf_enabled=>"11111",
-		init_dr_st=>"11111",
-		input_sync=>"11111",
+		drive_mode=>"010010010010010010",
+		ibuf_enabled=>"111111",
+		init_dr_st=>"111111",
+		input_sync=>"111111",
 		input_clk_en=>'0',
-		input_sync_mode=>"00000",
-		intr_mode=>"1010101010",
+		input_sync_mode=>"000000",
+		intr_mode=>"101010101010",
 		invert_in_clock=>'0',
 		invert_in_clock_en=>'0',
 		invert_in_reset=>'0',
 		invert_out_clock=>'0',
 		invert_out_clock_en=>'0',
 		invert_out_reset=>'0',
-		io_voltage=>",,,,",
+		io_voltage=>",,,,,",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"00000",
-		output_sync=>"00000",
+		output_conn=>"000000",
+		output_sync=>"000000",
 		output_clk_en=>'0',
-		output_mode=>"00000",
+		output_mode=>"000000",
 		output_reset=>'0',
-		output_clock_mode=>"00000",
-		oe_sync=>"00000",
-		oe_conn=>"00000",
+		output_clock_mode=>"000000",
+		oe_sync=>"000000",
+		oe_conn=>"000000",
 		oe_reset=>'0',
-		pin_aliases=>",,,,",
-		pin_mode=>"IIIII",
+		pin_aliases=>",,,,,",
+		pin_mode=>"IIIIII",
 		por_state=>4,
 		sio_group_cnt=>0,
 		sio_hifreq=>"00000000",
-		sio_hyst=>"11111",
+		sio_hyst=>"111111",
 		sio_ibuf=>"00000000",
-		sio_info=>"0000000000",
+		sio_info=>"000000000000",
 		sio_obuf=>"00000000",
 		sio_refsel=>"00000000",
 		sio_vtrip=>"00000000",
 		sio_vohsel=>"00000000",
-		slew_rate=>"00000",
+		slew_rate=>"000000",
 		spanning=>'0',
 		sw_only=>'0',
-		vtrip=>"0000000000",
-		width=>5,
+		vtrip=>"000000000000",
+		width=>6,
 		port_alias_required=>'0',
 		port_alias_group=>"",
-		use_annotation=>"00000",
+		use_annotation=>"000000",
 		pa_in_clock=>-1,
 		pa_in_clock_en=>-1,
 		pa_in_reset=>-1,
 		pa_out_clock=>-1,
 		pa_out_clock_en=>-1,
 		pa_out_reset=>-1,
-		ovt_needed=>"00000",
-		ovt_slew_control=>"0000000000",
-		ovt_hyst_trim=>"00000",
-		input_buffer_sel=>"0000000000")
-	PORT MAP(oe=>(tmpOE__Button_net_4, tmpOE__Button_net_4, tmpOE__Button_net_4, tmpOE__Button_net_4,
-			tmpOE__Button_net_4),
+		ovt_needed=>"000000",
+		ovt_slew_control=>"000000000000",
+		ovt_hyst_trim=>"000000",
+		input_buffer_sel=>"000000000000")
+	PORT MAP(oe=>(tmpOE__Button_net_5, tmpOE__Button_net_5, tmpOE__Button_net_5, tmpOE__Button_net_5,
+			tmpOE__Button_net_5, tmpOE__Button_net_5),
 		y=>(zero, zero, zero, zero,
-			zero),
-		fb=>(tmpFB_4__Button_net_4, tmpFB_4__Button_net_3, tmpFB_4__Button_net_2, tmpFB_4__Button_net_1,
-			tmpFB_4__Button_net_0),
+			zero, zero),
+		fb=>(tmpFB_5__Button_net_5, tmpFB_5__Button_net_4, tmpFB_5__Button_net_3, tmpFB_5__Button_net_2,
+			tmpFB_5__Button_net_1, tmpFB_5__Button_net_0),
 		analog=>(open, open, open, open,
-			open),
-		io=>(tmpIO_4__Button_net_4, tmpIO_4__Button_net_3, tmpIO_4__Button_net_2, tmpIO_4__Button_net_1,
-			tmpIO_4__Button_net_0),
+			open, open),
+		io=>(tmpIO_5__Button_net_5, tmpIO_5__Button_net_4, tmpIO_5__Button_net_3, tmpIO_5__Button_net_2,
+			tmpIO_5__Button_net_1, tmpIO_5__Button_net_0),
 		siovref=>(tmpSIOVREF__Button_net_0),
 		annotation=>(open, open, open, open,
-			open),
+			open, open),
 		in_clock=>zero,
-		in_clock_en=>tmpOE__Button_net_4,
+		in_clock_en=>tmpOE__Button_net_5,
 		in_reset=>zero,
 		out_clock=>zero,
-		out_clock_en=>tmpOE__Button_net_4,
+		out_clock_en=>tmpOE__Button_net_5,
 		out_reset=>zero,
-		interrupt=>Net_2603);
+		interrupt=>Net_2604);
 \UART:SCBCLK\:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"43ec2fa1-bf22-4b71-9477-b6ca7b97f0b0/2dc2d7a8-ce2b-43c7-af4a-821c8cd73ccf",
@@ -255,7 +258,7 @@ Button:cy_psoc3_pins_v1_10
 		ovt_slew_control=>"00",
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
-	PORT MAP(oe=>(tmpOE__Button_net_4),
+	PORT MAP(oe=>(tmpOE__Button_net_5),
 		y=>\UART:Net_1062\,
 		fb=>(\UART:tmpFB_0__tx_net_0\),
 		analog=>(open),
@@ -263,10 +266,10 @@ Button:cy_psoc3_pins_v1_10
 		siovref=>(\UART:tmpSIOVREF__tx_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
-		in_clock_en=>tmpOE__Button_net_4,
+		in_clock_en=>tmpOE__Button_net_5,
 		in_reset=>zero,
 		out_clock=>zero,
-		out_clock_en=>tmpOE__Button_net_4,
+		out_clock_en=>tmpOE__Button_net_5,
 		out_reset=>zero,
 		interrupt=>\UART:tmpINTERRUPT_0__tx_net_0\);
 \UART:rx\:cy_psoc3_pins_v1_10
@@ -325,7 +328,7 @@ Button:cy_psoc3_pins_v1_10
 		ovt_slew_control=>"00",
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
-	PORT MAP(oe=>(tmpOE__Button_net_4),
+	PORT MAP(oe=>(tmpOE__Button_net_5),
 		y=>(zero),
 		fb=>\UART:Net_654\,
 		analog=>(open),
@@ -333,10 +336,10 @@ Button:cy_psoc3_pins_v1_10
 		siovref=>(\UART:tmpSIOVREF__rx_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
-		in_clock_en=>tmpOE__Button_net_4,
+		in_clock_en=>tmpOE__Button_net_5,
 		in_reset=>zero,
 		out_clock=>zero,
-		out_clock_en=>tmpOE__Button_net_4,
+		out_clock_en=>tmpOE__Button_net_5,
 		out_reset=>zero,
 		interrupt=>\UART:tmpINTERRUPT_0__rx_net_0\);
 \UART:SCB\:cy_m0s8_scb_v2_0

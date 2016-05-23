@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   30:.\Generated_Source\PSoC4/Button.c ****         #define Button_SetP4PinDriveMode(shift, mode)  \
   31:.\Generated_Source\PSoC4/Button.c ****         do { \
   32:.\Generated_Source\PSoC4/Button.c ****             Button_USBIO_CTRL_REG = (Button_USBIO_CTRL_REG & \
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 2
 
 
   33:.\Generated_Source\PSoC4/Button.c ****                                     (uint32)(~(uint32)(Button_DRIVE_MODE_IND_MASK << \
@@ -117,11 +117,11 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   38 000a 1A70     		strb	r2, [r3]
   74:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__0__SHIFT, mode);
   39              		.loc 1 74 0
-  40 000c 1A4B     		ldr	r3, .L2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 3
+  40 000c 1F4B     		ldr	r3, .L2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 3
 
 
-  41 000e 1A4A     		ldr	r2, .L2
+  41 000e 1F4A     		ldr	r2, .L2
   42 0010 1268     		ldr	r2, [r2]
   43 0012 0721     		mov	r1, #7
   44 0014 8A43     		bic	r2, r1
@@ -132,8 +132,8 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   49 001e 1A60     		str	r2, [r3]
   75:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__1__SHIFT, mode);
   50              		.loc 1 75 0
-  51 0020 154B     		ldr	r3, .L2
-  52 0022 154A     		ldr	r2, .L2
+  51 0020 1A4B     		ldr	r3, .L2
+  52 0022 1A4A     		ldr	r2, .L2
   53 0024 1268     		ldr	r2, [r2]
   54 0026 3821     		mov	r1, #56
   55 0028 8A43     		bic	r2, r1
@@ -145,10 +145,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   61 0034 1A60     		str	r2, [r3]
   76:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__2__SHIFT, mode);
   62              		.loc 1 76 0
-  63 0036 104B     		ldr	r3, .L2
-  64 0038 0F4A     		ldr	r2, .L2
+  63 0036 154B     		ldr	r3, .L2
+  64 0038 144A     		ldr	r2, .L2
   65 003a 1268     		ldr	r2, [r2]
-  66 003c 0F49     		ldr	r1, .L2+4
+  66 003c 1449     		ldr	r1, .L2+4
   67 003e 1140     		and	r1, r2
   68 0040 FA1D     		add	r2, r7, #7
   69 0042 1278     		ldrb	r2, [r2]
@@ -157,10 +157,10 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   72 0048 1A60     		str	r2, [r3]
   77:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__3__SHIFT, mode);
   73              		.loc 1 77 0
-  74 004a 0B4B     		ldr	r3, .L2
-  75 004c 0A4A     		ldr	r2, .L2
+  74 004a 104B     		ldr	r3, .L2
+  75 004c 0F4A     		ldr	r2, .L2
   76 004e 1268     		ldr	r2, [r2]
-  77 0050 0B49     		ldr	r1, .L2+8
+  77 0050 1049     		ldr	r1, .L2+8
   78 0052 1140     		and	r1, r2
   79 0054 FA1D     		add	r2, r7, #7
   80 0056 1278     		ldrb	r2, [r2]
@@ -169,1060 +169,1073 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 1
   83 005c 1A60     		str	r2, [r3]
   78:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__4__SHIFT, mode);
   84              		.loc 1 78 0
-  85 005e 064B     		ldr	r3, .L2
-  86 0060 054A     		ldr	r2, .L2
+  85 005e 0B4B     		ldr	r3, .L2
+  86 0060 0A4A     		ldr	r2, .L2
   87 0062 1268     		ldr	r2, [r2]
-  88 0064 0749     		ldr	r1, .L2+12
+  88 0064 0C49     		ldr	r1, .L2+12
   89 0066 1140     		and	r1, r2
   90 0068 FA1D     		add	r2, r7, #7
   91 006a 1278     		ldrb	r2, [r2]
   92 006c 1203     		lsl	r2, r2, #12
   93 006e 0A43     		orr	r2, r1
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 4
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 4
 
 
   94 0070 1A60     		str	r2, [r3]
-  79:.\Generated_Source\PSoC4/Button.c ****     }
+  79:.\Generated_Source\PSoC4/Button.c **** 		Button_SetP4PinDriveMode(Button__5__SHIFT, mode);
   95              		.loc 1 79 0
-  96 0072 BD46     		mov	sp, r7
-  97 0074 02B0     		add	sp, sp, #8
-  98              		@ sp needed
-  99 0076 80BD     		pop	{r7, pc}
- 100              	.L3:
- 101              		.align	2
- 102              	.L2:
- 103 0078 08000440 		.word	1074003976
- 104 007c 3FFEFFFF 		.word	-449
- 105 0080 FFF1FFFF 		.word	-3585
- 106 0084 FF8FFFFF 		.word	-28673
- 107              		.cfi_endproc
- 108              	.LFE0:
- 109              		.size	Button_SetDriveMode, .-Button_SetDriveMode
- 110              		.section	.text.Button_Write,"ax",%progbits
- 111              		.align	2
- 112              		.global	Button_Write
- 113              		.code	16
- 114              		.thumb_func
- 115              		.type	Button_Write, %function
- 116              	Button_Write:
- 117              	.LFB1:
-  80:.\Generated_Source\PSoC4/Button.c **** #endif
-  81:.\Generated_Source\PSoC4/Button.c **** 
+  96 0072 064B     		ldr	r3, .L2
+  97 0074 054A     		ldr	r2, .L2
+  98 0076 1268     		ldr	r2, [r2]
+  99 0078 0849     		ldr	r1, .L2+16
+ 100 007a 1140     		and	r1, r2
+ 101 007c FA1D     		add	r2, r7, #7
+ 102 007e 1278     		ldrb	r2, [r2]
+ 103 0080 D203     		lsl	r2, r2, #15
+ 104 0082 0A43     		orr	r2, r1
+ 105 0084 1A60     		str	r2, [r3]
+  80:.\Generated_Source\PSoC4/Button.c ****     }
+ 106              		.loc 1 80 0
+ 107 0086 BD46     		mov	sp, r7
+ 108 0088 02B0     		add	sp, sp, #8
+ 109              		@ sp needed
+ 110 008a 80BD     		pop	{r7, pc}
+ 111              	.L3:
+ 112              		.align	2
+ 113              	.L2:
+ 114 008c 08000440 		.word	1074003976
+ 115 0090 3FFEFFFF 		.word	-449
+ 116 0094 FFF1FFFF 		.word	-3585
+ 117 0098 FF8FFFFF 		.word	-28673
+ 118 009c FF7FFCFF 		.word	-229377
+ 119              		.cfi_endproc
+ 120              	.LFE0:
+ 121              		.size	Button_SetDriveMode, .-Button_SetDriveMode
+ 122              		.section	.text.Button_Write,"ax",%progbits
+ 123              		.align	2
+ 124              		.global	Button_Write
+ 125              		.code	16
+ 126              		.thumb_func
+ 127              		.type	Button_Write, %function
+ 128              	Button_Write:
+ 129              	.LFB1:
+  81:.\Generated_Source\PSoC4/Button.c **** #endif
   82:.\Generated_Source\PSoC4/Button.c **** 
-  83:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
-  84:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_Write
-  85:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
-  86:.\Generated_Source\PSoC4/Button.c **** *
-  87:.\Generated_Source\PSoC4/Button.c **** * \brief Writes the value to the physical port (data output register), masking
-  88:.\Generated_Source\PSoC4/Button.c **** *  and shifting the bits appropriately. 
-  89:.\Generated_Source\PSoC4/Button.c **** *
-  90:.\Generated_Source\PSoC4/Button.c **** * The data output register controls the signal applied to the physical pin in 
-  91:.\Generated_Source\PSoC4/Button.c **** * conjunction with the drive mode parameter. This function avoids changing 
-  92:.\Generated_Source\PSoC4/Button.c **** * other bits in the port by using the appropriate method (read-modify-write or
-  93:.\Generated_Source\PSoC4/Button.c **** * bit banding).
-  94:.\Generated_Source\PSoC4/Button.c **** *
-  95:.\Generated_Source\PSoC4/Button.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
-  96:.\Generated_Source\PSoC4/Button.c **** * as it is driven by the hardware signal attached to it.
-  97:.\Generated_Source\PSoC4/Button.c **** *
-  98:.\Generated_Source\PSoC4/Button.c **** * \param value
-  99:.\Generated_Source\PSoC4/Button.c **** *  Value to write to the component instance.
- 100:.\Generated_Source\PSoC4/Button.c **** *
- 101:.\Generated_Source\PSoC4/Button.c **** * \return 
- 102:.\Generated_Source\PSoC4/Button.c **** *  None 
- 103:.\Generated_Source\PSoC4/Button.c **** *
- 104:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
- 105:.\Generated_Source\PSoC4/Button.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
- 106:.\Generated_Source\PSoC4/Button.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
- 107:.\Generated_Source\PSoC4/Button.c **** *  interrupts this function and performs writes to the Pins component data 
- 108:.\Generated_Source\PSoC4/Button.c **** *  register can cause corrupted port data. To avoid this issue, you should 
- 109:.\Generated_Source\PSoC4/Button.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
- 110:.\Generated_Source\PSoC4/Button.c **** *  this function.
- 111:.\Generated_Source\PSoC4/Button.c **** *
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 5
+  83:.\Generated_Source\PSoC4/Button.c **** 
+  84:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
+  85:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_Write
+  86:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
+  87:.\Generated_Source\PSoC4/Button.c **** *
+  88:.\Generated_Source\PSoC4/Button.c **** * \brief Writes the value to the physical port (data output register), masking
+  89:.\Generated_Source\PSoC4/Button.c **** *  and shifting the bits appropriately. 
+  90:.\Generated_Source\PSoC4/Button.c **** *
+  91:.\Generated_Source\PSoC4/Button.c **** * The data output register controls the signal applied to the physical pin in 
+  92:.\Generated_Source\PSoC4/Button.c **** * conjunction with the drive mode parameter. This function avoids changing 
+  93:.\Generated_Source\PSoC4/Button.c **** * other bits in the port by using the appropriate method (read-modify-write or
+  94:.\Generated_Source\PSoC4/Button.c **** * bit banding).
+  95:.\Generated_Source\PSoC4/Button.c **** *
+  96:.\Generated_Source\PSoC4/Button.c **** * <b>Note</b> This function should not be used on a hardware digital output pin 
+  97:.\Generated_Source\PSoC4/Button.c **** * as it is driven by the hardware signal attached to it.
+  98:.\Generated_Source\PSoC4/Button.c **** *
+  99:.\Generated_Source\PSoC4/Button.c **** * \param value
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 5
 
 
- 112:.\Generated_Source\PSoC4/Button.c **** * \funcusage
- 113:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_Write
- 114:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
- 115:.\Generated_Source\PSoC4/Button.c **** void Button_Write(uint8 value)
- 116:.\Generated_Source\PSoC4/Button.c **** {
- 118              		.loc 1 116 0
- 119              		.cfi_startproc
- 120 0000 80B5     		push	{r7, lr}
- 121              		.cfi_def_cfa_offset 8
- 122              		.cfi_offset 7, -8
- 123              		.cfi_offset 14, -4
- 124 0002 84B0     		sub	sp, sp, #16
- 125              		.cfi_def_cfa_offset 24
- 126 0004 00AF     		add	r7, sp, #0
- 127              		.cfi_def_cfa_register 7
- 128 0006 021C     		mov	r2, r0
- 129 0008 FB1D     		add	r3, r7, #7
- 130 000a 1A70     		strb	r2, [r3]
- 117:.\Generated_Source\PSoC4/Button.c ****     uint8 drVal = (uint8)(Button_DR & (uint8)(~Button_MASK));
- 131              		.loc 1 117 0
- 132 000c 0D4B     		ldr	r3, .L5
- 133 000e 1B68     		ldr	r3, [r3]
- 134 0010 DAB2     		uxtb	r2, r3
- 135 0012 0F23     		mov	r3, #15
- 136 0014 FB18     		add	r3, r7, r3
- 137 0016 1F21     		mov	r1, #31
- 138 0018 8A43     		bic	r2, r1
- 139 001a 1A70     		strb	r2, [r3]
- 118:.\Generated_Source\PSoC4/Button.c ****     drVal = (drVal | ((uint8)(value << Button_SHIFT) & Button_MASK));
- 140              		.loc 1 118 0
- 141 001c FB1D     		add	r3, r7, #7
- 142 001e 1B78     		ldrb	r3, [r3]
- 143 0020 1F22     		mov	r2, #31
- 144 0022 1340     		and	r3, r2
- 145 0024 D9B2     		uxtb	r1, r3
- 146 0026 0F23     		mov	r3, #15
- 147 0028 FB18     		add	r3, r7, r3
- 148 002a 0F22     		mov	r2, #15
- 149 002c BA18     		add	r2, r7, r2
- 150 002e 1278     		ldrb	r2, [r2]
- 151 0030 0A43     		orr	r2, r1
- 152 0032 1A70     		strb	r2, [r3]
- 119:.\Generated_Source\PSoC4/Button.c ****     Button_DR = (uint32)drVal;
- 153              		.loc 1 119 0
- 154 0034 034B     		ldr	r3, .L5
- 155 0036 0F22     		mov	r2, #15
- 156 0038 BA18     		add	r2, r7, r2
- 157 003a 1278     		ldrb	r2, [r2]
- 158 003c 1A60     		str	r2, [r3]
- 120:.\Generated_Source\PSoC4/Button.c **** }
- 159              		.loc 1 120 0
- 160 003e BD46     		mov	sp, r7
- 161 0040 04B0     		add	sp, sp, #16
- 162              		@ sp needed
- 163 0042 80BD     		pop	{r7, pc}
- 164              	.L6:
- 165              		.align	2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 6
+ 100:.\Generated_Source\PSoC4/Button.c **** *  Value to write to the component instance.
+ 101:.\Generated_Source\PSoC4/Button.c **** *
+ 102:.\Generated_Source\PSoC4/Button.c **** * \return 
+ 103:.\Generated_Source\PSoC4/Button.c **** *  None 
+ 104:.\Generated_Source\PSoC4/Button.c **** *
+ 105:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
+ 106:.\Generated_Source\PSoC4/Button.c **** *  If you use read-modify-write operations that are not atomic; the Interrupt 
+ 107:.\Generated_Source\PSoC4/Button.c **** *  Service Routines (ISR) can cause corruption of this function. An ISR that 
+ 108:.\Generated_Source\PSoC4/Button.c **** *  interrupts this function and performs writes to the Pins component data 
+ 109:.\Generated_Source\PSoC4/Button.c **** *  register can cause corrupted port data. To avoid this issue, you should 
+ 110:.\Generated_Source\PSoC4/Button.c **** *  either use the Per-Pin APIs (primary method) or disable interrupts around 
+ 111:.\Generated_Source\PSoC4/Button.c **** *  this function.
+ 112:.\Generated_Source\PSoC4/Button.c **** *
+ 113:.\Generated_Source\PSoC4/Button.c **** * \funcusage
+ 114:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_Write
+ 115:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
+ 116:.\Generated_Source\PSoC4/Button.c **** void Button_Write(uint8 value)
+ 117:.\Generated_Source\PSoC4/Button.c **** {
+ 130              		.loc 1 117 0
+ 131              		.cfi_startproc
+ 132 0000 80B5     		push	{r7, lr}
+ 133              		.cfi_def_cfa_offset 8
+ 134              		.cfi_offset 7, -8
+ 135              		.cfi_offset 14, -4
+ 136 0002 84B0     		sub	sp, sp, #16
+ 137              		.cfi_def_cfa_offset 24
+ 138 0004 00AF     		add	r7, sp, #0
+ 139              		.cfi_def_cfa_register 7
+ 140 0006 021C     		mov	r2, r0
+ 141 0008 FB1D     		add	r3, r7, #7
+ 142 000a 1A70     		strb	r2, [r3]
+ 118:.\Generated_Source\PSoC4/Button.c ****     uint8 drVal = (uint8)(Button_DR & (uint8)(~Button_MASK));
+ 143              		.loc 1 118 0
+ 144 000c 0D4B     		ldr	r3, .L5
+ 145 000e 1B68     		ldr	r3, [r3]
+ 146 0010 DAB2     		uxtb	r2, r3
+ 147 0012 0F23     		mov	r3, #15
+ 148 0014 FB18     		add	r3, r7, r3
+ 149 0016 3F21     		mov	r1, #63
+ 150 0018 8A43     		bic	r2, r1
+ 151 001a 1A70     		strb	r2, [r3]
+ 119:.\Generated_Source\PSoC4/Button.c ****     drVal = (drVal | ((uint8)(value << Button_SHIFT) & Button_MASK));
+ 152              		.loc 1 119 0
+ 153 001c FB1D     		add	r3, r7, #7
+ 154 001e 1B78     		ldrb	r3, [r3]
+ 155 0020 3F22     		mov	r2, #63
+ 156 0022 1340     		and	r3, r2
+ 157 0024 D9B2     		uxtb	r1, r3
+ 158 0026 0F23     		mov	r3, #15
+ 159 0028 FB18     		add	r3, r7, r3
+ 160 002a 0F22     		mov	r2, #15
+ 161 002c BA18     		add	r2, r7, r2
+ 162 002e 1278     		ldrb	r2, [r2]
+ 163 0030 0A43     		orr	r2, r1
+ 164 0032 1A70     		strb	r2, [r3]
+ 120:.\Generated_Source\PSoC4/Button.c ****     Button_DR = (uint32)drVal;
+ 165              		.loc 1 120 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 6
 
 
- 166              	.L5:
- 167 0044 00000440 		.word	1074003968
- 168              		.cfi_endproc
- 169              	.LFE1:
- 170              		.size	Button_Write, .-Button_Write
- 171              		.section	.text.Button_Read,"ax",%progbits
- 172              		.align	2
- 173              		.global	Button_Read
- 174              		.code	16
- 175              		.thumb_func
- 176              		.type	Button_Read, %function
- 177              	Button_Read:
- 178              	.LFB2:
- 121:.\Generated_Source\PSoC4/Button.c **** 
+ 166 0034 034B     		ldr	r3, .L5
+ 167 0036 0F22     		mov	r2, #15
+ 168 0038 BA18     		add	r2, r7, r2
+ 169 003a 1278     		ldrb	r2, [r2]
+ 170 003c 1A60     		str	r2, [r3]
+ 121:.\Generated_Source\PSoC4/Button.c **** }
+ 171              		.loc 1 121 0
+ 172 003e BD46     		mov	sp, r7
+ 173 0040 04B0     		add	sp, sp, #16
+ 174              		@ sp needed
+ 175 0042 80BD     		pop	{r7, pc}
+ 176              	.L6:
+ 177              		.align	2
+ 178              	.L5:
+ 179 0044 00000440 		.word	1074003968
+ 180              		.cfi_endproc
+ 181              	.LFE1:
+ 182              		.size	Button_Write, .-Button_Write
+ 183              		.section	.text.Button_Read,"ax",%progbits
+ 184              		.align	2
+ 185              		.global	Button_Read
+ 186              		.code	16
+ 187              		.thumb_func
+ 188              		.type	Button_Read, %function
+ 189              	Button_Read:
+ 190              	.LFB2:
  122:.\Generated_Source\PSoC4/Button.c **** 
- 123:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
- 124:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_Read
- 125:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
- 126:.\Generated_Source\PSoC4/Button.c **** *
- 127:.\Generated_Source\PSoC4/Button.c **** * \brief Reads the associated physical port (pin status register) and masks 
- 128:.\Generated_Source\PSoC4/Button.c **** *  the required bits according to the width and bit position of the component
- 129:.\Generated_Source\PSoC4/Button.c **** *  instance. 
- 130:.\Generated_Source\PSoC4/Button.c **** *
- 131:.\Generated_Source\PSoC4/Button.c **** * The pin's status register returns the current logic level present on the 
- 132:.\Generated_Source\PSoC4/Button.c **** * physical pin.
- 133:.\Generated_Source\PSoC4/Button.c **** *
- 134:.\Generated_Source\PSoC4/Button.c **** * \return 
- 135:.\Generated_Source\PSoC4/Button.c **** *  The current value for the pins in the component as a right justified number.
- 136:.\Generated_Source\PSoC4/Button.c **** *
- 137:.\Generated_Source\PSoC4/Button.c **** * \funcusage
- 138:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_Read  
- 139:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
- 140:.\Generated_Source\PSoC4/Button.c **** uint8 Button_Read(void)
- 141:.\Generated_Source\PSoC4/Button.c **** {
- 179              		.loc 1 141 0
- 180              		.cfi_startproc
- 181 0000 80B5     		push	{r7, lr}
- 182              		.cfi_def_cfa_offset 8
- 183              		.cfi_offset 7, -8
- 184              		.cfi_offset 14, -4
- 185 0002 00AF     		add	r7, sp, #0
- 186              		.cfi_def_cfa_register 7
- 142:.\Generated_Source\PSoC4/Button.c ****     return (uint8)((Button_PS & Button_MASK) >> Button_SHIFT);
- 187              		.loc 1 142 0
- 188 0004 044B     		ldr	r3, .L9
- 189 0006 1B68     		ldr	r3, [r3]
- 190 0008 DBB2     		uxtb	r3, r3
- 191 000a 1F22     		mov	r2, #31
- 192 000c 1340     		and	r3, r2
- 193 000e DBB2     		uxtb	r3, r3
- 143:.\Generated_Source\PSoC4/Button.c **** }
- 194              		.loc 1 143 0
- 195 0010 181C     		mov	r0, r3
- 196 0012 BD46     		mov	sp, r7
- 197              		@ sp needed
- 198 0014 80BD     		pop	{r7, pc}
- 199              	.L10:
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 7
+ 123:.\Generated_Source\PSoC4/Button.c **** 
+ 124:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
+ 125:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_Read
+ 126:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
+ 127:.\Generated_Source\PSoC4/Button.c **** *
+ 128:.\Generated_Source\PSoC4/Button.c **** * \brief Reads the associated physical port (pin status register) and masks 
+ 129:.\Generated_Source\PSoC4/Button.c **** *  the required bits according to the width and bit position of the component
+ 130:.\Generated_Source\PSoC4/Button.c **** *  instance. 
+ 131:.\Generated_Source\PSoC4/Button.c **** *
+ 132:.\Generated_Source\PSoC4/Button.c **** * The pin's status register returns the current logic level present on the 
+ 133:.\Generated_Source\PSoC4/Button.c **** * physical pin.
+ 134:.\Generated_Source\PSoC4/Button.c **** *
+ 135:.\Generated_Source\PSoC4/Button.c **** * \return 
+ 136:.\Generated_Source\PSoC4/Button.c **** *  The current value for the pins in the component as a right justified number.
+ 137:.\Generated_Source\PSoC4/Button.c **** *
+ 138:.\Generated_Source\PSoC4/Button.c **** * \funcusage
+ 139:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_Read  
+ 140:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
+ 141:.\Generated_Source\PSoC4/Button.c **** uint8 Button_Read(void)
+ 142:.\Generated_Source\PSoC4/Button.c **** {
+ 191              		.loc 1 142 0
+ 192              		.cfi_startproc
+ 193 0000 80B5     		push	{r7, lr}
+ 194              		.cfi_def_cfa_offset 8
+ 195              		.cfi_offset 7, -8
+ 196              		.cfi_offset 14, -4
+ 197 0002 00AF     		add	r7, sp, #0
+ 198              		.cfi_def_cfa_register 7
+ 143:.\Generated_Source\PSoC4/Button.c ****     return (uint8)((Button_PS & Button_MASK) >> Button_SHIFT);
+ 199              		.loc 1 143 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 7
 
 
- 200 0016 C046     		.align	2
- 201              	.L9:
- 202 0018 04000440 		.word	1074003972
- 203              		.cfi_endproc
- 204              	.LFE2:
- 205              		.size	Button_Read, .-Button_Read
- 206              		.section	.text.Button_ReadDataReg,"ax",%progbits
- 207              		.align	2
- 208              		.global	Button_ReadDataReg
- 209              		.code	16
- 210              		.thumb_func
- 211              		.type	Button_ReadDataReg, %function
- 212              	Button_ReadDataReg:
- 213              	.LFB3:
- 144:.\Generated_Source\PSoC4/Button.c **** 
+ 200 0004 044B     		ldr	r3, .L9
+ 201 0006 1B68     		ldr	r3, [r3]
+ 202 0008 DBB2     		uxtb	r3, r3
+ 203 000a 3F22     		mov	r2, #63
+ 204 000c 1340     		and	r3, r2
+ 205 000e DBB2     		uxtb	r3, r3
+ 144:.\Generated_Source\PSoC4/Button.c **** }
+ 206              		.loc 1 144 0
+ 207 0010 181C     		mov	r0, r3
+ 208 0012 BD46     		mov	sp, r7
+ 209              		@ sp needed
+ 210 0014 80BD     		pop	{r7, pc}
+ 211              	.L10:
+ 212 0016 C046     		.align	2
+ 213              	.L9:
+ 214 0018 04000440 		.word	1074003972
+ 215              		.cfi_endproc
+ 216              	.LFE2:
+ 217              		.size	Button_Read, .-Button_Read
+ 218              		.section	.text.Button_ReadDataReg,"ax",%progbits
+ 219              		.align	2
+ 220              		.global	Button_ReadDataReg
+ 221              		.code	16
+ 222              		.thumb_func
+ 223              		.type	Button_ReadDataReg, %function
+ 224              	Button_ReadDataReg:
+ 225              	.LFB3:
  145:.\Generated_Source\PSoC4/Button.c **** 
- 146:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
- 147:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_ReadDataReg
- 148:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
- 149:.\Generated_Source\PSoC4/Button.c **** *
- 150:.\Generated_Source\PSoC4/Button.c **** * \brief Reads the associated physical port's data output register and masks 
- 151:.\Generated_Source\PSoC4/Button.c **** *  the correct bits according to the width and bit position of the component 
- 152:.\Generated_Source\PSoC4/Button.c **** *  instance. 
- 153:.\Generated_Source\PSoC4/Button.c **** *
- 154:.\Generated_Source\PSoC4/Button.c **** * The data output register controls the signal applied to the physical pin in 
- 155:.\Generated_Source\PSoC4/Button.c **** * conjunction with the drive mode parameter. This is not the same as the 
- 156:.\Generated_Source\PSoC4/Button.c **** * preferred Button_Read() API because the 
- 157:.\Generated_Source\PSoC4/Button.c **** * Button_ReadDataReg() reads the data register instead of the status 
- 158:.\Generated_Source\PSoC4/Button.c **** * register. For output pins this is a useful function to determine the value 
- 159:.\Generated_Source\PSoC4/Button.c **** * just written to the pin.
- 160:.\Generated_Source\PSoC4/Button.c **** *
- 161:.\Generated_Source\PSoC4/Button.c **** * \return 
- 162:.\Generated_Source\PSoC4/Button.c **** *  The current value of the data register masked and shifted into a right 
- 163:.\Generated_Source\PSoC4/Button.c **** *  justified number for the component instance.
- 164:.\Generated_Source\PSoC4/Button.c **** *
- 165:.\Generated_Source\PSoC4/Button.c **** * \funcusage
- 166:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_ReadDataReg 
- 167:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
- 168:.\Generated_Source\PSoC4/Button.c **** uint8 Button_ReadDataReg(void)
- 169:.\Generated_Source\PSoC4/Button.c **** {
- 214              		.loc 1 169 0
- 215              		.cfi_startproc
- 216 0000 80B5     		push	{r7, lr}
- 217              		.cfi_def_cfa_offset 8
- 218              		.cfi_offset 7, -8
- 219              		.cfi_offset 14, -4
- 220 0002 00AF     		add	r7, sp, #0
- 221              		.cfi_def_cfa_register 7
- 170:.\Generated_Source\PSoC4/Button.c ****     return (uint8)((Button_DR & Button_MASK) >> Button_SHIFT);
- 222              		.loc 1 170 0
- 223 0004 044B     		ldr	r3, .L13
- 224 0006 1B68     		ldr	r3, [r3]
- 225 0008 DBB2     		uxtb	r3, r3
- 226 000a 1F22     		mov	r2, #31
- 227 000c 1340     		and	r3, r2
- 228 000e DBB2     		uxtb	r3, r3
- 171:.\Generated_Source\PSoC4/Button.c **** }
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 8
+ 146:.\Generated_Source\PSoC4/Button.c **** 
+ 147:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
+ 148:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_ReadDataReg
+ 149:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
+ 150:.\Generated_Source\PSoC4/Button.c **** *
+ 151:.\Generated_Source\PSoC4/Button.c **** * \brief Reads the associated physical port's data output register and masks 
+ 152:.\Generated_Source\PSoC4/Button.c **** *  the correct bits according to the width and bit position of the component 
+ 153:.\Generated_Source\PSoC4/Button.c **** *  instance. 
+ 154:.\Generated_Source\PSoC4/Button.c **** *
+ 155:.\Generated_Source\PSoC4/Button.c **** * The data output register controls the signal applied to the physical pin in 
+ 156:.\Generated_Source\PSoC4/Button.c **** * conjunction with the drive mode parameter. This is not the same as the 
+ 157:.\Generated_Source\PSoC4/Button.c **** * preferred Button_Read() API because the 
+ 158:.\Generated_Source\PSoC4/Button.c **** * Button_ReadDataReg() reads the data register instead of the status 
+ 159:.\Generated_Source\PSoC4/Button.c **** * register. For output pins this is a useful function to determine the value 
+ 160:.\Generated_Source\PSoC4/Button.c **** * just written to the pin.
+ 161:.\Generated_Source\PSoC4/Button.c **** *
+ 162:.\Generated_Source\PSoC4/Button.c **** * \return 
+ 163:.\Generated_Source\PSoC4/Button.c **** *  The current value of the data register masked and shifted into a right 
+ 164:.\Generated_Source\PSoC4/Button.c **** *  justified number for the component instance.
+ 165:.\Generated_Source\PSoC4/Button.c **** *
+ 166:.\Generated_Source\PSoC4/Button.c **** * \funcusage
+ 167:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_ReadDataReg 
+ 168:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
+ 169:.\Generated_Source\PSoC4/Button.c **** uint8 Button_ReadDataReg(void)
+ 170:.\Generated_Source\PSoC4/Button.c **** {
+ 226              		.loc 1 170 0
+ 227              		.cfi_startproc
+ 228 0000 80B5     		push	{r7, lr}
+ 229              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 8
 
 
- 229              		.loc 1 171 0
- 230 0010 181C     		mov	r0, r3
- 231 0012 BD46     		mov	sp, r7
- 232              		@ sp needed
- 233 0014 80BD     		pop	{r7, pc}
- 234              	.L14:
- 235 0016 C046     		.align	2
- 236              	.L13:
- 237 0018 00000440 		.word	1074003968
- 238              		.cfi_endproc
- 239              	.LFE3:
- 240              		.size	Button_ReadDataReg, .-Button_ReadDataReg
- 241              		.section	.text.Button_SetInterruptMode,"ax",%progbits
- 242              		.align	2
- 243              		.global	Button_SetInterruptMode
- 244              		.code	16
- 245              		.thumb_func
- 246              		.type	Button_SetInterruptMode, %function
- 247              	Button_SetInterruptMode:
- 248              	.LFB4:
- 172:.\Generated_Source\PSoC4/Button.c **** 
+ 230              		.cfi_offset 7, -8
+ 231              		.cfi_offset 14, -4
+ 232 0002 00AF     		add	r7, sp, #0
+ 233              		.cfi_def_cfa_register 7
+ 171:.\Generated_Source\PSoC4/Button.c ****     return (uint8)((Button_DR & Button_MASK) >> Button_SHIFT);
+ 234              		.loc 1 171 0
+ 235 0004 044B     		ldr	r3, .L13
+ 236 0006 1B68     		ldr	r3, [r3]
+ 237 0008 DBB2     		uxtb	r3, r3
+ 238 000a 3F22     		mov	r2, #63
+ 239 000c 1340     		and	r3, r2
+ 240 000e DBB2     		uxtb	r3, r3
+ 172:.\Generated_Source\PSoC4/Button.c **** }
+ 241              		.loc 1 172 0
+ 242 0010 181C     		mov	r0, r3
+ 243 0012 BD46     		mov	sp, r7
+ 244              		@ sp needed
+ 245 0014 80BD     		pop	{r7, pc}
+ 246              	.L14:
+ 247 0016 C046     		.align	2
+ 248              	.L13:
+ 249 0018 00000440 		.word	1074003968
+ 250              		.cfi_endproc
+ 251              	.LFE3:
+ 252              		.size	Button_ReadDataReg, .-Button_ReadDataReg
+ 253              		.section	.text.Button_SetInterruptMode,"ax",%progbits
+ 254              		.align	2
+ 255              		.global	Button_SetInterruptMode
+ 256              		.code	16
+ 257              		.thumb_func
+ 258              		.type	Button_SetInterruptMode, %function
+ 259              	Button_SetInterruptMode:
+ 260              	.LFB4:
  173:.\Generated_Source\PSoC4/Button.c **** 
- 174:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
- 175:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_SetInterruptMode
- 176:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
- 177:.\Generated_Source\PSoC4/Button.c **** *
- 178:.\Generated_Source\PSoC4/Button.c **** * \brief Configures the interrupt mode for each of the Pins component's
- 179:.\Generated_Source\PSoC4/Button.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
- 180:.\Generated_Source\PSoC4/Button.c **** *  specified in the Pins component.
- 181:.\Generated_Source\PSoC4/Button.c **** *
- 182:.\Generated_Source\PSoC4/Button.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
- 183:.\Generated_Source\PSoC4/Button.c **** *  interrupt may trigger it.
- 184:.\Generated_Source\PSoC4/Button.c **** *
- 185:.\Generated_Source\PSoC4/Button.c **** * \param position
- 186:.\Generated_Source\PSoC4/Button.c **** *  The pin position as listed in the Pins component. You may OR these to be 
- 187:.\Generated_Source\PSoC4/Button.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
- 188:.\Generated_Source\PSoC4/Button.c **** *  component. Or you may use Button_INTR_ALL to configure the
- 189:.\Generated_Source\PSoC4/Button.c **** *  interrupt mode of all the pins in the Pins component.       
- 190:.\Generated_Source\PSoC4/Button.c **** *  - Button_0_INTR       (First pin in the list)
- 191:.\Generated_Source\PSoC4/Button.c **** *  - Button_1_INTR       (Second pin in the list)
- 192:.\Generated_Source\PSoC4/Button.c **** *  - ...
- 193:.\Generated_Source\PSoC4/Button.c **** *  - Button_INTR_ALL     (All pins in Pins component)
- 194:.\Generated_Source\PSoC4/Button.c **** *
- 195:.\Generated_Source\PSoC4/Button.c **** * \param mode
- 196:.\Generated_Source\PSoC4/Button.c **** *  Interrupt mode for the selected pins. Valid options are documented in
- 197:.\Generated_Source\PSoC4/Button.c **** *  \ref intrMode.
- 198:.\Generated_Source\PSoC4/Button.c **** *
- 199:.\Generated_Source\PSoC4/Button.c **** * \return 
- 200:.\Generated_Source\PSoC4/Button.c **** *  None
- 201:.\Generated_Source\PSoC4/Button.c **** *  
- 202:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
- 203:.\Generated_Source\PSoC4/Button.c **** *  It is recommended that the interrupt be disabled before calling this 
- 204:.\Generated_Source\PSoC4/Button.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
- 205:.\Generated_Source\PSoC4/Button.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
- 206:.\Generated_Source\PSoC4/Button.c **** *  port.
- 207:.\Generated_Source\PSoC4/Button.c **** *
- 208:.\Generated_Source\PSoC4/Button.c **** * \funcusage
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 9
+ 174:.\Generated_Source\PSoC4/Button.c **** 
+ 175:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
+ 176:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_SetInterruptMode
+ 177:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
+ 178:.\Generated_Source\PSoC4/Button.c **** *
+ 179:.\Generated_Source\PSoC4/Button.c **** * \brief Configures the interrupt mode for each of the Pins component's
+ 180:.\Generated_Source\PSoC4/Button.c **** *  pins. Alternatively you may set the interrupt mode for all the pins
+ 181:.\Generated_Source\PSoC4/Button.c **** *  specified in the Pins component.
+ 182:.\Generated_Source\PSoC4/Button.c **** *
+ 183:.\Generated_Source\PSoC4/Button.c **** *  <b>Note</b> The interrupt is port-wide and therefore any enabled pin
+ 184:.\Generated_Source\PSoC4/Button.c **** *  interrupt may trigger it.
+ 185:.\Generated_Source\PSoC4/Button.c **** *
+ 186:.\Generated_Source\PSoC4/Button.c **** * \param position
+ 187:.\Generated_Source\PSoC4/Button.c **** *  The pin position as listed in the Pins component. You may OR these to be 
+ 188:.\Generated_Source\PSoC4/Button.c **** *  able to configure the interrupt mode of multiple pins within a Pins 
+ 189:.\Generated_Source\PSoC4/Button.c **** *  component. Or you may use Button_INTR_ALL to configure the
+ 190:.\Generated_Source\PSoC4/Button.c **** *  interrupt mode of all the pins in the Pins component.       
+ 191:.\Generated_Source\PSoC4/Button.c **** *  - Button_0_INTR       (First pin in the list)
+ 192:.\Generated_Source\PSoC4/Button.c **** *  - Button_1_INTR       (Second pin in the list)
+ 193:.\Generated_Source\PSoC4/Button.c **** *  - ...
+ 194:.\Generated_Source\PSoC4/Button.c **** *  - Button_INTR_ALL     (All pins in Pins component)
+ 195:.\Generated_Source\PSoC4/Button.c **** *
+ 196:.\Generated_Source\PSoC4/Button.c **** * \param mode
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 9
 
 
- 209:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_SetInterruptMode
- 210:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
- 211:.\Generated_Source\PSoC4/Button.c **** void Button_SetInterruptMode(uint16 position, uint16 mode)
- 212:.\Generated_Source\PSoC4/Button.c **** {
- 249              		.loc 1 212 0
- 250              		.cfi_startproc
- 251 0000 80B5     		push	{r7, lr}
- 252              		.cfi_def_cfa_offset 8
- 253              		.cfi_offset 7, -8
- 254              		.cfi_offset 14, -4
- 255 0002 84B0     		sub	sp, sp, #16
- 256              		.cfi_def_cfa_offset 24
- 257 0004 00AF     		add	r7, sp, #0
- 258              		.cfi_def_cfa_register 7
- 259 0006 021C     		mov	r2, r0
- 260 0008 BB1D     		add	r3, r7, #6
- 261 000a 1A80     		strh	r2, [r3]
- 262 000c 3B1D     		add	r3, r7, #4
- 263 000e 0A1C     		add	r2, r1, #0
- 264 0010 1A80     		strh	r2, [r3]
- 213:.\Generated_Source\PSoC4/Button.c ****     uint32 intrCfg;
- 214:.\Generated_Source\PSoC4/Button.c ****     
- 215:.\Generated_Source\PSoC4/Button.c ****     intrCfg =  Button_INTCFG & (uint32)(~(uint32)position);
- 265              		.loc 1 215 0
- 266 0012 0A4B     		ldr	r3, .L16
- 267 0014 1B68     		ldr	r3, [r3]
- 268 0016 BA1D     		add	r2, r7, #6
- 269 0018 1288     		ldrh	r2, [r2]
- 270 001a D243     		mvn	r2, r2
- 271 001c 1340     		and	r3, r2
- 272 001e FB60     		str	r3, [r7, #12]
- 216:.\Generated_Source\PSoC4/Button.c ****     Button_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
- 273              		.loc 1 216 0
- 274 0020 064B     		ldr	r3, .L16
- 275 0022 BA1D     		add	r2, r7, #6
- 276 0024 391D     		add	r1, r7, #4
- 277 0026 1288     		ldrh	r2, [r2]
- 278 0028 0988     		ldrh	r1, [r1]
- 279 002a 0A40     		and	r2, r1
- 280 002c 92B2     		uxth	r2, r2
- 281 002e 111C     		mov	r1, r2
- 282 0030 FA68     		ldr	r2, [r7, #12]
- 283 0032 0A43     		orr	r2, r1
- 284 0034 1A60     		str	r2, [r3]
- 217:.\Generated_Source\PSoC4/Button.c **** }
+ 197:.\Generated_Source\PSoC4/Button.c **** *  Interrupt mode for the selected pins. Valid options are documented in
+ 198:.\Generated_Source\PSoC4/Button.c **** *  \ref intrMode.
+ 199:.\Generated_Source\PSoC4/Button.c **** *
+ 200:.\Generated_Source\PSoC4/Button.c **** * \return 
+ 201:.\Generated_Source\PSoC4/Button.c **** *  None
+ 202:.\Generated_Source\PSoC4/Button.c **** *  
+ 203:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
+ 204:.\Generated_Source\PSoC4/Button.c **** *  It is recommended that the interrupt be disabled before calling this 
+ 205:.\Generated_Source\PSoC4/Button.c **** *  function to avoid unintended interrupt requests. Note that the interrupt
+ 206:.\Generated_Source\PSoC4/Button.c **** *  type is port wide, and therefore will trigger for any enabled pin on the 
+ 207:.\Generated_Source\PSoC4/Button.c **** *  port.
+ 208:.\Generated_Source\PSoC4/Button.c **** *
+ 209:.\Generated_Source\PSoC4/Button.c **** * \funcusage
+ 210:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_SetInterruptMode
+ 211:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
+ 212:.\Generated_Source\PSoC4/Button.c **** void Button_SetInterruptMode(uint16 position, uint16 mode)
+ 213:.\Generated_Source\PSoC4/Button.c **** {
+ 261              		.loc 1 213 0
+ 262              		.cfi_startproc
+ 263 0000 80B5     		push	{r7, lr}
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 7, -8
+ 266              		.cfi_offset 14, -4
+ 267 0002 84B0     		sub	sp, sp, #16
+ 268              		.cfi_def_cfa_offset 24
+ 269 0004 00AF     		add	r7, sp, #0
+ 270              		.cfi_def_cfa_register 7
+ 271 0006 021C     		mov	r2, r0
+ 272 0008 BB1D     		add	r3, r7, #6
+ 273 000a 1A80     		strh	r2, [r3]
+ 274 000c 3B1D     		add	r3, r7, #4
+ 275 000e 0A1C     		add	r2, r1, #0
+ 276 0010 1A80     		strh	r2, [r3]
+ 214:.\Generated_Source\PSoC4/Button.c ****     uint32 intrCfg;
+ 215:.\Generated_Source\PSoC4/Button.c ****     
+ 216:.\Generated_Source\PSoC4/Button.c ****     intrCfg =  Button_INTCFG & (uint32)(~(uint32)position);
+ 277              		.loc 1 216 0
+ 278 0012 0A4B     		ldr	r3, .L16
+ 279 0014 1B68     		ldr	r3, [r3]
+ 280 0016 BA1D     		add	r2, r7, #6
+ 281 0018 1288     		ldrh	r2, [r2]
+ 282 001a D243     		mvn	r2, r2
+ 283 001c 1340     		and	r3, r2
+ 284 001e FB60     		str	r3, [r7, #12]
+ 217:.\Generated_Source\PSoC4/Button.c ****     Button_INTCFG = intrCfg | ((uint32)position & (uint32)mode);
  285              		.loc 1 217 0
- 286 0036 BD46     		mov	sp, r7
- 287 0038 04B0     		add	sp, sp, #16
- 288              		@ sp needed
- 289 003a 80BD     		pop	{r7, pc}
- 290              	.L17:
- 291              		.align	2
- 292              	.L16:
- 293 003c 0C000440 		.word	1074003980
- 294              		.cfi_endproc
- 295              	.LFE4:
- 296              		.size	Button_SetInterruptMode, .-Button_SetInterruptMode
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 10
+ 286 0020 064B     		ldr	r3, .L16
+ 287 0022 BA1D     		add	r2, r7, #6
+ 288 0024 391D     		add	r1, r7, #4
+ 289 0026 1288     		ldrh	r2, [r2]
+ 290 0028 0988     		ldrh	r1, [r1]
+ 291 002a 0A40     		and	r2, r1
+ 292 002c 92B2     		uxth	r2, r2
+ 293 002e 111C     		mov	r1, r2
+ 294 0030 FA68     		ldr	r2, [r7, #12]
+ 295 0032 0A43     		orr	r2, r1
+ 296 0034 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 10
 
 
- 297              		.section	.text.Button_ClearInterrupt,"ax",%progbits
- 298              		.align	2
- 299              		.global	Button_ClearInterrupt
- 300              		.code	16
- 301              		.thumb_func
- 302              		.type	Button_ClearInterrupt, %function
- 303              	Button_ClearInterrupt:
- 304              	.LFB5:
- 218:.\Generated_Source\PSoC4/Button.c **** 
+ 218:.\Generated_Source\PSoC4/Button.c **** }
+ 297              		.loc 1 218 0
+ 298 0036 BD46     		mov	sp, r7
+ 299 0038 04B0     		add	sp, sp, #16
+ 300              		@ sp needed
+ 301 003a 80BD     		pop	{r7, pc}
+ 302              	.L17:
+ 303              		.align	2
+ 304              	.L16:
+ 305 003c 0C000440 		.word	1074003980
+ 306              		.cfi_endproc
+ 307              	.LFE4:
+ 308              		.size	Button_SetInterruptMode, .-Button_SetInterruptMode
+ 309              		.section	.text.Button_ClearInterrupt,"ax",%progbits
+ 310              		.align	2
+ 311              		.global	Button_ClearInterrupt
+ 312              		.code	16
+ 313              		.thumb_func
+ 314              		.type	Button_ClearInterrupt, %function
+ 315              	Button_ClearInterrupt:
+ 316              	.LFB5:
  219:.\Generated_Source\PSoC4/Button.c **** 
- 220:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
- 221:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_ClearInterrupt
- 222:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
- 223:.\Generated_Source\PSoC4/Button.c **** *
- 224:.\Generated_Source\PSoC4/Button.c **** * \brief Clears any active interrupts attached with the component and returns 
- 225:.\Generated_Source\PSoC4/Button.c **** *  the value of the interrupt status register allowing determination of which
- 226:.\Generated_Source\PSoC4/Button.c **** *  pins generated an interrupt event.
- 227:.\Generated_Source\PSoC4/Button.c **** *
- 228:.\Generated_Source\PSoC4/Button.c **** * \return 
- 229:.\Generated_Source\PSoC4/Button.c **** *  The right-shifted current value of the interrupt status register. Each pin 
- 230:.\Generated_Source\PSoC4/Button.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
- 231:.\Generated_Source\PSoC4/Button.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
- 232:.\Generated_Source\PSoC4/Button.c **** *  
- 233:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
- 234:.\Generated_Source\PSoC4/Button.c **** *  Clears all bits of the physical port's interrupt status register, not just
- 235:.\Generated_Source\PSoC4/Button.c **** *  those associated with the Pins component.
- 236:.\Generated_Source\PSoC4/Button.c **** *
- 237:.\Generated_Source\PSoC4/Button.c **** * \funcusage
- 238:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_ClearInterrupt
- 239:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
- 240:.\Generated_Source\PSoC4/Button.c **** uint8 Button_ClearInterrupt(void)
- 241:.\Generated_Source\PSoC4/Button.c **** {
- 305              		.loc 1 241 0
- 306              		.cfi_startproc
- 307 0000 80B5     		push	{r7, lr}
- 308              		.cfi_def_cfa_offset 8
- 309              		.cfi_offset 7, -8
- 310              		.cfi_offset 14, -4
- 311 0002 82B0     		sub	sp, sp, #8
- 312              		.cfi_def_cfa_offset 16
- 313 0004 00AF     		add	r7, sp, #0
- 314              		.cfi_def_cfa_register 7
- 242:.\Generated_Source\PSoC4/Button.c **** 	uint8 maskedStatus = (uint8)(Button_INTSTAT & Button_MASK);
- 315              		.loc 1 242 0
- 316 0006 084B     		ldr	r3, .L20
- 317 0008 1B68     		ldr	r3, [r3]
- 318 000a DAB2     		uxtb	r2, r3
- 319 000c FB1D     		add	r3, r7, #7
- 320 000e 1F21     		mov	r1, #31
- 321 0010 0A40     		and	r2, r1
- 322 0012 1A70     		strb	r2, [r3]
- 243:.\Generated_Source\PSoC4/Button.c **** 	Button_INTSTAT = maskedStatus;
- 323              		.loc 1 243 0
- 324 0014 044B     		ldr	r3, .L20
- 325 0016 FA1D     		add	r2, r7, #7
- 326 0018 1278     		ldrb	r2, [r2]
- 327 001a 1A60     		str	r2, [r3]
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 11
+ 220:.\Generated_Source\PSoC4/Button.c **** 
+ 221:.\Generated_Source\PSoC4/Button.c **** /*******************************************************************************
+ 222:.\Generated_Source\PSoC4/Button.c **** * Function Name: Button_ClearInterrupt
+ 223:.\Generated_Source\PSoC4/Button.c **** ****************************************************************************//**
+ 224:.\Generated_Source\PSoC4/Button.c **** *
+ 225:.\Generated_Source\PSoC4/Button.c **** * \brief Clears any active interrupts attached with the component and returns 
+ 226:.\Generated_Source\PSoC4/Button.c **** *  the value of the interrupt status register allowing determination of which
+ 227:.\Generated_Source\PSoC4/Button.c **** *  pins generated an interrupt event.
+ 228:.\Generated_Source\PSoC4/Button.c **** *
+ 229:.\Generated_Source\PSoC4/Button.c **** * \return 
+ 230:.\Generated_Source\PSoC4/Button.c **** *  The right-shifted current value of the interrupt status register. Each pin 
+ 231:.\Generated_Source\PSoC4/Button.c **** *  has one bit set if it generated an interrupt event. For example, bit 0 is 
+ 232:.\Generated_Source\PSoC4/Button.c **** *  for pin 0 and bit 1 is for pin 1 of the Pins component.
+ 233:.\Generated_Source\PSoC4/Button.c **** *  
+ 234:.\Generated_Source\PSoC4/Button.c **** * \sideeffect
+ 235:.\Generated_Source\PSoC4/Button.c **** *  Clears all bits of the physical port's interrupt status register, not just
+ 236:.\Generated_Source\PSoC4/Button.c **** *  those associated with the Pins component.
+ 237:.\Generated_Source\PSoC4/Button.c **** *
+ 238:.\Generated_Source\PSoC4/Button.c **** * \funcusage
+ 239:.\Generated_Source\PSoC4/Button.c **** *  \snippet Button_SUT.c usage_Button_ClearInterrupt
+ 240:.\Generated_Source\PSoC4/Button.c **** *******************************************************************************/
+ 241:.\Generated_Source\PSoC4/Button.c **** uint8 Button_ClearInterrupt(void)
+ 242:.\Generated_Source\PSoC4/Button.c **** {
+ 317              		.loc 1 242 0
+ 318              		.cfi_startproc
+ 319 0000 80B5     		push	{r7, lr}
+ 320              		.cfi_def_cfa_offset 8
+ 321              		.cfi_offset 7, -8
+ 322              		.cfi_offset 14, -4
+ 323 0002 82B0     		sub	sp, sp, #8
+ 324              		.cfi_def_cfa_offset 16
+ 325 0004 00AF     		add	r7, sp, #0
+ 326              		.cfi_def_cfa_register 7
+ 243:.\Generated_Source\PSoC4/Button.c **** 	uint8 maskedStatus = (uint8)(Button_INTSTAT & Button_MASK);
+ 327              		.loc 1 243 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 11
 
 
- 244:.\Generated_Source\PSoC4/Button.c ****     return maskedStatus >> Button_SHIFT;
- 328              		.loc 1 244 0
- 329 001c FB1D     		add	r3, r7, #7
- 330 001e 1B78     		ldrb	r3, [r3]
- 245:.\Generated_Source\PSoC4/Button.c **** }
- 331              		.loc 1 245 0
- 332 0020 181C     		mov	r0, r3
- 333 0022 BD46     		mov	sp, r7
- 334 0024 02B0     		add	sp, sp, #8
- 335              		@ sp needed
- 336 0026 80BD     		pop	{r7, pc}
- 337              	.L21:
- 338              		.align	2
- 339              	.L20:
- 340 0028 10000440 		.word	1074003984
- 341              		.cfi_endproc
- 342              	.LFE5:
- 343              		.size	Button_ClearInterrupt, .-Button_ClearInterrupt
- 344              		.text
- 345              	.Letext0:
- 346              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
- 347              		.section	.debug_info,"",%progbits
- 348              	.Ldebug_info0:
- 349 0000 96010000 		.4byte	0x196
- 350 0004 0400     		.2byte	0x4
- 351 0006 00000000 		.4byte	.Ldebug_abbrev0
- 352 000a 04       		.byte	0x4
- 353 000b 01       		.uleb128 0x1
- 354 000c FA000000 		.4byte	.LASF28
- 355 0010 01       		.byte	0x1
- 356 0011 44020000 		.4byte	.LASF29
- 357 0015 1F000000 		.4byte	.LASF30
- 358 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 359 001d 00000000 		.4byte	0
- 360 0021 00000000 		.4byte	.Ldebug_line0
- 361 0025 02       		.uleb128 0x2
- 362 0026 01       		.byte	0x1
- 363 0027 06       		.byte	0x6
- 364 0028 38020000 		.4byte	.LASF0
- 365 002c 02       		.uleb128 0x2
- 366 002d 01       		.byte	0x1
- 367 002e 08       		.byte	0x8
- 368 002f BA000000 		.4byte	.LASF1
- 369 0033 02       		.uleb128 0x2
- 370 0034 02       		.byte	0x2
- 371 0035 05       		.byte	0x5
- 372 0036 1F020000 		.4byte	.LASF2
- 373 003a 02       		.uleb128 0x2
- 374 003b 02       		.byte	0x2
- 375 003c 07       		.byte	0x7
- 376 003d E0000000 		.4byte	.LASF3
- 377 0041 02       		.uleb128 0x2
- 378 0042 04       		.byte	0x4
- 379 0043 05       		.byte	0x5
- 380 0044 2F020000 		.4byte	.LASF4
- 381 0048 02       		.uleb128 0x2
- 382 0049 04       		.byte	0x4
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 12
+ 328 0006 084B     		ldr	r3, .L20
+ 329 0008 1B68     		ldr	r3, [r3]
+ 330 000a DAB2     		uxtb	r2, r3
+ 331 000c FB1D     		add	r3, r7, #7
+ 332 000e 3F21     		mov	r1, #63
+ 333 0010 0A40     		and	r2, r1
+ 334 0012 1A70     		strb	r2, [r3]
+ 244:.\Generated_Source\PSoC4/Button.c **** 	Button_INTSTAT = maskedStatus;
+ 335              		.loc 1 244 0
+ 336 0014 044B     		ldr	r3, .L20
+ 337 0016 FA1D     		add	r2, r7, #7
+ 338 0018 1278     		ldrb	r2, [r2]
+ 339 001a 1A60     		str	r2, [r3]
+ 245:.\Generated_Source\PSoC4/Button.c ****     return maskedStatus >> Button_SHIFT;
+ 340              		.loc 1 245 0
+ 341 001c FB1D     		add	r3, r7, #7
+ 342 001e 1B78     		ldrb	r3, [r3]
+ 246:.\Generated_Source\PSoC4/Button.c **** }
+ 343              		.loc 1 246 0
+ 344 0020 181C     		mov	r0, r3
+ 345 0022 BD46     		mov	sp, r7
+ 346 0024 02B0     		add	sp, sp, #8
+ 347              		@ sp needed
+ 348 0026 80BD     		pop	{r7, pc}
+ 349              	.L21:
+ 350              		.align	2
+ 351              	.L20:
+ 352 0028 10000440 		.word	1074003984
+ 353              		.cfi_endproc
+ 354              	.LFE5:
+ 355              		.size	Button_ClearInterrupt, .-Button_ClearInterrupt
+ 356              		.text
+ 357              	.Letext0:
+ 358              		.file 2 ".\\Generated_Source\\PSoC4\\cytypes.h"
+ 359              		.section	.debug_info,"",%progbits
+ 360              	.Ldebug_info0:
+ 361 0000 96010000 		.4byte	0x196
+ 362 0004 0400     		.2byte	0x4
+ 363 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 364 000a 04       		.byte	0x4
+ 365 000b 01       		.uleb128 0x1
+ 366 000c FA000000 		.4byte	.LASF28
+ 367 0010 01       		.byte	0x1
+ 368 0011 44020000 		.4byte	.LASF29
+ 369 0015 1F000000 		.4byte	.LASF30
+ 370 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 371 001d 00000000 		.4byte	0
+ 372 0021 00000000 		.4byte	.Ldebug_line0
+ 373 0025 02       		.uleb128 0x2
+ 374 0026 01       		.byte	0x1
+ 375 0027 06       		.byte	0x6
+ 376 0028 38020000 		.4byte	.LASF0
+ 377 002c 02       		.uleb128 0x2
+ 378 002d 01       		.byte	0x1
+ 379 002e 08       		.byte	0x8
+ 380 002f BA000000 		.4byte	.LASF1
+ 381 0033 02       		.uleb128 0x2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 12
 
 
- 383 004a 07       		.byte	0x7
- 384 004b CE000000 		.4byte	.LASF5
- 385 004f 02       		.uleb128 0x2
- 386 0050 08       		.byte	0x8
- 387 0051 05       		.byte	0x5
- 388 0052 F2010000 		.4byte	.LASF6
- 389 0056 02       		.uleb128 0x2
- 390 0057 08       		.byte	0x8
- 391 0058 07       		.byte	0x7
- 392 0059 B4010000 		.4byte	.LASF7
- 393 005d 03       		.uleb128 0x3
- 394 005e 04       		.byte	0x4
- 395 005f 05       		.byte	0x5
- 396 0060 696E7400 		.ascii	"int\000"
- 397 0064 02       		.uleb128 0x2
- 398 0065 04       		.byte	0x4
- 399 0066 07       		.byte	0x7
- 400 0067 A7010000 		.4byte	.LASF8
- 401 006b 04       		.uleb128 0x4
- 402 006c 29020000 		.4byte	.LASF9
- 403 0070 02       		.byte	0x2
- 404 0071 3801     		.2byte	0x138
- 405 0073 2C000000 		.4byte	0x2c
- 406 0077 04       		.uleb128 0x4
- 407 0078 88010000 		.4byte	.LASF10
- 408 007c 02       		.byte	0x2
- 409 007d 3901     		.2byte	0x139
- 410 007f 3A000000 		.4byte	0x3a
- 411 0083 04       		.uleb128 0x4
- 412 0084 98010000 		.4byte	.LASF11
- 413 0088 02       		.byte	0x2
- 414 0089 3A01     		.2byte	0x13a
- 415 008b 48000000 		.4byte	0x48
- 416 008f 02       		.uleb128 0x2
- 417 0090 04       		.byte	0x4
- 418 0091 04       		.byte	0x4
- 419 0092 A0000000 		.4byte	.LASF12
- 420 0096 02       		.uleb128 0x2
- 421 0097 08       		.byte	0x8
- 422 0098 04       		.byte	0x4
- 423 0099 F3000000 		.4byte	.LASF13
- 424 009d 02       		.uleb128 0x2
- 425 009e 01       		.byte	0x1
- 426 009f 08       		.byte	0x8
- 427 00a0 0D020000 		.4byte	.LASF14
- 428 00a4 04       		.uleb128 0x4
- 429 00a5 00000000 		.4byte	.LASF15
- 430 00a9 02       		.byte	0x2
- 431 00aa E401     		.2byte	0x1e4
- 432 00ac B0000000 		.4byte	0xb0
- 433 00b0 05       		.uleb128 0x5
- 434 00b1 83000000 		.4byte	0x83
- 435 00b5 06       		.uleb128 0x6
- 436 00b6 A6000000 		.4byte	.LASF16
- 437 00ba 01       		.byte	0x1
- 438 00bb 48       		.byte	0x48
- 439 00bc 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 13
+ 382 0034 02       		.byte	0x2
+ 383 0035 05       		.byte	0x5
+ 384 0036 1F020000 		.4byte	.LASF2
+ 385 003a 02       		.uleb128 0x2
+ 386 003b 02       		.byte	0x2
+ 387 003c 07       		.byte	0x7
+ 388 003d E0000000 		.4byte	.LASF3
+ 389 0041 02       		.uleb128 0x2
+ 390 0042 04       		.byte	0x4
+ 391 0043 05       		.byte	0x5
+ 392 0044 2F020000 		.4byte	.LASF4
+ 393 0048 02       		.uleb128 0x2
+ 394 0049 04       		.byte	0x4
+ 395 004a 07       		.byte	0x7
+ 396 004b CE000000 		.4byte	.LASF5
+ 397 004f 02       		.uleb128 0x2
+ 398 0050 08       		.byte	0x8
+ 399 0051 05       		.byte	0x5
+ 400 0052 F2010000 		.4byte	.LASF6
+ 401 0056 02       		.uleb128 0x2
+ 402 0057 08       		.byte	0x8
+ 403 0058 07       		.byte	0x7
+ 404 0059 B4010000 		.4byte	.LASF7
+ 405 005d 03       		.uleb128 0x3
+ 406 005e 04       		.byte	0x4
+ 407 005f 05       		.byte	0x5
+ 408 0060 696E7400 		.ascii	"int\000"
+ 409 0064 02       		.uleb128 0x2
+ 410 0065 04       		.byte	0x4
+ 411 0066 07       		.byte	0x7
+ 412 0067 A7010000 		.4byte	.LASF8
+ 413 006b 04       		.uleb128 0x4
+ 414 006c 29020000 		.4byte	.LASF9
+ 415 0070 02       		.byte	0x2
+ 416 0071 3801     		.2byte	0x138
+ 417 0073 2C000000 		.4byte	0x2c
+ 418 0077 04       		.uleb128 0x4
+ 419 0078 88010000 		.4byte	.LASF10
+ 420 007c 02       		.byte	0x2
+ 421 007d 3901     		.2byte	0x139
+ 422 007f 3A000000 		.4byte	0x3a
+ 423 0083 04       		.uleb128 0x4
+ 424 0084 98010000 		.4byte	.LASF11
+ 425 0088 02       		.byte	0x2
+ 426 0089 3A01     		.2byte	0x13a
+ 427 008b 48000000 		.4byte	0x48
+ 428 008f 02       		.uleb128 0x2
+ 429 0090 04       		.byte	0x4
+ 430 0091 04       		.byte	0x4
+ 431 0092 A0000000 		.4byte	.LASF12
+ 432 0096 02       		.uleb128 0x2
+ 433 0097 08       		.byte	0x8
+ 434 0098 04       		.byte	0x4
+ 435 0099 F3000000 		.4byte	.LASF13
+ 436 009d 02       		.uleb128 0x2
+ 437 009e 01       		.byte	0x1
+ 438 009f 08       		.byte	0x8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 13
 
 
- 440 00c0 88000000 		.4byte	.LFE0-.LFB0
- 441 00c4 01       		.uleb128 0x1
- 442 00c5 9C       		.byte	0x9c
- 443 00c6 D9000000 		.4byte	0xd9
- 444 00ca 07       		.uleb128 0x7
- 445 00cb CB010000 		.4byte	.LASF18
- 446 00cf 01       		.byte	0x1
- 447 00d0 48       		.byte	0x48
- 448 00d1 6B000000 		.4byte	0x6b
- 449 00d5 02       		.uleb128 0x2
- 450 00d6 91       		.byte	0x91
- 451 00d7 77       		.sleb128 -9
- 452 00d8 00       		.byte	0
- 453 00d9 06       		.uleb128 0x6
- 454 00da 12020000 		.4byte	.LASF17
- 455 00de 01       		.byte	0x1
- 456 00df 73       		.byte	0x73
- 457 00e0 00000000 		.4byte	.LFB1
- 458 00e4 48000000 		.4byte	.LFE1-.LFB1
- 459 00e8 01       		.uleb128 0x1
- 460 00e9 9C       		.byte	0x9c
- 461 00ea 0B010000 		.4byte	0x10b
- 462 00ee 07       		.uleb128 0x7
- 463 00ef 06000000 		.4byte	.LASF19
- 464 00f3 01       		.byte	0x1
- 465 00f4 73       		.byte	0x73
- 466 00f5 6B000000 		.4byte	0x6b
- 467 00f9 02       		.uleb128 0x2
- 468 00fa 91       		.byte	0x91
- 469 00fb 6F       		.sleb128 -17
- 470 00fc 08       		.uleb128 0x8
- 471 00fd C8000000 		.4byte	.LASF24
- 472 0101 01       		.byte	0x1
- 473 0102 75       		.byte	0x75
- 474 0103 6B000000 		.4byte	0x6b
- 475 0107 02       		.uleb128 0x2
- 476 0108 91       		.byte	0x91
- 477 0109 77       		.sleb128 -9
- 478 010a 00       		.byte	0
- 479 010b 09       		.uleb128 0x9
- 480 010c E6010000 		.4byte	.LASF20
- 481 0110 01       		.byte	0x1
- 482 0111 8C       		.byte	0x8c
- 483 0112 6B000000 		.4byte	0x6b
- 484 0116 00000000 		.4byte	.LFB2
- 485 011a 1C000000 		.4byte	.LFE2-.LFB2
- 486 011e 01       		.uleb128 0x1
- 487 011f 9C       		.byte	0x9c
- 488 0120 09       		.uleb128 0x9
- 489 0121 0C000000 		.4byte	.LASF21
- 490 0125 01       		.byte	0x1
- 491 0126 A8       		.byte	0xa8
- 492 0127 6B000000 		.4byte	0x6b
- 493 012b 00000000 		.4byte	.LFB3
- 494 012f 1C000000 		.4byte	.LFE3-.LFB3
- 495 0133 01       		.uleb128 0x1
- 496 0134 9C       		.byte	0x9c
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 14
+ 439 00a0 0D020000 		.4byte	.LASF14
+ 440 00a4 04       		.uleb128 0x4
+ 441 00a5 00000000 		.4byte	.LASF15
+ 442 00a9 02       		.byte	0x2
+ 443 00aa E401     		.2byte	0x1e4
+ 444 00ac B0000000 		.4byte	0xb0
+ 445 00b0 05       		.uleb128 0x5
+ 446 00b1 83000000 		.4byte	0x83
+ 447 00b5 06       		.uleb128 0x6
+ 448 00b6 A6000000 		.4byte	.LASF16
+ 449 00ba 01       		.byte	0x1
+ 450 00bb 48       		.byte	0x48
+ 451 00bc 00000000 		.4byte	.LFB0
+ 452 00c0 A0000000 		.4byte	.LFE0-.LFB0
+ 453 00c4 01       		.uleb128 0x1
+ 454 00c5 9C       		.byte	0x9c
+ 455 00c6 D9000000 		.4byte	0xd9
+ 456 00ca 07       		.uleb128 0x7
+ 457 00cb CB010000 		.4byte	.LASF18
+ 458 00cf 01       		.byte	0x1
+ 459 00d0 48       		.byte	0x48
+ 460 00d1 6B000000 		.4byte	0x6b
+ 461 00d5 02       		.uleb128 0x2
+ 462 00d6 91       		.byte	0x91
+ 463 00d7 77       		.sleb128 -9
+ 464 00d8 00       		.byte	0
+ 465 00d9 06       		.uleb128 0x6
+ 466 00da 12020000 		.4byte	.LASF17
+ 467 00de 01       		.byte	0x1
+ 468 00df 74       		.byte	0x74
+ 469 00e0 00000000 		.4byte	.LFB1
+ 470 00e4 48000000 		.4byte	.LFE1-.LFB1
+ 471 00e8 01       		.uleb128 0x1
+ 472 00e9 9C       		.byte	0x9c
+ 473 00ea 0B010000 		.4byte	0x10b
+ 474 00ee 07       		.uleb128 0x7
+ 475 00ef 06000000 		.4byte	.LASF19
+ 476 00f3 01       		.byte	0x1
+ 477 00f4 74       		.byte	0x74
+ 478 00f5 6B000000 		.4byte	0x6b
+ 479 00f9 02       		.uleb128 0x2
+ 480 00fa 91       		.byte	0x91
+ 481 00fb 6F       		.sleb128 -17
+ 482 00fc 08       		.uleb128 0x8
+ 483 00fd C8000000 		.4byte	.LASF24
+ 484 0101 01       		.byte	0x1
+ 485 0102 76       		.byte	0x76
+ 486 0103 6B000000 		.4byte	0x6b
+ 487 0107 02       		.uleb128 0x2
+ 488 0108 91       		.byte	0x91
+ 489 0109 77       		.sleb128 -9
+ 490 010a 00       		.byte	0
+ 491 010b 09       		.uleb128 0x9
+ 492 010c E6010000 		.4byte	.LASF20
+ 493 0110 01       		.byte	0x1
+ 494 0111 8D       		.byte	0x8d
+ 495 0112 6B000000 		.4byte	0x6b
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 14
 
 
- 497 0135 06       		.uleb128 0x6
- 498 0136 88000000 		.4byte	.LASF22
- 499 013a 01       		.byte	0x1
- 500 013b D3       		.byte	0xd3
- 501 013c 00000000 		.4byte	.LFB4
- 502 0140 40000000 		.4byte	.LFE4-.LFB4
- 503 0144 01       		.uleb128 0x1
- 504 0145 9C       		.byte	0x9c
- 505 0146 75010000 		.4byte	0x175
- 506 014a 07       		.uleb128 0x7
- 507 014b 8F010000 		.4byte	.LASF23
- 508 014f 01       		.byte	0x1
- 509 0150 D3       		.byte	0xd3
- 510 0151 77000000 		.4byte	0x77
- 511 0155 02       		.uleb128 0x2
- 512 0156 91       		.byte	0x91
- 513 0157 6E       		.sleb128 -18
- 514 0158 07       		.uleb128 0x7
- 515 0159 CB010000 		.4byte	.LASF18
- 516 015d 01       		.byte	0x1
- 517 015e D3       		.byte	0xd3
- 518 015f 77000000 		.4byte	0x77
- 519 0163 02       		.uleb128 0x2
- 520 0164 91       		.byte	0x91
- 521 0165 6C       		.sleb128 -20
- 522 0166 08       		.uleb128 0x8
- 523 0167 9F010000 		.4byte	.LASF25
- 524 016b 01       		.byte	0x1
- 525 016c D5       		.byte	0xd5
- 526 016d 83000000 		.4byte	0x83
- 527 0171 02       		.uleb128 0x2
- 528 0172 91       		.byte	0x91
- 529 0173 74       		.sleb128 -12
- 530 0174 00       		.byte	0
- 531 0175 0A       		.uleb128 0xa
- 532 0176 D0010000 		.4byte	.LASF26
- 533 017a 01       		.byte	0x1
- 534 017b F0       		.byte	0xf0
- 535 017c 6B000000 		.4byte	0x6b
- 536 0180 00000000 		.4byte	.LFB5
- 537 0184 2C000000 		.4byte	.LFE5-.LFB5
- 538 0188 01       		.uleb128 0x1
- 539 0189 9C       		.byte	0x9c
- 540 018a 08       		.uleb128 0x8
- 541 018b 00020000 		.4byte	.LASF27
- 542 018f 01       		.byte	0x1
- 543 0190 F2       		.byte	0xf2
- 544 0191 6B000000 		.4byte	0x6b
- 545 0195 02       		.uleb128 0x2
- 546 0196 91       		.byte	0x91
- 547 0197 77       		.sleb128 -9
- 548 0198 00       		.byte	0
- 549 0199 00       		.byte	0
- 550              		.section	.debug_abbrev,"",%progbits
- 551              	.Ldebug_abbrev0:
- 552 0000 01       		.uleb128 0x1
- 553 0001 11       		.uleb128 0x11
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 15
+ 496 0116 00000000 		.4byte	.LFB2
+ 497 011a 1C000000 		.4byte	.LFE2-.LFB2
+ 498 011e 01       		.uleb128 0x1
+ 499 011f 9C       		.byte	0x9c
+ 500 0120 09       		.uleb128 0x9
+ 501 0121 0C000000 		.4byte	.LASF21
+ 502 0125 01       		.byte	0x1
+ 503 0126 A9       		.byte	0xa9
+ 504 0127 6B000000 		.4byte	0x6b
+ 505 012b 00000000 		.4byte	.LFB3
+ 506 012f 1C000000 		.4byte	.LFE3-.LFB3
+ 507 0133 01       		.uleb128 0x1
+ 508 0134 9C       		.byte	0x9c
+ 509 0135 06       		.uleb128 0x6
+ 510 0136 88000000 		.4byte	.LASF22
+ 511 013a 01       		.byte	0x1
+ 512 013b D4       		.byte	0xd4
+ 513 013c 00000000 		.4byte	.LFB4
+ 514 0140 40000000 		.4byte	.LFE4-.LFB4
+ 515 0144 01       		.uleb128 0x1
+ 516 0145 9C       		.byte	0x9c
+ 517 0146 75010000 		.4byte	0x175
+ 518 014a 07       		.uleb128 0x7
+ 519 014b 8F010000 		.4byte	.LASF23
+ 520 014f 01       		.byte	0x1
+ 521 0150 D4       		.byte	0xd4
+ 522 0151 77000000 		.4byte	0x77
+ 523 0155 02       		.uleb128 0x2
+ 524 0156 91       		.byte	0x91
+ 525 0157 6E       		.sleb128 -18
+ 526 0158 07       		.uleb128 0x7
+ 527 0159 CB010000 		.4byte	.LASF18
+ 528 015d 01       		.byte	0x1
+ 529 015e D4       		.byte	0xd4
+ 530 015f 77000000 		.4byte	0x77
+ 531 0163 02       		.uleb128 0x2
+ 532 0164 91       		.byte	0x91
+ 533 0165 6C       		.sleb128 -20
+ 534 0166 08       		.uleb128 0x8
+ 535 0167 9F010000 		.4byte	.LASF25
+ 536 016b 01       		.byte	0x1
+ 537 016c D6       		.byte	0xd6
+ 538 016d 83000000 		.4byte	0x83
+ 539 0171 02       		.uleb128 0x2
+ 540 0172 91       		.byte	0x91
+ 541 0173 74       		.sleb128 -12
+ 542 0174 00       		.byte	0
+ 543 0175 0A       		.uleb128 0xa
+ 544 0176 D0010000 		.4byte	.LASF26
+ 545 017a 01       		.byte	0x1
+ 546 017b F1       		.byte	0xf1
+ 547 017c 6B000000 		.4byte	0x6b
+ 548 0180 00000000 		.4byte	.LFB5
+ 549 0184 2C000000 		.4byte	.LFE5-.LFB5
+ 550 0188 01       		.uleb128 0x1
+ 551 0189 9C       		.byte	0x9c
+ 552 018a 08       		.uleb128 0x8
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 15
 
 
- 554 0002 01       		.byte	0x1
- 555 0003 25       		.uleb128 0x25
- 556 0004 0E       		.uleb128 0xe
- 557 0005 13       		.uleb128 0x13
- 558 0006 0B       		.uleb128 0xb
- 559 0007 03       		.uleb128 0x3
- 560 0008 0E       		.uleb128 0xe
- 561 0009 1B       		.uleb128 0x1b
- 562 000a 0E       		.uleb128 0xe
- 563 000b 55       		.uleb128 0x55
- 564 000c 17       		.uleb128 0x17
- 565 000d 11       		.uleb128 0x11
- 566 000e 01       		.uleb128 0x1
- 567 000f 10       		.uleb128 0x10
- 568 0010 17       		.uleb128 0x17
- 569 0011 00       		.byte	0
- 570 0012 00       		.byte	0
- 571 0013 02       		.uleb128 0x2
- 572 0014 24       		.uleb128 0x24
- 573 0015 00       		.byte	0
- 574 0016 0B       		.uleb128 0xb
- 575 0017 0B       		.uleb128 0xb
- 576 0018 3E       		.uleb128 0x3e
- 577 0019 0B       		.uleb128 0xb
- 578 001a 03       		.uleb128 0x3
- 579 001b 0E       		.uleb128 0xe
- 580 001c 00       		.byte	0
- 581 001d 00       		.byte	0
- 582 001e 03       		.uleb128 0x3
- 583 001f 24       		.uleb128 0x24
- 584 0020 00       		.byte	0
- 585 0021 0B       		.uleb128 0xb
- 586 0022 0B       		.uleb128 0xb
- 587 0023 3E       		.uleb128 0x3e
- 588 0024 0B       		.uleb128 0xb
- 589 0025 03       		.uleb128 0x3
- 590 0026 08       		.uleb128 0x8
- 591 0027 00       		.byte	0
- 592 0028 00       		.byte	0
- 593 0029 04       		.uleb128 0x4
- 594 002a 16       		.uleb128 0x16
- 595 002b 00       		.byte	0
- 596 002c 03       		.uleb128 0x3
- 597 002d 0E       		.uleb128 0xe
- 598 002e 3A       		.uleb128 0x3a
- 599 002f 0B       		.uleb128 0xb
- 600 0030 3B       		.uleb128 0x3b
- 601 0031 05       		.uleb128 0x5
- 602 0032 49       		.uleb128 0x49
- 603 0033 13       		.uleb128 0x13
- 604 0034 00       		.byte	0
- 605 0035 00       		.byte	0
- 606 0036 05       		.uleb128 0x5
- 607 0037 35       		.uleb128 0x35
- 608 0038 00       		.byte	0
- 609 0039 49       		.uleb128 0x49
- 610 003a 13       		.uleb128 0x13
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 16
+ 553 018b 00020000 		.4byte	.LASF27
+ 554 018f 01       		.byte	0x1
+ 555 0190 F3       		.byte	0xf3
+ 556 0191 6B000000 		.4byte	0x6b
+ 557 0195 02       		.uleb128 0x2
+ 558 0196 91       		.byte	0x91
+ 559 0197 77       		.sleb128 -9
+ 560 0198 00       		.byte	0
+ 561 0199 00       		.byte	0
+ 562              		.section	.debug_abbrev,"",%progbits
+ 563              	.Ldebug_abbrev0:
+ 564 0000 01       		.uleb128 0x1
+ 565 0001 11       		.uleb128 0x11
+ 566 0002 01       		.byte	0x1
+ 567 0003 25       		.uleb128 0x25
+ 568 0004 0E       		.uleb128 0xe
+ 569 0005 13       		.uleb128 0x13
+ 570 0006 0B       		.uleb128 0xb
+ 571 0007 03       		.uleb128 0x3
+ 572 0008 0E       		.uleb128 0xe
+ 573 0009 1B       		.uleb128 0x1b
+ 574 000a 0E       		.uleb128 0xe
+ 575 000b 55       		.uleb128 0x55
+ 576 000c 17       		.uleb128 0x17
+ 577 000d 11       		.uleb128 0x11
+ 578 000e 01       		.uleb128 0x1
+ 579 000f 10       		.uleb128 0x10
+ 580 0010 17       		.uleb128 0x17
+ 581 0011 00       		.byte	0
+ 582 0012 00       		.byte	0
+ 583 0013 02       		.uleb128 0x2
+ 584 0014 24       		.uleb128 0x24
+ 585 0015 00       		.byte	0
+ 586 0016 0B       		.uleb128 0xb
+ 587 0017 0B       		.uleb128 0xb
+ 588 0018 3E       		.uleb128 0x3e
+ 589 0019 0B       		.uleb128 0xb
+ 590 001a 03       		.uleb128 0x3
+ 591 001b 0E       		.uleb128 0xe
+ 592 001c 00       		.byte	0
+ 593 001d 00       		.byte	0
+ 594 001e 03       		.uleb128 0x3
+ 595 001f 24       		.uleb128 0x24
+ 596 0020 00       		.byte	0
+ 597 0021 0B       		.uleb128 0xb
+ 598 0022 0B       		.uleb128 0xb
+ 599 0023 3E       		.uleb128 0x3e
+ 600 0024 0B       		.uleb128 0xb
+ 601 0025 03       		.uleb128 0x3
+ 602 0026 08       		.uleb128 0x8
+ 603 0027 00       		.byte	0
+ 604 0028 00       		.byte	0
+ 605 0029 04       		.uleb128 0x4
+ 606 002a 16       		.uleb128 0x16
+ 607 002b 00       		.byte	0
+ 608 002c 03       		.uleb128 0x3
+ 609 002d 0E       		.uleb128 0xe
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 16
 
 
- 611 003b 00       		.byte	0
- 612 003c 00       		.byte	0
- 613 003d 06       		.uleb128 0x6
- 614 003e 2E       		.uleb128 0x2e
- 615 003f 01       		.byte	0x1
- 616 0040 3F       		.uleb128 0x3f
- 617 0041 19       		.uleb128 0x19
- 618 0042 03       		.uleb128 0x3
- 619 0043 0E       		.uleb128 0xe
- 620 0044 3A       		.uleb128 0x3a
- 621 0045 0B       		.uleb128 0xb
- 622 0046 3B       		.uleb128 0x3b
- 623 0047 0B       		.uleb128 0xb
- 624 0048 27       		.uleb128 0x27
- 625 0049 19       		.uleb128 0x19
- 626 004a 11       		.uleb128 0x11
- 627 004b 01       		.uleb128 0x1
- 628 004c 12       		.uleb128 0x12
- 629 004d 06       		.uleb128 0x6
- 630 004e 40       		.uleb128 0x40
- 631 004f 18       		.uleb128 0x18
- 632 0050 9742     		.uleb128 0x2117
- 633 0052 19       		.uleb128 0x19
- 634 0053 01       		.uleb128 0x1
- 635 0054 13       		.uleb128 0x13
- 636 0055 00       		.byte	0
- 637 0056 00       		.byte	0
- 638 0057 07       		.uleb128 0x7
- 639 0058 05       		.uleb128 0x5
- 640 0059 00       		.byte	0
- 641 005a 03       		.uleb128 0x3
- 642 005b 0E       		.uleb128 0xe
- 643 005c 3A       		.uleb128 0x3a
- 644 005d 0B       		.uleb128 0xb
- 645 005e 3B       		.uleb128 0x3b
- 646 005f 0B       		.uleb128 0xb
- 647 0060 49       		.uleb128 0x49
- 648 0061 13       		.uleb128 0x13
- 649 0062 02       		.uleb128 0x2
- 650 0063 18       		.uleb128 0x18
- 651 0064 00       		.byte	0
- 652 0065 00       		.byte	0
- 653 0066 08       		.uleb128 0x8
- 654 0067 34       		.uleb128 0x34
- 655 0068 00       		.byte	0
- 656 0069 03       		.uleb128 0x3
- 657 006a 0E       		.uleb128 0xe
- 658 006b 3A       		.uleb128 0x3a
- 659 006c 0B       		.uleb128 0xb
- 660 006d 3B       		.uleb128 0x3b
- 661 006e 0B       		.uleb128 0xb
- 662 006f 49       		.uleb128 0x49
- 663 0070 13       		.uleb128 0x13
- 664 0071 02       		.uleb128 0x2
- 665 0072 18       		.uleb128 0x18
- 666 0073 00       		.byte	0
- 667 0074 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 17
+ 610 002e 3A       		.uleb128 0x3a
+ 611 002f 0B       		.uleb128 0xb
+ 612 0030 3B       		.uleb128 0x3b
+ 613 0031 05       		.uleb128 0x5
+ 614 0032 49       		.uleb128 0x49
+ 615 0033 13       		.uleb128 0x13
+ 616 0034 00       		.byte	0
+ 617 0035 00       		.byte	0
+ 618 0036 05       		.uleb128 0x5
+ 619 0037 35       		.uleb128 0x35
+ 620 0038 00       		.byte	0
+ 621 0039 49       		.uleb128 0x49
+ 622 003a 13       		.uleb128 0x13
+ 623 003b 00       		.byte	0
+ 624 003c 00       		.byte	0
+ 625 003d 06       		.uleb128 0x6
+ 626 003e 2E       		.uleb128 0x2e
+ 627 003f 01       		.byte	0x1
+ 628 0040 3F       		.uleb128 0x3f
+ 629 0041 19       		.uleb128 0x19
+ 630 0042 03       		.uleb128 0x3
+ 631 0043 0E       		.uleb128 0xe
+ 632 0044 3A       		.uleb128 0x3a
+ 633 0045 0B       		.uleb128 0xb
+ 634 0046 3B       		.uleb128 0x3b
+ 635 0047 0B       		.uleb128 0xb
+ 636 0048 27       		.uleb128 0x27
+ 637 0049 19       		.uleb128 0x19
+ 638 004a 11       		.uleb128 0x11
+ 639 004b 01       		.uleb128 0x1
+ 640 004c 12       		.uleb128 0x12
+ 641 004d 06       		.uleb128 0x6
+ 642 004e 40       		.uleb128 0x40
+ 643 004f 18       		.uleb128 0x18
+ 644 0050 9742     		.uleb128 0x2117
+ 645 0052 19       		.uleb128 0x19
+ 646 0053 01       		.uleb128 0x1
+ 647 0054 13       		.uleb128 0x13
+ 648 0055 00       		.byte	0
+ 649 0056 00       		.byte	0
+ 650 0057 07       		.uleb128 0x7
+ 651 0058 05       		.uleb128 0x5
+ 652 0059 00       		.byte	0
+ 653 005a 03       		.uleb128 0x3
+ 654 005b 0E       		.uleb128 0xe
+ 655 005c 3A       		.uleb128 0x3a
+ 656 005d 0B       		.uleb128 0xb
+ 657 005e 3B       		.uleb128 0x3b
+ 658 005f 0B       		.uleb128 0xb
+ 659 0060 49       		.uleb128 0x49
+ 660 0061 13       		.uleb128 0x13
+ 661 0062 02       		.uleb128 0x2
+ 662 0063 18       		.uleb128 0x18
+ 663 0064 00       		.byte	0
+ 664 0065 00       		.byte	0
+ 665 0066 08       		.uleb128 0x8
+ 666 0067 34       		.uleb128 0x34
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 17
 
 
- 668 0075 09       		.uleb128 0x9
- 669 0076 2E       		.uleb128 0x2e
- 670 0077 00       		.byte	0
- 671 0078 3F       		.uleb128 0x3f
- 672 0079 19       		.uleb128 0x19
- 673 007a 03       		.uleb128 0x3
- 674 007b 0E       		.uleb128 0xe
- 675 007c 3A       		.uleb128 0x3a
- 676 007d 0B       		.uleb128 0xb
- 677 007e 3B       		.uleb128 0x3b
- 678 007f 0B       		.uleb128 0xb
- 679 0080 27       		.uleb128 0x27
- 680 0081 19       		.uleb128 0x19
- 681 0082 49       		.uleb128 0x49
- 682 0083 13       		.uleb128 0x13
- 683 0084 11       		.uleb128 0x11
- 684 0085 01       		.uleb128 0x1
- 685 0086 12       		.uleb128 0x12
- 686 0087 06       		.uleb128 0x6
- 687 0088 40       		.uleb128 0x40
- 688 0089 18       		.uleb128 0x18
- 689 008a 9742     		.uleb128 0x2117
- 690 008c 19       		.uleb128 0x19
- 691 008d 00       		.byte	0
- 692 008e 00       		.byte	0
- 693 008f 0A       		.uleb128 0xa
- 694 0090 2E       		.uleb128 0x2e
- 695 0091 01       		.byte	0x1
- 696 0092 3F       		.uleb128 0x3f
- 697 0093 19       		.uleb128 0x19
- 698 0094 03       		.uleb128 0x3
- 699 0095 0E       		.uleb128 0xe
- 700 0096 3A       		.uleb128 0x3a
- 701 0097 0B       		.uleb128 0xb
- 702 0098 3B       		.uleb128 0x3b
- 703 0099 0B       		.uleb128 0xb
- 704 009a 27       		.uleb128 0x27
- 705 009b 19       		.uleb128 0x19
- 706 009c 49       		.uleb128 0x49
- 707 009d 13       		.uleb128 0x13
- 708 009e 11       		.uleb128 0x11
- 709 009f 01       		.uleb128 0x1
- 710 00a0 12       		.uleb128 0x12
- 711 00a1 06       		.uleb128 0x6
- 712 00a2 40       		.uleb128 0x40
- 713 00a3 18       		.uleb128 0x18
- 714 00a4 9742     		.uleb128 0x2117
- 715 00a6 19       		.uleb128 0x19
- 716 00a7 00       		.byte	0
- 717 00a8 00       		.byte	0
- 718 00a9 00       		.byte	0
- 719              		.section	.debug_aranges,"",%progbits
- 720 0000 44000000 		.4byte	0x44
- 721 0004 0200     		.2byte	0x2
- 722 0006 00000000 		.4byte	.Ldebug_info0
- 723 000a 04       		.byte	0x4
- 724 000b 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 18
+ 667 0068 00       		.byte	0
+ 668 0069 03       		.uleb128 0x3
+ 669 006a 0E       		.uleb128 0xe
+ 670 006b 3A       		.uleb128 0x3a
+ 671 006c 0B       		.uleb128 0xb
+ 672 006d 3B       		.uleb128 0x3b
+ 673 006e 0B       		.uleb128 0xb
+ 674 006f 49       		.uleb128 0x49
+ 675 0070 13       		.uleb128 0x13
+ 676 0071 02       		.uleb128 0x2
+ 677 0072 18       		.uleb128 0x18
+ 678 0073 00       		.byte	0
+ 679 0074 00       		.byte	0
+ 680 0075 09       		.uleb128 0x9
+ 681 0076 2E       		.uleb128 0x2e
+ 682 0077 00       		.byte	0
+ 683 0078 3F       		.uleb128 0x3f
+ 684 0079 19       		.uleb128 0x19
+ 685 007a 03       		.uleb128 0x3
+ 686 007b 0E       		.uleb128 0xe
+ 687 007c 3A       		.uleb128 0x3a
+ 688 007d 0B       		.uleb128 0xb
+ 689 007e 3B       		.uleb128 0x3b
+ 690 007f 0B       		.uleb128 0xb
+ 691 0080 27       		.uleb128 0x27
+ 692 0081 19       		.uleb128 0x19
+ 693 0082 49       		.uleb128 0x49
+ 694 0083 13       		.uleb128 0x13
+ 695 0084 11       		.uleb128 0x11
+ 696 0085 01       		.uleb128 0x1
+ 697 0086 12       		.uleb128 0x12
+ 698 0087 06       		.uleb128 0x6
+ 699 0088 40       		.uleb128 0x40
+ 700 0089 18       		.uleb128 0x18
+ 701 008a 9742     		.uleb128 0x2117
+ 702 008c 19       		.uleb128 0x19
+ 703 008d 00       		.byte	0
+ 704 008e 00       		.byte	0
+ 705 008f 0A       		.uleb128 0xa
+ 706 0090 2E       		.uleb128 0x2e
+ 707 0091 01       		.byte	0x1
+ 708 0092 3F       		.uleb128 0x3f
+ 709 0093 19       		.uleb128 0x19
+ 710 0094 03       		.uleb128 0x3
+ 711 0095 0E       		.uleb128 0xe
+ 712 0096 3A       		.uleb128 0x3a
+ 713 0097 0B       		.uleb128 0xb
+ 714 0098 3B       		.uleb128 0x3b
+ 715 0099 0B       		.uleb128 0xb
+ 716 009a 27       		.uleb128 0x27
+ 717 009b 19       		.uleb128 0x19
+ 718 009c 49       		.uleb128 0x49
+ 719 009d 13       		.uleb128 0x13
+ 720 009e 11       		.uleb128 0x11
+ 721 009f 01       		.uleb128 0x1
+ 722 00a0 12       		.uleb128 0x12
+ 723 00a1 06       		.uleb128 0x6
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 18
 
 
- 725 000c 0000     		.2byte	0
- 726 000e 0000     		.2byte	0
- 727 0010 00000000 		.4byte	.LFB0
- 728 0014 88000000 		.4byte	.LFE0-.LFB0
- 729 0018 00000000 		.4byte	.LFB1
- 730 001c 48000000 		.4byte	.LFE1-.LFB1
- 731 0020 00000000 		.4byte	.LFB2
- 732 0024 1C000000 		.4byte	.LFE2-.LFB2
- 733 0028 00000000 		.4byte	.LFB3
- 734 002c 1C000000 		.4byte	.LFE3-.LFB3
- 735 0030 00000000 		.4byte	.LFB4
- 736 0034 40000000 		.4byte	.LFE4-.LFB4
- 737 0038 00000000 		.4byte	.LFB5
- 738 003c 2C000000 		.4byte	.LFE5-.LFB5
- 739 0040 00000000 		.4byte	0
- 740 0044 00000000 		.4byte	0
- 741              		.section	.debug_ranges,"",%progbits
- 742              	.Ldebug_ranges0:
- 743 0000 00000000 		.4byte	.LFB0
- 744 0004 88000000 		.4byte	.LFE0
- 745 0008 00000000 		.4byte	.LFB1
- 746 000c 48000000 		.4byte	.LFE1
- 747 0010 00000000 		.4byte	.LFB2
- 748 0014 1C000000 		.4byte	.LFE2
- 749 0018 00000000 		.4byte	.LFB3
- 750 001c 1C000000 		.4byte	.LFE3
- 751 0020 00000000 		.4byte	.LFB4
- 752 0024 40000000 		.4byte	.LFE4
- 753 0028 00000000 		.4byte	.LFB5
- 754 002c 2C000000 		.4byte	.LFE5
- 755 0030 00000000 		.4byte	0
- 756 0034 00000000 		.4byte	0
- 757              		.section	.debug_line,"",%progbits
- 758              	.Ldebug_line0:
- 759 0000 C0000000 		.section	.debug_str,"MS",%progbits,1
- 759      02004500 
- 759      00000201 
- 759      FB0E0D00 
- 759      01010101 
- 760              	.LASF15:
- 761 0000 72656733 		.ascii	"reg32\000"
- 761      3200
- 762              	.LASF19:
- 763 0006 76616C75 		.ascii	"value\000"
- 763      6500
- 764              	.LASF21:
- 765 000c 42757474 		.ascii	"Button_ReadDataReg\000"
- 765      6F6E5F52 
- 765      65616444 
- 765      61746152 
- 765      656700
- 766              	.LASF30:
- 767 001f 433A5C55 		.ascii	"C:\\Users\\Administrator\\Desktop\\BLE_TemplateProj"
- 767      73657273 
- 767      5C41646D 
- 767      696E6973 
- 767      74726174 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 19
+ 724 00a2 40       		.uleb128 0x40
+ 725 00a3 18       		.uleb128 0x18
+ 726 00a4 9742     		.uleb128 0x2117
+ 727 00a6 19       		.uleb128 0x19
+ 728 00a7 00       		.byte	0
+ 729 00a8 00       		.byte	0
+ 730 00a9 00       		.byte	0
+ 731              		.section	.debug_aranges,"",%progbits
+ 732 0000 44000000 		.4byte	0x44
+ 733 0004 0200     		.2byte	0x2
+ 734 0006 00000000 		.4byte	.Ldebug_info0
+ 735 000a 04       		.byte	0x4
+ 736 000b 00       		.byte	0
+ 737 000c 0000     		.2byte	0
+ 738 000e 0000     		.2byte	0
+ 739 0010 00000000 		.4byte	.LFB0
+ 740 0014 A0000000 		.4byte	.LFE0-.LFB0
+ 741 0018 00000000 		.4byte	.LFB1
+ 742 001c 48000000 		.4byte	.LFE1-.LFB1
+ 743 0020 00000000 		.4byte	.LFB2
+ 744 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 745 0028 00000000 		.4byte	.LFB3
+ 746 002c 1C000000 		.4byte	.LFE3-.LFB3
+ 747 0030 00000000 		.4byte	.LFB4
+ 748 0034 40000000 		.4byte	.LFE4-.LFB4
+ 749 0038 00000000 		.4byte	.LFB5
+ 750 003c 2C000000 		.4byte	.LFE5-.LFB5
+ 751 0040 00000000 		.4byte	0
+ 752 0044 00000000 		.4byte	0
+ 753              		.section	.debug_ranges,"",%progbits
+ 754              	.Ldebug_ranges0:
+ 755 0000 00000000 		.4byte	.LFB0
+ 756 0004 A0000000 		.4byte	.LFE0
+ 757 0008 00000000 		.4byte	.LFB1
+ 758 000c 48000000 		.4byte	.LFE1
+ 759 0010 00000000 		.4byte	.LFB2
+ 760 0014 1C000000 		.4byte	.LFE2
+ 761 0018 00000000 		.4byte	.LFB3
+ 762 001c 1C000000 		.4byte	.LFE3
+ 763 0020 00000000 		.4byte	.LFB4
+ 764 0024 40000000 		.4byte	.LFE4
+ 765 0028 00000000 		.4byte	.LFB5
+ 766 002c 2C000000 		.4byte	.LFE5
+ 767 0030 00000000 		.4byte	0
+ 768 0034 00000000 		.4byte	0
+ 769              		.section	.debug_line,"",%progbits
+ 770              	.Ldebug_line0:
+ 771 0000 C1000000 		.section	.debug_str,"MS",%progbits,1
+ 771      02004500 
+ 771      00000201 
+ 771      FB0E0D00 
+ 771      01010101 
+ 772              	.LASF15:
+ 773 0000 72656733 		.ascii	"reg32\000"
+ 773      3200
+ 774              	.LASF19:
+ 775 0006 76616C75 		.ascii	"value\000"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 19
 
 
- 768 004e 6563745C 		.ascii	"ect\\Bluetooth-intelligent-switchV2.0.0\\Smart Swit"
- 768      426C7565 
- 768      746F6F74 
- 768      682D696E 
- 768      74656C6C 
- 769 007f 63682E63 		.ascii	"ch.cydsn\000"
- 769      7964736E 
- 769      00
- 770              	.LASF22:
- 771 0088 42757474 		.ascii	"Button_SetInterruptMode\000"
- 771      6F6E5F53 
- 771      6574496E 
- 771      74657272 
- 771      7570744D 
- 772              	.LASF12:
- 773 00a0 666C6F61 		.ascii	"float\000"
- 773      7400
- 774              	.LASF16:
- 775 00a6 42757474 		.ascii	"Button_SetDriveMode\000"
- 775      6F6E5F53 
- 775      65744472 
- 775      6976654D 
- 775      6F646500 
- 776              	.LASF1:
- 777 00ba 756E7369 		.ascii	"unsigned char\000"
- 777      676E6564 
- 777      20636861 
- 777      7200
- 778              	.LASF24:
- 779 00c8 64725661 		.ascii	"drVal\000"
- 779      6C00
- 780              	.LASF5:
- 781 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
- 781      20756E73 
- 781      69676E65 
- 781      6420696E 
- 781      7400
- 782              	.LASF3:
- 783 00e0 73686F72 		.ascii	"short unsigned int\000"
- 783      7420756E 
- 783      7369676E 
- 783      65642069 
- 783      6E7400
- 784              	.LASF13:
- 785 00f3 646F7562 		.ascii	"double\000"
- 785      6C6500
- 786              	.LASF28:
- 787 00fa 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 787      4320342E 
- 787      392E3320 
- 787      32303135 
- 787      30333033 
- 788 012d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
- 788      20726576 
- 788      6973696F 
- 788      6E203232 
- 788      31323230 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 20
+ 775      6500
+ 776              	.LASF21:
+ 777 000c 42757474 		.ascii	"Button_ReadDataReg\000"
+ 777      6F6E5F52 
+ 777      65616444 
+ 777      61746152 
+ 777      656700
+ 778              	.LASF30:
+ 779 001f 433A5C55 		.ascii	"C:\\Users\\Administrator\\Desktop\\BLE_TemplateProj"
+ 779      73657273 
+ 779      5C41646D 
+ 779      696E6973 
+ 779      74726174 
+ 780 004e 6563745C 		.ascii	"ect\\Bluetooth-intelligent-switchV2.0.0\\Smart Swit"
+ 780      426C7565 
+ 780      746F6F74 
+ 780      682D696E 
+ 780      74656C6C 
+ 781 007f 63682E63 		.ascii	"ch.cydsn\000"
+ 781      7964736E 
+ 781      00
+ 782              	.LASF22:
+ 783 0088 42757474 		.ascii	"Button_SetInterruptMode\000"
+ 783      6F6E5F53 
+ 783      6574496E 
+ 783      74657272 
+ 783      7570744D 
+ 784              	.LASF12:
+ 785 00a0 666C6F61 		.ascii	"float\000"
+ 785      7400
+ 786              	.LASF16:
+ 787 00a6 42757474 		.ascii	"Button_SetDriveMode\000"
+ 787      6F6E5F53 
+ 787      65744472 
+ 787      6976654D 
+ 787      6F646500 
+ 788              	.LASF1:
+ 789 00ba 756E7369 		.ascii	"unsigned char\000"
+ 789      676E6564 
+ 789      20636861 
+ 789      7200
+ 790              	.LASF24:
+ 791 00c8 64725661 		.ascii	"drVal\000"
+ 791      6C00
+ 792              	.LASF5:
+ 793 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 793      20756E73 
+ 793      69676E65 
+ 793      6420696E 
+ 793      7400
+ 794              	.LASF3:
+ 795 00e0 73686F72 		.ascii	"short unsigned int\000"
+ 795      7420756E 
+ 795      7369676E 
+ 795      65642069 
+ 795      6E7400
+ 796              	.LASF13:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 20
 
 
- 789 0160 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 789      66756E63 
- 789      74696F6E 
- 789      2D736563 
- 789      74696F6E 
- 790              	.LASF10:
- 791 0188 75696E74 		.ascii	"uint16\000"
- 791      313600
- 792              	.LASF23:
- 793 018f 706F7369 		.ascii	"position\000"
- 793      74696F6E 
- 793      00
- 794              	.LASF11:
- 795 0198 75696E74 		.ascii	"uint32\000"
- 795      333200
- 796              	.LASF25:
- 797 019f 696E7472 		.ascii	"intrCfg\000"
- 797      43666700 
- 798              	.LASF8:
- 799 01a7 756E7369 		.ascii	"unsigned int\000"
- 799      676E6564 
- 799      20696E74 
- 799      00
- 800              	.LASF7:
- 801 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
- 801      206C6F6E 
- 801      6720756E 
- 801      7369676E 
- 801      65642069 
- 802              	.LASF18:
- 803 01cb 6D6F6465 		.ascii	"mode\000"
- 803      00
- 804              	.LASF26:
- 805 01d0 42757474 		.ascii	"Button_ClearInterrupt\000"
- 805      6F6E5F43 
- 805      6C656172 
- 805      496E7465 
- 805      72727570 
- 806              	.LASF20:
- 807 01e6 42757474 		.ascii	"Button_Read\000"
- 807      6F6E5F52 
- 807      65616400 
- 808              	.LASF6:
- 809 01f2 6C6F6E67 		.ascii	"long long int\000"
- 809      206C6F6E 
- 809      6720696E 
- 809      7400
- 810              	.LASF27:
- 811 0200 6D61736B 		.ascii	"maskedStatus\000"
- 811      65645374 
- 811      61747573 
+ 797 00f3 646F7562 		.ascii	"double\000"
+ 797      6C6500
+ 798              	.LASF28:
+ 799 00fa 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 799      4320342E 
+ 799      392E3320 
+ 799      32303135 
+ 799      30333033 
+ 800 012d 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 800      20726576 
+ 800      6973696F 
+ 800      6E203232 
+ 800      31323230 
+ 801 0160 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 801      66756E63 
+ 801      74696F6E 
+ 801      2D736563 
+ 801      74696F6E 
+ 802              	.LASF10:
+ 803 0188 75696E74 		.ascii	"uint16\000"
+ 803      313600
+ 804              	.LASF23:
+ 805 018f 706F7369 		.ascii	"position\000"
+ 805      74696F6E 
+ 805      00
+ 806              	.LASF11:
+ 807 0198 75696E74 		.ascii	"uint32\000"
+ 807      333200
+ 808              	.LASF25:
+ 809 019f 696E7472 		.ascii	"intrCfg\000"
+ 809      43666700 
+ 810              	.LASF8:
+ 811 01a7 756E7369 		.ascii	"unsigned int\000"
+ 811      676E6564 
+ 811      20696E74 
  811      00
- 812              	.LASF14:
- 813 020d 63686172 		.ascii	"char\000"
- 813      00
- 814              	.LASF17:
- 815 0212 42757474 		.ascii	"Button_Write\000"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccGOl0pb.s 			page 21
-
-
- 815      6F6E5F57 
- 815      72697465 
+ 812              	.LASF7:
+ 813 01b4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 813      206C6F6E 
+ 813      6720756E 
+ 813      7369676E 
+ 813      65642069 
+ 814              	.LASF18:
+ 815 01cb 6D6F6465 		.ascii	"mode\000"
  815      00
- 816              	.LASF2:
- 817 021f 73686F72 		.ascii	"short int\000"
- 817      7420696E 
- 817      7400
- 818              	.LASF9:
- 819 0229 75696E74 		.ascii	"uint8\000"
- 819      3800
- 820              	.LASF4:
- 821 022f 6C6F6E67 		.ascii	"long int\000"
- 821      20696E74 
- 821      00
- 822              	.LASF0:
- 823 0238 7369676E 		.ascii	"signed char\000"
- 823      65642063 
- 823      68617200 
- 824              	.LASF29:
- 825 0244 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button.c\000"
- 825      6E657261 
- 825      7465645F 
- 825      536F7572 
- 825      63655C50 
- 826              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 816              	.LASF26:
+ 817 01d0 42757474 		.ascii	"Button_ClearInterrupt\000"
+ 817      6F6E5F43 
+ 817      6C656172 
+ 817      496E7465 
+ 817      72727570 
+ 818              	.LASF20:
+ 819 01e6 42757474 		.ascii	"Button_Read\000"
+ 819      6F6E5F52 
+ 819      65616400 
+ 820              	.LASF6:
+ 821 01f2 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccA5imtI.s 			page 21
+
+
+ 821      206C6F6E 
+ 821      6720696E 
+ 821      7400
+ 822              	.LASF27:
+ 823 0200 6D61736B 		.ascii	"maskedStatus\000"
+ 823      65645374 
+ 823      61747573 
+ 823      00
+ 824              	.LASF14:
+ 825 020d 63686172 		.ascii	"char\000"
+ 825      00
+ 826              	.LASF17:
+ 827 0212 42757474 		.ascii	"Button_Write\000"
+ 827      6F6E5F57 
+ 827      72697465 
+ 827      00
+ 828              	.LASF2:
+ 829 021f 73686F72 		.ascii	"short int\000"
+ 829      7420696E 
+ 829      7400
+ 830              	.LASF9:
+ 831 0229 75696E74 		.ascii	"uint8\000"
+ 831      3800
+ 832              	.LASF4:
+ 833 022f 6C6F6E67 		.ascii	"long int\000"
+ 833      20696E74 
+ 833      00
+ 834              	.LASF0:
+ 835 0238 7369676E 		.ascii	"signed char\000"
+ 835      65642063 
+ 835      68617200 
+ 836              	.LASF29:
+ 837 0244 2E5C4765 		.ascii	".\\Generated_Source\\PSoC4\\Button.c\000"
+ 837      6E657261 
+ 837      7465645F 
+ 837      536F7572 
+ 837      63655C50 
+ 838              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

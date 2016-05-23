@@ -23,29 +23,28 @@ CYBLE_GAP_BONDED_DEV_ADDR_LIST_T BondList;//保存绑定的信息
 uint8_t NotifyValue[]={0x01,0x00};
 uint8_t WakeUp=FALSE;
 uint8_t DeviceCounts=0;
-uint8_t DeviceNum=INVALID;
+uint8_t DeviceNum=0;
 uint8_t BondNum=BONDNUM;
 uint8_t ReConnect=0;
-//uint8 testAddr[]={0x8F,0xAA,0x1C,0x50,0xA0,0x00};
-//uint8_t addrtype=0x00;
-CYBLE_GAP_BD_ADDR_T Device[]={
-    {
-        {0xCB,0x83,0x6D,0x50,0xA0,0x00},
-        0x00
-    },//设备1
-    {
-        {0xA5,0x83,0x6D,0x50,0xA0,0x00},
-        0x00
-    },//设备2
-    {
-        {0x2F,0x84,0x6D,0x50,0xA0,0x00},
-        0x00
-    },//设备3
-    {
-        {0x25,0x84,0x6D,0x50,0xA0,0x00},
-        0x00
-    }//设备4
-};
+uint8_t StoreAddrNum=0;
+CYBLE_GAP_BD_ADDR_T Device[DEVICENUM];
+//    {
+//        {0xCB,0x83,0x6D,0x50,0xA0,0x00},
+//        0x00
+//    },//设备1
+//    {
+//        {0xA5,0x83,0x6D,0x50,0xA0,0x00},
+//        0x00
+//    },//设备2
+//    {
+//        {0x2F,0x84,0x6D,0x50,0xA0,0x00},
+//        0x00
+//    },//设备3
+//    {
+//        {0x25,0x84,0x6D,0x50,0xA0,0x00},
+//        0x00
+//    }//设备4
+
 CYBLE_GAP_BD_ADDR_T TestDevice=
 {
     {0x8F,0xAA,0x1C,0x50,0xA0,0x00},
@@ -136,6 +135,13 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
     CYBLE_GATTC_HANDLE_VALUE_NTF_PARAM_T ReceviceNotifyValue;//这个是存放接收从机发送过来的Notify值
     CYBLE_GAPC_ADV_REPORT_T ScanResult;
     uint8_t i;
+    uint8_t StoreCounts=0;
+    uint32_t Write2Flash;   
+    uint8 array[128]={0};
+    CYBLE_GAP_BD_ADDR_T CmpAddr={
+        {0x00,0x00,0x00,0x00,0x00,0x00},
+        0
+    };
     switch(eventCode)
     {
         case CYBLE_EVT_STACK_ON://蓝牙初始化完成    
@@ -143,7 +149,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
 //                printf("BLE is Ready!\r\n");
 //                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
               #endif
-            LOWPOWER=TURE;//上电完成之后立马进入睡眠状态
+            LOWPOWER=TRUE;//上电完成之后立马进入睡眠状态
         break;
         case CYBLE_EVT_GAP_DEVICE_CONNECTED://蓝牙连接成功                
               #ifdef PRINT
@@ -178,9 +184,9 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             {
                 ReConnect = 0;
             }
-            DisonnectedStaus = TURE;
+            DisonnectedStaus = TRUE;
             if(FALSE == ALL_ON_OFF)
-                LOWPOWER=TURE;//断开之后，主机马上进入低功耗
+                LOWPOWER=TRUE;//断开之后，主机马上进入低功耗
 //            CyBle_GappStartAdvertisement(CYBLE_ADVERTISING_FAST);//断开连接之后也立马发起广播
 //            THROUGH_STAUS=FALSE;
         break;
@@ -232,7 +238,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                 {
                     Buffer[i] = ReceviceNotifyValue.handleValPair.value.val[i];
                 } 
-                RX_ISOVER=TURE;
+                RX_ISOVER=TRUE;
                 #ifdef PRINT
                     printf("Recevice From Server!\r\n");
     //                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
@@ -242,13 +248,62 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                             
         break;
         case CYBLE_EVT_GAPC_SCAN_PROGRESS_RESULT:
-            ScanResult = *((CYBLE_GAPC_ADV_REPORT_T *)eventParam);            
+            ScanResult = *((CYBLE_GAPC_ADV_REPORT_T *)eventParam); 
+            Analysis_AdvData(ScanResult);
         break;     
         case CYBLE_EVT_GAP_AUTH_COMPLETE:
             #ifdef PRINT
-                    printf("Bond is Compelete!\r\n");
-                    while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
-                #endif 
+                printf("Bond is Compelete!\r\n");
+                while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成                
+            #endif 
+        break;
+        case CYBLE_EVT_TIMEOUT:
+            if(*((CYBLE_TO_REASON_CODE_T *)eventParam) == CYBLE_GAP_SCAN_TO)//如果是扫描超时，则把扫描到的设备打印出来
+            {
+                #ifdef PRINT
+                    for(i=0;i<DEVICENUM;i++)
+                    {
+                       
+                        if(memcmp(Device[i].bdAddr,CmpAddr.bdAddr,6) != 0)
+                        {
+                            printf("Mac Address:0x%02X%02X%02X%02X%02X%02X\r\n",                            
+                            Device[i].bdAddr[5],
+                            Device[i].bdAddr[4],
+                            Device[i].bdAddr[3],
+                            Device[i].bdAddr[2],
+                            Device[i].bdAddr[1],
+                            Device[i].bdAddr[0]
+                            );                            
+                        }        
+                        while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成    
+                    }                    
+               #endif
+//                CySysFlashWriteRow(1,array);
+                CySysSFlashWriteUserRow(1,array);//这里是为了清空SFlash里中第一行的内容，另外一个函数有Bug
+                for(i=0;i<DEVICENUM;i++)//查找保存到的地址中非空的地址,将它保存到SFlash中去
+                {                    
+                    if(memcmp(Device[i].bdAddr,CmpAddr.bdAddr,6) != 0)
+                    {
+//                        memcpy(array+i*6+1,Device[i].bdAddr,6);
+                        array[6*i+1+0] = Device[i].bdAddr[5];
+                        array[6*i+1+1] = Device[i].bdAddr[4];
+                        array[6*i+1+2] = Device[i].bdAddr[3];
+                        array[6*i+1+3] = Device[i].bdAddr[2];
+                        array[6*i+1+4] = Device[i].bdAddr[1];
+                        array[6*i+1+5] = Device[i].bdAddr[0];
+                        StoreCounts++;
+                    }                
+                }
+                array[0]=StoreCounts*6;//SFlash有保存地址的标志位
+                Write2Flash=CySysSFlashWriteUserRow(1,array);//将所有的得到的地址写入SFlash中去,共四行每行128Bytes,一次性只能写128Bytes的数据
+               #ifdef PRINT
+                    if(CY_SYS_FLASH_SUCCESS == Write2Flash)
+                    {
+                        printf("SFlash Write Success!\r\n");
+                        while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成 
+                    }
+               #endif
+            }
         break;
         default:
         break;
@@ -419,7 +474,7 @@ void  ServerData_Handler(const char* RxData)
                         if((Button.Button5_On_Off^1) == SWTICH_ON)//如果设备返回的是打开开关状态，而我主机也要打开开关，则不去再次打开该设备，直接断开连接返回即可
                         {
                             CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接 
-                            ALL_ON_OFF = TURE;
+                            ALL_ON_OFF = TRUE;
                             return ;
                         }
                         else
@@ -461,7 +516,7 @@ void  ServerData_Handler(const char* RxData)
                         if((Button.Button5_On_Off^1) == SWTICH_OFF)//如果设备返回的是关闭开关状态，而我主机也要关闭开关，则不去再次关闭该设备，直接断开连接返回即可
                         {
                             CyBle_GapDisconnect(cyBle_connHandle.bdHandle);//接收到从机的状态返回马上断开连接 
-                            ALL_ON_OFF = TURE;
+                            ALL_ON_OFF = TRUE;
                             return ;
                         }
                         else
@@ -523,7 +578,7 @@ void  ServerData_Handler(const char* RxData)
             }
             if(ButtonType == BUTTON5)
             {
-                ALL_ON_OFF = TURE;
+                ALL_ON_OFF = TRUE;
             }
         break;        
         default:
@@ -540,8 +595,11 @@ void  ServerData_Handler(const char* RxData)
 */
 void SystemInit(void)
 {   
-    UART_Start();
-    isr_Button_StartEx(BT1_IntHandler);
+    #ifdef PRINT
+        UART_Start();
+    #endif    
+    memset(Device,0,sizeof(Device));//初始化保存扫描到的BLE地址
+    isr_Button_StartEx(BT_IntHandler);
 //    isr_Button2_StartEx(BT2_IntHandler);
 //    isr_Button3_StartEx(BT3_IntHandler);
 //    isr_Button4_StartEx(BT4_IntHandler);
@@ -555,7 +613,7 @@ void SystemInit(void)
   * @描述：  处理按键1事件
   *****************************************
 */
-CY_ISR(BT1_IntHandler)
+CY_ISR(BT_IntHandler)
 {   
     uint8_t IntPin;    
     CyDelay(200);
@@ -567,39 +625,46 @@ CY_ISR(BT1_IntHandler)
     #endif
     switch(IntPin)
     {
-        case 0x01:
+        case 0x01://按键1
             ButtonStatus=BUTTON1_DOWN;
             ButtonType=BUTTON1;
             #ifdef PRINT
                 printf("Button1 is pressed!\r\n");
             #endif
         break;
-        case 0x02:
+        case 0x02://按键2
             ButtonStatus=BUTTON2_DOWN;
             ButtonType=BUTTON2;   
             #ifdef PRINT
                 printf("Button2 is pressed!\r\n");
             #endif
         break;
-        case 0x04:
+        case 0x04://按键3
             ButtonStatus=BUTTON3_DOWN;
             ButtonType=BUTTON3;
             #ifdef PRINT
                 printf("Button3 is pressed!\r\n");
             #endif
         break;
-        case 0x08:
+        case 0x08://按键4
             ButtonStatus=BUTTON4_DOWN;
             ButtonType=BUTTON4;
             #ifdef PRINT
                 printf("Button4 is pressed!\r\n");
             #endif
         break;
-        case 0x10:
+        case 0x10://按键5
         ButtonStatus=BUTTON5_DOWN;
         ButtonType=BUTTON5;
         #ifdef PRINT
             printf("Button5 is pressed!\r\n");
+        #endif
+        break;
+        case 0x20://按键6
+        ButtonStatus=BUTTON6_DOWN;
+        ButtonType=BUTTON6;
+        #ifdef PRINT
+            printf("Button6 is pressed!\r\n");
         #endif
         break;
         default:
@@ -716,7 +781,7 @@ void ButtonHandler(void)
         case BUTTON5_DOWN://关闭或者打所有灯
             ButtonStatus = BUTTON_UP;
 //            Button.Button5_On_Off = Button.Button5_On_Off^1;
-            ALL_ON_OFF = TURE;
+            ALL_ON_OFF = TRUE;
 //            RX_ISOVER = TURE;
 //            strncpy((char*)Buffer,"AT+SWT=1",8);
         break;
@@ -735,7 +800,7 @@ void ButtonHandler(void)
 void ALL_On_Off_Handler(void)
 {
     CYBLE_API_RESULT_T API_RESULT;    
-    if((DeviceCounts >= BondNum)&&(DisonnectedStaus == TURE))//如果大于绑定的设备则只控制完绑定的设备就可以了
+    if((DeviceCounts >= BondNum)&&(DisonnectedStaus == TRUE))//如果大于绑定的设备则只控制完绑定的设备就可以了
     {
         DisonnectedStaus = FALSE;
         ALL_ON_OFF = FALSE;
@@ -758,7 +823,7 @@ void ALL_On_Off_Handler(void)
                 }
             break;
             case 1:
-                if(DisonnectedStaus == TURE)
+                if(DisonnectedStaus == TRUE)
                 {
                     API_RESULT=CyBle_GapcConnectDevice(&Device2);
                     if(API_RESULT == CYBLE_ERROR_OK)
@@ -773,7 +838,7 @@ void ALL_On_Off_Handler(void)
                 }
             break;
             case 2:
-                if(DisonnectedStaus == TURE)
+                if(DisonnectedStaus == TRUE)
                 {
                     API_RESULT=CyBle_GapcConnectDevice(&Device3);
                     if(API_RESULT == CYBLE_ERROR_OK)
@@ -788,7 +853,7 @@ void ALL_On_Off_Handler(void)
                 }                
             break;
             case 3:
-            if(DisonnectedStaus == TURE)
+            if(DisonnectedStaus == TRUE)
             {
                 API_RESULT=CyBle_GapcConnectDevice(&Device4);
                 if(API_RESULT == CYBLE_ERROR_OK)
@@ -819,6 +884,87 @@ void ALL_On_Off_Handler(void)
         }  
     }
 }
+
+/******************************************
+  * @函数名：Analysis_AdvData
+  * @输入：  NULL
+  * @返回：  NULL            
+  * @描述：  解析广播数据
+  *****************************************
+*/
+void Analysis_AdvData(CYBLE_GAPC_ADV_REPORT_T AdvData)
+{
+    AddressCompare(Device,AdvData);
+}
+
+/******************************************
+  * @函数名：AddressCompare
+  * @输入：  address1---保存的地址
+             address2---扫描到的地址
+  * @返回：  NULL
+  * @描述：  比较现在扫描到的地址是不是保存过的地址
+  *****************************************
+*/
+void AddressCompare(CYBLE_GAP_BD_ADDR_T address[],CYBLE_GAPC_ADV_REPORT_T address2)
+{
+    uint8_t Counts=0;
+//    memset(Device,0,sizeof(Device));//初始化保存扫描到的BLE地址
+    for(Counts=0;Counts<DEVICENUM;Counts++)
+    {
+        if(address[Counts].bdAddr[0]==address2.peerBdAddr[0]&& address[Counts].bdAddr[1]==address2.peerBdAddr[1]
+        && address[Counts].bdAddr[2]==address2.peerBdAddr[2]&& address[Counts].bdAddr[3]==address2.peerBdAddr[3]
+        && address[Counts].bdAddr[4]==address2.peerBdAddr[4]&& address[Counts].bdAddr[5]==address2.peerBdAddr[5])
+        {
+            break;
+        }
+        else
+        {            
+            if(Counts == 7)//只有扫描到的地址与保存扫描到的地址里的所有地址都不同才会保存,否则不保存
+            {
+                if(DeviceNum >= DEVICENUM)
+                {
+                    return;
+                }
+                else
+                {
+                    memcpy(Device[DeviceNum].bdAddr,address2.peerBdAddr,6);   
+                    Device[DeviceNum].type =  address2.peerAddrType;            
+                    DeviceNum++;
+                    break;
+                }
+            }
+        }
+    }    
+}
+
+/******************************************
+  * @函数名：Store2SFlash
+  * @输入：  NULL
+  * @返回：  NULL
+  * @描述：  存储扫描到的地址到SFlash中
+  *****************************************
+*/
+void ReadData_FromSFlash(void)
+{
+    uint8_t i=0;
+    uint8_t DataLength;
+    uint8_t *sflashPtr=(uint8_t *)(USER_SFLASH_BASE_ADDRESS+0x80);//保存到SFlash中的首地址
+    DataLength = *sflashPtr;
+//    for(i=0;i<128;i++)
+//    {            
+//        printf("%02X",*sflashPtr);
+//        sflashPtr++;
+//    }
+    if(DataLength != 0x00)//这个是写之前设的标志位，即保存至SFlash中地址的总长度
+    {        
+        for(i=0;i<=DataLength;i++)
+        {            
+            printf("%02X",*sflashPtr);
+            sflashPtr++;
+        }
+    }
+}
+
 /******************************************
   * @函数名：LowPowerManagement
   * @输入：  NULL             
@@ -850,7 +996,7 @@ void LowPowerManagement(void)
                 CySysPmDeepSleep();
                 /* 处理唤醒后的事件 */
                 LOWPOWER=FALSE;
-                WakeUp=TURE;
+                WakeUp=TRUE;
 		 	}
 		}
 		else if((sleepMode == CYBLE_BLESS_SLEEP)||(sleepMode == CYBLE_BLESS_ACTIVE))
@@ -862,7 +1008,7 @@ void LowPowerManagement(void)
 		        CySysPmSleep();  
                 /* 处理唤醒后的事件 */
                 LOWPOWER=FALSE;
-                WakeUp=TURE;
+                WakeUp=TRUE;
 		    }
 		}
 		/* Re-enable global interrupt mask after wakeup */

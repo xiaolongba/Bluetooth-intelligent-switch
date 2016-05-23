@@ -19,6 +19,7 @@ extern uint8_t LOWPOWER;
 extern uint8_t RX_ISOVER;
 extern uint8_t WakeUp;
 extern uint8_t ALL_ON_OFF;
+extern CYBLE_GAP_BD_ADDR_T Device[DEVICENUM];
 /******************************************
   * @函数名：main
   * @输入：  NULL             
@@ -30,9 +31,11 @@ extern uint8_t ALL_ON_OFF;
 int main()
 {
     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    
+//    uint8 array[128]={0x01,0x02,0x03,0x04,0x05,0x06};
     SystemInit();
-    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */  
+    CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */   
+//    CySysSFlashWriteUserRow(1,array);
+    ReadData_FromSFlash();
     for(;;)
     {
         /* 保存绑定信息 */
@@ -47,7 +50,8 @@ int main()
         if(WakeUp)
         {
             WakeUp=FALSE;
-//            CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
+            CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
+            memset(Device,0,sizeof(Device));//初始化保存扫描到的BLE地址
         }
         ButtonHandler();
         if(RX_ISOVER)

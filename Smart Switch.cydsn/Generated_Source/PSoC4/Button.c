@@ -76,6 +76,7 @@
 		Button_SetP4PinDriveMode(Button__2__SHIFT, mode);
 		Button_SetP4PinDriveMode(Button__3__SHIFT, mode);
 		Button_SetP4PinDriveMode(Button__4__SHIFT, mode);
+		Button_SetP4PinDriveMode(Button__5__SHIFT, mode);
     }
 #endif
 

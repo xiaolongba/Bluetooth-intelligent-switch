@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2016-05-19T02:58:34Z")
+ (DATE "2016-05-23T07:44:30Z")
  (DESIGN "Smart Switch")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -17,6 +17,7 @@
     (INTERCONNECT ClockBlock.hfclk Button\(2\).in_clock (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk Button\(3\).in_clock (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk Button\(4\).in_clock (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.hfclk Button\(5\).in_clock (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk \\BLE\:bless_isr\\.clock (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.hfclk isr_Button.clock (0.000:0.000:0.000))
     (INTERCONNECT Button.interrupt isr_Button.interrupt (1.000:1.000:1.000))
@@ -30,6 +31,7 @@
     (INTERCONNECT Button\(2\)_PAD Button\(2\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Button\(3\)_PAD Button\(3\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT Button\(4\)_PAD Button\(4\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT Button\(5\)_PAD Button\(5\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:tx\(0\)\\.pad_out \\UART\:tx\(0\)_PAD\\ (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:tx\(0\)_PAD\\ \\UART\:tx\(0\)\\.pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\UART\:rx\(0\)_PAD\\ \\UART\:rx\(0\)\\.pad_in (0.000:0.000:0.000))

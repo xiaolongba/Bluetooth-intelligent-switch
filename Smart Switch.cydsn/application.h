@@ -28,16 +28,19 @@ void ServerData_Handler(const char* RxData);
 void SystemInit(void);
 void ButtonHandler(void);
 void ALL_On_Off_Handler(void);
-CY_ISR_PROTO(BT1_IntHandler);
+CY_ISR_PROTO(BT_IntHandler);
 CY_ISR_PROTO(BT2_IntHandler);
 CY_ISR_PROTO(BT3_IntHandler);
 CY_ISR_PROTO(BT4_IntHandler);
+void AddressCompare(CYBLE_GAP_BD_ADDR_T address[],CYBLE_GAPC_ADV_REPORT_T address2);
+void Analysis_AdvData(CYBLE_GAPC_ADV_REPORT_T AdvData);
+void ReadData_FromSFlash(void);
 /* ****************************************
  * 宏定义
  * ****************************************
 */
    
-#define  TURE       (1)
+#define  TRUE       (1)
 #define  FALSE      (0)
 #define  ON         (0)
 #define  OFF        (1)
@@ -48,10 +51,13 @@ CY_ISR_PROTO(BT4_IntHandler);
 #define  BONDNUM    (4)
 #define  RECONNTNUM (5)
 
+#define  DEVICENUM  (8)
+
 
 #define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
 #define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
 #define CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE   (0x0010u) /* Handle of TX characteristic */
+#define USER_SFLASH_BASE_ADDRESS                 (0x0FFFF200u) /* Starting address of user SFlash row for 128KB PSoC 4 BLE device */
 /* ****************************************
  * 枚举
  * ****************************************
@@ -70,6 +76,7 @@ enum//按键按下或放开
     BUTTON3_DOWN,
     BUTTON4_DOWN,
     BUTTON5_DOWN,
+    BUTTON6_DOWN,
     BUTTON_UP
 };
 
@@ -79,7 +86,8 @@ enum//具体哪几个按键
     BUTTON2,
     BUTTON3,
     BUTTON4,
-    BUTTON5
+    BUTTON5,
+    BUTTON6
 };
 
 enum//具体哪个设备

@@ -88,7 +88,7 @@ CYBLE_GAPC_DISC_INFO_T cyBle_discoveryInfo =
     0x0030u,    /* scanWindow */
     0x00u,      /* ownAddrType */
     0x00u,      /* scanFilterPolicy */
-    0x0000u,    /* scanTO */
+    0x000Au,    /* scanTO */
     0x00u,      /* filterDuplicates */
 };
     
