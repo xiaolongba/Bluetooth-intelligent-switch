@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -42,26 +42,29 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
   14:.\main.c      **** */
   15:.\main.c      **** #include <project.h>
   16:.\main.c      **** #include "application.h"
-  17:.\main.c      **** extern uint8_t Buffer[BUFFERLEN];
-  18:.\main.c      **** extern uint8_t LOWPOWER;
-  19:.\main.c      **** extern uint8_t RX_ISOVER;
-  20:.\main.c      **** extern uint8_t WakeUp;
-  21:.\main.c      **** extern uint8_t ALL_ON_OFF;
-  22:.\main.c      **** extern CYBLE_GAP_BD_ADDR_T Device[DEVICENUM];
-  23:.\main.c      **** /******************************************
-  24:.\main.c      ****   * @函数名：main
-  25:.\main.c      ****   * @输入：  NULL             
-  26:.\main.c      ****   * @返回：  无返回
-  27:.\main.c      ****   * @描述：  初始化各个外设,处理BLE协议栈的
-  28:.\main.c      ****              消息队列
-  29:.\main.c      ****   *****************************************
-  30:.\main.c      **** */
-  31:.\main.c      **** int main()
-  32:.\main.c      **** {
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 2
+  17:.\main.c      **** #include "print.h"
+  18:.\main.c      **** extern uint8_t Buffer[BUFFERLEN];
+  19:.\main.c      **** extern uint8_t LOWPOWER;
+  20:.\main.c      **** extern uint8_t RX_ISOVER;
+  21:.\main.c      **** extern uint8_t WakeUp;
+  22:.\main.c      **** extern uint8_t ALL_ON_OFF;
+  23:.\main.c      **** extern CYBLE_GAP_BD_ADDR_T Device[DEVICENUM];
+  24:.\main.c      **** //extern uint8_t TimeOut;
+  25:.\main.c      **** //extern uint8 array[128];
+  26:.\main.c      **** /******************************************
+  27:.\main.c      ****   * @函数名：main
+  28:.\main.c      ****   * @输入：  NULL             
+  29:.\main.c      ****   * @返回：  无返回
+  30:.\main.c      ****   * @描述：  初始化各个外设,处理BLE协议栈的
+  31:.\main.c      ****              消息队列
+  32:.\main.c      ****   *****************************************
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 2
 
 
-  26              		.loc 1 32 0
+  33:.\main.c      **** */
+  34:.\main.c      **** int main()
+  35:.\main.c      **** {
+  26              		.loc 1 35 0
   27              		.cfi_startproc
   28 0000 80B5     		push	{r7, lr}
   29              		.cfi_def_cfa_offset 8
@@ -69,130 +72,138 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
   31              		.cfi_offset 14, -4
   32 0002 00AF     		add	r7, sp, #0
   33              		.cfi_def_cfa_register 7
-  33:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-  34:.\main.c      **** //    uint8 array[128]={0x01,0x02,0x03,0x04,0x05,0x06};
-  35:.\main.c      ****     SystemInit();
-  34              		.loc 1 35 0
+  36:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  37:.\main.c      **** //    uint8 array[128]={0x01,0x02,0x03,0x04,0x05,0x06};
+  38:.\main.c      **** //    CySysFlashWriteRow(1023,array);
+  39:.\main.c      ****     SystemInit();
+  34              		.loc 1 39 0
   35 0004 FFF7FEFF 		bl	SystemInit
-  36:.\main.c      ****     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */   
-  36              		.loc 1 36 0
-  37              	@ 36 ".\main.c" 1
+  40:.\main.c      ****     CyGlobalIntEnable;  /* Uncomment this line to enable global interrupts. */   
+  36              		.loc 1 40 0
+  37              	@ 40 ".\main.c" 1
   38 0008 62B6     		CPSIE   i
   39              	@ 0 "" 2
-  37:.\main.c      **** //    CySysSFlashWriteUserRow(1,array);
-  38:.\main.c      ****     ReadData_FromSFlash();
-  40              		.loc 1 38 0
+  41:.\main.c      **** //    CySysSFlashWriteUserRow(1,array);
+  42:.\main.c      ****     ReadData_FromSFlash();
+  40              		.loc 1 42 0
   41              		.code	16
   42 000a FFF7FEFF 		bl	ReadData_FromSFlash
   43              	.L7:
-  39:.\main.c      ****     for(;;)
-  40:.\main.c      ****     {
-  41:.\main.c      ****         /* 保存绑定信息 */
-  42:.\main.c      ****         if((cyBle_pendingFlashWrite !=0))
-  44              		.loc 1 42 0
+  43:.\main.c      ****     for(;;)
+  44:.\main.c      ****     {
+  45:.\main.c      ****         /* 保存绑定信息 */
+  46:.\main.c      ****         if((cyBle_pendingFlashWrite !=0))
+  44              		.loc 1 46 0
   45 000e 1A4B     		ldr	r3, .L8
   46 0010 1B78     		ldrb	r3, [r3]
   47 0012 002B     		cmp	r3, #0
   48 0014 02D0     		beq	.L2
-  43:.\main.c      ****         {
-  44:.\main.c      ****             /*  */
-  45:.\main.c      ****             if(CYBLE_ERROR_OK == CyBle_StoreBondingData(0))
-  49              		.loc 1 45 0
+  47:.\main.c      ****         {
+  48:.\main.c      ****             /*  */
+  49:.\main.c      ****             if(CYBLE_ERROR_OK == CyBle_StoreBondingData(0))
+  49              		.loc 1 49 0
   50 0016 0020     		mov	r0, #0
   51 0018 FFF7FEFF 		bl	CyBle_StoreBondingData
   52              	.L2:
-  46:.\main.c      ****             {
-  47:.\main.c      ****                 //不做任何事情
-  48:.\main.c      ****             }
-  49:.\main.c      ****         }
-  50:.\main.c      ****         if(WakeUp)
-  53              		.loc 1 50 0
+  50:.\main.c      ****             {
+  51:.\main.c      ****                 //不做任何事情
+  52:.\main.c      ****             }
+  53:.\main.c      ****         }
+  54:.\main.c      ****         if(WakeUp)
+  53              		.loc 1 54 0
   54 001c 174B     		ldr	r3, .L8+4
   55 001e 1B78     		ldrb	r3, [r3]
   56 0020 002B     		cmp	r3, #0
   57 0022 0BD0     		beq	.L3
-  51:.\main.c      ****         {
-  52:.\main.c      ****             WakeUp=FALSE;
-  58              		.loc 1 52 0
+  55:.\main.c      ****         {
+  56:.\main.c      ****             WakeUp=FALSE;
+  58              		.loc 1 56 0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 3
+
+
   59 0024 154B     		ldr	r3, .L8+4
   60 0026 0022     		mov	r2, #0
   61 0028 1A70     		strb	r2, [r3]
-  53:.\main.c      ****             CyBle_GapcStartScan(CYBLE_SCANNING_FAST); 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 3
-
-
-  62              		.loc 1 53 0
-  63 002a 0020     		mov	r0, #0
-  64 002c FFF7FEFF 		bl	CyBle_GapcStartScan
-  54:.\main.c      ****             memset(Device,0,sizeof(Device));//初始化保存扫描到的BLE地址
-  65              		.loc 1 54 0
-  66 0030 134B     		ldr	r3, .L8+8
-  67 0032 181C     		mov	r0, r3
-  68 0034 0021     		mov	r1, #0
-  69 0036 3822     		mov	r2, #56
-  70 0038 FFF7FEFF 		bl	memset
+  57:.\main.c      ****             memset(Device,0,sizeof(Device));//初始化保存扫描到的BLE地址
+  62              		.loc 1 57 0
+  63 002a 154B     		ldr	r3, .L8+8
+  64 002c 181C     		mov	r0, r3
+  65 002e 0021     		mov	r1, #0
+  66 0030 3822     		mov	r2, #56
+  67 0032 FFF7FEFF 		bl	memset
+  58:.\main.c      ****             CyBle_GapcStartScan(CYBLE_SCANNING_FAST);             
+  68              		.loc 1 58 0
+  69 0036 0020     		mov	r0, #0
+  70 0038 FFF7FEFF 		bl	CyBle_GapcStartScan
   71              	.L3:
-  55:.\main.c      ****         }
-  56:.\main.c      ****         ButtonHandler();
-  72              		.loc 1 56 0
+  59:.\main.c      ****         }
+  60:.\main.c      ****         ButtonHandler();
+  72              		.loc 1 60 0
   73 003c FFF7FEFF 		bl	ButtonHandler
-  57:.\main.c      ****         if(RX_ISOVER)
-  74              		.loc 1 57 0
+  61:.\main.c      ****         if(RX_ISOVER)
+  74              		.loc 1 61 0
   75 0040 104B     		ldr	r3, .L8+12
   76 0042 1B78     		ldrb	r3, [r3]
   77 0044 002B     		cmp	r3, #0
   78 0046 06D0     		beq	.L4
-  58:.\main.c      ****         {
-  59:.\main.c      ****             RX_ISOVER = FALSE;
-  79              		.loc 1 59 0
+  62:.\main.c      ****         {
+  63:.\main.c      ****             RX_ISOVER = FALSE;
+  79              		.loc 1 63 0
   80 0048 0E4B     		ldr	r3, .L8+12
   81 004a 0022     		mov	r2, #0
   82 004c 1A70     		strb	r2, [r3]
-  60:.\main.c      ****             ServerData_Handler((char*)Buffer);            
-  83              		.loc 1 60 0
+  64:.\main.c      ****             ServerData_Handler((char*)Buffer);            
+  83              		.loc 1 64 0
   84 004e 0E4B     		ldr	r3, .L8+16
   85 0050 181C     		mov	r0, r3
   86 0052 FFF7FEFF 		bl	ServerData_Handler
   87              	.L4:
-  61:.\main.c      ****                 
-  62:.\main.c      ****         }
-  63:.\main.c      ****         if(ALL_ON_OFF)
-  88              		.loc 1 63 0
+  65:.\main.c      ****                 
+  66:.\main.c      ****         }
+  67:.\main.c      ****         if(ALL_ON_OFF)
+  88              		.loc 1 67 0
   89 0056 0D4B     		ldr	r3, .L8+20
   90 0058 1B78     		ldrb	r3, [r3]
   91 005a 002B     		cmp	r3, #0
   92 005c 01D0     		beq	.L5
-  64:.\main.c      ****         {
-  65:.\main.c      **** //            ALL_ON_OFF = FALSE;
-  66:.\main.c      ****             ALL_On_Off_Handler();
-  93              		.loc 1 66 0
+  68:.\main.c      ****         {
+  69:.\main.c      **** //            ALL_ON_OFF = FALSE;
+  70:.\main.c      ****             ALL_On_Off_Handler();
+  93              		.loc 1 70 0
   94 005e FFF7FEFF 		bl	ALL_On_Off_Handler
   95              	.L5:
-  67:.\main.c      ****         }
-  68:.\main.c      ****         if(LOWPOWER)
-  96              		.loc 1 68 0
+  71:.\main.c      ****         }
+  72:.\main.c      **** //        if(TimeOut)
+  73:.\main.c      **** //        {
+  74:.\main.c      **** //            TimeOut = FALSE;
+  75:.\main.c      **** ////           CySysFlashWriteRow(1023,array);//将所有得到的地址写入Flash中的最后一�
+  76:.\main.c      **** //           
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 4
+
+
+  77:.\main.c      **** //           memset(array,0,sizeof(array));
+  78:.\main.c      **** //        }
+  79:.\main.c      ****         if(LOWPOWER)
+  96              		.loc 1 79 0
   97 0062 0B4B     		ldr	r3, .L8+24
   98 0064 1B78     		ldrb	r3, [r3]
   99 0066 002B     		cmp	r3, #0
  100 0068 03D0     		beq	.L6
-  69:.\main.c      ****         {
-  70:.\main.c      ****             CyBle_ProcessEvents();
- 101              		.loc 1 70 0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 4
-
-
+  80:.\main.c      ****         {
+  81:.\main.c      ****             CyBle_ProcessEvents();
+ 101              		.loc 1 81 0
  102 006a FFF7FEFF 		bl	CyBle_ProcessEvents
-  71:.\main.c      ****             LowPowerManagement();
- 103              		.loc 1 71 0
+  82:.\main.c      ****             LowPowerManagement();
+ 103              		.loc 1 82 0
  104 006e FFF7FEFF 		bl	LowPowerManagement
  105              	.L6:
-  72:.\main.c      ****         }
-  73:.\main.c      ****         
-  74:.\main.c      ****         CyBle_ProcessEvents();
- 106              		.loc 1 74 0
+  83:.\main.c      ****         }
+  84:.\main.c      ****         
+  85:.\main.c      ****         CyBle_ProcessEvents();
+ 106              		.loc 1 85 0
  107 0072 FFF7FEFF 		bl	CyBle_ProcessEvents
-  75:.\main.c      ****     }
- 108              		.loc 1 75 0
+  86:.\main.c      ****     }
+ 108              		.loc 1 86 0
  109 0076 CAE7     		b	.L7
  110              	.L9:
  111              		.align	2
@@ -227,6 +238,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  140 0015 62050000 		.4byte	.LASF60
  141 0019 00000000 		.4byte	.Ldebug_ranges0+0
  142 001d 00000000 		.4byte	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 5
+
+
  143 0021 00000000 		.4byte	.Ldebug_line0
  144 0025 02       		.uleb128 0x2
  145 0026 01       		.byte	0x1
@@ -238,9 +252,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  151 0032 1D       		.byte	0x1d
  152 0033 37000000 		.4byte	0x37
  153 0037 02       		.uleb128 0x2
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 5
-
-
  154 0038 01       		.byte	0x1
  155 0039 08       		.byte	0x8
  156 003a 1A020000 		.4byte	.LASF1
@@ -287,6 +298,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  197 0087 3801     		.2byte	0x138
  198 0089 37000000 		.4byte	0x37
  199 008d 02       		.uleb128 0x2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 6
+
+
  200 008e 04       		.byte	0x4
  201 008f 04       		.byte	0x4
  202 0090 6B000000 		.4byte	.LASF12
@@ -298,9 +312,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  208 009c 01       		.byte	0x1
  209 009d 08       		.byte	0x8
  210 009e 61040000 		.4byte	.LASF14
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 6
-
-
  211 00a2 02       		.uleb128 0x2
  212 00a3 04       		.byte	0x4
  213 00a4 07       		.byte	0x7
@@ -347,6 +358,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  254 00f5 19030000 		.4byte	.LASF27
  255 00f9 0B       		.sleb128 11
  256 00fa 07       		.uleb128 0x7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 7
+
+
  257 00fb 2B010000 		.4byte	.LASF28
  258 00ff 0C       		.sleb128 12
  259 0100 07       		.uleb128 0x7
@@ -358,9 +372,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  265 010c 07       		.uleb128 0x7
  266 010d B6000000 		.4byte	.LASF31
  267 0111 0F       		.sleb128 15
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 7
-
-
  268 0112 07       		.uleb128 0x7
  269 0113 E4020000 		.4byte	.LASF32
  270 0117 10       		.sleb128 16
@@ -407,6 +418,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  311 016b C1020000 		.4byte	.LASF46
  312 016f 8202     		.sleb128 258
  313 0171 07       		.uleb128 0x7
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 8
+
+
  314 0172 50020000 		.4byte	.LASF47
  315 0176 8302     		.sleb128 259
  316 0178 00       		.byte	0
@@ -418,9 +432,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  322 0182 09       		.uleb128 0x9
  323 0183 41040000 		.4byte	.LASF48
  324 0187 05       		.byte	0x5
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 8
-
-
  325 0188 2B04     		.2byte	0x42b
  326 018a 9D010000 		.4byte	0x19d
  327 018e 00       		.byte	0
@@ -446,7 +457,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  347 01b9 0C       		.uleb128 0xc
  348 01ba 39030000 		.4byte	.LASF61
  349 01be 01       		.byte	0x1
- 350 01bf 1F       		.byte	0x1f
+ 350 01bf 22       		.byte	0x22
  351 01c0 68000000 		.4byte	0x68
  352 01c4 00000000 		.4byte	.LFB37
  353 01c8 94000000 		.4byte	.LFE37-.LFB37
@@ -467,30 +478,30 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  368 01ea 0E       		.uleb128 0xe
  369 01eb D8040000 		.4byte	.LASF52
  370 01ef 01       		.byte	0x1
- 371 01f0 11       		.byte	0x11
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 9
+
+
+ 371 01f0 12       		.byte	0x12
  372 01f1 DA010000 		.4byte	0x1da
  373 01f5 0E       		.uleb128 0xe
  374 01f6 DB000000 		.4byte	.LASF53
  375 01fa 01       		.byte	0x1
- 376 01fb 12       		.byte	0x12
+ 376 01fb 13       		.byte	0x13
  377 01fc 76000000 		.4byte	0x76
  378 0200 0E       		.uleb128 0xe
  379 0201 DF010000 		.4byte	.LASF54
  380 0205 01       		.byte	0x1
- 381 0206 13       		.byte	0x13
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 9
-
-
+ 381 0206 14       		.byte	0x14
  382 0207 76000000 		.4byte	0x76
  383 020b 0E       		.uleb128 0xe
  384 020c 1E050000 		.4byte	.LASF55
  385 0210 01       		.byte	0x1
- 386 0211 14       		.byte	0x14
+ 386 0211 15       		.byte	0x15
  387 0212 76000000 		.4byte	0x76
  388 0216 0E       		.uleb128 0xe
  389 0217 42010000 		.4byte	.LASF56
  390 021b 01       		.byte	0x1
- 391 021c 15       		.byte	0x15
+ 391 021c 16       		.byte	0x16
  392 021d 76000000 		.4byte	0x76
  393 0221 0A       		.uleb128 0xa
  394 0222 AD010000 		.4byte	0x1ad
@@ -502,7 +513,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  400 0231 0E       		.uleb128 0xe
  401 0232 48050000 		.4byte	.LASF57
  402 0236 01       		.byte	0x1
- 403 0237 16       		.byte	0x16
+ 403 0237 17       		.byte	0x17
  404 0238 21020000 		.4byte	0x221
  405 023c 00       		.byte	0
  406              		.section	.debug_abbrev,"",%progbits
@@ -527,6 +538,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  425 0011 00       		.byte	0
  426 0012 00       		.byte	0
  427 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 10
+
+
  428 0014 24       		.uleb128 0x24
  429 0015 00       		.byte	0
  430 0016 0B       		.uleb128 0xb
@@ -538,9 +552,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  436 001c 00       		.byte	0
  437 001d 00       		.byte	0
  438 001e 03       		.uleb128 0x3
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 10
-
-
  439 001f 16       		.uleb128 0x16
  440 0020 00       		.byte	0
  441 0021 03       		.uleb128 0x3
@@ -587,6 +598,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  482 004a 3B       		.uleb128 0x3b
  483 004b 05       		.uleb128 0x5
  484 004c 01       		.uleb128 0x1
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 11
+
+
  485 004d 13       		.uleb128 0x13
  486 004e 00       		.byte	0
  487 004f 00       		.byte	0
@@ -598,9 +612,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  493 0055 1C       		.uleb128 0x1c
  494 0056 0D       		.uleb128 0xd
  495 0057 00       		.byte	0
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 11
-
-
  496 0058 00       		.byte	0
  497 0059 08       		.uleb128 0x8
  498 005a 13       		.uleb128 0x13
@@ -647,6 +658,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  539 0083 2F       		.uleb128 0x2f
  540 0084 0B       		.uleb128 0xb
  541 0085 00       		.byte	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 12
+
+
  542 0086 00       		.byte	0
  543 0087 0C       		.uleb128 0xc
  544 0088 2E       		.uleb128 0x2e
@@ -658,9 +672,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  550 008e 3A       		.uleb128 0x3a
  551 008f 0B       		.uleb128 0xb
  552 0090 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 12
-
-
  553 0091 0B       		.uleb128 0xb
  554 0092 49       		.uleb128 0x49
  555 0093 13       		.uleb128 0x13
@@ -707,6 +718,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  596 00bd 3C       		.uleb128 0x3c
  597 00be 19       		.uleb128 0x19
  598 00bf 00       		.byte	0
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 13
+
+
  599 00c0 00       		.byte	0
  600 00c1 00       		.byte	0
  601              		.section	.debug_aranges,"",%progbits
@@ -718,9 +732,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  607 000c 0000     		.2byte	0
  608 000e 0000     		.2byte	0
  609 0010 00000000 		.4byte	.LFB37
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 13
-
-
  610 0014 94000000 		.4byte	.LFE37-.LFB37
  611 0018 00000000 		.4byte	0
  612 001c 00000000 		.4byte	0
@@ -732,7 +743,7 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  618 000c 00000000 		.4byte	0
  619              		.section	.debug_line,"",%progbits
  620              	.Ldebug_line0:
- 621 0000 6E010000 		.section	.debug_str,"MS",%progbits,1
+ 621 0000 70010000 		.section	.debug_str,"MS",%progbits,1
  621      02004501 
  621      00000201 
  621      FB0E0D00 
@@ -767,6 +778,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  633      455F4552 
  633      524F525F 
  633      44455649 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 14
+
+
  633      43455F41 
  634              	.LASF34:
  635 0093 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_IN_RANGE\000"
@@ -778,9 +792,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  637 00b6 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_NOT_REGISTERED\000"
  637      455F4552 
  637      524F525F 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 14
-
-
  637      4C324341 
  637      505F5053 
  638              	.LASF53:
@@ -827,6 +838,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  653      554E5355 
  653      50504F52 
  654              	.LASF59:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 15
+
+
  655 018f 2E5C6D61 		.ascii	".\\main.c\000"
  655      696E2E63 
  655      00
@@ -838,9 +852,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  657      4C49445F 
  658              	.LASF30:
  659 01b6 4359424C 		.ascii	"CYBLE_ERROR_L2CAP_PSM_ALREADY_REGISTERED\000"
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 15
-
-
  659      455F4552 
  659      524F525F 
  659      4C324341 
@@ -887,6 +898,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  674              	.LASF22:
  675 027c 4359424C 		.ascii	"CYBLE_ERROR_NO_CONNECTION\000"
  675      455F4552 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 16
+
+
  675      524F525F 
  675      4E4F5F43 
  675      4F4E4E45 
@@ -898,9 +912,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  679      455F4552 
  679      524F525F 
  679      464C4153 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 16
-
-
  679      485F5752 
  680              	.LASF46:
  681 02c1 4359424C 		.ascii	"CYBLE_ERROR_CHAR_IS_NOT_DISCOVERED\000"
@@ -947,6 +958,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  696              	.LASF58:
  697 0395 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  697      4320342E 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 17
+
+
  697      392E3320 
  697      32303135 
  697      30333033 
@@ -958,9 +972,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  699 03fb 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  699      66756E63 
  699      74696F6E 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 17
-
-
  699      2D736563 
  699      74696F6E 
  700              	.LASF17:
@@ -1007,6 +1018,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  717      74797065 
  717      00
  718              	.LASF6:
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 18
+
+
  719 04ca 6C6F6E67 		.ascii	"long long int\000"
  719      206C6F6E 
  719      6720696E 
@@ -1018,9 +1032,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  723 04df 4359424C 		.ascii	"CYBLE_ERROR_MAX\000"
  723      455F4552 
  723      524F525F 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 18
-
-
  723      4D415800 
  724              	.LASF8:
  725 04ef 756E7369 		.ascii	"unsigned int\000"
@@ -1067,6 +1078,9 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  742      746F6F74 
  742      682D696E 
  742      74656C6C 
+ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\ccTXTsjg.s 			page 19
+
+
  743 05c2 63682E63 		.ascii	"ch.cydsn\000"
  743      7964736E 
  743      00
@@ -1078,9 +1092,6 @@ ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 1
  747 05d7 4359424C 		.ascii	"CYBLE_ERROR_GAP_ROLE\000"
  747      455F4552 
  747      524F525F 
-ARM GAS  C:\Users\ADMINI~1\AppData\Local\Temp\cckUd72a.s 			page 19
-
-
  747      4741505F 
  747      524F4C45 
  748              	.LASF39:

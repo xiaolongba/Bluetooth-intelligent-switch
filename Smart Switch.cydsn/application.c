@@ -27,6 +27,7 @@ uint8_t DeviceNum=0;
 uint8_t BondNum=BONDNUM;
 uint8_t ReConnect=0;
 uint8_t StoreAddrNum=0;
+uint8_t TimeOut;
 CYBLE_GAP_BD_ADDR_T Device[DEVICENUM];
 //    {
 //        {0xCB,0x83,0x6D,0x50,0xA0,0x00},
@@ -106,6 +107,7 @@ uint8_t ButtonStatus=BUTTON_UP;
 uint8_t DisonnectedStaus=FALSE;
 //static uint8_t Switch_On_Off=SWTICH_OFF;
 uint8_t ButtonType;
+//uint8 array[128]={0};
 struct BT Button=
 {
     SWTICH_OFF,
@@ -262,8 +264,7 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
             {
                 #ifdef PRINT
                     for(i=0;i<DEVICENUM;i++)
-                    {
-                       
+                    {                       
                         if(memcmp(Device[i].bdAddr,CmpAddr.bdAddr,6) != 0)
                         {
                             printf("Mac Address:0x%02X%02X%02X%02X%02X%02X\r\n",                            
@@ -278,31 +279,37 @@ void StackEventHandler(uint32 eventCode, void *eventParam)
                         while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成    
                     }                    
                #endif
-//                CySysFlashWriteRow(1,array);
-                CySysSFlashWriteUserRow(1,array);//这里是为了清空SFlash里中第一行的内容，另外一个函数有Bug
                 for(i=0;i<DEVICENUM;i++)//查找保存到的地址中非空的地址,将它保存到SFlash中去
                 {                    
                     if(memcmp(Device[i].bdAddr,CmpAddr.bdAddr,6) != 0)
                     {
 //                        memcpy(array+i*6+1,Device[i].bdAddr,6);
-                        array[6*i+1+0] = Device[i].bdAddr[5];
-                        array[6*i+1+1] = Device[i].bdAddr[4];
-                        array[6*i+1+2] = Device[i].bdAddr[3];
-                        array[6*i+1+3] = Device[i].bdAddr[2];
-                        array[6*i+1+4] = Device[i].bdAddr[1];
-                        array[6*i+1+5] = Device[i].bdAddr[0];
+                        array[6*StoreCounts+1+0] = Device[i].bdAddr[5];
+                        array[6*StoreCounts+1+1] = Device[i].bdAddr[4];
+                        array[6*StoreCounts+1+2] = Device[i].bdAddr[3];
+                        array[6*StoreCounts+1+3] = Device[i].bdAddr[2];
+                        array[6*StoreCounts+1+4] = Device[i].bdAddr[1];
+                        array[6*StoreCounts+1+5] = Device[i].bdAddr[0];
                         StoreCounts++;
-                    }                
+//                        printf("Store Address:0x%02X%02X%02X%02X%02X%02X\r\n",
+//                        array[6*i+1+0],
+//                        array[6*i+1+1],
+//                        array[6*i+1+2],
+//                        array[6*i+1+3],
+//                        array[6*i+1+4],
+//                        array[6*i+1+5]   
+//                        );
+                    }               
                 }
-                array[0]=StoreCounts*6;//SFlash有保存地址的标志位
-                Write2Flash=CySysSFlashWriteUserRow(1,array);//将所有的得到的地址写入SFlash中去,共四行每行128Bytes,一次性只能写128Bytes的数据
-               #ifdef PRINT
+                array[0]=StoreCounts*6;//Flash中保存地址的标志位
+                Write2Flash = CySysFlashWriteRow(1023,array);
+                #ifdef PRINT
                     if(CY_SYS_FLASH_SUCCESS == Write2Flash)
                     {
-                        printf("SFlash Write Success!\r\n");
+                        printf("Flash Write Success!\r\n");
                         while((UART_SpiUartGetTxBufferSize() + UART_GET_TX_FIFO_SR_VALID) != 0);//等待串口缓冲区的数据发送完成 
                     }
-               #endif
+                #endif                
             }
         break;
         default:
@@ -948,19 +955,19 @@ void ReadData_FromSFlash(void)
 {
     uint8_t i=0;
     uint8_t DataLength;
-    uint8_t *sflashPtr=(uint8_t *)(USER_SFLASH_BASE_ADDRESS+0x80);//保存到SFlash中的首地址
-    DataLength = *sflashPtr;
+    uint8_t *flashPtr=(uint8_t *)(CY_FLASH_BASE+1023*CY_FLASH_SIZEOF_ROW);//保存到Flash中的最后一个地址的首地址
+    DataLength = *flashPtr;
 //    for(i=0;i<128;i++)
 //    {            
-//        printf("%02X",*sflashPtr);
-//        sflashPtr++;
+//        printf("%02X",*flashPtr);
+//        flashPtr++;
 //    }
     if(DataLength != 0x00)//这个是写之前设的标志位，即保存至SFlash中地址的总长度
     {        
         for(i=0;i<=DataLength;i++)
         {            
-            printf("%02X",*sflashPtr);
-            sflashPtr++;
+            printf("%02X",*flashPtr);
+            flashPtr++;
         }
     }
 }

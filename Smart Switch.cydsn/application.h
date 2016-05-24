@@ -57,7 +57,7 @@ void ReadData_FromSFlash(void);
 #define CYBLE_TROUGHPUT_SERVICE_TX_CLIENT_CHARACTERISTIC_CONFIGURATION_DESC_HANDLE   (0x0011u) /* Handle of Client Characteristic Configuration descriptor */
 #define CYBLE_TROUGHPUT_SERVICE_RX_CHAR_HANDLE   (0x0013u) /* Handle of RX characteristic */
 #define CYBLE_TROUGHPUT_SERVICE_TX_CHAR_HANDLE   (0x0010u) /* Handle of TX characteristic */
-#define USER_SFLASH_BASE_ADDRESS                 (0x0FFFF200u) /* Starting address of user SFlash row for 128KB PSoC 4 BLE device */
+//#define USER_SFLASH_BASE_ADDRESS                 (0x00000000u) /* Starting address of user SFlash row for 128KB PSoC 4 BLE device */
 /* ****************************************
  * 枚举
  * ****************************************
